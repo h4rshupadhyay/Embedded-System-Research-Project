@@ -1,0 +1,83 @@
+diff --git a/exmemwb.c b/exmemwb.c
+index fbef063..5787e0e 100644
+--- a/exmemwb.c
++++ b/exmemwb.c
+@@ -380,8 +380,7 @@ u32 (* executeJumpTable[64])() = { \
+ 
+ void exwbmem(const u16 pInsn)
+ {
+-    if(tracingActive)
+-      ++insnCount;
++    ++insnCount;   /* always count; tracingActive gated the old check */
+     insn = pInsn;
+ 
+     // Increment global opcode stats.
+diff --git a/exmemwb_arith.c b/exmemwb_arith.c
+index 802c62c..6e94442 100644
+--- a/exmemwb_arith.c
++++ b/exmemwb_arith.c
+@@ -260,6 +260,8 @@ u32 muls()
+     do_nflag(result);
+     do_zflag(result);
+ 
++    ++mul_count;   /* C6: track every hardware multiply */
++
+     // On STM32F0xx the multiplier is single-cycle.
+     // return 32;
+     return 1;
+diff --git a/exmemwb_branch.c b/exmemwb_branch.c
+index 6315785..1d21992 100644
+--- a/exmemwb_branch.c
++++ b/exmemwb_branch.c
+@@ -89,7 +89,7 @@ u32 b()
+     if (offset == 0xfffffffc)
+     {
+         printf("Program exit (branch-to-self) after\n\t%lu ticks\n\t%lu instructions\n", cycleCount, insnCount);
+-        // printStats();
++        printStats();
+         sim_exit(0);
+     }
+ 
+diff --git a/sim_support.c b/sim_support.c
+index 1dc690b..7266ab9 100644
+--- a/sim_support.c
++++ b/sim_support.c
+@@ -9,6 +9,7 @@
+ u64 cycleCount = 0;
+ u64 last_insnCount = 0;
+ u64 insnCount = 0;
++u64 mul_count = 0;   /* C6: hardware MULS instruction count */
+ u64 wastedCycles = 0;
+ u32 cyclesSinceReset = 0;
+ u32 cyclesSinceCP = 0;
+@@ -186,6 +187,7 @@ void printStats(void)
+     fprintf(stderr, "Loads: %u\nStores: %u\nCheckpoints: %u\n", load_count, store_count, cp_count);
+ #endif
+     fprintf(stderr, "Executed insns:      %12ld\n", insnCount);
++    fprintf(stderr, "Mul insns:           %12ld\n", mul_count);
+     fprintf(stderr, "RAM data reads:      %12ld\n", ram_data_reads);
+     fprintf(stderr, "RAM insn reads:      %12ld\n", ram_insn_reads);
+     fprintf(stderr, "RAM writes:          %12ld\n", ram_writes);
+diff --git a/sim_support.h b/sim_support.h
+index 87ddf51..768f5f5 100644
+--- a/sim_support.h
++++ b/sim_support.h
+@@ -81,6 +81,7 @@ extern bool tracingActive;
+ extern bool logAllEvents;
+ extern bool useCSVoutput;
+ extern char *simulatingFilePath;
++extern u64 mul_count;   /* C6: hardware MULS instruction count */
+ 
+ extern bool takenBranch;    // Informs fetch that previous instruction caused a control flow change
+ extern void sim_exit(int);  // All sim ends lead through here
+@@ -161,8 +162,8 @@ extern u32 PRINT_STATE_DIFF;
+ #if HOOK_GPR_ACCESSES
+     void do_nothing(void);
+     void report_sp(void);
+-    void (* gprReadHooks[16])(void);
+-    void (* gprWriteHooks[16])(void);
++    extern void (* gprReadHooks[16])(void);
++    extern void (* gprWriteHooks[16])(void);
+ #endif
+ char simValidMem(u32 address); // Interface for rsp (GDB) server
+ extern void printStats(void);

@@ -1,0 +1,14 @@
+# Binaries and object files
+*.elf
+*.bin
+*.o
+*.map
+thumbulator
+
+# External clone (re-creatable and patched via patches/thumbulator_stm32f0x.patch)
+thumbulator-stm32f0x/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
