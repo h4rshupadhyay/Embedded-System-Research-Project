@@ -1,0 +1,5 @@
+# Keep source and recorded provenance stable across checkouts.
+* text=auto eol=lf
+
+# Preserve the CSV writer's original CRLF bytes in research artifacts.
+*.csv -text whitespace=cr-at-eol

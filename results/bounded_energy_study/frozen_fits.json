@@ -1,0 +1,20 @@
+{
+  "0": {
+    "tau_s": 0.0001,
+    "coefficient_ohm": 4.936974542685152e-11,
+    "training_rmse_j": 1.663500881862912e-19,
+    "calibration_cases": 6
+  },
+  "0.3": {
+    "tau_s": 0.0003,
+    "coefficient_ohm": 0.09119659218005455,
+    "training_rmse_j": 1.5170878220843506e-09,
+    "calibration_cases": 6
+  },
+  "2": {
+    "tau_s": 0.0003,
+    "coefficient_ohm": 0.607977281093974,
+    "training_rmse_j": 1.011391881356068e-08,
+    "calibration_cases": 6
+  }
+}

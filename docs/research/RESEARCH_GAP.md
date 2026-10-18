@@ -2,6 +2,14 @@
 
 Assessed on 18 October 2026. Evidence and search limitations: [LITERATURE_AUDIT.md](./LITERATURE_AUDIT.md).
 
+**Software-stage update:** the shared-history and arithmetic contract is now
+implemented and checked against an independent reference. The initial
+[simulation pilot](../../results/sim_pilot.json) records marked consecutive FIR calls
+with matching output checksums. Its periodic idle values are projected metadata;
+it does not model sleep, regulator dynamics or source energy. The historical
+135-row CSV predates these fixes. See [the test protocol](./HYPOTHESIS_TEST_PROTOCOL.md)
+for the outstanding hypothesis-validation stages.
+
 ## Assessment
 
 **The original broad novelty claim is not defensible.** Existing research already compares compiler-generated versions of individual programs, including FIR benchmarks on Cortex-M0. It also investigates energy when configurations tie in performance. The claim that earlier work only aggregated heterogeneous benchmarks must be removed. See [Pallister et al., 2013 preprint / 2015 journal article](https://arxiv.org/abs/1303.6485) and [Georgiou et al., 2018](https://arxiv.org/abs/1802.09845).
@@ -30,7 +38,7 @@ These are algebraic identities, not new theoretical contributions. An observed m
 
 ## Evidence needed before claiming a contribution
 
-1. **Equivalent computations.** Resolve the direct variant's history semantics in [fir.c](./fir.c) and verify bit-exact outputs against an independent reference across the tested inputs. The present direct/circular reversals involve different computations.
+1. **Equivalent computations.** The corrected [fir.c](../../fir.c) now passes independent-reference tests for supplied history, arithmetic and split streams; compiled Cortex-M0 runs verify stream checksums. Keep this gate for every new workload. The historical CSV's direct/circular reversals involved different computations and are invalid evidence of equivalent-implementation reversals.
 2. **Independent physical evidence.** Measure time and energy over the same FIR execution interval, separate setup overhead, repeat experiments and quantify the uncertainty of pairwise differences. Classify unresolved cases as ties.
 3. **Model provenance.** The current coefficients appear in EnergyAnalyzer §4.1; verify the applicable hardware configuration and counter definitions before applying them. Using published coefficients does not constitute developing or independently validating a new energy model. [EnergyAnalyzer](https://arxiv.org/html/2305.14968v2#S4.SS1)
 4. **A useful comparison.** Compare cycle-only selection with the published counter model using pairwise agreement, top-choice agreement and excess energy relative to the measured best variant. Keep threshold selection and evaluation workloads separate; account for dependence between pairs sharing a configuration.
@@ -49,3 +57,21 @@ The [focused follow-up literature check](./NARROW_GAP_LITERATURE_CHECK.md) finds
 **Revised supply-study question:** at fixed nominal voltage/frequency, does a calibrated stateful supply model improve the choice among equivalent implementations on held-out workload/supply conditions, beyond cycles, the published event model, and a time-resolved load-dependent steady-efficiency baseline with quiescent and startup costs? This is a plausible incremental empirical contribution; the search has not established that it is unpublished. Beating a cycle-only baseline would not isolate transient supply causation. The physical pilot must resolve energy differences and demonstrate useful improvement over the stronger baseline before this direction supports a contribution claim.
 
 The [deep adversarial literature audit](./DEEP_SUPPLY_PRIOR_ART.md) further weakens broader interpretations: ISLPED 1999 already reports small timing/energy disagreements among compiler settings in a converter-inclusive model, and Simba 2024 evaluates supply-dependent firmware policies. The exact additional-value comparison above was not located in the inspected evidence, but absence of a paper matching every protocol detail is not proof of a substantive gap. **Status: scientifically valid, falsifiable candidate; originality provisional; physical effect and practical benefit unvalidated.** A measured-trace diagnostic and prospective selection using independently predicted traces must be evaluated separately. Known supply modes and startup costs belong in the baseline; the claimed improvement must come from additional regulator dynamics and persist beyond measurement uncertainty on withheld conditions.
+
+**Simulation status:** the [runnable model](./ENERGY_MODEL.md) now evaluates a
+separately fitted history predictor against an independently integrated synthetic
+buck circuit. In the [first nine virtual cases](../../results/energy_hypothesis/SUMMARY.md),
+the steady baseline and history predictor select the same reference-best FIR
+variant, giving zero selection improvement. This conditional result is not
+physical validation, evidence of novelty, or a general rejection of the candidate.
+
+**Bounded broader outcome:** the [fixed follow-up](./BOUNDED_STUDY_FINDINGS.md)
+completed all 207 primary conditions across 23 additional FIR workload/compiler
+configurations, plus nine original-workload control conditions. The steady and
+history predictors selected the circuit-best implementation in every case;
+selection savings were zero, and average prediction error was slightly worse
+with history. The predefined continuation criterion was not met. Stop the current
+model as a path to an implementation-selection contribution in this simulated
+domain. The physical hypothesis remains untested, and this negative result does
+not independently validate a different gap or establish that all supply-history
+models lack value.

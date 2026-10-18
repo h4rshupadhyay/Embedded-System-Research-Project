@@ -16,7 +16,7 @@ Assessed 18 October 2026. This note investigates whether software-induced supply
 | Transient LDO behavior/loss | No: load-step response, conversion loss and recovery are established. | Regulator-aware energy optimization exists; directly relevant MCU papers also need full-text follow-up. | No isolated LDO-loss measurement here; external and internal regulators must be distinguished. |
 | Package inductance, LQFP versus WLCSP | No: manufacturer documents explicitly describe package-dependent parasitics. | PDN/software interactions are established, but no exact matched-package STM32 FIR ranking experiment was located in this pass. | Package choice is a possible experimental factor, not an established empty research gap. |
 
-The current repository does not physically test any of these three factors. [main.c](./main.c) initializes buffers, runs one FIR variant and spins; it contains no sleep/burst protocol. [run_experiments.py](./run_experiments.py) collects simulator totals and computes a weighted energy sum. There is no calibrated analog current waveform, supply model, package comparison or physical instrumentation in that pipeline. This is a code-inspection finding, not a literature claim.
+The current repository does not physically test any of these three factors. [main.c](../../main.c) initializes buffers, runs one FIR variant and spins; it contains no sleep/burst protocol. [run_experiments.py](../../run_experiments.py) collects simulator totals and computes a weighted energy sum. There is no calibrated analog current waveform, supply model, package comparison or physical instrumentation in that pipeline. This is a code-inspection finding, not a literature claim.
 
 ## Terminology and causal interpretation
 

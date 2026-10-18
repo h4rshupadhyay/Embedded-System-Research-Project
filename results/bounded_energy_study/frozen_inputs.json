@@ -1,0 +1,319 @@
+{
+  "started_utc": "2026-10-18T18:01:19.736215+00:00",
+  "plan": {
+    "schema_version": 1,
+    "description": "Frozen broader FIR evaluation; no supply-parameter search",
+    "supply_config": "configs/energy_model.json",
+    "taps": [
+      7,
+      16,
+      31
+    ],
+    "blocks": [
+      8,
+      64
+    ],
+    "opts": [
+      "O1",
+      "O2",
+      "O3",
+      "Os"
+    ],
+    "jobs": 4,
+    "replay_control": {
+      "taps": 16,
+      "block": 64,
+      "opt": "O2"
+    },
+    "near_tie_relative_gap": 0.01,
+    "minimum_relative_improvement": 0.01,
+    "decision_rule": "Continue only if the complete non-control evaluation grid has mean relative selection improvement > 0.01; otherwise stop this model if complete, or report incomplete evidence.",
+    "limitations": "Uncalibrated averaged buck, assumed flat active demand, one deterministic input family; not hardware validation or a general rejection of regulator history."
+  },
+  "config": {
+    "parameter_status": "illustrative, not calibrated to hardware",
+    "clock_hz": 48000000,
+    "sleep_power_w": 5e-05,
+    "wake_power_w": 0.005,
+    "wake_duration_s": 2e-05,
+    "event_weights_nj": {
+      "C1": 0.97256503,
+      "C2": 0.65287177,
+      "C3": 1.031341343,
+      "C4": 1.037625441,
+      "C5": 1.354953706,
+      "C6": 2.274650563
+    },
+    "event_energy_assumption": "Published weights are treated as nominal MCU-pin energy; this boundary and workload applicability are unvalidated here.",
+    "supply": {
+      "vin_v": 5.0,
+      "vout_v": 3.3,
+      "inductance_h": 2.2e-05,
+      "capacitance_f": 1e-05,
+      "iq_a": 2e-06,
+      "inner_tau_s": 1e-05,
+      "voltage_kp_a_per_v": 0.2,
+      "voltage_ki_a_per_vs": 2000
+    },
+    "resistance_ohm_values": [
+      0,
+      0.3,
+      2
+    ],
+    "period_multipliers": [
+      1.1,
+      2,
+      5
+    ],
+    "tau_candidates_s": [
+      2e-06,
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003
+    ],
+    "calibration_pulses": [
+      {
+        "period_s": 0.00015,
+        "duty": 0.25,
+        "active_power_w": 0.02
+      },
+      {
+        "period_s": 0.00015,
+        "duty": 0.7,
+        "active_power_w": 0.06
+      },
+      {
+        "period_s": 0.0006,
+        "duty": 0.25,
+        "active_power_w": 0.06
+      },
+      {
+        "period_s": 0.0006,
+        "duty": 0.7,
+        "active_power_w": 0.02
+      },
+      {
+        "period_s": 0.0018,
+        "duty": 0.25,
+        "active_power_w": 0.02
+      },
+      {
+        "period_s": 0.0018,
+        "duty": 0.7,
+        "active_power_w": 0.06
+      }
+    ],
+    "minimum_relative_improvement": 0.01
+  },
+  "plan_sha256": "62a93847ca9d7b7c703c93f7c8e713f32a1415a41ddd379f42c5154a486fafac",
+  "config_sha256": "f1b808879d3e703988e5cd68f0e42abc2ec5fdbe5d585cd6211ca4620aba5ac7",
+  "source_sha256": {
+    "run_bounded_energy_study.py": "62084afa5489c31c0e9c12f11810761137241d7eabdbbb3a01e838435e0219e3",
+    "run_energy_hypothesis.py": "6523a65341a44d627b3b3b7db7c3dca70c433906b39f3eff29937fb839ffd2f3",
+    "energy_model.py": "77deb93d84bf8570087d1977a0e0c99ddda8c4694261fed03219f8dd35f9e13a",
+    "run_sim_pilot.py": "176f0cf396d89be842f286da68acbe1a8f7cd6e9a837182ad84b708a0c181235",
+    "fir.c": "1425ffa3b4b0c5b6d11427fe4482c577d626352063c7978c94c574c9339c7e8c",
+    "fir.h": "be1ed5432e109ef0fc810d08b8772d9f8dda754dd9f85d26115fafc2f91162d0",
+    "main.c": "afb64ccaa42b9475a49cef7ea967949107d7d27099e8f1482f69dd57a42e9dee",
+    "startup.s": "cc18d025607147d5efb891c8f25e74a2f09a8b30f49d34a8a930a7cac02de1bc",
+    "stm32f051.ld": "9f6d46aa0719a33f4f5922f286dace6e180df6d1046c176493603fea4816253c",
+    "patches/thumbulator_stm32f0x.patch": "d565b6bf1d8c5bbf937491e96af86bc22fb8f16c251525b46eade678b9899379"
+  },
+  "workers": 2,
+  "workloads": [
+    {
+      "taps": 7,
+      "block": 8,
+      "opt": "O1",
+      "jobs": 4,
+      "workload_id": "t7_b8_O1",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 8,
+      "opt": "O2",
+      "jobs": 4,
+      "workload_id": "t7_b8_O2",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 8,
+      "opt": "O3",
+      "jobs": 4,
+      "workload_id": "t7_b8_O3",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 8,
+      "opt": "Os",
+      "jobs": 4,
+      "workload_id": "t7_b8_Os",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 64,
+      "opt": "O1",
+      "jobs": 4,
+      "workload_id": "t7_b64_O1",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 64,
+      "opt": "O2",
+      "jobs": 4,
+      "workload_id": "t7_b64_O2",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 64,
+      "opt": "O3",
+      "jobs": 4,
+      "workload_id": "t7_b64_O3",
+      "role": "evaluation"
+    },
+    {
+      "taps": 7,
+      "block": 64,
+      "opt": "Os",
+      "jobs": 4,
+      "workload_id": "t7_b64_Os",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 8,
+      "opt": "O1",
+      "jobs": 4,
+      "workload_id": "t16_b8_O1",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 8,
+      "opt": "O2",
+      "jobs": 4,
+      "workload_id": "t16_b8_O2",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 8,
+      "opt": "O3",
+      "jobs": 4,
+      "workload_id": "t16_b8_O3",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 8,
+      "opt": "Os",
+      "jobs": 4,
+      "workload_id": "t16_b8_Os",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 64,
+      "opt": "O1",
+      "jobs": 4,
+      "workload_id": "t16_b64_O1",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 64,
+      "opt": "O2",
+      "jobs": 4,
+      "workload_id": "t16_b64_O2",
+      "role": "replay_control"
+    },
+    {
+      "taps": 16,
+      "block": 64,
+      "opt": "O3",
+      "jobs": 4,
+      "workload_id": "t16_b64_O3",
+      "role": "evaluation"
+    },
+    {
+      "taps": 16,
+      "block": 64,
+      "opt": "Os",
+      "jobs": 4,
+      "workload_id": "t16_b64_Os",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 8,
+      "opt": "O1",
+      "jobs": 4,
+      "workload_id": "t31_b8_O1",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 8,
+      "opt": "O2",
+      "jobs": 4,
+      "workload_id": "t31_b8_O2",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 8,
+      "opt": "O3",
+      "jobs": 4,
+      "workload_id": "t31_b8_O3",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 8,
+      "opt": "Os",
+      "jobs": 4,
+      "workload_id": "t31_b8_Os",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 64,
+      "opt": "O1",
+      "jobs": 4,
+      "workload_id": "t31_b64_O1",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 64,
+      "opt": "O2",
+      "jobs": 4,
+      "workload_id": "t31_b64_O2",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 64,
+      "opt": "O3",
+      "jobs": 4,
+      "workload_id": "t31_b64_O3",
+      "role": "evaluation"
+    },
+    {
+      "taps": 31,
+      "block": 64,
+      "opt": "Os",
+      "jobs": 4,
+      "workload_id": "t31_b64_Os",
+      "role": "evaluation"
+    }
+  ],
+  "physical_measurement": false
+}

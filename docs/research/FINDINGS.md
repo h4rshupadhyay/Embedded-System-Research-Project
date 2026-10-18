@@ -1,5 +1,12 @@
 # Experimental Findings: Q15 FIR Performance & Energy Analysis on ARM Cortex-M0
 
+**Historical record:** the figures below describe the original CSV and firmware,
+before correcting the direct FIR's input-history mismatch and defining accumulator
+wraparound. They are not results for the current kernels and do not validate a
+safe cycle-gap threshold or the regulator-history hypothesis. Current validation
+starts with `make test` and `run_sim_pilot.py`; see
+[HYPOTHESIS_TEST_PROTOCOL.md](./HYPOTHESIS_TEST_PROTOCOL.md).
+
 This repository contains the bare-metal implementations, simulation pipeline, and statistical evaluations for Q15 FIR filter optimization on an ARM Cortex-M0 (STM32F051) target using the Nikov 6-counter energy model.
 
 ---
@@ -20,15 +27,15 @@ This repository contains the bare-metal implementations, simulation pipeline, an
 
 | File | Description |
 |---|---|
-| [`experiment_results.csv`](./experiment_results.csv) | Raw dataset containing cycle counts, code size, individual event counters ($C_1 \dots C_6$), and Nikov energy ($E_{\text{nJ}}$) for all 135 runs. |
-| [`rank_flip_analysis.csv`](./rank_flip_analysis.csv) | Pairwise comparison dataset recording relative cycle gap ($\Delta t$) and rank inversion boolean flag for all 135 pairs. |
-| [`flags.mk`](./flags.mk) | Compiler flags enforcing determinism and 32-bit flash alignment. |
-| [`stm32f051.ld`](./stm32f051.ld) | Memory linker script mapping code to Flash and data to SRAM. |
-| [`startup.s`](./startup.s) | Bare-metal Cortex-M0 vector table and reset handler. |
-| [`fir.h`](./fir.h) / [`fir.c`](./fir.c) | Q15 FIR filter implementations (`VARIANT_DIRECT`, `VARIANT_CIRCULAR`, `VARIANT_UNROLLED`). |
-| [`main.c`](./main.c) | Testbench harness dispatching active variant and workload dimensions via macros. |
-| [`run_experiments.py`](./run_experiments.py) | Python automation script executing the 135-condition sweep. |
-| [`analyze_rankings.py`](./analyze_rankings.py) | Statistical evaluation script computing rank correlation, Top-1 agreement, and flip frequency. |
+| [`experiment_results.csv`](../../experiment_results.csv) | Raw dataset containing cycle counts, code size, individual event counters ($C_1 \dots C_6$), and Nikov energy ($E_{\text{nJ}}$) for all 135 runs. |
+| [`rank_flip_analysis.csv`](../../rank_flip_analysis.csv) | Pairwise comparison dataset recording relative cycle gap ($\Delta t$) and rank inversion boolean flag for all 135 pairs. |
+| [`flags.mk`](../../flags.mk) | Compiler flags enforcing determinism and 32-bit flash alignment. |
+| [`stm32f051.ld`](../../stm32f051.ld) | Memory linker script mapping code to Flash and data to SRAM. |
+| [`startup.s`](../../startup.s) | Bare-metal Cortex-M0 vector table and reset handler. |
+| [`fir.h`](../../fir.h) / [`fir.c`](../../fir.c) | Q15 FIR filter implementations (`VARIANT_DIRECT`, `VARIANT_CIRCULAR`, `VARIANT_UNROLLED`). |
+| [`main.c`](../../main.c) | Testbench harness dispatching active variant and workload dimensions via macros. |
+| [`run_experiments.py`](../../run_experiments.py) | Python automation script executing the 135-condition sweep. |
+| [`analyze_rankings.py`](../../analyze_rankings.py) | Statistical evaluation script computing rank correlation, Top-1 agreement, and flip frequency. |
 
 ---
 

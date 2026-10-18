@@ -1,194 +1,154 @@
-# Q15 FIR Energy & Performance Analysis on ARM Cortex-M0
+# Embedded software energy research
 
-This project provides an automated, reproducible research environment to investigate the **rank-preservation hypothesis** between execution cycle counts and microarchitectural energy consumption on an **ARM Cortex-M0 (Armv6-M / STM32F051)** bare-metal target.
+A reproducible Cortex-M0 FIR profiling harness, an explicitly synthetic supply
+model, and the literature record for the next research direction.
 
-It implements three bit-exact Q15 fixed-point Finite Impulse Response (FIR) filter variants, compiles them across multiple optimization levels and workload dimensions, simulates them cycle-accurately using a modified **Thumbulator** instruction-set simulator with STM32F0 event counters, and calculates energy using the validated **Nikov 6-counter model**.
+**Current result:** the added regulator-history predictor provided **zero
+implementation-selection savings in 207 primary simulated conditions**. Both
+predictors chose the virtual circuit's lowest-energy implementation every time.
+The recommendation is to stop this particular model as a route to a selection
+contribution. This does not validate or reject the physical hypothesis: supply
+parameters and per-job power profiles are uncalibrated.
 
----
+Start with the [bounded-study findings](docs/research/BOUNDED_STUDY_FINDINGS.md)
+and [canonical result](results/bounded_energy_study/SUMMARY.md).
 
-## Table of Contents
-1. [Repository Layout](#repository-layout)
-2. [Prerequisites & Toolchain Setup](#prerequisites--toolchain-setup)
-3. [Building the Instruction Set Simulator (Thumbulator)](#building-the-instruction-set-simulator-thumbulator)
-4. [Manual Firmware Build & Inspection](#manual-firmware-build--inspection)
-5. [Automated Experiment Sweep](#automated-experiment-sweep)
-6. [Statistical & Rank-Flip Analysis](#statistical--rank-flip-analysis)
-7. [Nikov 6-Counter Energy Model](#nikov-6-counter-energy-model)
-8. [Summary of Key Findings](#summary-of-key-findings)
+## Current research tracks
 
----
+| Track | Status | Read |
+|---|---|---|
+| A: energy-estimator reliability on unfamiliar code | Conditional replication/evaluation candidate; feasibility first | [Literature check](docs/research/CANDIDATE_A_LITERATURE_CHECK.md) |
+| B: state, buffer and call-contract testing of DSP libraries | Peer investigation; needs a comparative benchmark framing | [Literature check](docs/research/CANDIDATE_B_LITERATURE_CHECK.md) |
 
-## Repository Layout
+Neither track has established novelty. The [combined literature verdict](docs/research/CANDIDATES_LITERATURE_VERDICT.md)
+explains the existing work, possible remaining questions and stopping conditions.
+The complete [research index](docs/research/README.md) distinguishes current
+assessments from earlier notes.
 
-```
-.
-├── flags.mk               # Architecture, determinism, and 32-bit alignment compiler flags
-├── stm32f051.ld           # Linker script mapping .text to Flash and .data/.bss to SRAM
-├── startup.s              # Bare-metal Cortex-M0 vector table (MSP + Reset_Handler)
-├── fir.h                  # Header file defining Q15 FIR prototypes
-├── fir.c                  # Three FIR implementations (Direct, Circular, 4x Unrolled)
-├── main.c                 # Testbench harness dispatching variants and buffer sizes
-├── Makefile               # Convenience Makefile for compiling FIR firmware variants
-├── run_experiments.py     # Automated sweep over 135 conditions -> experiment_results.csv
-├── analyze_rankings.py    # Statistical evaluation script -> rank_flip_analysis.csv
-├── thumbulator            # Compiled instruction-set simulator binary (from thumbulator-stm32f0x)
-├── thumbulator-stm32f0x/  # Source code for the modified Thumbulator ISS
-├── experiment_results.csv # Raw simulation results (135 conditions)
-├── rank_flip_analysis.csv # Pairwise comparisons and cycle-gap threshold analysis
-└── FINDINGS.md            # Detailed documentation of empirical findings & root-cause analysis
-```
+## Repository map
 
----
+| Location | Contents |
+|---|---|
+| `fir.c`, `fir.h`, `main.c` | Corrected streaming Q15 kernels and bare-metal harness |
+| `startup.s`, `stm32f051.ld`, `flags.mk`, `Makefile` | Cortex-M0 startup, memory layout and build configuration |
+| `run_sim_pilot.py` | Correctness-gated compiled profiling of marked FIR calls |
+| `energy_model.py`, `run_energy_hypothesis.py` | Averaged-buck reference, steady baseline and fitted history predictor |
+| `run_bounded_energy_study.py`, `configs/` | Fixed broader workload study and model configurations |
+| `tests/` | Integer-reference, sanitizer, simulator and energy-model checks |
+| `patches/` | Changes required for the external Thumbulator source |
+| `results/` | Canonical profiles, reports and frozen study provenance |
+| `docs/research/` | Literature checks, protocols and findings |
+| `run_experiments.py`, `analyze_rankings.py`, root CSVs | Historical sweep and ranking workflow |
 
-## Prerequisites & Toolchain Setup
+The simulator executable, external source checkout, firmware binaries, Python
+caches and additional runs under `results/local/` are local build/run artifacts
+and are ignored by Git. Canonical evidence is versioned.
 
-### 1. Cross-Compiler Toolchain (`arm-none-eabi-gcc`)
+## Setup
 
-You need the official Arm GNU toolchain to compile bare-metal Armv6-M (Thumb) binaries:
-
-* **Ubuntu / Debian**:
-  ```bash
-  sudo apt-get update
-  sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi make git python3 python3-pip libssl-dev
-  ```
-* **macOS (Homebrew)**:
-  ```bash
-  brew install --cask gcc-arm-embedded
-  brew install make git python3 openssl
-  ```
-* **Windows**:
-  Download and run the installer from the [Arm Developer GNU Toolchain Downloads](https://developer.arm.com/downloads/-/arm-gnu-toolchain) (make sure to select "Add path to environment variables").
-
-Verify the toolchain installation:
-```bash
-arm-none-eabi-gcc --version
-```
-
-### 2. Python Environment Setup
-
-Install the required statistical and data processing packages:
+Run commands from the repository root. The recorded environment uses Python 3.10
+and the versions in [requirements-model.txt](requirements-model.txt).
 
 ```bash
-pip3 install --user "numpy<2" pandas scipy matplotlib
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install -r requirements-model.txt
 ```
 
-> [!NOTE]
-> Pinning `numpy<2` (e.g. `1.26.4`) avoids C-extension ABI conflicts with Linux distribution packages (`numexpr`, `bottleneck`).
+Host checks need GCC with AddressSanitizer and UBSan. Generating profiles or
+running the broader study additionally needs `make`, `git`, `arm-none-eabi-gcc`,
+`arm-none-eabi-objcopy`, and the patched simulator. Building the simulator needs
+host GCC and OpenSSL development libraries. Missing Arm tools cause explicit
+integration-test skips; runners that require them fail with a clear error.
 
----
+### Build the simulator
 
-## Building the Instruction Set Simulator (Thumbulator)
-
-The modified **Thumbulator** ISS models the microarchitecture of the STM32F0 Cortex-M0, including bus stalls, flash wait states, branch latencies, and event counters.
+The recorded upstream revision is `c55ea1b1926b792d7aabb7e3495b55a7b69ef134`
+from the `teamplay-D4.5` branch. Apply the patch once to a clean checkout:
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/PicoPET/thumbulator-stm32f0x.git
-cd thumbulator-stm32f0x
-
-# 2. Switch to the teamplay-D4.5 branch
-git checkout teamplay-D4.5
-
-# 3. Build the simulator binary
-make
-
-# 4. Copy the binary to the project root
-cp sim_main ../thumbulator
-cd ..
+git -C thumbulator-stm32f0x checkout c55ea1b1926b792d7aabb7e3495b55a7b69ef134
+git -C thumbulator-stm32f0x apply ../patches/thumbulator_stm32f0x.patch
+make -C thumbulator-stm32f0x board
+cp thumbulator-stm32f0x/sim_main ./thumbulator
 ```
 
-> [!TIP]
-> This repository already includes the required patch in `sim_support.h`, `exmemwb_branch.c`, and `exmemwb_arith.c` to enable unconditional instruction counting, hardware `MULS` tracking ($C_6$), and stat reporting on branch-to-self termination (`while(1)`).
+The patch adds multiply-counter accounting, marked-interval reports, simulated
+console output and finite-program termination support. The executable is rebuilt
+locally; its hash is recorded in each simulator profile.
 
----
-
-## Manual Firmware Build & Inspection
-
-To manually build individual firmware binaries using the [`Makefile`](./Makefile):
+## Run checks and experiments
 
 ```bash
-# Build all three FIR variants at default -O2 (16 taps, 64 block size)
-make clean && make
+make test
 
-# Build with custom optimization level and filter dimensions:
-make OPT=-O3 N_TAPS=32 M_BLOCK=128
+# Keep additional runs separate from the versioned evidence.
+mkdir -p results/local
+make pilot PILOT_OUTPUT=results/local/pilot.json
+make energy-model MODEL_OUTPUT=results/local/energy_run
+make bounded-study STUDY_OUTPUT=results/local/bounded_run STUDY_WORKERS=2
+```
 
-# Inspect binary section sizes:
+Use a new output filename or directory for each run: the runners refuse to
+replace existing reports. A supplied pilot can be evaluated without the Arm
+toolchain; generating a pilot or broader-study profiles requires it.
+
+For a different workload or model configuration:
+
+```bash
+python3 run_sim_pilot.py --taps 7 --block 5 --jobs 3 --opt O3 \
+    --period-cycles 100000 --output results/local/tail_pilot.json
+python3 run_energy_hypothesis.py --profile results/local/tail_pilot.json \
+    --config configs/energy_model.json --output-dir results/local/tail_energy
+```
+
+The [model documentation](docs/research/ENERGY_MODEL.md) gives equations, units,
+fit/evaluation separation and limitations. The [broader-study protocol](docs/research/BOUNDED_STUDY_PROTOCOL.md)
+fixes the workload grid and continuation criterion. The original workload is a
+replay control excluded from the 207 primary conditions.
+
+For ordinary firmware builds and disassembly:
+
+```bash
+make
+make OPT=-O3 N_TAPS=32 M_BLOCK=128 N_JOBS=4
 make size
-
-# Inspect assembly disassembly of an implementation:
 make disasm ELF=fir_unrolled.elf
 ```
 
-To run a single binary in the simulator manually:
-```bash
-# Convert ELF to flat binary image:
-arm-none-eabi-objcopy -O binary fir_unrolled.elf fir_unrolled.bin
+## Evidence boundaries
 
-# Execute in Thumbulator:
-./thumbulator fir_unrolled.bin
-```
+The three kernels consume the same supplied input history. Their arithmetic
+wraps modulo 2^32 and returns bits 15–30 as signed Q15, without saturation; see
+[fir.h](fir.h). This differs from saturated library kernels and must not be used
+as a universal CMSIS-DSP reference.
 
----
+The pilot verifies compiled output-stream checksums against independent integer
+convolution and records C1–C6/cycles for marked calls. Preparation, copying,
+checksum and console output are outside each interval. Marker/call overhead is
+included. Logical release periods and idle durations are projected metadata;
+sleep and wake execution are not simulated.
 
-## Automated Experiment Sweep
+The supply experiment reconstructs flat active power per job from published
+event weights and inserts assumed wake/sleep demand. It is a bidirectional
+averaged-buck model, not an identified STM32 internal LDO, package-inductance
+model or SPICE transistor simulation. Reference energies and supply parameters
+are synthetic; deterministic results do not provide measurement confidence
+intervals. The proposed [physical protocol](docs/research/HYPOTHESIS_TEST_PROTOCOL.md)
+remains unexecuted.
 
-The [`run_experiments.py`](./run_experiments.py) script automates the full test matrix:
-* **3 Algorithm Variants**: Direct-Loop, Circular-Buffer, 4x Loop-Unrolled
-* **5 Optimization Levels**: `-O0`, `-O1`, `-O2`, `-O3`, `-Os`
-* **3 Filter Tap Configurations**: 8, 16, 32 taps
-* **3 Output Block Sizes**: 32, 64, 128 samples
-* **Total**: $3 \times 5 \times 3 \times 3 = 135$ automated runs
+LeakSanitizer is disabled in the sanitizer fixture because the original sandbox
+used ptrace; AddressSanitizer bounds checks and UBSan remain enabled.
 
-Execute the sweep:
-```bash
-python3 run_experiments.py
-```
+## Historical workflow
 
-This generates [`experiment_results.csv`](./experiment_results.csv) containing cycle counts, code sizes, individual microarchitectural event counters ($C_1 \dots C_6$), and computed Nikov energy ($E_{\text{nJ}}$).
+[experiment_results.csv](experiment_results.csv), [rank_flip_analysis.csv](rank_flip_analysis.csv)
+and [historical findings](docs/research/FINDINGS.md) predate the FIR correctness
+fixes. Their reversals involved unequal computations, and the observed cycle-gap
+margin is not a validated threshold.
 
----
-
-## Statistical & Rank-Flip Analysis
-
-Once `experiment_results.csv` is generated, run the statistical evaluator:
-
-```bash
-python3 analyze_rankings.py
-```
-
-This script computes:
-1. **Global Rank Correlations**: Kendall's $\tau_b$ and Spearman's $\rho$.
-2. **Top-1 Agreement**: Percentage of conditions where the fastest variant by cycle count is also the most energy-efficient.
-3. **Pairwise Rank-Flip Rate**: Frequency of order reversals ($t_A < t_B$ but $E_A > E_B$) across all conditions.
-4. **Cycle-Gap Threshold ($\Delta t$) Table**: How the inversion probability scales as the execution time difference $\Delta t = |t_A - t_B| / \min(t_A, t_B)$ increases.
-5. **Optimization Level Pivot Summary**: Mean energy breakdown per variant across compiler flags.
-
----
-
-## Nikov 6-Counter Energy Model
-
-Energy ($E_{\text{nJ}}$) is calculated using the Nikov et al. linear regression model calibrated for the STM32F0 running at 48 MHz with 1 flash wait state and prefetch enabled:
-
-$$E_{\text{nJ}} = 0.972565 \cdot C_1 + 0.652872 \cdot C_2 + 1.031341 \cdot C_3 + 1.037625 \cdot C_4 + 1.354954 \cdot C_5 + 2.274651 \cdot C_6$$
-
-| Counter | Architectural Description | Energy Weight |
-|---|---|:---:|
-| **$C_1$** | Executed non-multiplication instructions ($\text{Total} - C_6$) | $0.972565\text{ nJ}$ |
-| **$C_2$** | SRAM data read accesses | $0.652872\text{ nJ}$ |
-| **$C_3$** | SRAM data write accesses | $1.031341\text{ nJ}$ |
-| **$C_4$** | Flash memory data reads | $1.037625\text{ nJ}$ |
-| **$C_5$** | Taken branch instructions | $1.354954\text{ nJ}$ |
-| **$C_6$** | Hardware multiplication instructions (`MULS`) | $2.274651\text{ nJ}$ |
-
----
-
-## Summary of Key Findings
-
-* **Near-Perfect Monotonicity**: Global Kendall's $\tau_b = \mathbf{0.9836}$ ($p = 4.38 \times 10^{-64}$) and Spearman's $\rho = \mathbf{0.9991}$.
-* **100% Top-1 Agreement**: The fastest implementation was always the most energy-efficient across all 45 test conditions.
-* **Rank-Flip Boundary ($\Delta t \le 0.06\%$)**: Only 2 rank reversals occurred out of 135 pairwise comparisons (**1.48%** overall flip rate). Both occurred under `-O3` where execution times differed by only 6 cycles ($\Delta t \le 0.061\%$).
-* **Safe Decision Margin**: For any cycle gap $\Delta t > 0.1\%$, the rank-flip probability is **0.00%**, confirming that clock cycles are an exceptionally reliable proxy for energy outside of sub-0.1% near-ties.
-* **Top Performing Implementation**: `VARIANT_UNROLLED` achieved the lowest execution cycles and lowest energy across all optimization levels (up to **29.3% lower energy** than direct convolution).
-
-For in-depth analysis, event counter breakdowns, and trade-off tables, see [`FINDINGS.md`](./FINDINGS.md).
+The legacy scripts are retained for traceability. They use whole-program totals
+and write the root CSVs; rerunning them on current firmware does not reproduce
+the old experiment. `analyze_rankings.py` additionally requires pandas. Prefer
+the checked runners above for new work.

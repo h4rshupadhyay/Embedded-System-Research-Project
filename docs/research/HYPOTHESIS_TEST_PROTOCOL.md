@@ -2,6 +2,28 @@
 
 Proposed 18 October 2026. This is an experimental design, not completed validation. It tests the regulator-history hypothesis discussed in the conversation and the revised supply-study question in [RESEARCH_GAP.md](./RESEARCH_GAP.md). First establish whether an energy model makes costly implementation choices after established corrections; then test whether additional regulator dynamics improve those decisions.
 
+**Initial implementation status:** the FIR history mismatch and signed-overflow
+ambiguity have been corrected, with independent host-reference tests, sanitizer
+checks and compiled Cortex-M0 checksum verification. `run_sim_pilot.py` profiles
+consecutive jobs and emits logical cadence metadata. The first report is
+[results/sim_pilot.json](../../results/sim_pilot.json). The user currently has simulation
+only. An [uncalibrated averaged-buck experiment](./ENERGY_MODEL.md) now compares
+a steady-loss baseline and a fitted history predictor against a synthetic circuit
+reference. Its [first result](../../results/energy_hypothesis/SUMMARY.md) shows no
+selection gain in nine virtual conditions. Executed sleep/wake, calibrated current
+generation, identified regulator parameters and physical measurements remain
+outstanding. The protocol below remains the design for the physical hypothesis;
+the virtual experiment does not validate it.
+
+**Bounded follow-up outcome:** the [broader fixed study](./BOUNDED_STUDY_FINDINGS.md)
+finished with 207/207 valid primary conditions and nine replay-control conditions.
+Both predictors chose the circuit-best implementation in every case, giving zero
+selection savings; the history predictor's mean energy error was slightly worse.
+The fixed 1% continuation criterion was not met, so the recommendation is to stop
+this particular simulated model as an implementation-selection contribution.
+The physical protocol below remains unexecuted; simulation does not supply its
+measurement endpoint or confidence interval.
+
 ## Hypothesis and primary endpoint
 
 For bit-exact implementations of the same job at fixed nominal MCU voltage and clock frequency, a separately calibrated regulator-history model yields a practically meaningful reduction in measured upstream energy of its selected implementation, relative to a strong baseline, on withheld workloads and execution conditions.
@@ -23,7 +45,13 @@ Also report energy penalty relative to the physically best resolved implementati
 
 ## 1. Establish equivalent computation
 
-Resolve the initial-history mismatch in [fir.c](./fir.c): the direct implementation skips terms when n < k, whereas the pointer and unrolled implementations use preceding samples supplied by [main.c](./main.c). Specify streaming history, output scaling, rounding and overflow behavior. Verify every implementation against an independent wide-accumulator reference across representative and boundary inputs, with defined arithmetic. Preserve FIR state across bursts when processing one continuous stream. Retain equal completed work and outputs for every comparison.
+The original [fir.c](../../fir.c) direct implementation skipped terms when n < k,
+whereas the other implementations used preceding samples supplied by
+[main.c](../../main.c). The initial software stage now resolves this mismatch and
+defines the common arithmetic/history contract in [fir.h](../../fir.h). Maintain the
+independent reference gate as workloads and hardware are added. Preserve FIR state
+across bursts when processing one continuous stream, retaining equal completed work
+and outputs for every comparison.
 
 This is a prerequisite: a faster program computing fewer terms cannot test the hypothesis. Do not reuse the present direct-versus-circular reversals as evidence.
 

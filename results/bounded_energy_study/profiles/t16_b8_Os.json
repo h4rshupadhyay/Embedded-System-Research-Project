@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "physical_measurement": false,
+  "idle_simulated": false,
+  "scope": "Sequential marked FIR calls; logical release/idle schedule only. No sleep, wake, current waveform, voltage, regulator or source-energy model.",
+  "counter_boundary": "Marked call including marker/call overhead; excludes preparation/checksum",
+  "period_validation": "Active-region lower bound only; preparation, wake and sleep not scheduled",
+  "taps": 16,
+  "block": 8,
+  "jobs": 4,
+  "opt": "Os",
+  "period_cycles": 5556,
+  "compiler": "arm-none-eabi-gcc (15:10.3-2021.07-4) 10.3.1 20210621 (release)",
+  "simulator_sha256": "99c1e51631afb2a892d25386c0f4345ae6218c17b4fa642f1cfb689dbf1cd9ed",
+  "source_sha256": {
+    "fir.c": "1425ffa3b4b0c5b6d11427fe4482c577d626352063c7978c94c574c9339c7e8c",
+    "fir.h": "be1ed5432e109ef0fc810d08b8772d9f8dda754dd9f85d26115fafc2f91162d0",
+    "main.c": "afb64ccaa42b9475a49cef7ea967949107d7d27099e8f1482f69dd57a42e9dee",
+    "startup.s": "cc18d025607147d5efb891c8f25e74a2f09a8b30f49d34a8a930a7cac02de1bc",
+    "stm32f051.ld": "9f6d46aa0719a33f4f5922f286dace6e180df6d1046c176493603fea4816253c",
+    "run_sim_pilot.py": "176f0cf396d89be842f286da68acbe1a8f7cd6e9a837182ad84b708a0c181235",
+    "patches/thumbulator_stm32f0x.patch": "d565b6bf1d8c5bbf937491e96af86bc22fb8f16c251525b46eade678b9899379"
+  },
+  "variants": [
+    {
+      "variant": "DIRECT",
+      "completed_jobs": 4,
+      "checksum": 951406860,
+      "jobs": [
+        {
+          "sim_start_cycle": 596,
+          "sim_end_cycle": 3051,
+          "active_cycles": 2455,
+          "counters": {
+            "C2": 423,
+            "C3": 18,
+            "C4": 9,
+            "C5": 147,
+            "C6": 128,
+            "C1": 1733
+          },
+          "release_cycle": 0,
+          "idle_cycles": 3101
+        },
+        {
+          "sim_start_cycle": 3416,
+          "sim_end_cycle": 5871,
+          "active_cycles": 2455,
+          "counters": {
+            "C2": 423,
+            "C3": 18,
+            "C4": 9,
+            "C5": 147,
+            "C6": 128,
+            "C1": 1733
+          },
+          "release_cycle": 5556,
+          "idle_cycles": 3101
+        },
+        {
+          "sim_start_cycle": 6236,
+          "sim_end_cycle": 8691,
+          "active_cycles": 2455,
+          "counters": {
+            "C2": 423,
+            "C3": 18,
+            "C4": 9,
+            "C5": 147,
+            "C6": 128,
+            "C1": 1733
+          },
+          "release_cycle": 11112,
+          "idle_cycles": 3101
+        },
+        {
+          "sim_start_cycle": 9056,
+          "sim_end_cycle": 11511,
+          "active_cycles": 2455,
+          "counters": {
+            "C2": 423,
+            "C3": 18,
+            "C4": 9,
+            "C5": 147,
+            "C6": 128,
+            "C1": 1733
+          },
+          "release_cycle": 16668,
+          "idle_cycles": 3101
+        }
+      ],
+      "binary_sha256": "18b8022278cf6477d115c68fa847f6f6966b0ff009661545e3a9eb9008b2ab7b"
+    },
+    {
+      "variant": "CIRCULAR",
+      "completed_jobs": 4,
+      "checksum": 951406860,
+      "jobs": [
+        {
+          "sim_start_cycle": 596,
+          "sim_end_cycle": 3374,
+          "active_cycles": 2778,
+          "counters": {
+            "C2": 402,
+            "C3": 19,
+            "C4": 9,
+            "C5": 274,
+            "C6": 128,
+            "C1": 1952
+          },
+          "release_cycle": 0,
+          "idle_cycles": 2778
+        },
+        {
+          "sim_start_cycle": 3739,
+          "sim_end_cycle": 6517,
+          "active_cycles": 2778,
+          "counters": {
+            "C2": 402,
+            "C3": 19,
+            "C4": 9,
+            "C5": 274,
+            "C6": 128,
+            "C1": 1952
+          },
+          "release_cycle": 5556,
+          "idle_cycles": 2778
+        },
+        {
+          "sim_start_cycle": 6882,
+          "sim_end_cycle": 9660,
+          "active_cycles": 2778,
+          "counters": {
+            "C2": 402,
+            "C3": 19,
+            "C4": 9,
+            "C5": 274,
+            "C6": 128,
+            "C1": 1952
+          },
+          "release_cycle": 11112,
+          "idle_cycles": 2778
+        },
+        {
+          "sim_start_cycle": 10025,
+          "sim_end_cycle": 12803,
+          "active_cycles": 2778,
+          "counters": {
+            "C2": 402,
+            "C3": 19,
+            "C4": 9,
+            "C5": 274,
+            "C6": 128,
+            "C1": 1952
+          },
+          "release_cycle": 16668,
+          "idle_cycles": 2778
+        }
+      ],
+      "binary_sha256": "68c7abcaf43b60b8103fedd1bdd81e6de05679071ddb4220fb54f2a94c9d3352"
+    },
+    {
+      "variant": "UNROLLED",
+      "completed_jobs": 4,
+      "checksum": 951406860,
+      "jobs": [
+        {
+          "sim_start_cycle": 596,
+          "sim_end_cycle": 2951,
+          "active_cycles": 2355,
+          "counters": {
+            "C2": 496,
+            "C3": 83,
+            "C4": 9,
+            "C5": 82,
+            "C6": 128,
+            "C1": 1560
+          },
+          "release_cycle": 0,
+          "idle_cycles": 3201
+        },
+        {
+          "sim_start_cycle": 3316,
+          "sim_end_cycle": 5671,
+          "active_cycles": 2355,
+          "counters": {
+            "C2": 496,
+            "C3": 83,
+            "C4": 9,
+            "C5": 82,
+            "C6": 128,
+            "C1": 1560
+          },
+          "release_cycle": 5556,
+          "idle_cycles": 3201
+        },
+        {
+          "sim_start_cycle": 6036,
+          "sim_end_cycle": 8391,
+          "active_cycles": 2355,
+          "counters": {
+            "C2": 496,
+            "C3": 83,
+            "C4": 9,
+            "C5": 82,
+            "C6": 128,
+            "C1": 1560
+          },
+          "release_cycle": 11112,
+          "idle_cycles": 3201
+        },
+        {
+          "sim_start_cycle": 8756,
+          "sim_end_cycle": 11111,
+          "active_cycles": 2355,
+          "counters": {
+            "C2": 496,
+            "C3": 83,
+            "C4": 9,
+            "C5": 82,
+            "C6": 128,
+            "C1": 1560
+          },
+          "release_cycle": 16668,
+          "idle_cycles": 3201
+        }
+      ],
+      "binary_sha256": "338f1407bc2731aa81d586c2338c50712a022a67aab846a63aec5253dcca317e"
+    }
+  ]
+}
