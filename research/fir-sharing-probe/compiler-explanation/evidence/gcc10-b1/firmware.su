@@ -1,0 +1,4 @@
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.c:16:13:hex32	12	static
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.c:17:13:hex16	12	static
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.c:9:6:process_stream	24	static
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.c:18:5:main	32	static

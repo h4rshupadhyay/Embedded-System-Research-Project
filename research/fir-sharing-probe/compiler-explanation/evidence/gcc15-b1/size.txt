@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+   2490	      0	   1160	   3650	    e42	/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.elf

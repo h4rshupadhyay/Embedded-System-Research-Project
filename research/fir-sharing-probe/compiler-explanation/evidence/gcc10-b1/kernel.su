@@ -1,0 +1,4 @@
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.c:7:6:probe_init	0	static
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.c:12:10:probe_state_bytes	0	static
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.c:14:9:probe_get_state	0	static
+/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.c:27:6:probe_process	72	static

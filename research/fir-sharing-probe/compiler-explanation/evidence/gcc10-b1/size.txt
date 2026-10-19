@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+   2166	      0	   1160	   3326	    cfe	/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.elf

@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "stage": "post-join compiler explanation",
+  "source_results_sha256": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+  "evidence": {
+    "evidence/gcc10-b1/commands.json": "e42afadef20aca57f9516a6618cd2dd469ef3f6d339b667e92a1dee862e11162",
+    "evidence/gcc10-b1/firmware.bin": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+    "evidence/gcc10-b1/firmware.c": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+    "evidence/gcc10-b1/firmware.disasm": "8085bd153b56cd955ff026d6cf708526316cb56639157d040dba626c109e0449",
+    "evidence/gcc10-b1/firmware.map": "c9d79cdeae3256e637c6a5c83337ea559d85683f1d55bf6056682ee7c31f67eb",
+    "evidence/gcc10-b1/firmware.stderr": "83e89fe00b57b5d585c47ac41d9d37235490c3155ef2121b60ab287d1a1e67ba",
+    "evidence/gcc10-b1/firmware.stdout": "f2959cca91d1bfe09a3531b8825baa98da3cfe89610fe3c5849e60e5dc517275",
+    "evidence/gcc10-b1/firmware.su": "f1b45870226539c1076b2e918de17bf672a17db706b64ef6b293a9809b64caa5",
+    "evidence/gcc10-b1/kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+    "evidence/gcc10-b1/kernel.su": "9e185a1d59a781b6f411d321489a51561d3ff1d4042d8198b75f87b55bfb8058",
+    "evidence/gcc10-b1/probe_process.disasm": "d35f1ec9ad3154d6ef89859a348f76d48dc98766d0023e33224e7901b28b9d7e",
+    "evidence/gcc10-b1/size.txt": "fbc211608fe1e9c1104b2dca5613c9bdf96c901fb0172ca01cf15de95fcb50e1",
+    "evidence/gcc10-b1/site-classification.json": "df5fcba0e84272cd627846e165576b6d1f9d9d2fa30c14eae0601f34b08bf511",
+    "evidence/gcc15-b1/commands.json": "dbf40fc8accc06c9b69a2333670af5849385247caf0bdc1ab4c514b921d04463",
+    "evidence/gcc15-b1/firmware.bin": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+    "evidence/gcc15-b1/firmware.c": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+    "evidence/gcc15-b1/firmware.disasm": "33218f294375f99062ec906c47033ca8aa2cc902fe4d47c7e4de788f6dda27ad",
+    "evidence/gcc15-b1/firmware.map": "72ede55e7216e7536306a3a85df0ca44d72b085aa35f6310cbb399c15c483dc0",
+    "evidence/gcc15-b1/firmware.stderr": "22ca6390cac14083a9bc9660932583b928ba401d51568a36066395a4b6a247bc",
+    "evidence/gcc15-b1/firmware.stdout": "638c3396f461b242c9b7c7fad1dca7a5aa538ecc5118ef6419e111de5280da83",
+    "evidence/gcc15-b1/firmware.su": "012903a68eccd7706fa5449ef0a3d75fa9524b17d338bd7270350b2f338fa445",
+    "evidence/gcc15-b1/kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+    "evidence/gcc15-b1/kernel.su": "83849d03b87054823f068e1b236d024ca39101d3ae718e7b4e7c8756f5abe75f",
+    "evidence/gcc15-b1/probe_process.disasm": "ae5a68dda1cec76702ff4bf08227ab8eb8f8765ffb8866fc4d5f176850470154",
+    "evidence/gcc15-b1/size.txt": "b8a5e01ce24c4cfc9e8335e5ac5cc98437464d0e11b47bfb92b7c13ef1b3fbf1",
+    "evidence/gcc15-b1/site-classification.json": "e7825ec27e6ea62c77876dbef09ca641762c10af018267ea6775355cd9b92539",
+    "evidence/command-record.json": "c2c9732413df5f5755cd431d2a1f5d0bf3dd7aeecca030d86d9c95651bfe84d4",
+    "assembly-notes.md": "a328605ddfa5847981e1abb9f31e7f98f404a73d1103642741cb00fcde170e7e",
+    "evidence/test-first-transcript.md": "001b592a4e156fa168fe4871dc7cf8a91ad6caf9673609b80aa7e5b5dfda4e59"
+  },
+  "rows": [
+    {
+      "compiler": "gcc10",
+      "block": 1,
+      "binary_sha256": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+      "method": "saved-evidence",
+      "totals": {
+        "instructions": 198670,
+        "ram_reads": 29304,
+        "ram_writes": 17225,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13622,
+        "bl": 258,
+        "mul": 2827
+      },
+      "components": [
+        {
+          "name": "stream_wrapper",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "copy_in",
+          "events": {
+            "instructions": 1028,
+            "mul": 0,
+            "ram_reads": 514,
+            "ram_writes": 514,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc10-b1/firmware.disasm",
+            "evidence/gcc10-b1/firmware.stderr",
+            "evidence/gcc10-b1/kernel.su",
+            "evidence/gcc10-b1/commands.json",
+            "evidence/gcc10-b1/firmware.bin",
+            "evidence/gcc10-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "convolution",
+          "events": {
+            "instructions": 5654,
+            "mul": 2827,
+            "ram_reads": 1028,
+            "ram_writes": 1799,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc10-b1/firmware.disasm",
+            "evidence/gcc10-b1/firmware.stderr",
+            "evidence/gcc10-b1/kernel.su",
+            "evidence/gcc10-b1/commands.json",
+            "evidence/gcc10-b1/firmware.bin",
+            "evidence/gcc10-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "quantize_store",
+          "events": {
+            "instructions": 257,
+            "mul": 0,
+            "ram_reads": 257,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc10-b1/firmware.disasm",
+            "evidence/gcc10-b1/firmware.stderr",
+            "evidence/gcc10-b1/kernel.su",
+            "evidence/gcc10-b1/commands.json",
+            "evidence/gcc10-b1/firmware.bin",
+            "evidence/gcc10-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "history_copy",
+          "events": {
+            "instructions": 514,
+            "mul": 0,
+            "ram_reads": 514,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc10-b1/firmware.disasm",
+            "evidence/gcc10-b1/firmware.stderr",
+            "evidence/gcc10-b1/kernel.su",
+            "evidence/gcc10-b1/commands.json",
+            "evidence/gcc10-b1/firmware.bin",
+            "evidence/gcc10-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "function_entry_exit",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "unattributed",
+          "events": {
+            "instructions": 191217,
+            "mul": 0,
+            "ram_reads": 26991,
+            "ram_writes": 14912,
+            "flash_reads": 1032,
+            "flash_writes": 0,
+            "taken_branches": 13622,
+            "bl": 258
+          },
+          "basis": "residual",
+          "evidence_refs": [
+            "evidence/gcc10-b1/firmware.disasm",
+            "evidence/gcc10-b1/firmware.stderr",
+            "evidence/gcc10-b1/kernel.su",
+            "evidence/gcc10-b1/commands.json",
+            "evidence/gcc10-b1/firmware.bin",
+            "evidence/gcc10-b1/site-classification.json"
+          ]
+        }
+      ],
+      "static_diagnostics": {
+        "probe_process_symbol_bytes": 1036,
+        "compiler_frame_bytes": 72,
+        "sp_relative_instruction_sites": 19
+      },
+      "causal_status": "partial",
+      "limitations": [
+        "Saved events are aggregate counters without an execution PC trace.",
+        "All linked MUL sites are in convolution arithmetic, so the aggregate MUL count is assigned there.",
+        "Direct SP LDR/STR sites on the reviewed BLOCK=1 path execute once per 257 probe_process calls; GCC10's b=0-only site is excluded. This is an exact-control-flow count, not a trace.",
+        "Other dynamic instructions, memory and branch events remain unattributed; zero component counts do not imply an absent operation.",
+        "Frame bytes and stack-relative traffic do not establish register-allocation spill cause."
+      ]
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1,
+      "binary_sha256": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+      "method": "saved-evidence",
+      "totals": {
+        "instructions": 242490,
+        "ram_reads": 43182,
+        "ram_writes": 36500,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13753,
+        "bl": 258,
+        "mul": 2827
+      },
+      "components": [
+        {
+          "name": "stream_wrapper",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "copy_in",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "convolution",
+          "events": {
+            "instructions": 39321,
+            "mul": 2827,
+            "ram_reads": 14906,
+            "ram_writes": 21588,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc15-b1/firmware.disasm",
+            "evidence/gcc15-b1/firmware.stderr",
+            "evidence/gcc15-b1/kernel.su",
+            "evidence/gcc15-b1/commands.json",
+            "evidence/gcc15-b1/firmware.bin",
+            "evidence/gcc15-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "quantize_store",
+          "events": {
+            "instructions": 514,
+            "mul": 0,
+            "ram_reads": 514,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc15-b1/firmware.disasm",
+            "evidence/gcc15-b1/firmware.stderr",
+            "evidence/gcc15-b1/kernel.su",
+            "evidence/gcc15-b1/commands.json",
+            "evidence/gcc15-b1/firmware.bin",
+            "evidence/gcc15-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "history_copy",
+          "events": {
+            "instructions": 771,
+            "mul": 0,
+            "ram_reads": 771,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": [
+            "evidence/gcc15-b1/firmware.disasm",
+            "evidence/gcc15-b1/firmware.stderr",
+            "evidence/gcc15-b1/kernel.su",
+            "evidence/gcc15-b1/commands.json",
+            "evidence/gcc15-b1/firmware.bin",
+            "evidence/gcc15-b1/site-classification.json"
+          ]
+        },
+        {
+          "name": "function_entry_exit",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "unattributed",
+          "events": {
+            "instructions": 201884,
+            "mul": 0,
+            "ram_reads": 26991,
+            "ram_writes": 14912,
+            "flash_reads": 1032,
+            "flash_writes": 0,
+            "taken_branches": 13753,
+            "bl": 258
+          },
+          "basis": "residual",
+          "evidence_refs": [
+            "evidence/gcc15-b1/firmware.disasm",
+            "evidence/gcc15-b1/firmware.stderr",
+            "evidence/gcc15-b1/kernel.su",
+            "evidence/gcc15-b1/commands.json",
+            "evidence/gcc15-b1/firmware.bin",
+            "evidence/gcc15-b1/site-classification.json"
+          ]
+        }
+      ],
+      "static_diagnostics": {
+        "probe_process_symbol_bytes": 1372,
+        "compiler_frame_bytes": 240,
+        "sp_relative_instruction_sites": 147
+      },
+      "causal_status": "partial",
+      "limitations": [
+        "Saved events are aggregate counters without an execution PC trace.",
+        "All linked MUL sites are in convolution arithmetic, so the aggregate MUL count is assigned there.",
+        "Direct SP LDR/STR sites on the reviewed BLOCK=1 path execute once per 257 probe_process calls; GCC10's b=0-only site is excluded. This is an exact-control-flow count, not a trace.",
+        "Other dynamic instructions, memory and branch events remain unattributed; zero component counts do not imply an absent operation.",
+        "Frame bytes and stack-relative traffic do not establish register-allocation spill cause."
+      ]
+    }
+  ]
+}
