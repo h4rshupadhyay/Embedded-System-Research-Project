@@ -1,0 +1,120 @@
+{
+  "stage": "post-audit missing-control",
+  "status": "target measurements pending: pinned simulator and both Arm compilers unavailable here",
+  "design_sha256": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+  "sharing_results_sha256": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+  "filter": "speech_minphase48",
+  "variant": "partial_direct32x2",
+  "maximum": 32768,
+  "samples": 257,
+  "timed_input_sha256": "d952c2754c9ae922243966a9c2533a848b345aa2d2d6cb5b4e68d9df1615f310",
+  "coefficient_sha256": "63796e3e365dbdee70192acf68f16f403802d961df48ae814ffb23cca411fb70",
+  "fixed_groups": [
+    {
+      "first": 0,
+      "past_last": 2,
+      "coefficient_l1": 12778,
+      "absolute_bound": 418709504
+    },
+    {
+      "first": 2,
+      "past_last": 48,
+      "coefficient_l1": 59731,
+      "absolute_bound": 1957265408
+    }
+  ],
+  "full_absolute_bound": 2375974912,
+  "compiler_flags": {
+    "compile": [
+      "-mcpu=cortex-m0",
+      "-mthumb",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-g0",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fstack-usage",
+      "-DBLOCK=1 or 64"
+    ],
+    "link": [
+      "-mcpu=cortex-m0",
+      "-mthumb",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-g0",
+      "-nostdlib",
+      "-T fir-baseline/link.ld",
+      "-Wl,--gc-sections",
+      "-Wl,-Map=<case>/firmware.map",
+      "-lgcc"
+    ],
+    "lto": false
+  },
+  "expected_compilers": {
+    "gcc10": {
+      "sha256": "702dfc4dd0b34ee43ecd164a6db6ada4b5583d8945b17bbea3ebe223db765480",
+      "version": "arm-none-eabi-gcc (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+    },
+    "gcc15": {
+      "sha256": "94f60cfbad1091ad86c2435d8b804e82c0fc7e4c16302183c9a60cddd5318b1a",
+      "version": "arm-none-eabi-gcc (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203"
+    }
+  },
+  "compilers": {},
+  "simulator_commit": "c55ea1b1926b792d7aabb7e3495b55a7b69ef134",
+  "simulator_expected_sha256": "d1fb48bed5f52e94813372054a086ee003cffb56b98dec3052ef4bfe397d9195",
+  "simulator_sha256": null,
+  "measurement_boundary": "same measured() GPIO marker and process_stream as probe.py; includes complete 257-sample stream, recurring calls, history/state copying and final short call; excludes setup and O:/H:/G:/M: printing",
+  "model": {
+    "simulator_commit": "c55ea1b1926b792d7aabb7e3495b55a7b69ef134",
+    "timing_formula": "NI + SRAM_reads + SRAM_writes + Flash_data_reads + 2*taken_branches + BL",
+    "configuration": "single-cycle MUL; zero-wait Arm-table estimate; 20 MHz prefetch OFF zero-wait CPU energy model",
+    "energy_weights_nj": {
+      "nonmul": 0.964258,
+      "mul": 1.652455,
+      "taken_branches": 2.091986,
+      "ram_reads": 1.109833,
+      "ram_writes": 0.650563,
+      "flash_reads": 0.633621
+    },
+    "energy_source": "https://arxiv.org/html/2301.12806v1",
+    "hardware_validated": false,
+    "raw_ticks_are_cycles": false
+  },
+  "source_sha256": {
+    "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+    "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+    "run.py": "6da706332e5a7663f872d6bdb09fa216df795b4faabcd86146692bbb98359864",
+    "test_kernel.py": "4ad6ed5f402ac81b3d2d44a8dbd78272fb207a7dca7eb952f14f3ccd1ad7551d",
+    "host_harness.c": "0116df84e45f014685ba1e5d36e5e2ea54922e209b21aebea44e68d4a66437c1"
+  },
+  "host_check_status": "UBSan GCC 13.3 passed before explicit negative-boundary vectors were added; final expanded suite passed with MinGW GCC 6.3 without UBSan; kernel.c unchanged between runs",
+  "rows": [],
+  "target_edge_checks": [],
+  "pending_configurations": [
+    {
+      "compiler": "gcc10",
+      "block": 1
+    },
+    {
+      "compiler": "gcc10",
+      "block": 64
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1
+    },
+    {
+      "compiler": "gcc15",
+      "block": 64
+    }
+  ]
+}
