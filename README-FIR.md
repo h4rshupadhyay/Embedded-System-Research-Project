@@ -1,8 +1,8 @@
 # Exact FIR research and peer handoff
 
-This branch captures the current exact-output FIR research. Earlier supply-model
-and ranking experiments remain in the repository for history; their kernels,
-measurement boundaries and simulator patches differ. Use the files under
+This branch contains the current exact-output FIR research. Earlier supply-model
+and ranking experiments are retained in Git history rather than this branch's
+working tree. Use the files under
 `research/fir-baseline/` and `research/fir-sharing-probe/` for this task.
 
 **Current decision:** conditional continuation. Before claiming a useful benefit
@@ -20,8 +20,17 @@ The professor is the final evaluator, not a project guide.
   [baseline reproduction environment](research/fir-baseline/README.md).
 
 The peer owns `research/fir-sharing-probe/partial-direct/`. The original author
-with Codex owns `research/fir-sharing-probe/independent-check/`. Neither directory
-has been implemented in this snapshot. Only the final comparison joins the tasks.
+with Codex owns `research/fir-sharing-probe/independent-check/`. Task 2 is complete:
+the [independent checker, reference cases and comparison](research/fir-sharing-probe/independent-check/README.md)
+are ready, alongside the contribution-positioning note. On 20 October 2026,
+all 26 checker tests passed and 24 historical rows (6,168 output comparisons)
+were reverified from saved raw evidence; regenerated reports matched the saved
+files exactly. No new target measurements were run.
+
+Task 1's peer implementation and four measurement rows are still absent from
+this workspace. The final comparison and research decision remain pending their
+delivery, independent verification, and arithmetic/assembly review. Only the
+final comparison joins the tasks.
 
 ## Host setup and checks
 
@@ -45,7 +54,7 @@ results and are unnecessary for the four new measurements.
 Target measurements require Arm GCC 10.3.1 and 15.2.Rel1, binutils, the audited
 Thumbulator revision `c55ea1b1926b792d7aabb7e3495b55a7b69ef134`, and the
 measurement conventions documented in the baseline README and sharing protocol.
-The earlier root-level simulator patch belongs to a different experiment: use
+The old root-level simulator patch in Git history belongs to a different experiment: use
 `research/fir-baseline/simulator.py` and its console-only patch for this fixture.
 CMSIS-DSP v1.14.4 and core headers are needed to rebuild the historical library
 controls; their recorded results can be read without rebuilding them.

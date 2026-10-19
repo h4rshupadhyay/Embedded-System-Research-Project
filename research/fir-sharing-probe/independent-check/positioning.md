@@ -20,6 +20,19 @@ These are targeted overlap checks, not an exhaustive novelty search. Full-text a
 
 ## Candidate contribution and required evidence
 
+The pursuit audit also identified a particularly close implementation precedent:
+Doppler's [HalfbandDecimatorQ15 documentation](https://doppler-dsp.github.io/doppler/gallery/hbdecim_q15/),
+“AVX2 inner loop” and “Q15 arithmetic budget” (read 20 October 2026), describes
+int32 FIR accumulation lanes followed by reduction to int64. This directly
+overlaps the narrow-partial/wide-reduction organization of the missing direct
+control. Its AVX2 halfband decimator uses round-to-nearest output rather than
+our floor quantizer, and differs from the scalar Cortex-M0 full-output filter.
+Its stated lane-safety limits and implementation were not independently
+validated here. Treat it as first-party implementation documentation, not a
+peer-reviewed safety proof or novelty clearance. Our fixed two-group range
+proof must stand independently; the partial-accumulation idea is not claimed
+as a new algorithm.
+
 The distinctions below are research judgments drawn from the inspected sources and this project's fixed protocol. A different target alone does not establish field-level novelty.
 
 | Candidate claim | Additional evidence needed here | Defensible scope and limit |

@@ -82,3 +82,28 @@ Code bytes are the historical selected-symbol metric, not complete image size.
 Wrapper and callee frame reports are separate, not a stack high-water estimate.
 Timing and CPU-energy costs retain their architectural/model assumptions; raw
 simulator ticks are diagnostic and no physical energy claim follows.
+
+## Completion audit, 20 October 2026
+
+A fresh requirements and code review found one evidence-integrity defect that
+the original 24 tests missed: opcode secondary bins were not checked against
+their primary totals. Changing the MUL bin while updating the manifest and
+derived energy could therefore pass despite an internally inconsistent trace.
+Two regression tests reproduced this, including a copied historical artifact;
+both failed before the fix. The checker now validates bin shape, nonnegative
+counts and totals according to the pinned simulator's actual dispatchers.
+Primary-only opcodes correctly retain zero secondary bins. All 26 tests pass,
+and all 24 historical rows / 6,168 outputs still verify with unchanged costs.
+A separate forward-convolution calculation also matched all 594 saved reference
+outputs, per-call histories and terminal states across the four reference cases.
+
+The review found no documented coding-standard violations or consequential
+code-quality concerns beyond that repaired defect. The missing Doppler
+partial-accumulation precedent is now included in the positioning note.
+
+One integration limitation remains explicit: the checker implements the
+historical fixture's filenames and literal C input format described above,
+not every possible artifact layout allowed by the plan's general schema.
+Alternate peer layouts require an adapter at the final join; rejection of an
+unrecognized layout is not a numerical failure. Actual peer arithmetic,
+assembly and UBSan evidence still require review when delivered.

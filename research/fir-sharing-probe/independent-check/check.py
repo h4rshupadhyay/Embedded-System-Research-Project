@@ -110,10 +110,19 @@ def raw_events(stderr):
             'opcode histogram must contain 64 unique rows')
     require(sum(int(total) for _, total, _ in opcode_rows) == values['instructions'],
             'opcode totals disagree with instruction counter')
-    op16 = next(parts for i, _, parts in opcode_rows if i == '16')
-    parts = op16.split(',')
-    require(len(parts) == 16, 'malformed MUL opcode row')
-    values['mul'] = int(parts[13])
+    histogram = {}
+    # The pinned simulator's exmemwb.c increments secondary bins only in
+    # these dispatchers. Other primary opcodes legitimately have zero bins.
+    secondary_rows = {6, 7, 16, 17, 20, 21, 22, 23, 44, 46, 47}
+    for index, total, encoded in opcode_rows:
+        parts = [part.strip() for part in encoded.split(',')]
+        require(len(parts) == 16 and all(re.fullmatch(r'[0-9]+', part) for part in parts),
+                f'malformed opcode bins in row {index}')
+        bins = list(map(int, parts))
+        expected = int(total) if int(index) in secondary_rows else 0
+        require(sum(bins) == expected, f'opcode bins disagree with row {index} total')
+        histogram[int(index)] = bins
+    values['mul'] = histogram[16][13]
     markers = re.findall(r'GPIOC\[0\] (raised|cleared) at cycle (\d+)', stderr)
     require([kind for kind, _ in markers] == ['raised', 'cleared'], 'bad measurement markers')
     values['raw_tick_delta'] = int(markers[1][1]) - int(markers[0][1]) - 2

@@ -1,7 +1,7 @@
 {
   "design_sha256": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
   "sharing_results_sha256": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
-  "verification_source_sha256": "6f192741fd996d01d035b0bd8236345c9b68266f63dbe5d8060bd0955c460e47",
+  "verification_source_sha256": "6e081c59b0750cd4b258ce32ee7d54f22ade7939291ff65cf4ba4a8bddc429c6",
   "filter": "speech_minphase48",
   "maximum": 32768,
   "samples": 257,

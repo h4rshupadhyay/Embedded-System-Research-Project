@@ -10,6 +10,13 @@
 
 **Spec:** [Pursuit audit](../../../research/fir-sharing-pursuit-audit.md), especially “Minimal decision gate”; [existing probe protocol](../../../research/fir-sharing-probe/PROTOCOL.md).
 
+**Progress, 20 October 2026:** Task 2 is independently complete and reverified:
+26 tests passed; 24 historical rows and 6,168 output comparisons checked from
+saved raw evidence; regenerated reports match the saved files exactly. See the
+[checker handoff](../../../research/fir-sharing-probe/independent-check/README.md).
+Task 1's peer directory/results are absent from this workspace. The final join
+and research decision remain pending; no new target measurements are asserted.
+
 ## Global constraints and shared inputs
 
 - One filter: `speech_minphase48` from `research/fir-baseline/selection-design.json`. No coefficient changes or partition search.
@@ -72,11 +79,11 @@ If the peer develops on another computer, they can implement and run host correc
 
 **Consumes:** Existing frozen sharing results immediately; Task 1's result format below when available. Implement an independent arbitrary-precision reference instead of importing the peer's expected-output computation.
 
-- [ ] Independently reproduce the two coefficient-group bounds and establish the expected full-sum overflow case. Specify reference outputs/history for mixed partitions and signed boundary cases.
-- [ ] Build the checker against existing saved `spec_direct`, `trans_const` and `trans_hcub_demand` artifacts for the four matching configurations. Verify metadata, output/history, raw events, cost reconstruction and hashes without rerunning the full matrix.
-- [ ] Add rejection tests for a changed output, shortened history, altered input identity and a cost value inconsistent with saved raw counters. These tests must fail on the altered artifacts.
-- [ ] Prepare a comparison that accepts one new `partial_direct32x2` row per configuration. Compare against the strongest previously tested nontransposed control, ordinary mixed-width transposition and dependency-driven Hcub. Report code/state/frame costs alongside cycles and model energy. Until peer results arrive, mark the new values pending; do not invent placeholders that look measured.
-- [ ] Read the closest primary sources already identified in the pursuit audit. In `positioning.md`, map each candidate contribution to existing work, the specific additional evidence, and its limitations. Distinguish an empirical finding from a new algorithm; separate model estimates from physical energy.
+- [x] Independently reproduce the two coefficient-group bounds and establish the expected full-sum overflow case. Specify reference outputs/history for mixed partitions and signed boundary cases.
+- [x] Build the checker against existing saved `spec_direct`, `trans_const` and `trans_hcub_demand` artifacts for the four matching configurations. Verify metadata, output/history, raw events, cost reconstruction and hashes without rerunning the full matrix.
+- [x] Add rejection tests for a changed output, shortened history, altered input identity and a cost value inconsistent with saved raw counters. These tests must fail on the altered artifacts.
+- [x] Prepare a comparison that accepts one new `partial_direct32x2` row per configuration. Compare against the strongest previously tested nontransposed control, ordinary mixed-width transposition and dependency-driven Hcub. Report code/state/frame costs alongside cycles and model energy. Until peer results arrive, mark the new values pending; do not invent placeholders that look measured.
+- [x] Read the closest primary sources already identified in the pursuit audit. In `positioning.md`, map each candidate contribution to existing work, the specific additional evidence, and its limitations. Distinguish an empirical finding from a new algorithm; separate model estimates from physical energy.
 
 **Done independently when:** The checker passes existing artifacts and rejects deliberately altered ones, the comparison is ready to consume peer results, and the cited positioning note is complete. The peer does not need to finish before this work starts or reaches that milestone.
 
@@ -87,6 +94,15 @@ Task 1 writes `partial-direct/results.json` with `stage: "post-audit missing-con
 `compiler`, `filter`, `variant`, `maximum`, `block`, `samples`, `instructions`, `mul`, `ram_reads`, `ram_writes`, `flash_reads`, `flash_writes`, `taken_branches`, `bl`, `arm_zero_ws_cycles`, `estimated_cpu_energy_nj`, `state_allocation_bytes`, `stack_usage`, `outputs_verified`, `retained_state_verified`, `guards_verified`, `directory`, `artifacts`.
 
 Fixed row identifiers: `filter="speech_minphase48"`, `variant="partial_direct32x2"`, `maximum=32768`, `samples=257`; compiler names `gcc10`/`gcc15`. Paths in `directory` are relative to `partial-direct/`; artifact hashes identify the source, binary, disassembly and raw output/event files used. Preserve the existing `O:`, `H:`, `G:` and `M:` output encoding so Task 2 can independently decode them. Correctness-only runs belong in a separate array.
+
+**Current checker compatibility:** The implemented reader uses the existing
+fixture's exact `firmware.*` filenames, literal decimal `input_data` array and
+`BLOCK`/`SAMPLES` definitions. Its accepted metadata and artifact conventions
+are documented in the [checker README](../../../research/fir-sharing-probe/independent-check/README.md#once-the-peer-returns).
+The general schema above permits other layouts; those require an explicit
+adapter when the peer evidence arrives. Task 2 completion does not certify
+compatibility with an unseen peer implementation or replace the final manual
+arithmetic/assembly review.
 
 ## Final join — after both tasks, not a third parallel workstream
 

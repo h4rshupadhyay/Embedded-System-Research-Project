@@ -70,6 +70,31 @@ class RawEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'instruction'):
             checker.instruction_subset('08000008 <probe_process>:\n 8000008:\tfbb0 f0f1\tudiv\tr0,r1\n')
 
+    def test_rejects_inconsistent_negative_or_incomplete_opcode_bins(self):
+        counters = {label: 0 for label in checker.LABELS}
+        counters.update({'Executed insns': 11, 'Flash insn reads': 11})
+        header = '\n'.join(f'{label}: {value}' for label, value in counters.items())
+        header += '\nGPIOC[0] raised at cycle 0\nGPIOC[0] cleared at cycle 20\n'
+        bins = [[0]*16 for _ in range(64)]
+        bins[6][0], bins[16][13] = 8, 2
+        totals = [sum(row) for row in bins]
+        totals[0] = 1  # Primary-only opcode has no secondary bin increments.
+
+        def transcript(rows):
+            return header + '\n'.join(
+                f'{i}: {totals[i]}, [{", ".join(map(str, row))}]'
+                for i, row in enumerate(rows))
+
+        self.assertEqual(checker.raw_events(transcript(bins))['mul'], 2)
+        for mutation in ('mul', 'other_row', 'negative', 'short_row'):
+            changed = copy.deepcopy(bins)
+            if mutation == 'mul': changed[16][13] = 0
+            if mutation == 'other_row': changed[6][0] = 7
+            if mutation == 'negative': changed[6][:2] = [9, -1]
+            if mutation == 'short_row': changed[0].pop()
+            with self.subTest(mutation=mutation), self.assertRaisesRegex(ValueError, 'opcode'):
+                checker.raw_events(transcript(changed))
+
 
 RAW_ROOT = Path(os.environ.get('FIR_PROBE_ROOT', str(HERE.parent)))
 HAS_ARTIFACTS = (RAW_ROOT / 'build/cases').is_dir()
@@ -155,6 +180,27 @@ class HistoricalEvidenceTests(unittest.TestCase):
         root, row = self.changed_artifacts('firmware.stderr',
             lambda s: s.replace('Executed insns:', 'Unexpected insns:', 1))
         with self.assertRaisesRegex(ValueError, 'counter'):
+            checker.verify_row(row, root, self.h, self.x)
+
+    def test_rejects_changed_mul_bin_even_with_updated_hash_and_energy(self):
+        import re
+
+        def change_mul(text):
+            def replace(match):
+                bins = match[2].split(',')
+                self.assertGreater(int(bins[13]), 0)
+                bins[13] = '0'
+                return match[1] + ','.join(bins) + match[3]
+            changed, count = re.subn(r'(?m)^(\s*16:\s*\d+,\s*\[)([^\]]+)(\])',
+                                    replace, text)
+            self.assertEqual(count, 1)
+            return changed
+
+        root, row = self.changed_artifacts('firmware.stderr', change_mul)
+        row['variant'] = 'partial_direct32x2'
+        row['mul'] = 0
+        row['estimated_cpu_energy_nj'] = checker.costs(row)[1]
+        with self.assertRaisesRegex(ValueError, 'opcode'):
             checker.verify_row(row, root, self.h, self.x)
 
     def test_resource_sizes_are_derived_from_raw_elf_and_stack_reports(self):
