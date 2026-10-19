@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "status": "pending",
+  "source_results_sha256": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+  "peer_report_sha256": null,
+  "peer_rows_checked": 0,
+  "peer_component_deltas": null,
+  "source_rows": {
+    "gcc10": {
+      "compiler": "gcc10",
+      "block": 1,
+      "binary_sha256": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+      "totals": {
+        "instructions": 198670,
+        "mul": 2827,
+        "ram_reads": 29304,
+        "ram_writes": 17225,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13622,
+        "bl": 258
+      },
+      "reconstructed_totals": {
+        "instructions": 198670,
+        "mul": 2827,
+        "ram_reads": 29304,
+        "ram_writes": 17225,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13622,
+        "bl": 258
+      },
+      "estimated_cycles": 273733,
+      "modeled_cpu_energy_nj": "266394.093850",
+      "static_diagnostics": {
+        "probe_process_symbol_bytes": 1036,
+        "compiler_frame_bytes": 72,
+        "sp_relative_instruction_sites": 19
+      }
+    },
+    "gcc15": {
+      "compiler": "gcc15",
+      "block": 1,
+      "binary_sha256": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+      "totals": {
+        "instructions": 242490,
+        "mul": 2827,
+        "ram_reads": 43182,
+        "ram_writes": 36500,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13753,
+        "bl": 258
+      },
+      "reconstructed_totals": {
+        "instructions": 242490,
+        "mul": 2827,
+        "ram_reads": 43182,
+        "ram_writes": 36500,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13753,
+        "bl": 258
+      },
+      "estimated_cycles": 350968,
+      "modeled_cpu_energy_nj": "336863.793775",
+      "static_diagnostics": {
+        "probe_process_symbol_bytes": 1372,
+        "compiler_frame_bytes": 240,
+        "sp_relative_instruction_sites": 147
+      }
+    }
+  },
+  "delta": {
+    "instructions": 43820,
+    "mul": 0,
+    "ram_reads": 13878,
+    "ram_writes": 19275,
+    "flash_reads": 0,
+    "flash_writes": 0,
+    "taken_branches": 131,
+    "bl": 0
+  },
+  "cost_delta": {
+    "estimated_cycles": 77235,
+    "modeled_cpu_energy_nj": "70469.699925"
+  },
+  "candidate_comparisons": [
+    {
+      "compiler": "gcc10",
+      "block": 1,
+      "winner": "partial_direct32x2",
+      "modeled_cpu_energy_nj": {
+        "trans_const": "268764.731503",
+        "trans_hcub_demand": "277931.05027300003",
+        "partial_direct32x2": "266394.09385"
+      }
+    },
+    {
+      "compiler": "gcc10",
+      "block": 64,
+      "winner": "partial_direct32x2",
+      "modeled_cpu_energy_nj": {
+        "trans_const": "155655.839196",
+        "trans_hcub_demand": "155387.796582",
+        "partial_direct32x2": "147984.280421"
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1,
+      "winner": "trans_hcub_demand",
+      "modeled_cpu_energy_nj": {
+        "trans_const": "267277.845667",
+        "trans_hcub_demand": "255825.28419500004",
+        "partial_direct32x2": "336863.793775"
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 64,
+      "winner": "trans_hcub_demand",
+      "modeled_cpu_energy_nj": {
+        "trans_const": "154936.72448399998",
+        "trans_hcub_demand": "144576.380656",
+        "partial_direct32x2": "152553.69972899999"
+      }
+    }
+  ],
+  "within_gcc15_block1_hcub_saving_percent": "24.06",
+  "selectable_compiler_hcub_saving_percent": {
+    "block1": "3.97",
+    "block64": "2.30"
+  },
+  "source_files_checked": [
+    "/home/harsh/EsProj/research/fir-baseline/selection-design.json",
+    "/home/harsh/EsProj/research/fir-sharing-probe/results.json",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/results.json",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/kernel.c",
+    "/home/harsh/EsProj/research/fir-sharing-probe/independent-check/partial-direct-target-evidence.tar.gz",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/commands.json",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.bin",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.c",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.disasm",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.elf",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.map",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.o",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.stderr",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.stdout",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.su",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.c",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.h",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.o",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.su",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/probe_process.disasm",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/size.txt",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/startup.o",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/commands.json",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.bin",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.c",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.disasm",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.elf",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.map",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.o",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.stderr",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.stdout",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.su",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.c",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.h",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.o",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.su",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/probe_process.disasm",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/size.txt",
+    "/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/startup.o"
+  ],
+  "evidence_files_checked": [],
+  "manual_causal_review": "pending",
+  "limitations": [
+    "Aggregate event logs do not supply per-PC execution history.",
+    "Numerical reconciliation cannot certify component labels or causal truth.",
+    "Static opcode sites and stack access alone do not establish dynamic counts or spills."
+  ]
+}

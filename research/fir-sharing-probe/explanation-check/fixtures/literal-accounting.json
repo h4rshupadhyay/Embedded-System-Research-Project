@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "stage": "post-join compiler explanation",
+  "source_results_sha256": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+  "evidence": {
+    "fixture-counts.txt": "6d5b430d1fce78c721522759e6f2ebbc1f56e55920cfe0cbeb1da1de3c7d30cf"
+  },
+  "rows": [
+    {
+      "compiler": "gcc10",
+      "block": 1,
+      "binary_sha256": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+      "method": "saved-evidence",
+      "totals": {
+        "instructions": 198670,
+        "mul": 2827,
+        "ram_reads": 29304,
+        "ram_writes": 17225,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13622,
+        "bl": 258
+      },
+      "components": [
+        {
+          "name": "stream_wrapper",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "copy_in",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "convolution",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "quantize_store",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "history_copy",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "function_entry_exit",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "unattributed",
+          "events": {
+            "instructions": 198670,
+            "mul": 2827,
+            "ram_reads": 29304,
+            "ram_writes": 17225,
+            "flash_reads": 1032,
+            "flash_writes": 0,
+            "taken_branches": 13622,
+            "bl": 258
+          },
+          "basis": "residual",
+          "evidence_refs": []
+        }
+      ],
+      "static_diagnostics": {
+        "probe_process_symbol_bytes": 1036,
+        "compiler_frame_bytes": 72,
+        "sp_relative_instruction_sites": 19
+      },
+      "causal_status": "unresolved",
+      "limitations": [
+        "Illustrative fixture; no causal attribution."
+      ]
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1,
+      "binary_sha256": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+      "method": "saved-evidence",
+      "totals": {
+        "instructions": 242490,
+        "mul": 2827,
+        "ram_reads": 43182,
+        "ram_writes": 36500,
+        "flash_reads": 1032,
+        "flash_writes": 0,
+        "taken_branches": 13753,
+        "bl": 258
+      },
+      "components": [
+        {
+          "name": "stream_wrapper",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "copy_in",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "convolution",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "quantize_store",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "history_copy",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "function_entry_exit",
+          "events": {
+            "instructions": 0,
+            "mul": 0,
+            "ram_reads": 0,
+            "ram_writes": 0,
+            "flash_reads": 0,
+            "flash_writes": 0,
+            "taken_branches": 0,
+            "bl": 0
+          },
+          "basis": "exact-control-flow",
+          "evidence_refs": []
+        },
+        {
+          "name": "unattributed",
+          "events": {
+            "instructions": 242490,
+            "mul": 2827,
+            "ram_reads": 43182,
+            "ram_writes": 36500,
+            "flash_reads": 1032,
+            "flash_writes": 0,
+            "taken_branches": 13753,
+            "bl": 258
+          },
+          "basis": "residual",
+          "evidence_refs": []
+        }
+      ],
+      "static_diagnostics": {
+        "probe_process_symbol_bytes": 1372,
+        "compiler_frame_bytes": 240,
+        "sp_relative_instruction_sites": 147
+      },
+      "causal_status": "unresolved",
+      "limitations": [
+        "Illustrative fixture; no causal attribution."
+      ]
+    }
+  ]
+}
