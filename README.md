@@ -14,6 +14,11 @@ four configurations is rejected: corrected direct wins both GCC10 cases,
 while Hcub wins both GCC15 cases. The paper explains the comparison and its
 limits. [Execution checkpoint](research/fir-paper/PROGRESS.md).
 
+The [Stage 2 formulation gate](research/fir-stage2-formulation-gate.md) is also
+complete: the proposed search state omits instruction-relevant locations in its
+specified model. Its repair establishes no new search advantage, so the current
+formulation does not justify implementing an optimizer.
+
 - [Experiment and independent-check plan](docs/superpowers/plans/2026-10-20-fir-baseline-check.md)
 - [Independent verification and comparison](research/fir-sharing-probe/independent-check/README.md)
 - [Peer baseline handoff](docs/peer-sol-6.1-handoff.md)

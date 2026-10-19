@@ -2,6 +2,15 @@
 
 20 October 2026. Research/advice only: no implementation, target execution or benchmark campaign was performed. This note uses the completed evidence and a targeted primary-source search; it does not establish priority, a new algorithm, or likely acceptance.
 
+**Completed follow-up:** after the Stage 1 paper, the
+[bounded formulation gate](fir-stage2-formulation-gate.md) tested H1 against
+three closest methods and a hand-worked instruction-constrained instance.
+Its current state proposal fails that model's continuation-sufficiency test;
+the full-state repair establishes no distinct search advantage. The decision
+is no-go for implementing this formulation, without ruling out other structural
+questions. The prospective plan below remains historical; no optimizer or
+new performance campaign was launched.
+
 ## Recommendation
 
 **The candidate I would investigate first is this method question: can the structure of exact FIR accumulation yield a provably safe, substantially cheaper search over partitions and schedules than generic search, while preserving useful compiled implementations?** This prioritization is a judgment based on the project's existing evidence, not demonstrated feasibility or a verified literature gap. The possible contribution is a structural search result or a demonstrated efficient method built on that result. It is not the range bound, two narrow partials, scheduling, an autotuner, or their mere combination.

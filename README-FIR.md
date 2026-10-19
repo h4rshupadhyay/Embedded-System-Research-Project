@@ -25,8 +25,12 @@ The compiler-explanation assignments are complete with accepted partial
 attribution. See the [final decision](research/fir-sharing-probe/explanation-check/final-decision.md).
 The [shared plan](docs/superpowers/plans/2026-10-20-fir-compiler-explanation.md)
 and historical [peer](docs/peer-sol-6.0-compiler-handoff.md)/[user](docs/user-fir-explanation-handoff.md)
-prompts remain available for provenance. Stage 2 is a separate formulation/search
-investigation; its proposed method has not been implemented or validated.
+prompts remain available for provenance. The separate
+[Stage 2 formulation gate](research/fir-stage2-formulation-gate.md) is complete
+with a no-go for the current H1 rule: its coarse search state loses relevant
+location information, while the full-state repair establishes no new search
+advantage. The note includes a checked symbolic example and three closest-method
+comparisons; no optimizer or additional target measurements followed.
 
 - [Current proposal](professor-topic-proposal.md).
 - [Completed baseline comparison and research decision](research/fir-sharing-probe/independent-check/join-review.md).

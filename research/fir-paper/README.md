@@ -94,5 +94,6 @@ and the [scientific design](../../docs/superpowers/specs/2026-10-20-fir-stage1-p
 Check completed files, Git history and live agents before resuming the first
 unfinished task. Sol 6.1 owns scientific decisions and review; Luna 6 handles
 specified mechanical tasks. The requested model settings are recorded; backend
-routing telemetry is unavailable. Stage 2 remains a separate formulation/search
-investigation after stage 1's completion.
+routing telemetry is unavailable. The separate
+[Stage 2 formulation gate](../fir-stage2-formulation-gate.md) subsequently
+concluded no-go for the current search-state rule; no optimizer was implemented.

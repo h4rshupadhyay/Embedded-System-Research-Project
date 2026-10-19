@@ -6,9 +6,9 @@ User authorized completion of stage 1, followed by stage 2, on 20 October 2026.
 
 ## Current state
 
-Stage 1: **complete; local checkpoint commit follows this record**.
-Stage 2: **next: formulation/closest-work gate; no optimizer authorized by completion**.
-Current task: checkpoint Stage 1, then investigate the bounded Stage 2 question.
+Stage 1: **complete; committed locally as `6482810`**.
+Stage 2: **bounded formulation gate complete; no-go for the current H1 rule**.
+Current task: none within the completed paper/formulation gate. No optimizer implemented.
 
 ## Decisions
 
@@ -47,9 +47,10 @@ The following rows describe the previous session; their work is complete.
 
 ## Next actions
 
-1. Commit the completed Stage 1 artifact locally.
-2. Execute the separate Stage 2 formulation gate
-   in `research/fir-novelty-establishment-plan.md`.
+1. Use the completed Stage 1 manuscript and reproduction guide for the project.
+2. Read `research/fir-stage2-formulation-gate.md` before reviving H1. Further
+   method work needs a distinct structural rule and a useful, falsifiable
+   search claim; the current no-go does not justify an implementation campaign.
 
 ## Recovery
 
@@ -167,3 +168,37 @@ renderer tests. Run numeric unittest and renderer pytest commands separately.
   exporter correction and its separate verification are disclosed there.
 - Raw target reproduction was not repeated. The existing archive/ignored-build
   limitations remain documented in the reproduction guide. No push is implied.
+
+## Stage 2 formulation gate
+
+Started only after Stage 1's completed artifact/review/QA and local commit.
+Requested reasoning owner `/root/stage2_formulation_gate`, `gpt-6.1-sol`, high,
+clean context, owns only `research/fir-stage2-formulation-gate.md`. The task is
+the four-step paper challenge in `fir-novelty-establishment-plan.md`: explicit
+H1 formulation, at most three closest methods, a tiny fully specified symbolic
+instance and a surviving claim/falsifier with a go/no-go or unresolved verdict.
+Source access and mathematical verification must be recorded. No optimizer or
+additional target measurement is part of this gate.
+
+### Completed gate and checks
+
+- Scientific owner delivered `research/fir-stage2-formulation-gate.md`, with a
+  roughly one-page core, three-method comparison and analytic attachment.
+  Fresh full-text passages were inspected for Ménard–Sentieys, SPIRAL FIR and
+  Unison; alternative access, failed endpoints and inspection limits are explicit.
+- No-go for implementing the present H1 state rule. In a specified abstract
+  machine, two reachable equal-cost prefixes with the same tap/range/live-value
+  key have minimum suffix costs K and K+mu because locations differ. This is
+  a model-level counterexample, not a Cortex-M0 measurement, a universal
+  impossibility result or a claim about every possible tie/pruning rule.
+- Adding full suffix-relevant state permits ordinary dominance, without a new
+  FIR-specific compression/search-efficiency result. Other structural hypotheses
+  remain possible. Originality has not passed; utility and broader priority
+  remain unresolved. No optimizer or additional target run followed.
+- Author and coordinator separately checked all 64 toy input triples, every
+  prefix of all six contiguous groups, exact widened sums/final quantization,
+  signed extremes and negative-floor boundary, plus 13/14 symbolic instruction
+  counts. Coordinator reviewed the minimum-continuation proof and scope limits;
+  all five local note links resolve after excluding inline-code expressions.
+- Stage 1 source/PDF and its scientific conclusions remain unchanged. Its local
+  completion commit is `6482810`; the gate/navigation update is a separate commit.
