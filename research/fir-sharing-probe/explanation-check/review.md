@@ -1,5 +1,9 @@
 # Fresh final review and handling
 
+**Current status:** this first review covers the independent checker before peer
+delivery. The final takeover review is recorded below; its actual-report and
+manual findings supersede the historical pending state in this first section.
+
 20 October 2026. Reviewer `/root/explanation_final_review` was a fresh read-only
 child, requested `gpt-6-astra` at `high` effort after both workers finished.
 The tool accepted those requested settings; independent backend routing telemetry
@@ -52,3 +56,48 @@ never automatic trace-semantic or causal certification.
 The production report remains **pending with zero peer rows checked**. Synthetic
 fixtures were not promoted to actual peer measurements. The independent USER
 milestone and the combined causal research decision are separate completion gates.
+
+## Final post-delivery takeover review
+
+The preceding pending/zero-row statements describe the historical pre-delivery
+review. They are superseded by the actual production report: **consistent,
+two peer rows checked, 29 evidence hashes verified**. Manual acceptance is
+**partial**, as recorded in [final-decision.md](final-decision.md).
+
+The coordinator first requested a fresh Astra assembly audit. That child stopped
+at a model usage limit before returning findings, so it is not counted as a
+review. The disclosed fallback was `/root/peer_checkpoint_sol_review`, requested
+as `gpt-6-sol`, high effort, fresh read-only context, with no recursive delegation.
+Independent backend routing telemetry is unavailable. This review is separate
+from the peer checkpoint's inherited Astra review.
+
+The fallback reviewer independently verified all 29 accounting evidence hashes,
+both binary identities, saved counters and component sums, and every parsed
+full-disassembly row against binary bytes (816 GCC10, 978 GCC15, including data
+rows). A separately computed 48-tap reference matched all 257 outputs and 47
+retained history values per compiler. It enumerated ten syntactic quantizer
+paths in each body and found identical SP-access sequences across each body's
+paths. The saved wrapper's 257 block1 calls and the exclusion of GCC10's
+zero-block store support 9/9 versus 63/84 executed SP loads/stores per call.
+The repeated history body has no direct-SP memory accesses.
+
+It independently reconstructed the extra-transfer deltas: 13,878 reads, 19,275
+writes, 33,153 instructions, 66,306 estimated cycles and 59,909.909673 modeled
+nJ. Residual: 10,667 instructions, 131 branches, 10,929 estimated cycles and
+10,559.790252 modeled nJ. It also reviewed the integrated final decision,
+claims, outline, reports, root README and top proposal paragraph. Its verdict:
+**no substantive numerical or causal overclaim found**. The 85.0151% energy-
+increase fraction and compiler-pass uncertainty are consistent across them.
+
+The sole editorial integration request was to make historical pending language
+explicitly superseded. Current-status banners and this post-delivery section
+address it. The generated automated reports retain `manual_causal_review=pending`
+by contract, with the separate manual verdict explained in the README and final
+decision. The reviewer agreed that distinction is accurate.
+
+The coordinator ran all five suites after integration: **64 tests pass**, including
+three nonrecovering UBSan host tests. The actual report CLI accepted both rows;
+analyzer regeneration matched all hashed outputs byte-for-byte. The reviewer
+did not claim a separate rerun of those suites. No substantive issue remains
+open; the explicit residual and unknown compiler-pass cause are result limits,
+not evidence of a complete causal explanation.

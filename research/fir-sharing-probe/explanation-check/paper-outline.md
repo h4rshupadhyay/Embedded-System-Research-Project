@@ -1,10 +1,10 @@
 # Paper outline: baseline fairness and compiler-dependent FIR costs
 
 20 October 2026. Reusable outline for the bounded college empirical paper.
-The completed comparison is the result; the two-binary causal section is
-**pending peer delivery and independent/manual acceptance**. The outline does
-not predict that explanation, a publication outcome or a grade. Detailed claim
-boundaries and inherited source-access provenance are in [claims.md](claims.md).
+The completed comparison and **accepted partial two-binary explanation** are
+the results. The outline does not predict a publication outcome or a grade.
+Detailed claim boundaries and inherited source-access provenance are in
+[claims.md](claims.md).
 
 ## Working title and abstract
 
@@ -22,14 +22,16 @@ both GCC15 configurations. At GCC15/block64, Hcub's 32.94% saving relative to
 unrolled CMSIS becomes 5.23% relative to corrected direct. If compiler choice is
 also allowed, the best tested Hcub/direct modeled-energy margins are 3.97% and
 2.30% for blocks 1 and 64. We report exactness checks, event costs and resource
-diagnostics for the frozen 257-sample zero-history stream. These observations
-support a bounded baseline-sensitivity case study, not a new FIR algorithm or
-a physical-energy claim.
+diagnostics for the frozen 257-sample zero-history stream. Control-flow and
+value-flow inspection shows that additional stack transfers account for all
+extra RAM traffic and 85.02% of the GCC15 block1 direct modeled-energy increase
+over GCC10; the remaining costs and compiler-pass cause remain unresolved.
+These observations support a bounded baseline-sensitivity case study, not a new
+FIR algorithm or a physical-energy claim.
 
-Do not insert a sentence attributing the block1 difference to spills or a
-specific compiler mechanism until the causal section passes the acceptance
-criteria below. If attribution remains unresolved, say so in the submitted
-abstract only if the compiler explanation remains a central stated contribution.
+The explanatory sentence is bounded by [final-decision.md](final-decision.md).
+Do not rename stack-resident sample values as demonstrated spills or identify
+a responsible compiler pass without further evidence.
 
 ## 1. Question and contribution
 
@@ -40,8 +42,8 @@ between the two existing block1 direct binaries.
 
 State the contributions as a certified stronger direct comparator, the corrected
 four-configuration observation and a reproducible evidence package. Qualify any
-later explanatory contribution by the final manual verdict. Explain that a wide
-final result does not force wide arithmetic in every partial, and that graph
+explanatory contribution as partial, following the final manual verdict. Explain
+that a wide final result does not force wide arithmetic in every partial, and that graph
 operation count alone cannot rank this complete execution. Both are established
 principles tested in this particular artifact, not new theorems or algorithms.
 
@@ -144,10 +146,11 @@ claim from these small modeled margins. Preserve the old 12/24 bank statistic
 only as historical context for its original candidate set; there is no revised
 bank-wide result.
 
-## 6. Two-binary explanation — pending
+## 6. Two-binary explanation — accepted partial attribution
 
-**Present status: no peer directory/report at preparation; no component
-attribution is accepted.** This section can presently report only the aggregate
+The actual two-row report passed the independent checker. Manual binary,
+control-flow and sample-value review supports the partial attribution in
+[final-decision.md](final-decision.md). Start with the aggregate
 GCC15-minus-GCC10 block1 partial-direct differences:
 
 | Metric | Frozen delta |
@@ -161,24 +164,38 @@ GCC15-minus-GCC10 block1 partial-direct differences:
 | Modeled CPU energy over stream | +70,469.699925 nJ |
 | Compiler-reported `probe_process` frame | 72 → 240 bytes |
 
-Reserve **Table 5** for component event/cost deltas and **Listing 2** for a short
-annotated assembly pair. Do not populate them from static opcode counts or
-invent fractions of overhead. The seven component categories and requirements
-are specified by the shared plan and [claims.md](claims.md).
+**Table 5:** separate the extra direct-SP transfer contribution from the
+residual: +33,153 instructions, +13,878 reads, +19,275 writes, +66,306 estimated
+cycles and +59,909.909673 modeled nJ explained; +10,667 instructions, +131
+branches, +10,929 estimated cycles and +10,559.790252 modeled nJ residual.
+Extra direct-SP transfers explain 85.0151% of the modeled energy increase.
+State that the seven accounting components contain attributed subsets; they
+are not exhaustive source-phase costs. Keep their other events `unattributed`.
 
-Admission requires exact binary/raw-event identities, independently reconciled
-totals, hashed PC/control-flow or reconciled dynamic evidence, and manual
-source-value/stack-slot review. Trace-based accounting must match original
-outputs, histories, guards, markers and aggregate events. The checker can find
-arithmetic inconsistency but cannot certify semantic labels or causation.
+**Listing 2:** use the annotated GCC15 sample rotations and GCC10 comparison
+from [assembly-notes.md](../compiler-explanation/assembly-notes.md). Explain
+GCC15's history-sample preloads and stack-held loop-carried values, whose
+rotations precede the exit test even for b=1. Show one slot's definition, use
+and update. Both builds retain native partials, the same four stores/four
+reloads at the wide reduction, eleven MULs per output and nine ABI saves.
+
+Give the actual frequency proof: 257 calls with b=1, one output each, no
+direct-SP accesses in quantizer alternatives or the 47-iteration history body,
+and all alternatives joining before the common tail. Exclude GCC10's
+zero-block-only store at `0x08000406`. Executed loads/stores per call are
+9/9 versus 63/84, rather than the static-site counts 19 versus 147.
+
+Document the completed admission: exact binary/raw-event identities, 29
+evidence hashes, independent totals and manual PC/value-flow checks, plus
+byte-identical analyzer regeneration. No replay was performed. The checker can
+find arithmetic inconsistency but cannot certify semantic labels or causation.
 Distinguish ABI saves and stack-resident temporaries from demonstrated spills;
 do not infer a compiler bug from extra traffic. Keep residual events explicit.
 
-After `final-decision.md`, choose one honest ending: a supported bounded
-mechanism; a partial explanation with the residual shown; or an unresolved
-attribution. If ordinary lowering/stack traffic explains the difference, retain
-the modest empirical/baseline-correction framing. No outcome creates a new FIR
-algorithm or authorizes new performance rows.
+End with the accepted partial explanation and explicit residual. The compiler
+pass and reason for stack placement remain unproved; event-cost attribution is
+not a predicted saving from a counterfactual edit. Retain the modest empirical
+baseline-correction framing. No new FIR algorithm or performance row results.
 
 ## 7. Discussion and threats to validity
 
@@ -201,15 +218,16 @@ belongs to this assignment.
 Conclude that arithmetic fairness changes this local decision and that a
 graph-count-only or globally-wide-direct inference is inadequate for this case.
 Summarize the opposite compiler winners, exact comparator and model scope.
-Include only an explanation accepted in `final-decision.md`; otherwise retain
-an explicit unresolved causal question. Do not promise broader selection rules,
+Include the partial explanation accepted in `final-decision.md`, preserving
+the residual and compiler-cause limits. Do not promise broader selection rules,
 physical savings, publication or an evaluation outcome.
 
 Append the artifact manifests, archive-restore instructions and independent
 checker commands from the completed join and USER workstream README when
-available. Keep historical performance verification distinct from forthcoming
+available. Keep historical performance verification distinct from completed
 explanation consistency checks. Record actual test/review results from their
 owners rather than treating this outline or fixture success as peer certification.
 
-The writing task can proceed now with Section 6 marked pending. Final causal
-integration waits for peer delivery; the four-row empirical result does not.
+The writing task can proceed with Section 6 as a completed partial explanation.
+The bounded two-binary investigation is finished; keep its unresolved remainder
+visible instead of expanding the experiment to seek a stronger headline.

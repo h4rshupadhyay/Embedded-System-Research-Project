@@ -2,9 +2,10 @@
 
 20 October 2026. This is the USER workstream's contribution synthesis for the
 [compiler-explanation plan](../../../docs/superpowers/plans/2026-10-20-fir-compiler-explanation.md).
-The arithmetic-fairness comparison is complete; the subsequent causal explanation
-is **pending**. `compiler-explanation/` was absent when this note was prepared.
-No peer accounting, trace or explanation is certified here.
+The arithmetic-fairness comparison and bounded two-binary explanation are
+complete. The actual peer accounting passed independent numerical admission;
+manual review accepts a **partial** generated-code explanation. See
+[final-decision.md](final-decision.md) for the evidence, residual and review.
 
 ## Research question and recommended contribution
 
@@ -13,9 +14,11 @@ model, how does giving direct accumulation certified int32 partial sums change
 the direct/transposed implementation decision, and what generated-code evidence
 can account for the remaining GCC10/GCC15 block1 direct-cost difference?**
 
-The first part is answered by the completed comparison. The second part remains
-pending and may end with an explicitly unresolved attribution. The useful scope
-is a reproducible case study of baseline correction and compiler-dependent costs.
+The first part is answered by the completed comparison. For the second, proved
+extra direct-SP transfers account for all additional RAM traffic and 85.0151%
+of the modeled energy increase; the remaining costs and compiler-pass cause
+remain unresolved. The useful scope is a reproducible case study of baseline
+correction and compiler-dependent costs.
 It is not a search for the best possible FIR implementation.
 
 Recommended central claim:
@@ -28,6 +31,13 @@ Recommended central claim:
 > In this case, a wide final sum does not require every direct partial to be
 > wide, and fewer multiplication-graph operations do not establish a lower
 > complete-stream modeled cost.
+
+Accepted explanatory addition: for these two block1 direct binaries, GCC15
+retains and rotates many history samples through stack slots before testing the
+output-loop exit. The extra executed direct-SP loads/stores account for the
+entire RAM-traffic delta and most of the modeled cost increase. This identifies
+emitted value lifetimes and their event costs, not the responsible compiler pass
+or a counterfactual optimization saving.
 
 The original contribution is the **local observation, stronger control and
 inspectable evidence** under this exact contract. Range-aware arithmetic,
@@ -104,7 +114,7 @@ with equally narrowed direct controls exists.
 | Lower arithmetic counts can coexist with higher complete-stream modeled cost here. | GCC10/block64 Hcub versus partial direct: instructions 116,139/129,481, MULs 257/2,827, reads 24,689/13,695, writes 20,083/1,848; Hcub costs 5.00% more. | Supported counterexample under the fixed model; it does not establish a general selector or new mechanism. |
 | Narrowing direct improves the old wide-direct control materially. | GCC10/block64 `spec_direct` to partial direct: 990.40 to 575.81 nJ/output; writes 25,497 to 1,848. | Supported paired result; it is a baseline correction, not proof of optimal partitioning or best direct code. |
 | The two block1 direct builds have substantially different compiled costs. | Frozen totals: instructions 198,670/242,490; reads 29,304/43,182; writes 17,225/36,500; frame bytes 72/240 (GCC10/GCC15). | Supported aggregate observation. Frame size and stack accesses alone do not prove spills, their causes or a compiler bug. |
-| A particular lowering/value-lifetime/stack pattern explains the excess cost. | No peer report exists at preparation. Aggregate counters do not contain per-PC execution history. | **Pending.** Requires reconciled accounting and manual value-flow/PC review; do not write a causal result in the abstract yet. |
+| Executed stack transfers explain most of the block1 direct cost increase. | Actual two-row accounting, 29 verified evidence hashes, manual path/value-flow inspection and independent binary review in [final decision](final-decision.md). GCC15 executes 54 more direct-SP loads and 75 more stores per call, over 257 calls. | **Supported partial attribution:** all +13,878 reads/+19,275 writes and 59,909.909673 nJ of the 70,469.699925 nJ modeled increase (85.0151%). Residual +10,667 instructions/+131 branches stays unattributed; compiler pass and spill cause remain unproved. |
 | Direct/transposed choices trade code, state and stack resources. | Selected-symbol sizes, allocation sizes and compiler frame reports in the saved verification report. Direct state is 98/224 bytes at block1/64; transposed state is 192. | Supported diagnostics. Selected-symbol size is not total image size; `probe_process` frame is not peak stack or measured SRAM high-water usage. |
 | The work saves physical energy or generalizes across filters/cores. | No board measurements, physical uncertainty calibration, revised filter bank or held-out workloads. | Unsupported. Full-int16 arithmetic guarantees do not generalize a timing/energy ranking beyond the measured stream/model. |
 
@@ -149,9 +159,14 @@ The frozen GCC15-minus-GCC10 block1 delta is 43,820 instructions,
 13,878 RAM reads, 19,275 RAM writes and 131 taken branches; MUL, flash reads,
 flash writes and BL are unchanged. The timing-estimate delta is 77,235 and the
 modeled CPU-energy delta is 70,469.699925 nJ over the stream. These totals define
-what an explanation must reconcile, not its cause.
+the total reconciled by the accepted partial explanation. Extra direct-SP
+transfers contribute 33,153 instructions, 66,306 estimated cycles and
+59,909.909673 modeled nJ. Residuals are 10,667 instructions, 131 branches,
+10,929 estimated cycles and 10,559.790252 modeled nJ. The percentage explained
+uses the energy-increase denominator; it is not a physical measurement or a
+predicted improvement from removing the transfers.
 
-Before any causal claim is accepted:
+The completed acceptance gates were:
 
 1. Admit exactly the two frozen binaries and raw logs; verify report and evidence
    identities, safe paths, schema and independent reconstruction of every total.
@@ -170,10 +185,18 @@ Before any causal claim is accepted:
 5. If diagnostic replay is used, retain logging-only changes and reconcile
    outputs, histories, guards, all events and marker boundaries to the frozen
    runs. It adds explanatory evidence, not replacement performance rows.
-6. Keep numerical `consistent` separate from manual causal judgment. The eventual
-   `final-decision.md` must state supported, partial or unresolved attribution
-   before any explanation enters the paper. A consistent mislabeled PC range can
-   pass arithmetic checks. An unresolved conclusion is acceptable.
+6. Keep numerical `consistent` separate from manual causal judgment.
+   [final-decision.md](final-decision.md) records partial acceptance. The
+   automated report's `manual_causal_review="pending"` remains unchanged by
+   design; a consistent mislabeled PC range can pass arithmetic checks.
+
+No diagnostic replay was needed. Both the coordinator and fresh fallback
+reviewer enumerated ten syntactic quantizer paths per compiler and found the
+same once-per-call SP sequence on every path, excluding GCC10's zero-block-only
+store. The repeated history-copy body contains no direct-SP accesses. The
+reviewer also compared disassembly bytes with the binary and recomputed saved
+outputs and retained history. Those checks support this fixed-fixture frequency
+argument; they are not a dynamic trace or a new performance measurement.
 
 ## Strongest objection and what would weaken the recommendation
 
@@ -182,10 +205,10 @@ using standard arithmetic specialization, then reports ordinary compiler
 sensitivity for one selected filter and short stream under an uncalibrated local
 cost model. What research insight remains beyond competent implementation?**
 The response is the fully disclosed baseline correction, opposite compiler
-winners, resource tradeoffs and reproducible evidence. A supported explanation
-could make the case study more informative; it would not make known mechanisms
-new. Without that explanation, present the aggregate observation and its limits
-honestly, with a correspondingly modest paper claim.
+winners, resource tradeoffs and reproducible evidence, now with a bounded
+sample-lifetime/stack-traffic explanation. It makes the case study more
+informative without making known mechanisms new. Present the remaining
+unattributed costs and keep the paper claim modest.
 
 The recommendation would weaken if artifact or boundary mismatches undermine
 comparability; a valid-domain arithmetic counterexample invalidates a candidate;

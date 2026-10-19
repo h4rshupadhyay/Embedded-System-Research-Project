@@ -124,26 +124,40 @@ Use “stack-resident temporary” unless value flow or compiler evidence establ
 an actual spill. The checker validates accounting consistency; it cannot certify
 that a plausible PC-range label is a causal explanation.
 
+## Completed execution, 20 October 2026
+
+Peer checkpoint `7315427` was merged by `4a72620` after the peer's quota ran
+out. The actual accounting passes independent admission (two rows, 29 evidence
+hashes), and manual binary/control-flow/value-flow review accepts partial
+attribution. All 64 tests pass. Extra direct-SP transfers explain all additional
+RAM traffic and 85.0151% of the modeled energy increase; remaining costs and
+compiler-pass cause are unresolved. See
+[final decision](../../../research/fir-sharing-probe/explanation-check/final-decision.md)
+and [takeover/review record](../../../research/fir-sharing-probe/explanation-check/review.md).
+The fresh takeover Astra attempt hit its usage limit; a disclosed Sol 6.0/high
+fallback completed the independent review under the policy below. No new target
+measurement was made. The bounded investigation stops here.
+
 ## Task 1 — Peer: generated-code explanation
 
-- [ ] Verify the current input hashes and extract the archived raw evidence into an isolated working directory. Record host/tool availability and the snapshot manifest.
-- [ ] Write parser/accounting tests first, using small literal disassembly/event fixtures: distinguish code from literal pools, reject malformed counters, and detect a missing/duplicated classification or inconsistent sum. Record failing then passing results for the behavior implemented.
-- [ ] Implement `analyze.py --evidence-root PATH --output-dir PATH`; input root is `partial-direct/`, output is inside `compiler-explanation/`. It must read the two saved case directories and validate their hashes before producing diagnostics/accounting.
-- [ ] Map copy-in, convolution, final quantization/store, history copy, function entry/exit and stream-wrapper work. Compare native arithmetic, constant lowering, live values and stack-resident values. Annotate at least the two partial sums, one recurring stack-resident arithmetic value and ABI saves, or state exactly why a mapping cannot be established.
-- [ ] Reconcile dynamically supported contributions to the totals. Use the optional two-binary diagnostic replay only when it adds necessary evidence; inspect the simulator's actual logging behavior before assuming a flag emits the required records. Preserve marker and final-short-call conventions, and exclude setup/printing/closing-marker events consistently.
-- [ ] Produce the two-row contract, component delta table and annotated excerpts. Distinguish demonstrated contribution, likely interpretation and unresolved cause. Store hashes for every supporting raw file, annotation and command record.
-- [ ] Run `python3 -m unittest discover -s research/fir-sharing-probe/compiler-explanation -p 'test_*.py' -v`, then the analyzer command. An unresolved attribution can pass consistency checks; label it unresolved in the findings.
-- [ ] Obtain the fresh review described below; address important errors with a reproducing test where appropriate. Deliver code, tests, accounting, findings, review and any nonversioned raw trace archive.
+- [x] Verify the current input hashes and extract the archived raw evidence into an isolated working directory. Record host/tool availability and the snapshot manifest.
+- [x] Write parser/accounting tests first, using small literal disassembly/event fixtures: distinguish code from literal pools, reject malformed counters, and detect a missing/duplicated classification or inconsistent sum. Record failing then passing results for the behavior implemented.
+- [x] Implement `analyze.py --evidence-root PATH --output-dir PATH`; input root is `partial-direct/`, output is inside `compiler-explanation/`. It must read the two saved case directories and validate their hashes before producing diagnostics/accounting.
+- [x] Map copy-in, convolution, final quantization/store, history copy, function entry/exit and stream-wrapper work. Compare native arithmetic, constant lowering, live values and stack-resident values. Annotate at least the two partial sums, one recurring stack-resident arithmetic value and ABI saves, or state exactly why a mapping cannot be established.
+- [x] Reconcile dynamically supported contributions to the totals. Use the optional two-binary diagnostic replay only when it adds necessary evidence; inspect the simulator's actual logging behavior before assuming a flag emits the required records. Preserve marker and final-short-call conventions, and exclude setup/printing/closing-marker events consistently.
+- [x] Produce the two-row contract, component delta table and annotated excerpts. Distinguish demonstrated contribution, likely interpretation and unresolved cause. Store hashes for every supporting raw file, annotation and command record.
+- [x] Run `python3 -m unittest discover -s research/fir-sharing-probe/compiler-explanation -p 'test_*.py' -v`, then the analyzer command. An unresolved attribution can pass consistency checks; label it unresolved in the findings.
+- [x] Obtain the fresh review described below; address important errors with a reproducing test where appropriate. Deliver code, tests, accounting, findings, review and any nonversioned raw trace archive.
 
 ## Task 2 — User: independent verification and contribution synthesis
 
-- [ ] Verify the frozen source result, raw logs and binary identities using the supplied archive; historical raw builds are unnecessary for this task. Reading/reusing the existing independent checker's transcript decoder and model is allowed; importing the new peer analyzer or its classification logic is not.
-- [ ] Write `test_verify.py` first around hand-calculated report fixtures. Cover valid reconciliation, changed total, altered component with a renewed evidence hash, missing/duplicate compiler, wrong binary identity, path traversal, negative counts, static-only attribution limits and absent peer delivery. A renewed hash must not conceal a total mismatch; a consistent semantic mislabel still requires manual review.
-- [ ] Implement `verify.py --peer-report PATH --output-dir PATH`. Validate the shared schema, fixed totals, manifests and arithmetic sums independently. Emit `verification.json` and `comparison.md` inside the user's owned directory. Without peer delivery, emit an explicitly pending report and never fabricate a pass.
-- [ ] Independently derive the exact counter deltas and cost deltas from the two frozen rows. Check that the existing candidate rankings and within-compiler versus selectable-compiler percentages use the intended comparators.
-- [ ] Prepare `claims.md` and `paper-outline.md` in the user's directory. Reuse the existing primary-source assessment; follow up only sources needed for the proposed claim. Distinguish established mechanisms, original local observations and causal evidence still needed. Mark the explanation section pending until delivery; leave existing proposal/findings unchanged during parallel work.
-- [ ] Run `python3 -m unittest discover -s research/fir-sharing-probe/explanation-check -p 'test_*.py' -v`. Before delivery, success means fixture/rejection tests pass and the pending state is accurate; it does not mean the peer explanation is certified.
-- [ ] Obtain a fresh review of the checker and the claim boundaries. Keep reviewers' findings and how they were handled in `review.md`.
+- [x] Verify the frozen source result, raw logs and binary identities using the supplied archive; historical raw builds are unnecessary for this task. Reading/reusing the existing independent checker's transcript decoder and model is allowed; importing the new peer analyzer or its classification logic is not.
+- [x] Write `test_verify.py` first around hand-calculated report fixtures. Cover valid reconciliation, changed total, altered component with a renewed evidence hash, missing/duplicate compiler, wrong binary identity, path traversal, negative counts, static-only attribution limits and absent peer delivery. A renewed hash must not conceal a total mismatch; a consistent semantic mislabel still requires manual review.
+- [x] Implement `verify.py --peer-report PATH --output-dir PATH`. Validate the shared schema, fixed totals, manifests and arithmetic sums independently. Emit `verification.json` and `comparison.md` inside the user's owned directory. Without peer delivery, emit an explicitly pending report and never fabricate a pass.
+- [x] Independently derive the exact counter deltas and cost deltas from the two frozen rows. Check that the existing candidate rankings and within-compiler versus selectable-compiler percentages use the intended comparators.
+- [x] Prepare `claims.md` and `paper-outline.md` in the user's directory. Reuse the existing primary-source assessment; follow up only sources needed for the proposed claim. Distinguish established mechanisms, original local observations and causal evidence still needed. Mark the explanation section pending until delivery; leave existing proposal/findings unchanged during parallel work.
+- [x] Run `python3 -m unittest discover -s research/fir-sharing-probe/explanation-check -p 'test_*.py' -v`. Before delivery, success means fixture/rejection tests pass and the pending state is accurate; it does not mean the peer explanation is certified.
+- [x] Obtain a fresh review of the checker and the claim boundaries. Keep reviewers' findings and how they were handled in `review.md`.
 
 User checker CLI outcomes: absent peer path means exit 0 with
 `status="pending"` and zero peer rows checked; admitted evidence means exit 0

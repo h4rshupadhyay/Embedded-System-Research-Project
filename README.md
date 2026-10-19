@@ -14,3 +14,10 @@ The peer baseline and final comparison are complete: partial direct wins both
 GCC 10 configurations; demand Hcub wins both GCC 15 configurations. See the
 [verified decision and evidence](research/fir-sharing-probe/independent-check/join-review.md).
 Results are simulator and model estimates, not physical energy measurements.
+
+The [two-binary compiler explanation](research/fir-sharing-probe/explanation-check/final-decision.md)
+is also complete with partial attribution: GCC15's extra stack transfers explain
+all additional RAM traffic and 85.02% of the modeled energy increase over GCC10
+for block1 direct. The remaining costs and responsible compiler pass are
+unresolved. The [paper outline](research/fir-sharing-probe/explanation-check/paper-outline.md)
+includes the corrected comparison and this bounded explanation.

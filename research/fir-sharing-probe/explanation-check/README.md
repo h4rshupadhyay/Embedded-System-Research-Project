@@ -5,15 +5,16 @@ The peer owns `../compiler-explanation/`; this directory owns consistency checks
 and paper-claim preparation. It does not generate a replacement FIR kernel or
 new performance rows.
 
-**Independent milestone complete, 20 October 2026:** the checker, rejection
-tests, claim/evidence assessment and paper outline are ready. A fresh Astra
-review found one event-ownership defect; regression tests reproduced it and
-the fix passed all 58 tests across the new and existing suites. The actual peer
-report remains pending. See [review.md](review.md) for the review and correction.
+**Final join complete, 20 October 2026:** the actual peer report is numerically
+consistent (two rows, 29 evidence hashes). Manual review accepts a partial
+explanation: extra direct-SP transfers account for the full RAM-traffic increase
+and 85.0151% of the modeled energy increase. Remaining instruction/branch costs
+and the compiler-pass cause are unresolved. See [final-decision.md](final-decision.md)
+and [review.md](review.md) for evidence and independent review.
 
-The peer report is absent at assignment start. A pending report means the source
-evidence was checked and no peer rows were admitted. Passing synthetic-fixture
-tests does not establish that a real compiler explanation is correct.
+The peer report was absent at assignment start; the original independent
+milestone and its checker correction are preserved in `progress.md` and
+`review.md`. The reports now describe the actual delivered accounting.
 
 ## Run
 
@@ -63,12 +64,15 @@ or a fresh verification of historical raw traces.
 
 - `verification.json` and `comparison.md`: generated source verification and
   peer-accounting status. Regenerate using the command above, not a fixture.
-- `claims.md` and `paper-outline.md`: bounded paper argument with pending causal
+- `claims.md` and `paper-outline.md`: bounded paper argument with accepted partial
   evidence, primary-source overlap and explicit comparator/model limits.
 - `implementation-report.md`: worker's implementation and test evidence.
 - `progress.md` and `review.md`: execution/routing and fresh-review record.
+- `final-decision.md`: manual acceptance, explained costs, residual and stopping
+  decision. This supplements the automated report's deliberately unchanged
+  `manual_causal_review="pending"` field.
 
-When the peer delivers real `accounting.json` and its hashed evidence files,
-rerun the same command. Resolve rejected data and inspect the annotations before
-writing `final-decision.md` or changing the paper's causal claims. This independent
-milestone can finish before the peer; the final causal join cannot.
+The takeover merged peer checkpoint `7315427` and verified the actual report
+with the command above. Analyzer regeneration matched every hashed output;
+binary/control-flow and source-value review preceded the paper-claim update.
+No new target measurements were made. The next scoped step is writing the paper.

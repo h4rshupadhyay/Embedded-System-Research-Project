@@ -3,6 +3,11 @@
 Plan: `docs/superpowers/plans/2026-10-20-fir-compiler-explanation.md`.
 Started 20 October 2026 from `98d1b85` on `research/fir-independent-check`.
 
+**Current status:** final join complete with accepted partial attribution; see
+[final-decision.md](final-decision.md). The entries through “Final independent
+milestone” below preserve the earlier pre-delivery state. The takeover record
+at the end supersedes its pending status.
+
 The user authorized continuing the USER assignment with its specified delegation.
 Work stays in the existing research checkout and the owned `explanation-check/`
 directory; the peer's directory and frozen evidence are read-only. No new worktree
@@ -83,3 +88,63 @@ remain the actual missing-peer reports, not fixture certification. The peer
 directory/report is still absent, so no `final-decision.md` is created yet.
 Final join requires real peer evidence, successful numerical admission and manual
 PC/source-value review. This record does not claim that final join is complete.
+
+## Peer checkpoint takeover and completed join
+
+The preceding pending statements describe the pre-delivery milestone and are
+superseded here. The user supplied `partial-direct-baseline-delivery-2`; the
+coordinator fetched and inspected peer tip `7315427`, then merged it by
+`4a72620`. Only the peer's `compiler-explanation/` directory was added by that
+checkpoint; frozen source/performance artifacts were preserved. The user
+authorized taking over the unfinished delivery after the peer's quota ran out.
+
+The actual report passes the independent checker: `status="consistent"`, two
+rows admitted, report hash
+`f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2`,
+29 evidence hashes checked. All 34 original case-artifact hashes match.
+Regenerating the peer analyzer in a temporary output directory reproduced the
+accounting and all 29 hashed files byte-for-byte. The tracked verification and
+comparison reports now describe this actual delivery. Their manual-review flag
+is deliberately automated-only; `final-decision.md` supplies partial acceptance.
+
+The coordinator independently enumerated ten syntactic quantizer paths per
+compiler, with block1 entry/copy/output branches fixed by the saved wrapper and
+pointer bounds. All paths have identical direct-SP sequences: GCC10 9 loads/9
+stores, GCC15 63/84. The zero-block-only store is excluded; history-copy loop
+iterations add no direct-SP events. Manual partial-sum, sample-slot and ABI
+review supports the bounded emitted-code account. Costs and residuals are
+recorded in `final-decision.md`; no compiler-pass or universal spill claim is made.
+
+### Takeover delegation and independent review
+
+- `/root/peer_checkpoint_assembly_audit` was requested as `gpt-6-astra`, high,
+  fresh read-only context. It returned a model usage-limit error before findings.
+  It provides no independent review evidence.
+- `/root/peer_checkpoint_sol_review` was requested as the permitted fallback
+  `gpt-6-sol`, high, fresh read-only context. It independently checked hashes,
+  binary bytes, saved outputs/history, counters, paths and value-flow claims,
+  then reviewed the integrated final decision and claim documents. It found no
+  substantive issue; its editorial request to distinguish historical pending
+  text from current status was addressed in this record and `review.md`.
+- No child edited files or delegated. At most two child task slots were used,
+  including the failed Astra attempt. Requested settings were accepted; actual
+  backend routing telemetry is unavailable. This substitution was disclosed.
+
+### Final verification
+
+Coordinator commands, all successful:
+
+```bash
+python3 -m unittest discover -s research/fir-sharing-probe/explanation-check -p 'test_*.py' -v
+python3 -m unittest discover -s research/fir-sharing-probe/compiler-explanation -p 'test_*.py' -v
+python3 -m unittest discover -s research/fir-sharing-probe/independent-check -p 'test_*.py' -v
+FIR_UBSAN=1 python3 -m unittest discover -s research/fir-sharing-probe/partial-direct -p 'test_*.py' -v
+python3 -m unittest discover -s research/fir-baseline -p 'test_*.py' -v
+python3 research/fir-sharing-probe/explanation-check/verify.py --peer-report research/fir-sharing-probe/compiler-explanation/accounting.json --output-dir research/fir-sharing-probe/explanation-check
+```
+
+Counts: 18 + 6 + 27 + 3 + 10 = **64 passing tests**; actual-report CLI:
+consistent, two rows. No code correction was needed for the peer checkpoint.
+No new target build, simulator execution, performance row or literature
+retrieval was performed. The proposal and paper outline now incorporate only
+the accepted partial explanation. The bounded investigation is complete.
