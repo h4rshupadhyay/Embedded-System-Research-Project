@@ -1,5 +1,13 @@
 # Contribution positioning: exact FIR implementations on the pinned Cortex-M0 model
 
+**Final-join update, 20 October 2026:** The four-row fairness check is complete.
+Partial direct wins both GCC 10 configurations; demand Hcub wins both GCC 15
+configurations. Ordinary transposition wins only GCC 15/block1 against partial
+direct. The corrected finding supports a bounded compiler-dependent empirical
+study, with no new-algorithm or established field-novelty claim. See
+[the completed evidence and decision](join-review.md). The literature mapping
+and prospective decision criteria below were prepared before the peer result.
+
 20 October 2026. Task 2 literature and decision note; prepared before receiving the peer's partial-direct results. This note changes no coefficients, implementation, frozen result or experimental claim. It supports the [missing-baseline plan](../../../docs/superpowers/plans/2026-10-20-fir-baseline-check.md) and retains the [pursuit audit's](../../fir-sharing-pursuit-audit.md) conditional decision.
 
 The defensible question is whether exact arithmetic specialization, FIR representation and source emission order produce a useful, explainable tradeoff **after competing forms receive comparable range information**. The current artifact can support a bounded empirical case study. It does not establish a new MCM algorithm, a new width-selection method, optimal scheduling, or physical energy savings. The peer comparison is pending; no outcome is assumed below.

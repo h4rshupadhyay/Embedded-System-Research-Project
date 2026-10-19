@@ -5,14 +5,21 @@ and ranking experiments are retained in Git history rather than this branch's
 working tree. Use the files under
 `research/fir-baseline/` and `research/fir-sharing-probe/` for this task.
 
-**Current decision:** conditional continuation. Before claiming a useful benefit
-from mixed-width transposed FIR/Hcub, test the missing equally range-specialized
-direct baseline. No novel FIR algorithm or physical energy measurement is claimed.
+**Current decision:** continue as a bounded empirical study. The equally
+range-specialized direct baseline is now measured and independently checked:
+partial direct wins both GCC 10 configurations; demand Hcub wins both GCC 15
+configurations. No novel FIR algorithm or physical energy measurement is claimed.
 The professor is the final evaluator, not a project guide.
 
 ## Start here
 
+**Next parallel assignments:** [shared compiler-explanation plan](docs/superpowers/plans/2026-10-20-fir-compiler-explanation.md),
+[peer prompt for Sol 6.0/Astra](docs/peer-sol-6.0-compiler-handoff.md), and
+[user verification/claim prompt](docs/user-fir-explanation-handoff.md).
+These assignments are prepared; their explanatory analysis has not been run.
+
 - [Current proposal](professor-topic-proposal.md).
+- [Completed baseline comparison and research decision](research/fir-sharing-probe/independent-check/join-review.md).
 - [Pursuit audit and decision gate](research/fir-sharing-pursuit-audit.md).
 - [Two parallel assignments and result contract](docs/superpowers/plans/2026-10-20-fir-baseline-check.md).
 - [Prompt to give the peer's coding agent](docs/peer-sol-6.1-handoff.md).
@@ -25,12 +32,14 @@ the [independent checker, reference cases and comparison](research/fir-sharing-p
 are ready, alongside the contribution-positioning note. On 20 October 2026,
 all 26 checker tests passed and 24 historical rows (6,168 output comparisons)
 were reverified from saved raw evidence; regenerated reports matched the saved
-files exactly. No new target measurements were run.
+files exactly. That independent milestone used historical artifacts only.
 
-Task 1's peer implementation and four measurement rows are still absent from
-this workspace. The final comparison and research decision remain pending their
-delivery, independent verification, and arithmetic/assembly review. Only the
-final comparison joins the tasks.
+Task 1 and the final join are now complete. Four target performance runs and two
+signed-edge runs passed 1,750 output comparisons; the independent checker
+accepted all four new performance rows. The final expanded peer suite passed
+three UBSan tests and the checker passed 27 tests. Arithmetic and all four
+emitted kernels were reviewed. See the [join record](research/fir-sharing-probe/independent-check/join-review.md)
+for the corrected mixed result, resource costs, raw-evidence archive and limits.
 
 ## Host setup and checks
 

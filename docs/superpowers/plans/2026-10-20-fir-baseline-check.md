@@ -14,8 +14,15 @@
 26 tests passed; 24 historical rows and 6,168 output comparisons checked from
 saved raw evidence; regenerated reports match the saved files exactly. See the
 [checker handoff](../../../research/fir-sharing-probe/independent-check/README.md).
-Task 1's peer directory/results are absent from this workspace. The final join
-and research decision remain pending; no new target measurements are asserted.
+**Final join completed, 20 October 2026:** The peer kernel and runner were merged.
+The final expanded host suite passed three UBSan tests. Four target performance
+runs and two signed-edge runs passed 1,750 outputs, history and guards; all four
+performance rows passed independent verification. The checker now passes 27
+tests, including an explicit adapter for the delivered `compiler_flags.compile`
+layout. Manual arithmetic and four-build assembly review is recorded in the
+[completed join](../../../research/fir-sharing-probe/independent-check/join-review.md).
+Partial direct wins both GCC 10 configurations; demand Hcub wins both GCC 15
+configurations. The fixed gate is complete; algorithmic novelty is unestablished.
 
 ## Global constraints and shared inputs
 
@@ -60,12 +67,12 @@ unsigned probe_state_bytes(void);
 
 `BLOCK` is 1 or 64 for target builds; host mixed-partition tests use capacity 64. Getter indices `0..46` return chronological retained input history, matching the existing direct wrapper. Coefficients/tap count are compile-time constants, matching `spec_direct`; use the existing unrolled direct organization with the two fixed partial sums as the only substantive arithmetic change.
 
-- [ ] Write correctness tests first: full-scale coefficient-sign-aligned windows whose total exceeds int32, signed extrema, negative quantization boundaries, initial zeros and mixed blocks `1/64/3/16` with short final calls. Assert every output and final history against arbitrary-precision convolution; test guards. Run and record the expected initial failure before implementation.
-- [ ] Implement two int32 accumulators, widening before the final int64 addition and quantizing once. Document why every product, partial prefix and final operation fits its type. Do not introduce a dynamic overflow check or change coefficients.
-- [ ] Run host tests with UBSan and nonrecovering undefined-behavior checks; retain logs.
-- [ ] Build and run exactly the four performance configurations. Save generated sources, binary/disassembly, raw stdout/events, flags, hashes, state bytes and stack/code diagnostics. Check output/history/guards. Keep additional signed-edge correctness checks separate from timed comparison rows.
-- [ ] Inspect target assembly: confirm native-width partial accumulation and identify the final wide reduction. Record unexpected compiler lowering rather than assuming source types determine instructions.
-- [ ] Deliver `results.json` and a short `notes.md`, reporting gains or losses equally.
+- [x] Peer recorded tests-first implementation and the expected initial missing-kernel failure; signed edges, quantization boundaries, mixed blocks, history and guards are covered.
+- [x] Two int32 accumulators widen before final int64 addition and quantize once; prefix/product/final range review is recorded in the join.
+- [x] Final expanded suite passed all three tests with nonrecovering UBSan; log retained in the independent-check directory.
+- [x] Exactly four performance configurations and two separate signed-edge runs completed; raw evidence and diagnostics archived.
+- [x] All four assemblies reviewed for native-width partials and final wide reduction; addresses recorded in the join.
+- [x] Peer sources, runner, notes and completed `results.json` delivered; mixed outcome reported.
 
 **Done when:** Four reproducible performance rows exist, all correctness gates pass, and the exact arithmetic proof and emitted-code check are documented. No favorable speedup is required.
 

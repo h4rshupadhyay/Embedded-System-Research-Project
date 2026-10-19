@@ -1,6 +1,6 @@
 {
   "stage": "post-audit missing-control",
-  "status": "target measurements pending: pinned simulator and both Arm compilers unavailable here",
+  "status": "target rows generated; assembly review pending",
   "design_sha256": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
   "sharing_results_sha256": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
   "filter": "speech_minphase48",
@@ -68,10 +68,19 @@
       "version": "arm-none-eabi-gcc (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203"
     }
   },
-  "compilers": {},
+  "compilers": {
+    "gcc10": {
+      "sha256": "702dfc4dd0b34ee43ecd164a6db6ada4b5583d8945b17bbea3ebe223db765480",
+      "version": "arm-none-eabi-gcc (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+    },
+    "gcc15": {
+      "sha256": "94f60cfbad1091ad86c2435d8b804e82c0fc7e4c16302183c9a60cddd5318b1a",
+      "version": "arm-none-eabi-gcc (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203"
+    }
+  },
   "simulator_commit": "c55ea1b1926b792d7aabb7e3495b55a7b69ef134",
   "simulator_expected_sha256": "d1fb48bed5f52e94813372054a086ee003cffb56b98dec3052ef4bfe397d9195",
-  "simulator_sha256": null,
+  "simulator_sha256": "d1fb48bed5f52e94813372054a086ee003cffb56b98dec3052ef4bfe397d9195",
   "measurement_boundary": "same measured() GPIO marker and process_stream as probe.py; includes complete 257-sample stream, recurring calls, history/state copying and final short call; excludes setup and O:/H:/G:/M: printing",
   "model": {
     "simulator_commit": "c55ea1b1926b792d7aabb7e3495b55a7b69ef134",
@@ -97,24 +106,767 @@
     "host_harness.c": "0116df84e45f014685ba1e5d36e5e2ea54922e209b21aebea44e68d4a66437c1"
   },
   "host_check_status": "UBSan GCC 13.3 passed before explicit negative-boundary vectors were added; final expanded suite passed with MinGW GCC 6.3 without UBSan; kernel.c unchanged between runs",
-  "rows": [],
-  "target_edge_checks": [],
-  "pending_configurations": [
+  "rows": [
     {
       "compiler": "gcc10",
-      "block": 1
+      "filter": "speech_minphase48",
+      "variant": "partial_direct32x2",
+      "maximum": 32768,
+      "block": 1,
+      "samples": 257,
+      "state_allocation_bytes": 98,
+      "stack_usage": [
+        {
+          "function": "probe_init",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_state_bytes",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_get_state",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_process",
+          "bytes": 72,
+          "kind": "static"
+        },
+        {
+          "function": "hex32",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "hex16",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "process_stream",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "main",
+          "bytes": 32,
+          "kind": "static"
+        }
+      ],
+      "elf_size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2166\t      0\t   1160\t   3326\t    cfe\t/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.elf\n",
+      "mnemonics": [
+        "adcs",
+        "add",
+        "adds",
+        "ands",
+        "asrs",
+        "b",
+        "bcc",
+        "bcs",
+        "beq",
+        "bgt",
+        "bhi",
+        "bl",
+        "blt",
+        "bne",
+        "bx",
+        "cmp",
+        "ldr",
+        "ldrh",
+        "ldrsh",
+        "lsls",
+        "lsrs",
+        "mov",
+        "movs",
+        "muls",
+        "negs",
+        "nop",
+        "pop",
+        "push",
+        "stmia",
+        "str",
+        "strb",
+        "strh",
+        "sub",
+        "subs",
+        "sxth",
+        "uxth"
+      ],
+      "instructions": 198670,
+      "ram_reads": 29304,
+      "ram_writes": 17225,
+      "flash_reads": 1032,
+      "flash_writes": 0,
+      "taken_branches": 13622,
+      "flash_fetches": 198928,
+      "bl": 258,
+      "mul": 2827,
+      "raw_tick_delta": 258049,
+      "arm_zero_ws_cycles": 273733,
+      "estimated_cpu_energy_nj": 266394.09385,
+      "outputs_verified": 257,
+      "retained_state_verified": true,
+      "guards_verified": true,
+      "directory": "build/target/gcc10-b1",
+      "artifacts": {
+        "commands.json": "e42afadef20aca57f9516a6618cd2dd469ef3f6d339b667e92a1dee862e11162",
+        "firmware.bin": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+        "firmware.c": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+        "firmware.disasm": "8085bd153b56cd955ff026d6cf708526316cb56639157d040dba626c109e0449",
+        "firmware.elf": "b9af7852c2af97ee5b2d182de3d870f9a7dd0dbfd0efdaa5540cb2e1c938742b",
+        "firmware.map": "c9d79cdeae3256e637c6a5c83337ea559d85683f1d55bf6056682ee7c31f67eb",
+        "firmware.o": "b255648d149a4a5432ec5ca9a1a370e5496142168791df05d02dba22b6a81e31",
+        "firmware.stderr": "83e89fe00b57b5d585c47ac41d9d37235490c3155ef2121b60ab287d1a1e67ba",
+        "firmware.stdout": "f2959cca91d1bfe09a3531b8825baa98da3cfe89610fe3c5849e60e5dc517275",
+        "firmware.su": "f1b45870226539c1076b2e918de17bf672a17db706b64ef6b293a9809b64caa5",
+        "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "kernel.o": "866f4c90af341dbbe109f1d8528d7a599853fac232353798f4ffe30d1a18ddc7",
+        "kernel.su": "9e185a1d59a781b6f411d321489a51561d3ff1d4042d8198b75f87b55bfb8058",
+        "probe_process.disasm": "d35f1ec9ad3154d6ef89859a348f76d48dc98766d0023e33224e7901b28b9d7e",
+        "size.txt": "fbc211608fe1e9c1104b2dca5613c9bdf96c901fb0172ca01cf15de95fcb50e1",
+        "startup.o": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138"
+      },
+      "assembly_review_status": "pending manual inspection of probe_process.disasm"
     },
     {
       "compiler": "gcc10",
-      "block": 64
+      "filter": "speech_minphase48",
+      "variant": "partial_direct32x2",
+      "maximum": 32768,
+      "block": 64,
+      "samples": 257,
+      "state_allocation_bytes": 224,
+      "stack_usage": [
+        {
+          "function": "probe_init",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_state_bytes",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_get_state",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_process",
+          "bytes": 72,
+          "kind": "static"
+        },
+        {
+          "function": "hex32",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "hex16",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "process_stream",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "main",
+          "bytes": 32,
+          "kind": "static"
+        }
+      ],
+      "elf_size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2330\t      0\t   1280\t   3610\t    e1a\t/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.elf\n",
+      "mnemonics": [
+        "adcs",
+        "add",
+        "adds",
+        "ands",
+        "asrs",
+        "b",
+        "bcs",
+        "beq",
+        "bge",
+        "bgt",
+        "bhi",
+        "bl",
+        "bls",
+        "bne",
+        "bx",
+        "cmp",
+        "ldr",
+        "ldrh",
+        "ldrsh",
+        "lsls",
+        "lsrs",
+        "mov",
+        "movs",
+        "muls",
+        "negs",
+        "nop",
+        "pop",
+        "push",
+        "stmia",
+        "str",
+        "strb",
+        "strh",
+        "sub",
+        "subs",
+        "sxth",
+        "uxth"
+      ],
+      "instructions": 129481,
+      "ram_reads": 13695,
+      "ram_writes": 1848,
+      "flash_reads": 779,
+      "flash_writes": 0,
+      "taken_branches": 2051,
+      "flash_fetches": 129487,
+      "bl": 6,
+      "mul": 2827,
+      "raw_tick_delta": 147814,
+      "arm_zero_ws_cycles": 149911,
+      "estimated_cpu_energy_nj": 147984.280421,
+      "outputs_verified": 257,
+      "retained_state_verified": true,
+      "guards_verified": true,
+      "directory": "build/target/gcc10-b64",
+      "artifacts": {
+        "commands.json": "4c290341538013bcaf1399e2ee9399b2c529f757695f905ceb93a4a29f387d8f",
+        "firmware.bin": "fb08c19043261b1db7644a8ca4f0749f46b893e51a4d685e2a5cf339fbe23f11",
+        "firmware.c": "ea27bf917eda6cc4aa4cb21c059ee3ffec83cbe208efa80854ff4ea7c7851d27",
+        "firmware.disasm": "dc1b9a0b4fd5d18f569e516efd368d45ee44f506a4944f2a8f84ea525c873ad2",
+        "firmware.elf": "aceb2381d4c770b5898e3647b6bfb90a6b1979801af1bfc213a4b125809ed466",
+        "firmware.map": "3c68654d4ccb2492734302c954c8574a09a6ee7a5b60ca6c05f08c3c82b9ec9d",
+        "firmware.o": "b1595e9da64c078e0eab8118f80c9c4799946cc89b1f416dad39862304b3ea2e",
+        "firmware.stderr": "4158dbe93cee73b311877a3c97783587cd332c4feabd6fac168daa2d39a204bc",
+        "firmware.stdout": "0c4f77d889d66edf9c60e005dc4252daf1edd174b70d5d3e6200643ff919413d",
+        "firmware.su": "83295b8fd6c5e1dda4759f56eeb9d78f639b2dd1f7ad9747b5c16c5fd8edb7fe",
+        "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "kernel.o": "7d0588a64d6868a87c346eb706032ebc0be9920cc0d0cb7bf04f5909ff0159c2",
+        "kernel.su": "a29bd07f98f92cbc33ab6fbd7c7cdbe1fdd878f00baa5fadee4ae85dd01d39cc",
+        "probe_process.disasm": "f34ddaff40cb0537eca43f596e648248eadcf459debd157fe06ccca13184f3d7",
+        "size.txt": "456b4ca150f6099b471c6c5e6c20acfbb324866c8627c135a24d81f035ac375e",
+        "startup.o": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138"
+      },
+      "assembly_review_status": "pending manual inspection of probe_process.disasm"
     },
     {
       "compiler": "gcc15",
-      "block": 1
+      "filter": "speech_minphase48",
+      "variant": "partial_direct32x2",
+      "maximum": 32768,
+      "block": 1,
+      "samples": 257,
+      "state_allocation_bytes": 98,
+      "stack_usage": [
+        {
+          "function": "probe_init",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_state_bytes",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_get_state",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_process",
+          "bytes": 240,
+          "kind": "static"
+        },
+        {
+          "function": "hex32",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "hex16",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "process_stream",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "main",
+          "bytes": 32,
+          "kind": "static"
+        }
+      ],
+      "elf_size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2490\t      0\t   1160\t   3650\t    e42\t/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.elf\n",
+      "mnemonics": [
+        "adcs",
+        "add",
+        "adds",
+        "ands",
+        "asrs",
+        "b",
+        "bcc",
+        "bcs",
+        "beq",
+        "bgt",
+        "bhi",
+        "bl",
+        "bls",
+        "blt",
+        "bne",
+        "bx",
+        "cmp",
+        "ldr",
+        "ldrh",
+        "ldrsh",
+        "lsls",
+        "lsrs",
+        "mov",
+        "movs",
+        "muls",
+        "negs",
+        "nop",
+        "pop",
+        "push",
+        "stmia",
+        "str",
+        "strb",
+        "strh",
+        "sub",
+        "subs",
+        "uxth"
+      ],
+      "instructions": 242490,
+      "ram_reads": 43182,
+      "ram_writes": 36500,
+      "flash_reads": 1032,
+      "flash_writes": 0,
+      "taken_branches": 13753,
+      "flash_fetches": 242748,
+      "bl": 258,
+      "mul": 2827,
+      "raw_tick_delta": 335153,
+      "arm_zero_ws_cycles": 350968,
+      "estimated_cpu_energy_nj": 336863.793775,
+      "outputs_verified": 257,
+      "retained_state_verified": true,
+      "guards_verified": true,
+      "directory": "build/target/gcc15-b1",
+      "artifacts": {
+        "commands.json": "dbf40fc8accc06c9b69a2333670af5849385247caf0bdc1ab4c514b921d04463",
+        "firmware.bin": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+        "firmware.c": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+        "firmware.disasm": "33218f294375f99062ec906c47033ca8aa2cc902fe4d47c7e4de788f6dda27ad",
+        "firmware.elf": "6b8641198d529b3414684cd48afaadbedb982b0b8b55ad8185b74011accc6493",
+        "firmware.map": "72ede55e7216e7536306a3a85df0ca44d72b085aa35f6310cbb399c15c483dc0",
+        "firmware.o": "75996684b1450bcc0e302042f7f7b65e225374ffca8cde0876caa4555db43ea8",
+        "firmware.stderr": "22ca6390cac14083a9bc9660932583b928ba401d51568a36066395a4b6a247bc",
+        "firmware.stdout": "638c3396f461b242c9b7c7fad1dca7a5aa538ecc5118ef6419e111de5280da83",
+        "firmware.su": "012903a68eccd7706fa5449ef0a3d75fa9524b17d338bd7270350b2f338fa445",
+        "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "kernel.o": "805d887680cce62d1e70b274f654698b5915c29425bccff9db9e36796a66d76f",
+        "kernel.su": "83849d03b87054823f068e1b236d024ca39101d3ae718e7b4e7c8756f5abe75f",
+        "probe_process.disasm": "ae5a68dda1cec76702ff4bf08227ab8eb8f8765ffb8866fc4d5f176850470154",
+        "size.txt": "b8a5e01ce24c4cfc9e8335e5ac5cc98437464d0e11b47bfb92b7c13ef1b3fbf1",
+        "startup.o": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138"
+      },
+      "assembly_review_status": "pending manual inspection of probe_process.disasm"
     },
     {
       "compiler": "gcc15",
-      "block": 64
+      "filter": "speech_minphase48",
+      "variant": "partial_direct32x2",
+      "maximum": 32768,
+      "block": 64,
+      "samples": 257,
+      "state_allocation_bytes": 224,
+      "stack_usage": [
+        {
+          "function": "probe_init",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_state_bytes",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_get_state",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_process",
+          "bytes": 232,
+          "kind": "static"
+        },
+        {
+          "function": "hex32",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "hex16",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "process_stream",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "main",
+          "bytes": 32,
+          "kind": "static"
+        }
+      ],
+      "elf_size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2462\t      0\t   1280\t   3742\t    e9e\t/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.elf\n",
+      "mnemonics": [
+        "adcs",
+        "add",
+        "adds",
+        "ands",
+        "asrs",
+        "b",
+        "bcc",
+        "bcs",
+        "beq",
+        "bgt",
+        "bhi",
+        "bl",
+        "bls",
+        "blt",
+        "bne",
+        "bx",
+        "cmp",
+        "ldmia",
+        "ldr",
+        "ldrh",
+        "ldrsh",
+        "lsls",
+        "lsrs",
+        "mov",
+        "movs",
+        "muls",
+        "negs",
+        "nop",
+        "pop",
+        "push",
+        "stmia",
+        "str",
+        "strb",
+        "strh",
+        "sub",
+        "subs",
+        "uxth"
+      ],
+      "instructions": 122005,
+      "ram_reads": 19504,
+      "ram_writes": 12283,
+      "flash_reads": 1031,
+      "flash_writes": 0,
+      "taken_branches": 1278,
+      "flash_fetches": 122011,
+      "bl": 6,
+      "mul": 2827,
+      "raw_tick_delta": 156062,
+      "arm_zero_ws_cycles": 157385,
+      "estimated_cpu_energy_nj": 152553.69972899999,
+      "outputs_verified": 257,
+      "retained_state_verified": true,
+      "guards_verified": true,
+      "directory": "build/target/gcc15-b64",
+      "artifacts": {
+        "commands.json": "8439cafb814ebae7eb00975b44a84a578ec56738dc485406b301e6791d211e6a",
+        "firmware.bin": "140f1e446715a79b1384f1b46a274c8ac03bb097879b959ad4c7a743a7418638",
+        "firmware.c": "ea27bf917eda6cc4aa4cb21c059ee3ffec83cbe208efa80854ff4ea7c7851d27",
+        "firmware.disasm": "05a4f3364aef5273933fe1720187b05febbd070383e3e2ffd10807cf7da19f5c",
+        "firmware.elf": "54d0da67af9bb48011250aa7def73e62051fe04c17ea890f2e9b1add153322a4",
+        "firmware.map": "b61e21bbeabcbf7395b511a4550055d3fa59bfaf5d3efadd99e133e60f700a9f",
+        "firmware.o": "09af7bb20a13eb0db5eb293d340bfe5af1b7785e460ce834ef1d0fc498c00516",
+        "firmware.stderr": "41eebb960aa57ef88d6682ac9953400fac87fc8dca0490aea3914e122123125a",
+        "firmware.stdout": "fb93329e041c689ecec884f2a05e33d408c867c8fcb4326edbf1207be13019a3",
+        "firmware.su": "c3a4d7f10615611c052d25ccabe82659a4c50d0a1b5b798a85afe2e78ece45e4",
+        "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "kernel.o": "e992fc62b0e2262e997238754cdcf5cdc7d48cc61f4cfe08eed1284bc0dcc9dc",
+        "kernel.su": "62628f6d21e636132b433f10d0cfb3b76d8f6762a3d515a42b0e1319f5dbf1da",
+        "probe_process.disasm": "bb22e0899da1d36cf4ac37cd6af007ccd1a813e3fd11f6345b2c2440477d494d",
+        "size.txt": "8e4396eaa08d67c61a52bb436a84bffae8b58264e2038a6218e1d779dce792ef",
+        "startup.o": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138"
+      },
+      "assembly_review_status": "pending manual inspection of probe_process.disasm"
     }
-  ]
+  ],
+  "target_edge_checks": [
+    {
+      "compiler": "gcc10",
+      "filter": "speech_minphase48",
+      "variant": "partial_direct32x2",
+      "maximum": 32768,
+      "block": 64,
+      "samples": 361,
+      "state_allocation_bytes": 224,
+      "stack_usage": [
+        {
+          "function": "probe_init",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_state_bytes",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_get_state",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_process",
+          "bytes": 72,
+          "kind": "static"
+        },
+        {
+          "function": "hex32",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "hex16",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "process_stream",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "main",
+          "bytes": 32,
+          "kind": "static"
+        }
+      ],
+      "elf_size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2538\t      0\t   1696\t   4234\t   108a\t/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/edge-gcc10-b64/firmware.elf\n",
+      "mnemonics": [
+        "adcs",
+        "add",
+        "adds",
+        "ands",
+        "asrs",
+        "b",
+        "bcs",
+        "beq",
+        "bge",
+        "bgt",
+        "bhi",
+        "bl",
+        "bls",
+        "bne",
+        "bx",
+        "cmp",
+        "ldr",
+        "ldrh",
+        "ldrsh",
+        "lsls",
+        "lsrs",
+        "mov",
+        "movs",
+        "muls",
+        "negs",
+        "nop",
+        "pop",
+        "push",
+        "stmia",
+        "str",
+        "strb",
+        "strh",
+        "sub",
+        "subs",
+        "sxth",
+        "uxth"
+      ],
+      "instructions": 181499,
+      "ram_reads": 19168,
+      "ram_writes": 2532,
+      "flash_reads": 1097,
+      "flash_writes": 0,
+      "taken_branches": 2826,
+      "flash_fetches": 181506,
+      "bl": 7,
+      "mul": 3971,
+      "raw_tick_delta": 207075,
+      "arm_zero_ws_cycles": 209955,
+      "estimated_cpu_energy_nj": 207272.23216199997,
+      "outputs_verified": 361,
+      "retained_state_verified": true,
+      "guards_verified": true,
+      "directory": "build/target/edge-gcc10-b64",
+      "artifacts": {
+        "commands.json": "f65fe10a370ea62a3002b21db5ff114ba467c18e018395ce8e8824ace8664eef",
+        "firmware.bin": "fa99569e1e9c1c08fc917e762132f0bb68d02c2b4e9bbc182ee188cf1e1c9c37",
+        "firmware.c": "acbb35fb9e0e5657faef1ea0474f19dfcf7e1a40444eab2d40d4f4ff6cf2ffa1",
+        "firmware.disasm": "856c2a12bef8f667def2e4789cfe0008c5f7981c247d935fda147183720f44cd",
+        "firmware.elf": "b11b4b9bed840ec011eeae66cdeb63ed770df21f164ff021e64f11c10f8ae798",
+        "firmware.map": "b380c280aab8ef19bdebf112bd18d6c1b3c7d97993196d337683a63761272094",
+        "firmware.o": "164732db8592d7640147670c454edb2b64fcce4db8e803573eea1474699e0a11",
+        "firmware.stderr": "4fb24e4551a1d4522b95a5873f14d1bbabe8bab87070554877c1408c9380478f",
+        "firmware.stdout": "8b4878abec133f2fc8e2734e4f012ef66284269b47a23231a32cca99b6602ed0",
+        "firmware.su": "7c68b74b5c20fd4d7ad9c5ea224238c3ec2fce27f2d3bb6a214abcc109f5f886",
+        "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "kernel.o": "7d0588a64d6868a87c346eb706032ebc0be9920cc0d0cb7bf04f5909ff0159c2",
+        "kernel.su": "c87f9446ab1523c4a11a9432730e2d454a95c8342b3694699a80b197ba0f4a77",
+        "probe_process.disasm": "f34ddaff40cb0537eca43f596e648248eadcf459debd157fe06ccca13184f3d7",
+        "size.txt": "0de8435b0e79dd67bb80903830bbb269591e5bdfd57f4197b927ced698da2260",
+        "startup.o": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138"
+      },
+      "assembly_review_status": "pending manual inspection of probe_process.disasm"
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "variant": "partial_direct32x2",
+      "maximum": 32768,
+      "block": 64,
+      "samples": 361,
+      "state_allocation_bytes": 224,
+      "stack_usage": [
+        {
+          "function": "probe_init",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_state_bytes",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_get_state",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "probe_process",
+          "bytes": 232,
+          "kind": "static"
+        },
+        {
+          "function": "hex32",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "hex16",
+          "bytes": 12,
+          "kind": "static"
+        },
+        {
+          "function": "process_stream",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "main",
+          "bytes": 32,
+          "kind": "static"
+        }
+      ],
+      "elf_size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2670\t      0\t   1696\t   4366\t   110e\t/home/harsh/EsProj/research/fir-sharing-probe/partial-direct/build/target/edge-gcc15-b64/firmware.elf\n",
+      "mnemonics": [
+        "adcs",
+        "add",
+        "adds",
+        "ands",
+        "asrs",
+        "b",
+        "bcc",
+        "bcs",
+        "beq",
+        "bgt",
+        "bhi",
+        "bl",
+        "bls",
+        "blt",
+        "bne",
+        "bx",
+        "cmp",
+        "ldmia",
+        "ldr",
+        "ldrh",
+        "ldrsh",
+        "lsls",
+        "lsrs",
+        "mov",
+        "movs",
+        "muls",
+        "negs",
+        "nop",
+        "pop",
+        "push",
+        "stmia",
+        "str",
+        "strb",
+        "strh",
+        "sub",
+        "subs",
+        "uxth"
+      ],
+      "instructions": 170904,
+      "ram_reads": 27296,
+      "ram_writes": 17158,
+      "flash_reads": 1452,
+      "flash_writes": 0,
+      "taken_branches": 1744,
+      "flash_fetches": 170911,
+      "bl": 7,
+      "mul": 3971,
+      "raw_tick_delta": 218508,
+      "arm_zero_ws_cycles": 220305,
+      "estimated_cpu_energy_nj": 213553.18231700003,
+      "outputs_verified": 361,
+      "retained_state_verified": true,
+      "guards_verified": true,
+      "directory": "build/target/edge-gcc15-b64",
+      "artifacts": {
+        "commands.json": "37831ca648f763e8018c7b292523ef050aabc8bf737eb4e68e07ed602e3f388d",
+        "firmware.bin": "8e8b153366a5d90ac9e558b7b42daaf4f2524f29b5de3b36398d3bb493aaf996",
+        "firmware.c": "acbb35fb9e0e5657faef1ea0474f19dfcf7e1a40444eab2d40d4f4ff6cf2ffa1",
+        "firmware.disasm": "8faa0c42454335cbcce57ae619fdf636cef114705829b736fd3bad45947df252",
+        "firmware.elf": "90348c21f68fc476e22ae1469d975e7409df574220465f9ff4ad98f6878296c9",
+        "firmware.map": "7163ce085ac061273140d55ee43e2ed33ed3022055271f87fac72f682239ce2a",
+        "firmware.o": "e2e5101bc9564ad7908b1f9df8afae320bb8a1a207a71044853b66eb8874f722",
+        "firmware.stderr": "5220a3a9e59f961c532d3babbe54460905fba706d00b68dc09022bb0f5a026f8",
+        "firmware.stdout": "684ab7b720d71be01406f968390d865b8dfb0fd5f7556604abbca26dba096d62",
+        "firmware.su": "b1ed63d29b255ac40f6ddf231b2582bce68a65c9c399e8592dea197dabadc56a",
+        "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "kernel.h": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "kernel.o": "e992fc62b0e2262e997238754cdcf5cdc7d48cc61f4cfe08eed1284bc0dcc9dc",
+        "kernel.su": "2379310451601b180c8e42ae3ed51489238f2f89541a8f5e32a6ffdf4a98d833",
+        "probe_process.disasm": "bb22e0899da1d36cf4ac37cd6af007ccd1a813e3fd11f6345b2c2440477d494d",
+        "size.txt": "9f44b00d42e1941a936f46c897769168e8802f7c02d90bfc21340f8215942867",
+        "startup.o": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138"
+      },
+      "assembly_review_status": "pending manual inspection of probe_process.disasm"
+    }
+  ],
+  "pending_configurations": []
 }

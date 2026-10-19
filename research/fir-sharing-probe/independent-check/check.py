@@ -333,6 +333,10 @@ def verify_peer(data, peer_root, baseline, h, x):
             require(identity.get(key) == baseline['compilers'][compiler][key],
                     f'peer compiler {compiler} {key} mismatch; use the pinned environment')
         flags = identity.get('flags', data.get('flags'))
+        if flags is None:
+            # Explicit adapter for the delivered peer runner's split layout.
+            # Apply the same admission checks to its compile argument list.
+            flags = data.get('compiler_flags', {}).get('compile')
         require(isinstance(flags, list) and all(isinstance(f, str) for f in flags),
                 f'peer compiler {compiler} needs an explicit flags list')
         needed = {'-mcpu=cortex-m0', '-mthumb', '-std=c11', '-ffreestanding', '-fno-builtin',
@@ -362,7 +366,8 @@ def comparison_markdown(result):
         'and final short-block work. All costs below are estimates, not physical measurements.', '',
         'Each historical row was independently checked against raw output/history/guards, '
         'event counters, artifact hashes, ELF symbols and compiler stack reports. '
-        + ('Four peer evidence rows passed those checks; manual arithmetic and assembly review remains required.'
+        + ('Four peer evidence rows passed those checks. Arithmetic and assembly review is '
+           'separate; see [join-review.md](join-review.md) for the recorded final join.'
            if result.get('peer_rows') else
            'The peer result remains pending until four complete rows pass the same checks.'), '',
         '| Compiler | Block | Variant | Status | Cycles/output | Modeled nJ/output | '
@@ -410,10 +415,11 @@ def comparison_markdown(result):
         'library/kernel frames) are recorded separately in `kernel_function_frames` in '
         '`verification.json`. Static compiler reports do not establish maximum live '
         'stack or physical SRAM high-water usage.', '',
-        'Decision remains conditional. These already-inspected cases are a missing-control '
-        'check, not fresh held-out validation. A surviving benefit/tradeoff still needs '
-        'an emitted-code explanation and the prior-art distinctions in [positioning.md](positioning.md). '
-        'An erased benefit requires revising the headline; no peer values are inferred.', '']
+        'These already-inspected cases are a missing-control check, not fresh held-out '
+        'validation. Automated evidence checks do not establish a research contribution. '
+        'See [join-review.md](join-review.md) for the final arithmetic/assembly review '
+        'and research decision, and [positioning.md](positioning.md) for prior-art '
+        'distinctions. No peer values are inferred when evidence is absent.', '']
     return '\n'.join(lines)
 
 

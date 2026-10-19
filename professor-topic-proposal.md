@@ -2,7 +2,7 @@
 
 **Working title:** Input-Range Contracts and Arithmetic Width in Energy-Efficient Fixed-Point FIR Software
 
-**Latest assessment, 20 October 2026:** Pursue the sharing/state-width direction conditionally. An independent audit identified an important missing comparator: exact int32 direct partial sums followed by an int64 reduction. It is mathematically safe for the headline minimum-phase48 case and could reduce the reported advantage. Test that fixed control on the existing two compilers and block sizes before committing to the paper's central claim. No new performance result is asserted. [Pursuit audit](research/fir-sharing-pursuit-audit.md).
+**Latest result, 20 October 2026:** The fixed fairness check is complete. An exact direct implementation with two int32 partial sums and an int64 reduction wins both GCC 10 configurations; demand Hcub wins both GCC 15 configurations. Against this stronger direct control, Hcub costs 4.33%/5.00% more modeled CPU energy with GCC 10 (blocks 1/64), and 24.06%/5.23% less with GCC 15. Ordinary transposition wins only GCC 15/block1. Four timed and two signed-edge binaries passed 1,750 output comparisons; the independent checker admitted all four timed rows, and arithmetic/emitted code were reviewed. Continue as a bounded empirical study of arithmetic fairness and compiler-dependent representation costs. A new FIR algorithm and substantial field novelty remain unestablished. [Completed comparison and decision](research/fir-sharing-probe/independent-check/join-review.md).
 
 **Follow-up, 20 October 2026:** A bounded exact coefficient-sharing probe now supplies a sharper empirical direction: how suffix-state widths and graph emission affect transposed FIR software versus strong direct/folded/library controls. Across three fixed designs and two compilers, transposed kernels win 12/24 modeled-energy groups and lose the other 12. Width and same-graph controls explain important gains and failures. This supports developing the empirical paper; it does not establish a new FIR algorithm. See [the completed probe and recommended direction](research/fir-sharing-findings.md). The earlier study below remains its experimental foundation.
 
@@ -92,6 +92,10 @@ A new benchmark is not automatically a meaningful research contribution. Before 
 
 The timing-estimate and modeled-energy winners agree in all 108 **original pilot** groups. With stronger controls in the separate validation and padding supplement they differ in 39/108 groups, but the modeled-energy penalty of choosing the timing winner is only approximately 0.020–2.001%. These close, physically unvalidated model rankings do not establish a robust time–energy proxy-failure contribution. The original quantization-skipping method is also not the recommended main method.
 
-## What to tell the professor now
+## Earlier validation pitch (before the final baseline check)
 
 > We completed a reproducible exact-output FIR experiment and tested a fixed arithmetic-based selection rule on six new designs and two compilers. With stronger library controls it selects the modeled-energy winner in 77/108 groups; library and state-management effects explain important failures. We can present a controlled empirical study and reproducible artifact. We have not yet established a new FIR algorithm or a substantial field-level novelty claim, and our energy figures remain model estimates.
+
+## What to tell the professor now
+
+> We completed the missing arithmetic-fairness comparison. Narrow direct partial sums reverse the apparent transposed advantage with GCC 10, while Hcub retains an advantage with GCC 15. The corrected result is compiler-dependent and has explicit code, state and frame tradeoffs. This supports a reproducible empirical project about fair FIR implementation comparisons; it does not establish a new algorithm or physical energy savings.

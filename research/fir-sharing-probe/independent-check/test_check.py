@@ -263,6 +263,22 @@ class HistoricalEvidenceTests(unittest.TestCase):
         self.assertNotIn('peer result remains pending', text)
         self.assertIn('Hcub cost relative to new direct:', text)
 
+    def test_peer_accepts_delivered_compile_flags_layout_and_rejects_incompatible_flags(self):
+        # Same historical evidence as the schema test above, never reported as
+        # new measurements. The delivered runner separates compile/link flags.
+        data = self.peer_metadata()
+        data['compiler_flags'] = {'compile': data.pop('flags'), 'link': [], 'lto': False}
+        data['rows'] = [dict(copy.deepcopy(r), variant='partial_direct32x2')
+                        for r in self.data['rows'] if r['filter'] == 'speech_minphase48'
+                        and r['maximum'] == 32768 and r['variant'] == 'spec_direct']
+        rows = checker.verify_peer(data, RAW_ROOT, self.data, self.h, self.x)
+        self.assertEqual(len(rows), 4)
+        for flag in ('-flto', '-O3', '-mcpu=cortex-m3'):
+            changed = copy.deepcopy(data)
+            changed['compiler_flags']['compile'].append(flag)
+            with self.subTest(flag=flag), self.assertRaisesRegex(ValueError, 'flags'):
+                checker.verify_peer(changed, RAW_ROOT, self.data, self.h, self.x)
+
     def test_rejects_artifact_path_outside_the_result_directory(self):
         row = copy.deepcopy(self.row)
         row['directory'] = '../outside-the-probe'

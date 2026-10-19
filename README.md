@@ -10,6 +10,7 @@ Start with the [project guide](README-FIR.md) and
 - [Independent verification and comparison](research/fir-sharing-probe/independent-check/README.md)
 - [Peer baseline handoff](docs/peer-sol-6.1-handoff.md)
 
-The independent verification task is complete. The peer's missing direct
-baseline and final research comparison remain pending. Results are simulator
-and model estimates, not physical energy measurements.
+The peer baseline and final comparison are complete: partial direct wins both
+GCC 10 configurations; demand Hcub wins both GCC 15 configurations. See the
+[verified decision and evidence](research/fir-sharing-probe/independent-check/join-review.md).
+Results are simulator and model estimates, not physical energy measurements.

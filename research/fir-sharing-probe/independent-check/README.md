@@ -3,6 +3,14 @@
 Task 2 of the [two-person plan](../../../docs/superpowers/plans/2026-10-20-fir-baseline-check.md).
 This directory owns verification and comparison; it contains no peer kernel.
 
+**Final join complete, 20 October 2026:** Four new performance rows independently
+passed; the two signed-edge target runs also match the independent reference.
+The final host suite passed three UBSan tests, and the checker passes 27 tests.
+Arithmetic and all four emitted kernels were manually reviewed. Partial direct
+wins both GCC 10 configurations; demand Hcub wins both GCC 15 configurations.
+See [the join review and decision](join-review.md) and [comparison.md](comparison.md).
+The remaining text describes the independently completed checker and its limits.
+
 The checker uses Python's standard library and arbitrary-precision integers. It
 does not import the generator, baseline reference, peer code, or their expected
 values. It reads existing artifacts without executing firmware or compiling a
@@ -14,7 +22,7 @@ From the original workspace, which retains ignored raw artifacts:
 
 ```bash
 python3 -m unittest discover -s research/fir-sharing-probe/independent-check -p 'test_*.py' -v
-python3 research/fir-sharing-probe/independent-check/check.py
+python3 research/fir-sharing-probe/independent-check/check.py --peer-results research/fir-sharing-probe/partial-direct/results.json
 ```
 
 From a normal checkout with a separate copy of the original artifact tree:
@@ -30,6 +38,10 @@ Without raw artifacts, portable reference/parser/model tests still run and the
 historical integration tests explicitly skip. A saved report does not remove the
 need to retain the raw evidence for independent rechecking.
 
+Use `--peer-results` for the joined report. Omitting it deliberately checks only
+the historical evidence and writes a pending-peer comparison; use a separate
+`--output-dir` for that historical-only report to preserve the joined reports.
+
 Outputs are [verification.json](verification.json), [comparison.md](comparison.md)
 and [reference-cases.json](reference-cases.json). The last file specifies expected
 outputs and per-call history for signed edges, zeros, sign-aligned overflow cases
@@ -38,7 +50,7 @@ specification, not a record of target executions. [positioning.md](positioning.m
 maps the possible contribution against primary sources and keeps the decision
 conditional until the peer evidence arrives.
 
-## Once the peer returns
+## Recheck the delivered peer evidence
 
 ```bash
 python3 research/fir-sharing-probe/independent-check/check.py --peer-results research/fir-sharing-probe/partial-direct/results.json
@@ -54,6 +66,12 @@ at the top level or under each compiler entry. `model` copies the explicit
 historical parameter fields from the frozen sharing results. This checks the
 pinned environment; a different compiler build requires a separate comparability
 decision rather than silently treating it as identical.
+
+The delivered runner uses `compiler_flags.compile` instead of `flags`. The
+explicit adapter now accepts that argument list with the same required and
+incompatible-flag checks; regression coverage rejects LTO, `-O3` and a different
+CPU. Actual saved compile/link commands were also inspected during the join.
+The source format and artifact filename conventions required no further adapter.
 
 Each row's `directory` is relative to the peer result directory. `artifacts`
 maps filenames relative to the case directory to SHA256 digests. Preserve the
@@ -106,4 +124,5 @@ historical fixture's filenames and literal C input format described above,
 not every possible artifact layout allowed by the plan's general schema.
 Alternate peer layouts require an adapter at the final join; rejection of an
 unrecognized layout is not a numerical failure. Actual peer arithmetic,
-assembly and UBSan evidence still require review when delivered.
+assembly and final UBSan evidence have now been reviewed in [join-review.md](join-review.md);
+the automated checker remains narrower than that manual review.

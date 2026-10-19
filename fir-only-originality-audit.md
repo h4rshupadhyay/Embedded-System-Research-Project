@@ -1,6 +1,14 @@
-# FIR-only new-topic audit
+    # FIR-only new-topic audit
 
 19 October 2026. Strict FIR-only, simulator-only college research scope. Old implementation grid and processor constraints do not apply. Targeted primary-source check, not exhaustive priority certification.
+
+**Current follow-up, 20 October 2026:** The topic screen below records an earlier
+stage. The current exact-software fairness gate is complete: partial direct wins
+both GCC 10 configurations, and demand Hcub wins both GCC 15 configurations.
+The outcome supports a bounded empirical project; a new FIR algorithm and
+substantial field novelty remain unestablished. Use the
+[completed comparison and decision](research/fir-sharing-probe/independent-check/join-review.md)
+and [current proposal](professor-topic-proposal.md) for the present direction.
 
 ## Decision
 

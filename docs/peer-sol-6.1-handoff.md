@@ -1,5 +1,11 @@
 # Peer handoff prompt for GPT-6.1 Sol
 
+**Historical assignment — completed.** For the next parallel investigation using
+the peer's available **Sol 6.0 and Astra**, use the
+[new compiler-explanation prompt](peer-sol-6.0-compiler-handoff.md) and
+[user verification prompt](user-fir-explanation-handoff.md). The original prompt
+below records the already delivered partial-direct baseline task.
+
 Give the following prompt to your coding agent after cloning the repository.
 The repository access URL is public; no collaborator invitation is needed to
 clone it. To contribute without write access, use a fork and pull request, or
