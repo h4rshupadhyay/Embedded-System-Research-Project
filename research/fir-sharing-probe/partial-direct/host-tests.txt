@@ -1,0 +1,8 @@
+test_full_scale_overflow_and_saturation (test_kernel.KernelTests.test_full_scale_overflow_and_saturation) ... ok
+test_negative_floor_boundaries_and_mixed_calls (test_kernel.KernelTests.test_negative_floor_boundaries_and_mixed_calls) ... ok
+test_signed_extrema_and_short_final_call (test_kernel.KernelTests.test_signed_extrema_and_short_final_call) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.446s
+
+OK
