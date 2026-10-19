@@ -1,0 +1,22 @@
+{
+  "analyzer_invocation": [
+    "python",
+    "research/fir-sharing-probe/compiler-explanation/analyze.py",
+    "--evidence-root",
+    "research/fir-sharing-probe/partial-direct",
+    "--output-dir",
+    "research/fir-sharing-probe/compiler-explanation"
+  ],
+  "source_input_hashes": {
+    "selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+    "sharing-results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+    "partial-results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+    "kernel.c": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+    "evidence-archive": "8aa24f417ff266a2be2a850750defe06d8cbc46766b03d0ba67639f0a154cb83",
+    "gcc10-bin": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+    "gcc15-bin": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470"
+  },
+  "diagnostic_replay": "not performed",
+  "measurement_convention": "raw Executed insns includes the closing GPIO STR; subtract one instruction, with no RAM-write adjustment, matching the frozen result parser",
+  "provenance": "two restored BLOCK=1 cases from the versioned six-case target-evidence archive; each source artifact verified against the frozen results manifest"
+}
