@@ -32,7 +32,7 @@ existing frozen JSON/assembly evidence. No new target measurements.
 - Sol 6.1 (`gpt-6.1-sol`, high) handles scientific decisions, authoring and review.
   Luna 6 (`gpt-6-luna`, low) receives complete mechanical task contracts.
   Record requested settings; runtime routing is unverified unless exposed.
-- Each child gets a clean context and owned files. Maximum two active children;
+- Each child gets a clean context and owned files. Maximum three active children with disjoint ownership;
   no recursive delegation. Reuse a worker for bounded corrections.
 - User authorized executing stage 1 and then stage 2. Complete stage 1 first;
   stage 2's first task is the formulation/closest-work gate, not an assumed
@@ -58,8 +58,8 @@ existing frozen JSON/assembly evidence. No new target measurements.
 
 - [x] Sol 6.1 chooses the exact hypothesis, rationale, chronology and verdict.
 - [x] Luna 6 records the ten consumed source hashes in `source-manifest.json`.
-- [ ] Sol 6.1 writes the design with exact numerical-tool interfaces/tests.
-- [ ] Coordinator records implementation contracts and durable progress.
+- [x] Sol 6.1 writes the design with exact numerical-tool interfaces/tests.
+- [x] Coordinator records implementation contracts and durable progress.
 
 ## Task 2: Derived results through TDD
 
@@ -70,44 +70,46 @@ existing frozen JSON/assembly evidence. No new target measurements.
 hypothesis verdict, using the design's exact interface. Default production input
 paths are in the repo; a supplied fixture root permits isolated rejection tests.
 
-- [ ] One test -> observed RED -> minimal implementation -> observed GREEN per
+- [x] One test -> observed RED -> minimal implementation -> observed GREEN per
   behavior. Use independently known literals; do not mirror the implementation.
-- [ ] Check four earlier advantages and four corrected margins/verdict; reject
+  See `tdd-log.md` for the disclosed initial sequencing error and correction;
+  this completion does not claim the initial full draft was test-first.
+- [x] Check four earlier advantages and four corrected margins/verdict; reject
   changed identities, missing/duplicate configurations and inconsistent totals;
   equality fails strict superiority.
-- [ ] Generate actual production tables/results and inspect exact denominators.
-- [ ] Sol 6.1 reviews the numerical task against its contract.
+- [x] Generate actual production tables/results and inspect exact denominators.
+- [x] Sol 6.1 reviews the numerical task against its contract.
 
 ## Task 3: Substantive manuscript and figures
 
 **Files:** `manuscript.md`, `figures/`, `references.md` if needed.
 
-- [ ] Sol 6.1 writes a self-contained paper: abstract; problem and defended
+- [x] Sol 6.1 writes a self-contained paper: abstract; problem and defended
   hypothesis; related work; arithmetic proof and implementations; reproducible
   protocol; complete results; code explanation; threats; conclusion; references
   and concise artifact appendix. Target 4,000-5,500 main-prose words as guidance,
   not a quality gate. Avoid padding or work-log narrative.
-- [ ] Include baseline-correction and SP-cost figures generated from saved data;
+- [x] Include baseline-correction and SP-cost figures generated from saved data;
   tables must agree with the audited exporter. Add representative assembly.
-- [ ] Cite primary sources precisely; distinguish actual source access and scope.
+- [x] Cite primary sources precisely; distinguish actual source access and scope.
   No invented novelty, bibliographic metadata or validation results.
 
 ## Task 4: PDF, independent review and completion
 
 **Files:** `render_paper.py`, `manuscript.pdf`, `README.md`, `review.md`.
 
-- [ ] Luna 6 renders the finalized manuscript with readable fonts, equations,
+- [x] Luna 6 renders the finalized manuscript with readable fonts, equations,
   tables, figures, citations and page numbers; retain source and build command.
-- [ ] Render PDF pages to PNG and inspect every page for clipping, blank pages,
+- [x] Render PDF pages to PNG and inspect every page for clipping, blank pages,
   missing glyphs, table overflow and figure legibility. Fix and repeat affected
   checks as needed. Keep intermediate renders ignored.
-- [ ] Fresh Sol 6.1 reviews scientific argument, hypothesis strength/chronology,
+- [x] Fresh Sol 6.1 reviews scientific argument, hypothesis strength/chronology,
   evidence, references and derived numbers. Handle important findings and record
   their disposition. Final PDF must reflect reviewed text.
-- [ ] Run appropriate suites, production export, identity/link checks, and PDF
+- [x] Run appropriate suites, production export, identity/link checks, and PDF
   extraction/visual checks. Record exact results, commit stage 1 locally and
   update project navigation/status.
-- [ ] Mark stage 1 complete only when substantive review and artifact QA pass.
+- [x] Mark stage 1 complete only when substantive review and artifact QA pass.
   Then resume the separately bounded stage 2 formulation gate.
 
 ## Resume contract

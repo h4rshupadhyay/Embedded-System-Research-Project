@@ -6,6 +6,14 @@ affect fixed-point FIR software on a pinned Cortex-M0 simulator and CPU cost mod
 Start with the [project guide](README-FIR.md) and
 [current proposal](professor-topic-proposal.md).
 
+The stage 1 [IEEE paper](research/fir-paper/manuscript.pdf),
+[editable manuscript](research/fir-paper/manuscript.md), and
+[reproduction guide](research/fir-paper/README.md) present the completed study.
+Its retrospective hypothesis that Hcub retains the earlier advantage in all
+four configurations is rejected: corrected direct wins both GCC10 cases,
+while Hcub wins both GCC15 cases. The paper explains the comparison and its
+limits. [Execution checkpoint](research/fir-paper/PROGRESS.md).
+
 - [Experiment and independent-check plan](docs/superpowers/plans/2026-10-20-fir-baseline-check.md)
 - [Independent verification and comparison](research/fir-sharing-probe/independent-check/README.md)
 - [Peer baseline handoff](docs/peer-sol-6.1-handoff.md)

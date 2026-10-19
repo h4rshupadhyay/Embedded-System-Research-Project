@@ -3,3 +3,6 @@
 
 # Preserve the CSV writer's original CRLF bytes in research artifacts.
 *.csv -text whitespace=cr-at-eol
+
+# Matplotlib emits intentional spaces in generated SVG path data.
+research/fir-paper/figures/*.svg -whitespace

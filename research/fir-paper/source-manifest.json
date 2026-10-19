@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "description": "Frozen source identities consumed by the stage 1 derived analysis; hashes record identity, not semantic validation.",
+  "files": {
+    "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+    "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+    "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003",
+    "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+    "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+    "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa"
+  }
+}

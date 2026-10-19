@@ -2,6 +2,15 @@
 
 **Working title:** Input-Range Contracts and Arithmetic Width in Energy-Efficient Fixed-Point FIR Software
 
+**Stage 1 paper:** [IEEE manuscript PDF](research/fir-paper/manuscript.pdf),
+[editable source](research/fir-paper/manuscript.md), and
+[evidence/reproduction guide](research/fir-paper/README.md). The paper explicitly
+assesses whether the earlier four-case Hcub advantage survives the stronger
+direct comparator and rejects that retrospective robustness hypothesis, with
+two compiler-dependent winners. It defends the question and reports complete
+costs, exactness evidence, partial attribution and scope limits. This assessment
+is not described as a preregistered prediction or a new FIR algorithm.
+
 **Compiler explanation, 20 October 2026:** The bounded review of the two existing block1 direct binaries is complete with partial attribution. GCC15 retains and rotates history samples through stack slots before testing the output-loop exit. Its extra executed stack transfers account for all additional RAM traffic and 85.02% of the modeled CPU-energy increase over GCC10. The residual instruction/branch costs and responsible compiler pass remain unresolved. Independent numerical, binary/control-flow and value-flow checks support this fixed-fixture explanation; no new target measurements were made. The result strengthens the empirical account without establishing a new algorithm or physical savings. [Final explanation decision](research/fir-sharing-probe/explanation-check/final-decision.md), [paper outline](research/fir-sharing-probe/explanation-check/paper-outline.md).
 
 **Latest result, 20 October 2026:** The fixed fairness check is complete. An exact direct implementation with two int32 partial sums and an int64 reduction wins both GCC 10 configurations; demand Hcub wins both GCC 15 configurations. Against this stronger direct control, Hcub costs 4.33%/5.00% more modeled CPU energy with GCC 10 (blocks 1/64), and 24.06%/5.23% less with GCC 15. Ordinary transposition wins only GCC 15/block1. Four timed and two signed-edge binaries passed 1,750 output comparisons; the independent checker admitted all four timed rows, and arithmetic/emitted code were reviewed. Continue as a bounded empirical study of arithmetic fairness and compiler-dependent representation costs. A new FIR algorithm and substantial field novelty remain unestablished. [Completed comparison and decision](research/fir-sharing-probe/independent-check/join-review.md).

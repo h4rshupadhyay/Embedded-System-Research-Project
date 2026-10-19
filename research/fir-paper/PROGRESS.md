@@ -6,8 +6,9 @@ User authorized completion of stage 1, followed by stage 2, on 20 October 2026.
 
 ## Current state
 
-Stage 1: **in progress**. Stage 2: **queued after stage 1**.
-Current task: scientific design and exact exporter contract.
+Stage 1: **complete; local checkpoint commit follows this record**.
+Stage 2: **next: formulation/closest-work gate; no optimizer authorized by completion**.
+Current task: checkpoint Stage 1, then investigate the bounded Stage 2 question.
 
 ## Decisions
 
@@ -29,9 +30,11 @@ Current task: scientific design and exact exporter contract.
 
 ## Delegation
 
+The following rows describe the previous session; their work is complete.
+
 | Task | Agent | Requested settings | Owned output | Status |
 |---|---|---|---|---|
-| Scientific design | `/root/stage1_research_decisions` | `gpt-6.1-sol`, high, clean context | Stage 1 design spec | Running; hypothesis recommendation received |
+| Scientific design | `/root/stage1_research_decisions` | `gpt-6.1-sol`, high, clean context | Stage 1 design spec | Complete; see design spec and review |
 | Source identity inventory | `/root/stage1_source_manifest` | `gpt-6-luna`, low, clean context | `source-manifest.json` | Complete; 10 hashes independently read back |
 
 ## Completed checks
@@ -44,10 +47,9 @@ Current task: scientific design and exact exporter contract.
 
 ## Next actions
 
-1. Receive spec and exact mechanical exporter contract from Sol 6.1.
-2. Dispatch Luna 6 for sequential RED/GREEN numerical-tool slices.
-3. Sol 6.1 authors paper while mechanical figure/render tasks proceed under
-   separate file ownership; then fresh Sol 6.1 review and PDF QA.
+1. Commit the completed Stage 1 artifact locally.
+2. Execute the separate Stage 2 formulation gate
+   in `research/fir-novelty-establishment-plan.md`.
 
 ## Recovery
 
@@ -56,3 +58,112 @@ Check agent status and files; do not redo completed inventory or experiments.
 Use the same worker for a bounded fix. Record each completion, check result and
 commit here. Stage 2 is a separate research formulation gate; no optimizer is
 implemented merely because stage 1 finishes.
+
+## Execution update
+
+- Scientific design complete and checkpointed by `e08b197`; exact public numerical
+  interfaces and IEEE conference-format assumption are in the design spec.
+- User specified IEEE format. Output will use the actual IEEEtran conference
+  class, two columns, anonymous author block, editable LaTeX and PDF.
+- Sol 6.1 now owns substantive manuscript authoring. Luna 6 owns numerical
+  export through RED/GREEN cycles; its initial untested full draft was preserved
+  privately and production reset to the tested helper after a sequencing error.
+  Subsequent TDD evidence must reflect actual failures, not retroactive claims.
+- Ruling: permit a third concurrent child for independent IEEE rendering only.
+  Scientific manuscript, numerical exporter and format renderer have disjoint
+  write ownership. This avoids blocking mechanical setup on scientific prose.
+- Isolated tools: `/tmp/fir-paper-render-env` has ReportLab 5.0.1, pypdf 6.21.1,
+  markdown-it-py 4.2.0 and pypandoc_binary 1.17 (Pandoc 3.9);
+  `/tmp/fir-paper-tools/tectonic` is official Tectonic 0.17.0.
+  Final IEEE rendering uses Pandoc/Tectonic rather than ReportLab.
+
+## Task 2 numerical completion
+
+Luna exporter and plots are complete after fresh Sol 6.1 review corrections.
+Fourteen numerical tests pass; production CLI emits exactly 20 rows and H_R
+passes `[false, false, true, true]`. Reviewer independently reconstructed all
+20 energies/cycles and reproduced three original false admissions, then
+confirmed their rejection after fixes. Diagnostic provenance and deterministic
+PNG/SVG assets are present. See `tdd-log.md` for honest RED/GREEN history,
+including the initial sequencing correction and shadowed-test-class defect.
+
+Sol 6.1 authored the full manuscript (~4,100 main-prose words) and independently
+reviewed science: central hypothesis is meaningful within its retrospective
+finite-case scope; no substantive manuscript revision requested.
+
+At the previous session's end, the remaining task was actual IEEE PDF render,
+stable renderer tests, every-page visual QA and final checks/navigation/commit.
+Requested independent reviewer: `/root/stage1_independent_review`,
+`gpt-6.1-sol`, high, fresh context; review tracked in `review.md`.
+Requested renderer: `/root/stage1_ieee_render`, `gpt-6-luna`, low, fresh context.
+Its first integration compilation downloads Tectonic bundle; renderer fixes
+include subtitle handling across blank lines and preserving reference links.
+
+Runtime dependency note: plain `unittest discover` does not execute pytest-style
+renderer tests. Run numeric unittest and renderer pytest commands separately.
+
+## Resumed verification, 20 October 2026
+
+- Read project navigation, historical handoffs, this checkpoint, the complete
+  Stage 1 plan/spec, scientific review, manuscript and Stage 2 research plan.
+  The peer baseline and compiler explanation are complete; do not restart them.
+- Fresh numerical suite: 14 tests passed. Fresh renderer suite: two tests passed,
+  neither skipped, with the recorded isolated Python/Tectonic tools.
+- Regenerated numerical outputs into `/tmp/fir-paper-resume-results`; results,
+  tables and six-source manifest match the delivered files byte-for-byte.
+- Checked 75 local Markdown/image links across project navigation and paper
+  notes: no missing targets.
+- Rendered and inspected all nine original PDF pages. Tables, both figures,
+  range argument, references and resource appendices are readable. Found one
+  definite formatting defect: the question title has an extra colon before its
+  subtitle. Long Appendix C archive commands initially looked clipped; subsequent
+  PDF bounding-box inspection shows complete wrapped paths ending at x=556.38 pt,
+  within the approximately 563.3 pt text edge. No archive-command fix is needed.
+- Requested bounded mechanical corrections from `/root/stage1_render_finish`,
+  `gpt-6-luna`, low, clean context; ownership restricted to renderer/tests,
+  template/filter, render log and regenerated TeX/PDF. Scientific text and
+  frozen evidence remain unchanged. Final every-page QA is recorded below.
+
+### Additional numerical defect found during the resume audit
+
+- Coordinator code inspection found a stale `h` variable in the second comparison
+  loop. The exported Hcub-versus-ordinary percentages used GCC15/block64 Hcub
+  energy in all four cells. Three JSON values were wrong; the last was already
+  correct. Principal margins, H_R, figures, tables and manuscript statements were
+  unaffected.
+- `/root/stage1_incremental_fix`, requested `gpt-6-luna`, low, clean context,
+  added an independent four-cell Decimal regression, observed its failure,
+  selected the current cell's Hcub total and regenerated the report. See the
+  appended RED/GREEN record in `tdd-log.md`.
+- Fresh coordinator run: all 15 numerical tests pass. Only those three incremental
+  percentages differ from the original draft JSON. Correct vector, in the fixed
+  four-cell order: +3.410536%, -0.172202%, -4.284890%, -6.686823%. The manuscript's
+  qualitative comparison and 6.69% GCC15/block64 saving agree with this correction.
+
+## Stage 1 completion evidence
+
+- Final renderer corrects question-title punctuation. The initially inherited
+  PDF also preceded the source's equation-format update by 38 seconds; the new
+  PDF now reflects the existing Markdown formulas as typeset mathematics.
+  No manuscript content or scientific claim changed during this resume.
+- The complete renderer initially hit a Tectonic SIGSEGV while scanning fonts
+  inside the sandbox. Repeating the same build with approved external cache/font
+  access succeeded. See `render-log.md` for exact commands and warnings.
+- Final PDF: nine US-letter IEEEtran conference pages, anonymous authors,
+  249,263 bytes. Coordinator rendered all nine pages with Poppler and inspected
+  each image, including title/abstract, equations, all seven tables, both
+  figures, assembly, five references, hashes and reproduction commands. No
+  clipping, overlap, blank pages or missing glyphs were observed. Long paths
+  wrap within the column; ordinary underfull-box warnings have no visible defect.
+- Numerical tests: 15 passed; renderer tests: three passed, neither integration
+  nor preservation skipped. Final numerical CLI succeeds; saved results, tables
+  and six-source manifest match a separate fresh export byte-for-byte. Four
+  regenerated plot files match saved PNG/SVG assets byte-for-byte.
+- Combined final command with the recorded isolated Python/Tectonic environment:
+  `python -m pytest research/fir-paper -q`: 18 passed. Generated Matplotlib SVG
+  path-data spaces are preserved; `.gitattributes` exempts those two generated
+  vectors from source whitespace checks rather than changing reproducible bytes.
+- Independent scientific acceptance is in `review.md`; the later auxiliary
+  exporter correction and its separate verification are disclosed there.
+- Raw target reproduction was not repeated. The existing archive/ignored-build
+  limitations remain documented in the reproduction guide. No push is implied.

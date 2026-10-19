@@ -117,9 +117,13 @@ GCC15's 24.056759%/5.229188%. No physical winner follows.
 
 ## Manuscript and artifact design
 
-Deliver `research/fir-paper/manuscript.md` plus an anonymous conventional PDF,
+Deliver `research/fir-paper/manuscript.md` plus an anonymous IEEE conference PDF,
 auditable `results.json`, `tables.md`, `source-manifest.json`, figures and
-reproduction instructions. Main prose target is 4,000–5,500 words, excluding
+reproduction instructions. The user subsequently specified IEEE format. With
+no named journal/venue, use the real IEEEtran conference class in two columns,
+anonymous author block and numbered IEEE references; no invented affiliation.
+Use a separate supplement for appendices if needed to preserve legibility.
+Main prose target is 4,000–5,000 words, excluding
 references, table cells, captions, appendices and code. Word count is a size
 check, not permission to pad the paper. A suitable title is *Does an Exact FIR
 Sharing Advantage Survive a Stronger Direct Baseline? A Cortex-M0 Model Case

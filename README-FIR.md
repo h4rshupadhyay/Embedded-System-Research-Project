@@ -13,10 +13,20 @@ The professor is the final evaluator, not a project guide.
 
 ## Start here
 
-**Next parallel assignments:** [shared compiler-explanation plan](docs/superpowers/plans/2026-10-20-fir-compiler-explanation.md),
-[peer prompt for Sol 6.0/Astra](docs/peer-sol-6.0-compiler-handoff.md), and
-[user verification/claim prompt](docs/user-fir-explanation-handoff.md).
-These assignments are prepared; their explanatory analysis has not been run.
+**Stage 1 paper:** [IEEE conference PDF](research/fir-paper/manuscript.pdf),
+[editable manuscript](research/fir-paper/manuscript.md), and
+[reproduction guide](research/fir-paper/README.md). The paper assesses and rejects
+the retrospective hypothesis that the earlier Hcub modeled-energy advantage
+survives an equally specialized direct control in all four configurations.
+The [execution checkpoint](research/fir-paper/PROGRESS.md) records the resumable
+Sol 6.1/Luna 6 workflow and actual verification status.
+
+The compiler-explanation assignments are complete with accepted partial
+attribution. See the [final decision](research/fir-sharing-probe/explanation-check/final-decision.md).
+The [shared plan](docs/superpowers/plans/2026-10-20-fir-compiler-explanation.md)
+and historical [peer](docs/peer-sol-6.0-compiler-handoff.md)/[user](docs/user-fir-explanation-handoff.md)
+prompts remain available for provenance. Stage 2 is a separate formulation/search
+investigation; its proposed method has not been implemented or validated.
 
 - [Current proposal](professor-topic-proposal.md).
 - [Completed baseline comparison and research decision](research/fir-sharing-probe/independent-check/join-review.md).
