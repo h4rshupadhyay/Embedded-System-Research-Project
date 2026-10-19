@@ -1,0 +1,138 @@
+[
+  {
+    "name": "empty",
+    "events": {
+      "instructions": 0,
+      "ram_reads": 0,
+      "ram_writes": 0,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 0,
+      "flash_fetches": 0,
+      "bl": 0,
+      "mul": 0,
+      "raw_tick_delta": 0
+    },
+    "expected_arm_cycles": 0,
+    "arm_estimated_cycles": 0
+  },
+  {
+    "name": "alu5",
+    "events": {
+      "instructions": 5,
+      "ram_reads": 0,
+      "ram_writes": 0,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 0,
+      "flash_fetches": 5,
+      "bl": 0,
+      "mul": 0,
+      "raw_tick_delta": 5
+    },
+    "expected_arm_cycles": 5,
+    "arm_estimated_cycles": 5
+  },
+  {
+    "name": "mul4",
+    "events": {
+      "instructions": 4,
+      "ram_reads": 0,
+      "ram_writes": 0,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 0,
+      "flash_fetches": 4,
+      "bl": 0,
+      "mul": 4,
+      "raw_tick_delta": 4
+    },
+    "expected_arm_cycles": 4,
+    "arm_estimated_cycles": 4
+  },
+  {
+    "name": "memory3",
+    "events": {
+      "instructions": 6,
+      "ram_reads": 3,
+      "ram_writes": 3,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 0,
+      "flash_fetches": 6,
+      "bl": 0,
+      "mul": 0,
+      "raw_tick_delta": 12
+    },
+    "expected_arm_cycles": 12,
+    "arm_estimated_cycles": 12
+  },
+  {
+    "name": "branch3",
+    "events": {
+      "instructions": 6,
+      "ram_reads": 0,
+      "ram_writes": 0,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 2,
+      "flash_fetches": 6,
+      "bl": 0,
+      "mul": 0,
+      "raw_tick_delta": 8
+    },
+    "expected_arm_cycles": 10,
+    "arm_estimated_cycles": 10
+  },
+  {
+    "name": "pushpop4",
+    "events": {
+      "instructions": 2,
+      "ram_reads": 4,
+      "ram_writes": 4,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 0,
+      "flash_fetches": 2,
+      "bl": 0,
+      "mul": 0,
+      "raw_tick_delta": 7
+    },
+    "expected_arm_cycles": 10,
+    "arm_estimated_cycles": 10
+  },
+  {
+    "name": "call",
+    "events": {
+      "instructions": 3,
+      "ram_reads": 0,
+      "ram_writes": 0,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 3,
+      "flash_fetches": 4,
+      "bl": 1,
+      "mul": 0,
+      "raw_tick_delta": 7
+    },
+    "expected_arm_cycles": 10,
+    "arm_estimated_cycles": 10
+  },
+  {
+    "name": "pop_pc",
+    "events": {
+      "instructions": 4,
+      "ram_reads": 2,
+      "ram_writes": 2,
+      "flash_reads": 0,
+      "flash_writes": 0,
+      "taken_branches": 3,
+      "flash_fetches": 5,
+      "bl": 1,
+      "mul": 0,
+      "raw_tick_delta": 10
+    },
+    "expected_arm_cycles": 15,
+    "arm_estimated_cycles": 15
+  }
+]

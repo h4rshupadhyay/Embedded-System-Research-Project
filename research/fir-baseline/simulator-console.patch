@@ -1,0 +1,13 @@
+diff --git a/sim_support.h b/sim_support.h
+index 87ddf51..ae456d7 100644
+--- a/sim_support.h
++++ b/sim_support.h
+@@ -91,7 +91,7 @@ char simLoadData_internal(u32 address, u32 *value, u32 falseRead); // falseRead
+ char simStoreData(u32 address, u32 value);
+ 
+ // Controls whether the program output prints to the simulator's console or is not printed at all
+-#define DISABLE_PROGRAM_PRINTING 1
++#define DISABLE_PROGRAM_PRINTING 0
+ 
+ // Simulator debugging
+ #define PRINT_INST 1                                    // diss_printf(): disassembly printing?

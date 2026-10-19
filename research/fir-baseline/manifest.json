@@ -1,0 +1,32 @@
+{
+  "python": "3.10.12",
+  "numpy": "1.26.4",
+  "hashes": {
+    "kernels.c": "0aacc31ea1fddcca54ab8d301ca354625a6ac6a9ba60fe71e3d0d9c907befe56",
+    "kernels.h": "00c2e621e86ee69d6080dd55d4a2bdaa587f6c5284f33e0ad027c12a57703b0c",
+    "firmware.c": "f12d38a7dd21a6c2aa93e3323a711819d95211e422df0266bfc492b8d30cbf7e",
+    "cmsis_firmware.c": "d1cc2b93c2a931676df37bf6dd116fa17e5a7367dac7aa667843371c5b7db28d",
+    "startup.s": "8859527adcb9943e5a648fcea01fdf8a2506ee27173b08fc55d82cac3a5b4054",
+    "link.ld": "37fd6a919b5887762492571804dc8cdfbc5f87afadae4b31734297d52b55d4ca",
+    "simulator.py": "c22ecb25b2b8ef212b62a473ee69a7c1f9d9fd51a8e48b5765e3138b3ef9ac43",
+    "experiment.py": "1b20d313a433c30dedc98eb52393389836e7d19ff23625d082c9f48686df72df",
+    "cmsis_baseline.py": "53820825d8f4884670d1da861f681d99308ab2d8c0bdf7ce617513ea4ca62a5b",
+    "fetch_cmsis.py": "a3d4e10d34b62a4a2ae5efd55bb7cc5678c8b6d30781764f577c41c674ee1940",
+    "test_kernels.py": "57f89accd3e0c8d0469e1e8f500bb58b443d8b09164e8c9adee3c7967d1431ed",
+    "analyze.py": "fd9a5f439438bc9ba7ead2d4902d01c42e2f70d3ecc9e743e4dc0bef8db09d0b",
+    "verify_results.py": "dbf69f3bdefee7913b0edbf70b5186423a23d181092c2bff82e1aabe3212b966",
+    "simulator-console.patch": "970f73c9644170deddbb57b4a3077a5d8f027a12a3296c403fd04719d54aa0c8",
+    "results.json": "746a751ff4edc9b211bd37724f78b8c627250fc12842ed29b982660f76038d6c",
+    "results.csv": "d944dbf5f05f66ef977d381339e0c65e680b4c4596bcea358a8e5df510e6d8be",
+    "analysis.json": "aa21146261ca26c652542659bb3736763217827822095b095bd5d167a3909517",
+    "microchecks.json": "dc3f19cc7ff97f4e22d12c6d740997e9473003af083e7b728613bd1d243ae924",
+    "energy-comparison.png": "3799031b12abb2398e94ccda1319bc2b288af6bd935b1b1772923909a1bb3fa6",
+    "energy-comparison.svg": "f9e0be9c1196638b9a064165dc3b2a59a87595533dedb5c8e54a29163d2b7bc6",
+    "README.md": "0a9be10bd90a372f15b5959591a55d88cfc391bdbfa3ececed0f66b889e32408"
+  },
+  "verified_rows": 720,
+  "distinct_target_executions": 486,
+  "target_output_comparisons": 124902,
+  "mismatches": 0,
+  "limitation": "Numerical/target-model evidence; no hardware or novelty verification"
+}

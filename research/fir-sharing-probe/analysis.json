@@ -1,0 +1,2997 @@
+{
+  "result_sha256": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+  "analysis_source_sha256": "493f4c0fe807a181b21d2c899d7fe1f820eb7f799532e05c48e80f15f7470ee3",
+  "verification": {
+    "measured_binaries": 256,
+    "edge_binaries": 34,
+    "posthoc_width_binaries": 4,
+    "target_output_comparisons": 75830,
+    "all_artifact_hashes_verified": true,
+    "generated_sources_reconstructed": true,
+    "admission_accounting_verified": true,
+    "reference_outputs_and_states_reconstructed": true
+  },
+  "groups": 24,
+  "energy_winners": {
+    "spec_fold": 7,
+    "trans_const": 2,
+    "spec_direct": 1,
+    "trans_hcub_demand": 10,
+    "fold64": 3,
+    "cmsis32_unroll": 1
+  },
+  "cycle_winners": {
+    "spec_fold": 7,
+    "spec_direct": 2,
+    "trans_const": 2,
+    "fold64": 3,
+    "trans_hcub_demand": 8,
+    "cmsis32_unroll": 2
+  },
+  "transposed_energy_wins": 12,
+  "native_and_csd_identical_binaries": 24,
+  "hcub_demand_beats_native_groups": 21,
+  "hcub_demand_beats_eager_groups": 24,
+  "comparisons": [
+    {
+      "compiler": "gcc10",
+      "filter": "speech_lp48",
+      "maximum": 1024,
+      "block": 1,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 3.415571189906541,
+      "demand_vs_native_percent": -3.5836502448414076,
+      "demand_vs_eager_percent": -1.5817885103535323,
+      "winner_nj_per_output": 868.0825103579766
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_lp48",
+      "maximum": 1024,
+      "block": 64,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 22.862091512075544,
+      "demand_vs_native_percent": -7.999482474706432,
+      "demand_vs_eager_percent": -10.025289311632868,
+      "winner_nj_per_output": 350.41804068482486
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_lp48",
+      "maximum": 32768,
+      "block": 1,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 3.415571189906541,
+      "demand_vs_native_percent": -3.5836502448414076,
+      "demand_vs_eager_percent": -1.5817885103535323,
+      "winner_nj_per_output": 868.0825103579766
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_lp48",
+      "maximum": 32768,
+      "block": 64,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 22.862091512075544,
+      "demand_vs_native_percent": -7.999482474706432,
+      "demand_vs_eager_percent": -10.025289311632868,
+      "winner_nj_per_output": 350.41804068482486
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_minphase48",
+      "maximum": 1024,
+      "block": 1,
+      "winner": "trans_const",
+      "cycle_winner": "spec_direct",
+      "best_transposed": "trans_const",
+      "best_nontransposed": "spec_direct",
+      "best_transposed_energy_overhead_percent": -1.13438167761013,
+      "demand_vs_native_percent": 2.554981191819894,
+      "demand_vs_eager_percent": -6.795005688946986,
+      "winner_nj_per_output": 985.2567635564203
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_minphase48",
+      "maximum": 1024,
+      "block": 64,
+      "winner": "spec_direct",
+      "cycle_winner": "spec_direct",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_direct",
+      "best_transposed_energy_overhead_percent": 13.084025621162887,
+      "demand_vs_native_percent": -1.8855269051792467,
+      "demand_vs_eager_percent": -12.089934809082713,
+      "winner_nj_per_output": 480.7740683891051
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 1,
+      "winner": "trans_const",
+      "cycle_winner": "trans_const",
+      "best_transposed": "trans_const",
+      "best_nontransposed": "cmsis64_unroll",
+      "best_transposed_energy_overhead_percent": -31.969288801310114,
+      "demand_vs_native_percent": 3.410536315066204,
+      "demand_vs_eager_percent": -5.417881399488955,
+      "winner_nj_per_output": 1045.7771653813231
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 64,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_const",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "cmsis64_unroll",
+      "best_transposed_energy_overhead_percent": -33.26022858250338,
+      "demand_vs_native_percent": -0.1722020936602675,
+      "demand_vs_eager_percent": -9.680215636131583,
+      "winner_nj_per_output": 604.6217765836576
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "vibration_bp192",
+      "maximum": 1024,
+      "block": 1,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 3.521641786425711,
+      "demand_vs_native_percent": -2.5741438120663096,
+      "demand_vs_eager_percent": -2.701308385668355,
+      "winner_nj_per_output": 3402.890507498055
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "vibration_bp192",
+      "maximum": 1024,
+      "block": 64,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 9.548588527330825,
+      "demand_vs_native_percent": -5.5273596899846344,
+      "demand_vs_eager_percent": -5.850016231088007,
+      "winner_nj_per_output": 1498.9319152801559
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "vibration_bp192",
+      "maximum": 32768,
+      "block": 1,
+      "winner": "fold64",
+      "cycle_winner": "fold64",
+      "best_transposed": "trans_const",
+      "best_nontransposed": "fold64",
+      "best_transposed_energy_overhead_percent": 78.28723703042068,
+      "demand_vs_native_percent": 0.017111867316788043,
+      "demand_vs_eager_percent": -0.9203819967455562,
+      "winner_nj_per_output": 4588.8696743813225
+    },
+    {
+      "compiler": "gcc10",
+      "filter": "vibration_bp192",
+      "maximum": 32768,
+      "block": 64,
+      "winner": "spec_fold",
+      "cycle_winner": "spec_fold",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": 41.95079741402652,
+      "demand_vs_native_percent": -1.1885375755630756,
+      "demand_vs_eager_percent": -0.9359626292057555,
+      "winner_nj_per_output": 2789.1695379260696
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_lp48",
+      "maximum": 1024,
+      "block": 1,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "fold32",
+      "best_transposed_energy_overhead_percent": -16.80521536370052,
+      "demand_vs_native_percent": -1.2632718683291078,
+      "demand_vs_eager_percent": -5.448302004556471,
+      "winner_nj_per_output": 838.6149594163423
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_lp48",
+      "maximum": 1024,
+      "block": 64,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": -3.025613650231307,
+      "demand_vs_native_percent": -3.3782405638156376,
+      "demand_vs_eager_percent": -10.319229775986871,
+      "winner_nj_per_output": 414.414796385214
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_lp48",
+      "maximum": 32768,
+      "block": 1,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "fold32",
+      "best_transposed_energy_overhead_percent": -16.80521536370052,
+      "demand_vs_native_percent": -1.2632718683291078,
+      "demand_vs_eager_percent": -5.448302004556471,
+      "winner_nj_per_output": 838.6149594163423
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_lp48",
+      "maximum": 32768,
+      "block": 64,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": -3.025613650231307,
+      "demand_vs_native_percent": -3.3782405638156376,
+      "demand_vs_eager_percent": -10.319229775986871,
+      "winner_nj_per_output": 414.414796385214
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 1024,
+      "block": 1,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "cmsis32_unroll",
+      "best_transposed_energy_overhead_percent": -6.694758855980131,
+      "demand_vs_native_percent": -2.8000096768555083,
+      "demand_vs_eager_percent": -6.868129371247433,
+      "winner_nj_per_output": 957.6877134396887
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 1024,
+      "block": 64,
+      "winner": "cmsis32_unroll",
+      "cycle_winner": "cmsis32_unroll",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "cmsis32_unroll",
+      "best_transposed_energy_overhead_percent": 5.524709560109509,
+      "demand_vs_native_percent": -4.032914381973529,
+      "demand_vs_eager_percent": -11.564636680102659,
+      "winner_nj_per_output": 504.95248600778206
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 1,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "cmsis64_unroll",
+      "best_transposed_energy_overhead_percent": -33.778351625768686,
+      "demand_vs_native_percent": -4.284889921729096,
+      "demand_vs_eager_percent": -8.652082078323375,
+      "winner_nj_per_output": 995.4291213813232
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 64,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "cmsis64_unroll",
+      "best_transposed_energy_overhead_percent": -32.93717186322339,
+      "demand_vs_native_percent": -6.686822548045979,
+      "demand_vs_eager_percent": -14.23060068652935,
+      "winner_nj_per_output": 562.5540103346303
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "vibration_bp192",
+      "maximum": 1024,
+      "block": 1,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "cmsis32_unroll",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "fold32",
+      "best_transposed_energy_overhead_percent": -5.9261145394829295,
+      "demand_vs_native_percent": -1.824324405022948,
+      "demand_vs_eager_percent": -3.715405599505439,
+      "winner_nj_per_output": 3363.7616864396887
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "vibration_bp192",
+      "maximum": 1024,
+      "block": 64,
+      "winner": "trans_hcub_demand",
+      "cycle_winner": "trans_hcub_demand",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "spec_fold",
+      "best_transposed_energy_overhead_percent": -8.694391292283942,
+      "demand_vs_native_percent": -3.5258522852990914,
+      "demand_vs_eager_percent": -7.441771168399924,
+      "winner_nj_per_output": 1495.0350156420234
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "vibration_bp192",
+      "maximum": 32768,
+      "block": 1,
+      "winner": "fold64",
+      "cycle_winner": "fold64",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "fold64",
+      "best_transposed_energy_overhead_percent": 54.99327673126555,
+      "demand_vs_native_percent": -1.5292570430379793,
+      "demand_vs_eager_percent": -1.5966638479953832,
+      "winner_nj_per_output": 4682.305916381322
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "vibration_bp192",
+      "maximum": 32768,
+      "block": 64,
+      "winner": "fold64",
+      "cycle_winner": "fold64",
+      "best_transposed": "trans_hcub_demand",
+      "best_nontransposed": "fold64",
+      "best_transposed_energy_overhead_percent": 19.29096610032275,
+      "demand_vs_native_percent": -1.1239641154144886,
+      "demand_vs_eager_percent": -2.114344708320681,
+      "winner_nj_per_output": 2941.9100671245137
+    }
+  ],
+  "posthoc_width_controls": [
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 1,
+      "variant": "trans_const",
+      "uniform64_nj_per_output": 2021.1968163813228,
+      "mixed_width_nj_per_output": 1039.9916173813228,
+      "mixed_width_reduction_percent": 48.545752251713616
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 1,
+      "variant": "trans_hcub_demand",
+      "uniform64_nj_per_output": 2053.6099163813233,
+      "mixed_width_nj_per_output": 995.4291213813232,
+      "mixed_width_reduction_percent": 51.52783820135745
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 64,
+      "variant": "trans_const",
+      "uniform64_nj_per_output": 1137.4712194824904,
+      "mixed_width_nj_per_output": 602.866632233463,
+      "mixed_width_reduction_percent": 46.999394630156345
+    },
+    {
+      "compiler": "gcc15",
+      "filter": "speech_minphase48",
+      "maximum": 32768,
+      "block": 64,
+      "variant": "trans_hcub_demand",
+      "uniform64_nj_per_output": 1157.449485381323,
+      "mixed_width_nj_per_output": 562.5540103346303,
+      "mixed_width_reduction_percent": 51.39710048345684
+    }
+  ],
+  "resources": [
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 316,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-fold32",
+      "kernel_and_coefficient_symbol_bytes": 440,
+      "included_symbols": {
+        "fold32": 316,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 338,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1210,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 952,
+      "included_symbols": {
+        "probe_process": 952
+      },
+      "probe_process_stack_bytes": 64,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 708,
+      "included_symbols": {
+        "probe_process": 708
+      },
+      "probe_process_stack_bytes": 48,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1208,
+      "included_symbols": {
+        "probe_process": 1208
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1216,
+      "included_symbols": {
+        "probe_process": 1216
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 316,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-fold32",
+      "kernel_and_coefficient_symbol_bytes": 440,
+      "included_symbols": {
+        "fold32": 316,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 338,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1210,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 968,
+      "included_symbols": {
+        "probe_process": 968
+      },
+      "probe_process_stack_bytes": 56,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 724,
+      "included_symbols": {
+        "probe_process": 724
+      },
+      "probe_process_stack_bytes": 56,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1208,
+      "included_symbols": {
+        "probe_process": 1208
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-1024-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1216,
+      "included_symbols": {
+        "probe_process": 1216
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 316,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-fold32",
+      "kernel_and_coefficient_symbol_bytes": 440,
+      "included_symbols": {
+        "fold32": 316,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 338,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1210,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 952,
+      "included_symbols": {
+        "probe_process": 952
+      },
+      "probe_process_stack_bytes": 64,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 708,
+      "included_symbols": {
+        "probe_process": 708
+      },
+      "probe_process_stack_bytes": 48,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1208,
+      "included_symbols": {
+        "probe_process": 1208
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1216,
+      "included_symbols": {
+        "probe_process": 1216
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 316,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-fold32",
+      "kernel_and_coefficient_symbol_bytes": 440,
+      "included_symbols": {
+        "fold32": 316,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 338,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1210,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 968,
+      "included_symbols": {
+        "probe_process": 968
+      },
+      "probe_process_stack_bytes": 56,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 724,
+      "included_symbols": {
+        "probe_process": 724
+      },
+      "probe_process_stack_bytes": 56,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1296,
+      "included_symbols": {
+        "probe_process": 1296
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1208,
+      "included_symbols": {
+        "probe_process": 1208
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_lp48-32768-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1216,
+      "included_symbols": {
+        "probe_process": 1216
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 316,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 338,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1210,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 976,
+      "included_symbols": {
+        "probe_process": 976
+      },
+      "probe_process_stack_bytes": 48,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1452,
+      "included_symbols": {
+        "probe_process": 1452
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1452,
+      "included_symbols": {
+        "probe_process": 1452
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1484,
+      "included_symbols": {
+        "probe_process": 1484
+      },
+      "probe_process_stack_bytes": 384,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1416,
+      "included_symbols": {
+        "probe_process": 1416
+      },
+      "probe_process_stack_bytes": 320,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 316,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 338,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1210,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1012,
+      "included_symbols": {
+        "probe_process": 1012
+      },
+      "probe_process_stack_bytes": 48,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1452,
+      "included_symbols": {
+        "probe_process": 1452
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1452,
+      "included_symbols": {
+        "probe_process": 1452
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1484,
+      "included_symbols": {
+        "probe_process": 1484
+      },
+      "probe_process_stack_bytes": 384,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-1024-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1416,
+      "included_symbols": {
+        "probe_process": 1416
+      },
+      "probe_process_stack_bytes": 320,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-direct64",
+      "kernel_and_coefficient_symbol_bytes": 364,
+      "included_symbols": {
+        "direct64": 240,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1736,
+      "included_symbols": {
+        "probe_process": 1736
+      },
+      "probe_process_stack_bytes": 440,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1540,
+      "included_symbols": {
+        "probe_process": 1540
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1540,
+      "included_symbols": {
+        "probe_process": 1540
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1552,
+      "included_symbols": {
+        "probe_process": 1552
+      },
+      "probe_process_stack_bytes": 416,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1504,
+      "included_symbols": {
+        "probe_process": 1504
+      },
+      "probe_process_stack_bytes": 344,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-direct64",
+      "kernel_and_coefficient_symbol_bytes": 364,
+      "included_symbols": {
+        "direct64": 240,
+        "h.0": 96,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 406,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1494,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1720,
+      "included_symbols": {
+        "probe_process": 1720
+      },
+      "probe_process_stack_bytes": 440,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1540,
+      "included_symbols": {
+        "probe_process": 1540
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1540,
+      "included_symbols": {
+        "probe_process": 1540
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1552,
+      "included_symbols": {
+        "probe_process": 1552
+      },
+      "probe_process_stack_bytes": 416,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1504,
+      "included_symbols": {
+        "probe_process": 1504
+      },
+      "probe_process_stack_bytes": 344,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 604,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-fold32",
+      "kernel_and_coefficient_symbol_bytes": 728,
+      "included_symbols": {
+        "fold32": 316,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 696,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1784,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 628,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1500,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 3304,
+      "included_symbols": {
+        "probe_process": 3304
+      },
+      "probe_process_stack_bytes": 72,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 2608,
+      "included_symbols": {
+        "probe_process": 2608
+      },
+      "probe_process_stack_bytes": 64,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 5036,
+      "included_symbols": {
+        "probe_process": 5036
+      },
+      "probe_process_stack_bytes": 1104,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 5036,
+      "included_symbols": {
+        "probe_process": 5036
+      },
+      "probe_process_stack_bytes": 1104,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 4904,
+      "included_symbols": {
+        "probe_process": 4904
+      },
+      "probe_process_stack_bytes": 1096,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 4788,
+      "included_symbols": {
+        "probe_process": 4788
+      },
+      "probe_process_stack_bytes": 1096,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 604,
+      "included_symbols": {
+        "direct32": 192,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-fold32",
+      "kernel_and_coefficient_symbol_bytes": 728,
+      "included_symbols": {
+        "fold32": 316,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 700,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 16,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1788,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 16,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 632,
+      "included_symbols": {
+        "arm_fir_fast_q15": 232,
+        "probe_process": 16,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1504,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1104,
+        "probe_process": 16,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 3324,
+      "included_symbols": {
+        "probe_process": 3324
+      },
+      "probe_process_stack_bytes": 72,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 2604,
+      "included_symbols": {
+        "probe_process": 2604
+      },
+      "probe_process_stack_bytes": 64,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 5036,
+      "included_symbols": {
+        "probe_process": 5036
+      },
+      "probe_process_stack_bytes": 1104,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 5036,
+      "included_symbols": {
+        "probe_process": 5036
+      },
+      "probe_process_stack_bytes": 1104,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 4904,
+      "included_symbols": {
+        "probe_process": 4904
+      },
+      "probe_process_stack_bytes": 1096,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-1024-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 4788,
+      "included_symbols": {
+        "probe_process": 4788
+      },
+      "probe_process_stack_bytes": 1096,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-direct64",
+      "kernel_and_coefficient_symbol_bytes": 652,
+      "included_symbols": {
+        "direct64": 240,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-fold64",
+      "kernel_and_coefficient_symbol_bytes": 784,
+      "included_symbols": {
+        "fold64": 372,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 696,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1784,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 7296,
+      "included_symbols": {
+        "probe_process": 7296
+      },
+      "probe_process_stack_bytes": 1608,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 4556,
+      "included_symbols": {
+        "probe_process": 4556
+      },
+      "probe_process_stack_bytes": 840,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 13396,
+      "included_symbols": {
+        "probe_process": 13396
+      },
+      "probe_process_stack_bytes": 2408,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 13396,
+      "included_symbols": {
+        "probe_process": 13396
+      },
+      "probe_process_stack_bytes": 2408,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 13388,
+      "included_symbols": {
+        "probe_process": 13388
+      },
+      "probe_process_stack_bytes": 2424,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 13292,
+      "included_symbols": {
+        "probe_process": 13292
+      },
+      "probe_process_stack_bytes": 2400,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-direct64",
+      "kernel_and_coefficient_symbol_bytes": 652,
+      "included_symbols": {
+        "direct64": 240,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-fold64",
+      "kernel_and_coefficient_symbol_bytes": 784,
+      "included_symbols": {
+        "fold64": 372,
+        "h.0": 384,
+        "probe_process": 28
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 700,
+      "included_symbols": {
+        "arm_fir_q15": 300,
+        "probe_process": 16,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1788,
+      "included_symbols": {
+        "arm_fir_q15": 1388,
+        "probe_process": 16,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 7120,
+      "included_symbols": {
+        "probe_process": 7120
+      },
+      "probe_process_stack_bytes": 1608,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 4576,
+      "included_symbols": {
+        "probe_process": 4576
+      },
+      "probe_process_stack_bytes": 840,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 13396,
+      "included_symbols": {
+        "probe_process": 13396
+      },
+      "probe_process_stack_bytes": 2408,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 13396,
+      "included_symbols": {
+        "probe_process": 13396
+      },
+      "probe_process_stack_bytes": 2408,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 13388,
+      "included_symbols": {
+        "probe_process": 13388
+      },
+      "probe_process_stack_bytes": 2424,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc10-vibration_bp192-32768-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 13292,
+      "included_symbols": {
+        "probe_process": 13292
+      },
+      "probe_process_stack_bytes": 2400,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 376,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-fold32",
+      "kernel_and_coefficient_symbol_bytes": 412,
+      "included_symbols": {
+        "fold32": 284,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 330,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1130,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1272,
+      "included_symbols": {
+        "probe_process": 1272
+      },
+      "probe_process_stack_bytes": 224,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 1012,
+      "included_symbols": {
+        "probe_process": 1012
+      },
+      "probe_process_stack_bytes": 208,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1160,
+      "included_symbols": {
+        "probe_process": 1160
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1104,
+      "included_symbols": {
+        "probe_process": 1104
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 376,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-fold32",
+      "kernel_and_coefficient_symbol_bytes": 412,
+      "included_symbols": {
+        "fold32": 284,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 330,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1130,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1236,
+      "included_symbols": {
+        "probe_process": 1236
+      },
+      "probe_process_stack_bytes": 216,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 1008,
+      "included_symbols": {
+        "probe_process": 1008
+      },
+      "probe_process_stack_bytes": 200,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1160,
+      "included_symbols": {
+        "probe_process": 1160
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-1024-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1104,
+      "included_symbols": {
+        "probe_process": 1104
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 376,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-fold32",
+      "kernel_and_coefficient_symbol_bytes": 412,
+      "included_symbols": {
+        "fold32": 284,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 330,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1130,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1272,
+      "included_symbols": {
+        "probe_process": 1272
+      },
+      "probe_process_stack_bytes": 224,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 1012,
+      "included_symbols": {
+        "probe_process": 1012
+      },
+      "probe_process_stack_bytes": 208,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1160,
+      "included_symbols": {
+        "probe_process": 1160
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1104,
+      "included_symbols": {
+        "probe_process": 1104
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 376,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-fold32",
+      "kernel_and_coefficient_symbol_bytes": 412,
+      "included_symbols": {
+        "fold32": 284,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 330,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1130,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1236,
+      "included_symbols": {
+        "probe_process": 1236
+      },
+      "probe_process_stack_bytes": 216,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 1008,
+      "included_symbols": {
+        "probe_process": 1008
+      },
+      "probe_process_stack_bytes": 200,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1144,
+      "included_symbols": {
+        "probe_process": 1144
+      },
+      "probe_process_stack_bytes": 288,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1160,
+      "included_symbols": {
+        "probe_process": 1160
+      },
+      "probe_process_stack_bytes": 312,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_lp48-32768-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1104,
+      "included_symbols": {
+        "probe_process": 1104
+      },
+      "probe_process_stack_bytes": 296,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 376,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 330,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1130,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1368,
+      "included_symbols": {
+        "probe_process": 1368
+      },
+      "probe_process_stack_bytes": 224,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1456,
+      "included_symbols": {
+        "probe_process": 1456
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1456,
+      "included_symbols": {
+        "probe_process": 1456
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1372,
+      "included_symbols": {
+        "probe_process": 1372
+      },
+      "probe_process_stack_bytes": 376,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1304,
+      "included_symbols": {
+        "probe_process": 1304
+      },
+      "probe_process_stack_bytes": 320,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 376,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 330,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1130,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1292,
+      "included_symbols": {
+        "probe_process": 1292
+      },
+      "probe_process_stack_bytes": 224,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1456,
+      "included_symbols": {
+        "probe_process": 1456
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1456,
+      "included_symbols": {
+        "probe_process": 1456
+      },
+      "probe_process_stack_bytes": 240,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1372,
+      "included_symbols": {
+        "probe_process": 1372
+      },
+      "probe_process_stack_bytes": 376,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-1024-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1304,
+      "included_symbols": {
+        "probe_process": 1304
+      },
+      "probe_process_stack_bytes": 320,
+      "state_allocation_bytes": 188
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-direct64",
+      "kernel_and_coefficient_symbol_bytes": 428,
+      "included_symbols": {
+        "direct64": 300,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 112
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1872,
+      "included_symbols": {
+        "probe_process": 1872
+      },
+      "probe_process_stack_bytes": 608,
+      "state_allocation_bytes": 98
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1532,
+      "included_symbols": {
+        "probe_process": 1532
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1532,
+      "included_symbols": {
+        "probe_process": 1532
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1440,
+      "included_symbols": {
+        "probe_process": 1440
+      },
+      "probe_process_stack_bytes": 408,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1352,
+      "included_symbols": {
+        "probe_process": 1352
+      },
+      "probe_process_stack_bytes": 344,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-direct64",
+      "kernel_and_coefficient_symbol_bytes": 428,
+      "included_symbols": {
+        "direct64": 300,
+        "h.0": 96,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 390,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1450,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 10,
+        "reversed.0": 96
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 236
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 1884,
+      "included_symbols": {
+        "probe_process": 1884
+      },
+      "probe_process_stack_bytes": 608,
+      "state_allocation_bytes": 224
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 1532,
+      "included_symbols": {
+        "probe_process": 1532
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 1532,
+      "included_symbols": {
+        "probe_process": 1532
+      },
+      "probe_process_stack_bytes": 272,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 1440,
+      "included_symbols": {
+        "probe_process": 1440
+      },
+      "probe_process_stack_bytes": 408,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 1352,
+      "included_symbols": {
+        "probe_process": 1352
+      },
+      "probe_process_stack_bytes": 344,
+      "state_allocation_bytes": 192
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-direct32",
+      "kernel_and_coefficient_symbol_bytes": 664,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-fold32",
+      "kernel_and_coefficient_symbol_bytes": 700,
+      "included_symbols": {
+        "fold32": 284,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 680,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1740,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 620,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1420,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 4344,
+      "included_symbols": {
+        "probe_process": 4344
+      },
+      "probe_process_stack_bytes": 816,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 3628,
+      "included_symbols": {
+        "probe_process": 3628
+      },
+      "probe_process_stack_bytes": 728,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 4664,
+      "included_symbols": {
+        "probe_process": 4664
+      },
+      "probe_process_stack_bytes": 1080,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 4664,
+      "included_symbols": {
+        "probe_process": 4664
+      },
+      "probe_process_stack_bytes": 1080,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 4656,
+      "included_symbols": {
+        "probe_process": 4656
+      },
+      "probe_process_stack_bytes": 1088,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 4492,
+      "included_symbols": {
+        "probe_process": 4492
+      },
+      "probe_process_stack_bytes": 1072,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-direct32",
+      "kernel_and_coefficient_symbol_bytes": 664,
+      "included_symbols": {
+        "direct32": 248,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-fold32",
+      "kernel_and_coefficient_symbol_bytes": 700,
+      "included_symbols": {
+        "fold32": 284,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 682,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 14,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1742,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 14,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-cmsis32",
+      "kernel_and_coefficient_symbol_bytes": 622,
+      "included_symbols": {
+        "arm_fir_fast_q15": 224,
+        "probe_process": 14,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-cmsis32_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1422,
+      "included_symbols": {
+        "arm_fir_fast_q15": 1024,
+        "probe_process": 14,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 4300,
+      "included_symbols": {
+        "probe_process": 4300
+      },
+      "probe_process_stack_bytes": 816,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 3496,
+      "included_symbols": {
+        "probe_process": 3496
+      },
+      "probe_process_stack_bytes": 728,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 4664,
+      "included_symbols": {
+        "probe_process": 4664
+      },
+      "probe_process_stack_bytes": 1080,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 4664,
+      "included_symbols": {
+        "probe_process": 4664
+      },
+      "probe_process_stack_bytes": 1080,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 4656,
+      "included_symbols": {
+        "probe_process": 4656
+      },
+      "probe_process_stack_bytes": 1088,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-1024-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 4492,
+      "included_symbols": {
+        "probe_process": 4492
+      },
+      "probe_process_stack_bytes": 1072,
+      "state_allocation_bytes": 764
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-direct64",
+      "kernel_and_coefficient_symbol_bytes": 716,
+      "included_symbols": {
+        "direct64": 300,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-fold64",
+      "kernel_and_coefficient_symbol_bytes": 768,
+      "included_symbols": {
+        "fold64": 352,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 680,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1740,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 12,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 400
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 10664,
+      "included_symbols": {
+        "probe_process": 10664
+      },
+      "probe_process_stack_bytes": 2368,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 6436,
+      "included_symbols": {
+        "probe_process": 6436
+      },
+      "probe_process_stack_bytes": 1504,
+      "state_allocation_bytes": 386
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 11464,
+      "included_symbols": {
+        "probe_process": 11464
+      },
+      "probe_process_stack_bytes": 2400,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 11464,
+      "included_symbols": {
+        "probe_process": 11464
+      },
+      "probe_process_stack_bytes": 2400,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 11320,
+      "included_symbols": {
+        "probe_process": 11320
+      },
+      "probe_process_stack_bytes": 2416,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b1-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 11072,
+      "included_symbols": {
+        "probe_process": 11072
+      },
+      "probe_process_stack_bytes": 2392,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-direct64",
+      "kernel_and_coefficient_symbol_bytes": 716,
+      "included_symbols": {
+        "direct64": 300,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-fold64",
+      "kernel_and_coefficient_symbol_bytes": 768,
+      "included_symbols": {
+        "fold64": 352,
+        "h.0": 384,
+        "probe_process": 32
+      },
+      "probe_process_stack_bytes": 16,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-cmsis64",
+      "kernel_and_coefficient_symbol_bytes": 682,
+      "included_symbols": {
+        "arm_fir_q15": 284,
+        "probe_process": 14,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-cmsis64_unroll",
+      "kernel_and_coefficient_symbol_bytes": 1742,
+      "included_symbols": {
+        "arm_fir_q15": 1344,
+        "probe_process": 14,
+        "reversed.0": 384
+      },
+      "probe_process_stack_bytes": 8,
+      "state_allocation_bytes": 524
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-spec_direct",
+      "kernel_and_coefficient_symbol_bytes": 10484,
+      "included_symbols": {
+        "probe_process": 10484
+      },
+      "probe_process_stack_bytes": 2368,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-spec_fold",
+      "kernel_and_coefficient_symbol_bytes": 6348,
+      "included_symbols": {
+        "probe_process": 6348
+      },
+      "probe_process_stack_bytes": 1496,
+      "state_allocation_bytes": 512
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-trans_const",
+      "kernel_and_coefficient_symbol_bytes": 11464,
+      "included_symbols": {
+        "probe_process": 11464
+      },
+      "probe_process_stack_bytes": 2400,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-trans_csd",
+      "kernel_and_coefficient_symbol_bytes": 11464,
+      "included_symbols": {
+        "probe_process": 11464
+      },
+      "probe_process_stack_bytes": 2400,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-trans_hcub_eager",
+      "kernel_and_coefficient_symbol_bytes": 11320,
+      "included_symbols": {
+        "probe_process": 11320
+      },
+      "probe_process_stack_bytes": 2416,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/cases/gcc15-vibration_bp192-32768-b64-trans_hcub_demand",
+      "kernel_and_coefficient_symbol_bytes": 11072,
+      "included_symbols": {
+        "probe_process": 11072
+      },
+      "probe_process_stack_bytes": 2392,
+      "state_allocation_bytes": 1136
+    },
+    {
+      "directory": "build/posthoc-width/gcc15-speech_minphase48-b1-trans_const-uniform64",
+      "kernel_and_coefficient_symbol_bytes": 2624,
+      "included_symbols": {
+        "probe_process": 2624
+      },
+      "probe_process_stack_bytes": 936,
+      "state_allocation_bytes": 376
+    },
+    {
+      "directory": "build/posthoc-width/gcc15-speech_minphase48-b1-trans_hcub_demand-uniform64",
+      "kernel_and_coefficient_symbol_bytes": 2584,
+      "included_symbols": {
+        "probe_process": 2584
+      },
+      "probe_process_stack_bytes": 1016,
+      "state_allocation_bytes": 376
+    },
+    {
+      "directory": "build/posthoc-width/gcc15-speech_minphase48-b64-trans_const-uniform64",
+      "kernel_and_coefficient_symbol_bytes": 2624,
+      "included_symbols": {
+        "probe_process": 2624
+      },
+      "probe_process_stack_bytes": 936,
+      "state_allocation_bytes": 376
+    },
+    {
+      "directory": "build/posthoc-width/gcc15-speech_minphase48-b64-trans_hcub_demand-uniform64",
+      "kernel_and_coefficient_symbol_bytes": 2584,
+      "included_symbols": {
+        "probe_process": 2584
+      },
+      "probe_process_stack_bytes": 1016,
+      "state_allocation_bytes": 376
+    }
+  ]
+}

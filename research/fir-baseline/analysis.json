@@ -1,0 +1,186 @@
+{
+  "results_sha256": "746a751ff4edc9b211bd37724f78b8c627250fc12842ed29b982660f76038d6c",
+  "rows": 720,
+  "distinct_target_binaries": 486,
+  "target_output_comparisons": 124902,
+  "distinct_reference_output_positions": 3084,
+  "comparison_groups": 108,
+  "matched_contract_pairs": 36,
+  "model_energy_winners": {
+    "fold32": 96,
+    "fold64": 12
+  },
+  "timing_energy_best_choice_disagreements": 0,
+  "contract_changes": [
+    {
+      "filter": "bandpass_256",
+      "optimization": "-O2",
+      "block": 1,
+      "full_contract_best": "fold64",
+      "adc_contract_best": "fold32",
+      "modeled_energy_reduction_percent": 14.349434302324294
+    },
+    {
+      "filter": "bandpass_256",
+      "optimization": "-O2",
+      "block": 16,
+      "full_contract_best": "fold64",
+      "adc_contract_best": "fold32",
+      "modeled_energy_reduction_percent": 22.114130442458602
+    },
+    {
+      "filter": "bandpass_256",
+      "optimization": "-O2",
+      "block": 64,
+      "full_contract_best": "fold64",
+      "adc_contract_best": "fold32",
+      "modeled_energy_reduction_percent": 22.738856160106824
+    },
+    {
+      "filter": "bandpass_256",
+      "optimization": "-Os",
+      "block": 1,
+      "full_contract_best": "fold64",
+      "adc_contract_best": "fold32",
+      "modeled_energy_reduction_percent": 15.015169279982443
+    },
+    {
+      "filter": "bandpass_256",
+      "optimization": "-Os",
+      "block": 16,
+      "full_contract_best": "fold64",
+      "adc_contract_best": "fold32",
+      "modeled_energy_reduction_percent": 23.210670489761476
+    },
+    {
+      "filter": "bandpass_256",
+      "optimization": "-Os",
+      "block": 64,
+      "full_contract_best": "fold64",
+      "adc_contract_best": "fold32",
+      "modeled_energy_reduction_percent": 23.87039061153634
+    }
+  ],
+  "arithmetic_certificates": [
+    {
+      "filter": "lowpass_64",
+      "contract": "full_int16",
+      "maximum_abs_input": 32768,
+      "coefficient_abs_sum": 43520,
+      "all_prefixes_abs_bound": 1426063360,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 213450752,
+      "full_domain_maximum_sum_witness": 1426025216
+    },
+    {
+      "filter": "lowpass_64",
+      "contract": "adc11",
+      "maximum_abs_input": 1024,
+      "coefficient_abs_sum": 43520,
+      "all_prefixes_abs_bound": 44564480,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 6670336,
+      "full_domain_maximum_sum_witness": 1426025216
+    },
+    {
+      "filter": "lowpass_128",
+      "contract": "full_int16",
+      "maximum_abs_input": 32768,
+      "coefficient_abs_sum": 53010,
+      "all_prefixes_abs_bound": 1737031680,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 213975040,
+      "full_domain_maximum_sum_witness": 1736988790
+    },
+    {
+      "filter": "lowpass_128",
+      "contract": "adc11",
+      "maximum_abs_input": 1024,
+      "coefficient_abs_sum": 53010,
+      "all_prefixes_abs_bound": 54282240,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 6686720,
+      "full_domain_maximum_sum_witness": 1736988790
+    },
+    {
+      "filter": "lowpass_256",
+      "contract": "full_int16",
+      "maximum_abs_input": 32768,
+      "coefficient_abs_sum": 62232,
+      "all_prefixes_abs_bound": 2039218176,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 213647360,
+      "full_domain_maximum_sum_witness": 2039170676
+    },
+    {
+      "filter": "lowpass_256",
+      "contract": "adc11",
+      "maximum_abs_input": 1024,
+      "coefficient_abs_sum": 62232,
+      "all_prefixes_abs_bound": 63725568,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 6676480,
+      "full_domain_maximum_sum_witness": 2039170676
+    },
+    {
+      "filter": "bandpass_64",
+      "contract": "full_int16",
+      "maximum_abs_input": 32768,
+      "coefficient_abs_sum": 50354,
+      "all_prefixes_abs_bound": 1649999872,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 291176448,
+      "full_domain_maximum_sum_witness": 1649974664
+    },
+    {
+      "filter": "bandpass_64",
+      "contract": "adc11",
+      "maximum_abs_input": 1024,
+      "coefficient_abs_sum": 50354,
+      "all_prefixes_abs_bound": 51562496,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 9099264,
+      "full_domain_maximum_sum_witness": 1649974664
+    },
+    {
+      "filter": "bandpass_128",
+      "contract": "full_int16",
+      "maximum_abs_input": 32768,
+      "coefficient_abs_sum": 62316,
+      "all_prefixes_abs_bound": 2041970688,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 291241984,
+      "full_domain_maximum_sum_witness": 2041939552
+    },
+    {
+      "filter": "bandpass_128",
+      "contract": "adc11",
+      "maximum_abs_input": 1024,
+      "coefficient_abs_sum": 62316,
+      "all_prefixes_abs_bound": 63811584,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 9101312,
+      "full_domain_maximum_sum_witness": 2041939552
+    },
+    {
+      "filter": "bandpass_256",
+      "contract": "full_int16",
+      "maximum_abs_input": 32768,
+      "coefficient_abs_sum": 74258,
+      "all_prefixes_abs_bound": 2433286144,
+      "int32_safe": false,
+      "max_folded_product_abs_bound": 292028416,
+      "full_domain_maximum_sum_witness": 2433249006
+    },
+    {
+      "filter": "bandpass_256",
+      "contract": "adc11",
+      "maximum_abs_input": 1024,
+      "coefficient_abs_sum": 74258,
+      "all_prefixes_abs_bound": 76040192,
+      "int32_safe": true,
+      "max_folded_product_abs_bound": 9125888,
+      "full_domain_maximum_sum_witness": 2433249006
+    }
+  ]
+}

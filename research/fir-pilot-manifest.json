@@ -1,0 +1,13 @@
+{
+  "files": {
+    "research/fir-streaming-pilot.py": "db353c205bb482c37c60f1b8a51828fe9d1540a391452d0f63526d141ab95693",
+    "research/fir-streaming-pilot.json": "01fa4eea1ff8d6ee8de9ce7f338f1f743b072ec3a1948919326555ffa0c2f0c2",
+    "research/fir-streaming-pilot.csv": "474a82b56f7cd092870486a8b52bb90322968aa2223a12cfc8de81ad83ab9d7c",
+    "research/data/ecg.dat": "f20ad3365fb9b7f845d0e5c48b6fe67081377ee466c3a220b7f69f35c8958baf"
+  },
+  "conditions": 6156,
+  "output_comparisons": 25214976,
+  "reference_positions": 626688,
+  "output_mismatches": 0,
+  "meaning": "Numerical exploratory probe only; no target timing or energy results"
+}

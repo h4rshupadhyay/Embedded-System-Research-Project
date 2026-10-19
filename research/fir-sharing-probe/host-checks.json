@@ -1,0 +1,7 @@
+{
+  "host_output_comparisons": 23862,
+  "ubsan": true,
+  "mixed_partitions": true,
+  "state_and_output_guards": true,
+  "retained_states": true
+}

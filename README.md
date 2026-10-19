@@ -1,3 +1,8 @@
+> **Current exact-FIR work:** start with [README-FIR.md](README-FIR.md) and the
+> [peer handoff prompt](docs/peer-sol-6.1-handoff.md). This branch preserves the
+> earlier project below; use the research fixture described in README-FIR.md for
+> the new missing-baseline task.
+
 # Embedded software energy research
 
 A reproducible Cortex-M0 FIR profiling harness, an explicitly synthetic supply

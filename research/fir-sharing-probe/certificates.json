@@ -1,0 +1,3690 @@
+{
+  "speech_lp48": {
+    "1024": {
+      "maximum": 1024,
+      "coefficient_l1": 58726,
+      "sum_width": 32,
+      "state_bounds": [
+        60134400,
+        60095488,
+        60075008,
+        60026880,
+        59964416,
+        59921408,
+        59789312,
+        59782144,
+        59570176,
+        59435008,
+        59183104,
+        58831872,
+        58652672,
+        58029056,
+        57939968,
+        57073664,
+        56450048,
+        55515136,
+        54020096,
+        53427200,
+        50525184,
+        49712128,
+        43296768,
+        30067712,
+        16838656,
+        10423296,
+        9610240,
+        6708224,
+        6115328,
+        4620288,
+        3685376,
+        3061760,
+        2195456,
+        2106368,
+        1482752,
+        1303552,
+        952320,
+        700416,
+        565248,
+        353280,
+        346112,
+        214016,
+        171008,
+        108544,
+        60416,
+        39936,
+        1024
+      ],
+      "state_widths": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "state_payload_bytes": 188,
+      "direct_history_bytes": 94,
+      "graph_nodes": {
+        "t0": {
+          "coefficient": 1,
+          "absolute_bound": 1024,
+          "width": 32
+        },
+        "t24": {
+          "coefficient": 4,
+          "absolute_bound": 4096,
+          "width": 32
+        },
+        "t2": {
+          "coefficient": 5,
+          "absolute_bound": 5120,
+          "width": 32
+        },
+        "t25": {
+          "coefficient": 8,
+          "absolute_bound": 8192,
+          "width": 32
+        },
+        "t3": {
+          "coefficient": 7,
+          "absolute_bound": 7168,
+          "width": 32
+        },
+        "t26": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t6": {
+          "coefficient": 33,
+          "absolute_bound": 33792,
+          "width": 32
+        },
+        "t27": {
+          "coefficient": 128,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t11": {
+          "coefficient": 129,
+          "absolute_bound": 132096,
+          "width": 32
+        },
+        "t28": {
+          "coefficient": 20,
+          "absolute_bound": 20480,
+          "width": 32
+        },
+        "t4": {
+          "coefficient": 19,
+          "absolute_bound": 19456,
+          "width": 32
+        },
+        "t29": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t5": {
+          "coefficient": 21,
+          "absolute_bound": 21504,
+          "width": 32
+        },
+        "t30": {
+          "coefficient": 40,
+          "absolute_bound": 40960,
+          "width": 32
+        },
+        "t7": {
+          "coefficient": 47,
+          "absolute_bound": 48128,
+          "width": 32
+        },
+        "t31": {
+          "coefficient": 56,
+          "absolute_bound": 57344,
+          "width": 32
+        },
+        "t8": {
+          "coefficient": 61,
+          "absolute_bound": 62464,
+          "width": 32
+        },
+        "t32": {
+          "coefficient": 80,
+          "absolute_bound": 81920,
+          "width": 32
+        },
+        "t9": {
+          "coefficient": 87,
+          "absolute_bound": 89088,
+          "width": 32
+        },
+        "t33": {
+          "coefficient": 128,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t10": {
+          "coefficient": 123,
+          "absolute_bound": 125952,
+          "width": 32
+        },
+        "t34": {
+          "coefficient": 128,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t12": {
+          "coefficient": 175,
+          "absolute_bound": 179200,
+          "width": 32
+        },
+        "t35": {
+          "coefficient": 160,
+          "absolute_bound": 163840,
+          "width": 32
+        },
+        "t13": {
+          "coefficient": 207,
+          "absolute_bound": 211968,
+          "width": 32
+        },
+        "t36": {
+          "coefficient": 256,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t14": {
+          "coefficient": 343,
+          "absolute_bound": 351232,
+          "width": 32
+        },
+        "t37": {
+          "coefficient": 304,
+          "absolute_bound": 311296,
+          "width": 32
+        },
+        "t15": {
+          "coefficient": 365,
+          "absolute_bound": 373760,
+          "width": 32
+        },
+        "t38": {
+          "coefficient": 376,
+          "absolute_bound": 385024,
+          "width": 32
+        },
+        "t16": {
+          "coefficient": 397,
+          "absolute_bound": 406528,
+          "width": 32
+        },
+        "t39": {
+          "coefficient": 336,
+          "absolute_bound": 344064,
+          "width": 32
+        },
+        "t17": {
+          "coefficient": 423,
+          "absolute_bound": 433152,
+          "width": 32
+        },
+        "t40": {
+          "coefficient": 640,
+          "absolute_bound": 655360,
+          "width": 32
+        },
+        "t18": {
+          "coefficient": 579,
+          "absolute_bound": 592896,
+          "width": 32
+        },
+        "t41": {
+          "coefficient": 608,
+          "absolute_bound": 622592,
+          "width": 32
+        },
+        "t19": {
+          "coefficient": 609,
+          "absolute_bound": 623616,
+          "width": 32
+        },
+        "t42": {
+          "coefficient": 1504,
+          "absolute_bound": 1540096,
+          "width": 32
+        },
+        "t21": {
+          "coefficient": 1417,
+          "absolute_bound": 1451008,
+          "width": 32
+        },
+        "t43": {
+          "coefficient": 304,
+          "absolute_bound": 311296,
+          "width": 32
+        },
+        "t20": {
+          "coefficient": 913,
+          "absolute_bound": 934912,
+          "width": 32
+        },
+        "t44": {
+          "coefficient": 6352,
+          "absolute_bound": 6504448,
+          "width": 32
+        },
+        "t22": {
+          "coefficient": 6265,
+          "absolute_bound": 6415360,
+          "width": 32
+        },
+        "t45": {
+          "coefficient": 14336,
+          "absolute_bound": 14680064,
+          "width": 32
+        },
+        "t23": {
+          "coefficient": 12919,
+          "absolute_bound": 13229056,
+          "width": 32
+        },
+        "t1": {
+          "coefficient": 1,
+          "absolute_bound": 1024,
+          "width": 32
+        }
+      },
+      "hcub_output_sha256": "1f89e514c13351ffe7f8cd1edcb2cfd162129bfa86ffed6b68341fe0c062ae35",
+      "screen": {
+        "named_graph_operations": 45,
+        "unique_primitive_expressions": 41,
+        "source_state_word_transfers_per_output": 94,
+        "single_word_access_cycle_estimate_without_products": 239,
+        "can_reject_candidate": false,
+        "scope": "source-operation estimate only; LDM/STM, CSE and register retention can reduce it; excludes product graph, control, quantizer and spills"
+      }
+    },
+    "32768": {
+      "maximum": 32768,
+      "coefficient_l1": 58726,
+      "sum_width": 32,
+      "state_bounds": [
+        1924300800,
+        1923055616,
+        1922400256,
+        1920860160,
+        1918861312,
+        1917485056,
+        1913257984,
+        1913028608,
+        1906245632,
+        1901920256,
+        1893859328,
+        1882619904,
+        1876885504,
+        1856929792,
+        1854078976,
+        1826357248,
+        1806401536,
+        1776484352,
+        1728643072,
+        1709670400,
+        1616805888,
+        1590788096,
+        1385496576,
+        962166784,
+        538836992,
+        333545472,
+        307527680,
+        214663168,
+        195690496,
+        147849216,
+        117932032,
+        97976320,
+        70254592,
+        67403776,
+        47448064,
+        41713664,
+        30474240,
+        22413312,
+        18087936,
+        11304960,
+        11075584,
+        6848512,
+        5472256,
+        3473408,
+        1933312,
+        1277952,
+        32768
+      ],
+      "state_widths": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "state_payload_bytes": 188,
+      "direct_history_bytes": 94,
+      "graph_nodes": {
+        "t0": {
+          "coefficient": 1,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t24": {
+          "coefficient": 4,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t2": {
+          "coefficient": 5,
+          "absolute_bound": 163840,
+          "width": 32
+        },
+        "t25": {
+          "coefficient": 8,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t3": {
+          "coefficient": 7,
+          "absolute_bound": 229376,
+          "width": 32
+        },
+        "t26": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t6": {
+          "coefficient": 33,
+          "absolute_bound": 1081344,
+          "width": 32
+        },
+        "t27": {
+          "coefficient": 128,
+          "absolute_bound": 4194304,
+          "width": 32
+        },
+        "t11": {
+          "coefficient": 129,
+          "absolute_bound": 4227072,
+          "width": 32
+        },
+        "t28": {
+          "coefficient": 20,
+          "absolute_bound": 655360,
+          "width": 32
+        },
+        "t4": {
+          "coefficient": 19,
+          "absolute_bound": 622592,
+          "width": 32
+        },
+        "t29": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t5": {
+          "coefficient": 21,
+          "absolute_bound": 688128,
+          "width": 32
+        },
+        "t30": {
+          "coefficient": 40,
+          "absolute_bound": 1310720,
+          "width": 32
+        },
+        "t7": {
+          "coefficient": 47,
+          "absolute_bound": 1540096,
+          "width": 32
+        },
+        "t31": {
+          "coefficient": 56,
+          "absolute_bound": 1835008,
+          "width": 32
+        },
+        "t8": {
+          "coefficient": 61,
+          "absolute_bound": 1998848,
+          "width": 32
+        },
+        "t32": {
+          "coefficient": 80,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t9": {
+          "coefficient": 87,
+          "absolute_bound": 2850816,
+          "width": 32
+        },
+        "t33": {
+          "coefficient": 128,
+          "absolute_bound": 4194304,
+          "width": 32
+        },
+        "t10": {
+          "coefficient": 123,
+          "absolute_bound": 4030464,
+          "width": 32
+        },
+        "t34": {
+          "coefficient": 128,
+          "absolute_bound": 4194304,
+          "width": 32
+        },
+        "t12": {
+          "coefficient": 175,
+          "absolute_bound": 5734400,
+          "width": 32
+        },
+        "t35": {
+          "coefficient": 160,
+          "absolute_bound": 5242880,
+          "width": 32
+        },
+        "t13": {
+          "coefficient": 207,
+          "absolute_bound": 6782976,
+          "width": 32
+        },
+        "t36": {
+          "coefficient": 256,
+          "absolute_bound": 8388608,
+          "width": 32
+        },
+        "t14": {
+          "coefficient": 343,
+          "absolute_bound": 11239424,
+          "width": 32
+        },
+        "t37": {
+          "coefficient": 304,
+          "absolute_bound": 9961472,
+          "width": 32
+        },
+        "t15": {
+          "coefficient": 365,
+          "absolute_bound": 11960320,
+          "width": 32
+        },
+        "t38": {
+          "coefficient": 376,
+          "absolute_bound": 12320768,
+          "width": 32
+        },
+        "t16": {
+          "coefficient": 397,
+          "absolute_bound": 13008896,
+          "width": 32
+        },
+        "t39": {
+          "coefficient": 336,
+          "absolute_bound": 11010048,
+          "width": 32
+        },
+        "t17": {
+          "coefficient": 423,
+          "absolute_bound": 13860864,
+          "width": 32
+        },
+        "t40": {
+          "coefficient": 640,
+          "absolute_bound": 20971520,
+          "width": 32
+        },
+        "t18": {
+          "coefficient": 579,
+          "absolute_bound": 18972672,
+          "width": 32
+        },
+        "t41": {
+          "coefficient": 608,
+          "absolute_bound": 19922944,
+          "width": 32
+        },
+        "t19": {
+          "coefficient": 609,
+          "absolute_bound": 19955712,
+          "width": 32
+        },
+        "t42": {
+          "coefficient": 1504,
+          "absolute_bound": 49283072,
+          "width": 32
+        },
+        "t21": {
+          "coefficient": 1417,
+          "absolute_bound": 46432256,
+          "width": 32
+        },
+        "t43": {
+          "coefficient": 304,
+          "absolute_bound": 9961472,
+          "width": 32
+        },
+        "t20": {
+          "coefficient": 913,
+          "absolute_bound": 29917184,
+          "width": 32
+        },
+        "t44": {
+          "coefficient": 6352,
+          "absolute_bound": 208142336,
+          "width": 32
+        },
+        "t22": {
+          "coefficient": 6265,
+          "absolute_bound": 205291520,
+          "width": 32
+        },
+        "t45": {
+          "coefficient": 14336,
+          "absolute_bound": 469762048,
+          "width": 32
+        },
+        "t23": {
+          "coefficient": 12919,
+          "absolute_bound": 423329792,
+          "width": 32
+        },
+        "t1": {
+          "coefficient": 1,
+          "absolute_bound": 32768,
+          "width": 32
+        }
+      },
+      "hcub_output_sha256": "1f89e514c13351ffe7f8cd1edcb2cfd162129bfa86ffed6b68341fe0c062ae35",
+      "screen": {
+        "named_graph_operations": 45,
+        "unique_primitive_expressions": 41,
+        "source_state_word_transfers_per_output": 94,
+        "single_word_access_cycle_estimate_without_products": 239,
+        "can_reject_candidate": false,
+        "scope": "source-operation estimate only; LDM/STM, CSE and register retention can reduce it; excludes product graph, control, quantizer and spills"
+      }
+    }
+  },
+  "speech_minphase48": {
+    "1024": {
+      "maximum": 1024,
+      "coefficient_l1": 72509,
+      "sum_width": 32,
+      "state_bounds": [
+        70638592,
+        61164544,
+        47862784,
+        37218304,
+        34688000,
+        30290944,
+        25674752,
+        25469952,
+        21958656,
+        20155392,
+        18383872,
+        16033792,
+        15785984,
+        13744128,
+        12966912,
+        11636736,
+        10366976,
+        9830400,
+        8515584,
+        8381440,
+        7323648,
+        6745088,
+        6094848,
+        5321728,
+        5097472,
+        4342784,
+        4217856,
+        3625984,
+        3276800,
+        2916352,
+        2475008,
+        2344960,
+        1922048,
+        1867776,
+        1533952,
+        1363968,
+        1149952,
+        932864,
+        833536,
+        621568,
+        611328,
+        437248,
+        391168,
+        267264,
+        194560,
+        117760,
+        39936
+      ],
+      "state_widths": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "state_payload_bytes": 188,
+      "direct_history_bytes": 94,
+      "graph_nodes": {
+        "t0": {
+          "coefficient": 1,
+          "absolute_bound": 1024,
+          "width": 32
+        },
+        "t46": {
+          "coefficient": 4,
+          "absolute_bound": 4096,
+          "width": 32
+        },
+        "t1": {
+          "coefficient": 5,
+          "absolute_bound": 5120,
+          "width": 32
+        },
+        "t47": {
+          "coefficient": 128,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t15": {
+          "coefficient": 127,
+          "absolute_bound": 130048,
+          "width": 32
+        },
+        "t48": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t2": {
+          "coefficient": 11,
+          "absolute_bound": 11264,
+          "width": 32
+        },
+        "t49": {
+          "coefficient": 20,
+          "absolute_bound": 20480,
+          "width": 32
+        },
+        "t3": {
+          "coefficient": 19,
+          "absolute_bound": 19456,
+          "width": 32
+        },
+        "t50": {
+          "coefficient": 20,
+          "absolute_bound": 20480,
+          "width": 32
+        },
+        "t4": {
+          "coefficient": 25,
+          "absolute_bound": 25600,
+          "width": 32
+        },
+        "t51": {
+          "coefficient": 40,
+          "absolute_bound": 40960,
+          "width": 32
+        },
+        "t5": {
+          "coefficient": 39,
+          "absolute_bound": 39936,
+          "width": 32
+        },
+        "t52": {
+          "coefficient": 40,
+          "absolute_bound": 40960,
+          "width": 32
+        },
+        "t6": {
+          "coefficient": 45,
+          "absolute_bound": 46080,
+          "width": 32
+        },
+        "t53": {
+          "coefficient": 122,
+          "absolute_bound": 124928,
+          "width": 32
+        },
+        "t8": {
+          "coefficient": 61,
+          "absolute_bound": 62464,
+          "width": 32
+        },
+        "t54": {
+          "coefficient": 80,
+          "absolute_bound": 81920,
+          "width": 32
+        },
+        "t10": {
+          "coefficient": 75,
+          "absolute_bound": 76800,
+          "width": 32
+        },
+        "t55": {
+          "coefficient": 80,
+          "absolute_bound": 81920,
+          "width": 32
+        },
+        "t12": {
+          "coefficient": 85,
+          "absolute_bound": 87040,
+          "width": 32
+        },
+        "t56": {
+          "coefficient": 4,
+          "absolute_bound": 4096,
+          "width": 32
+        },
+        "t16": {
+          "coefficient": 131,
+          "absolute_bound": 134144,
+          "width": 32
+        },
+        "t57": {
+          "coefficient": 160,
+          "absolute_bound": 163840,
+          "width": 32
+        },
+        "t17": {
+          "coefficient": 155,
+          "absolute_bound": 158720,
+          "width": 32
+        },
+        "t58": {
+          "coefficient": 80,
+          "absolute_bound": 81920,
+          "width": 32
+        },
+        "t19": {
+          "coefficient": 207,
+          "absolute_bound": 211968,
+          "width": 32
+        },
+        "t59": {
+          "coefficient": 320,
+          "absolute_bound": 327680,
+          "width": 32
+        },
+        "t23": {
+          "coefficient": 321,
+          "absolute_bound": 328704,
+          "width": 32
+        },
+        "t60": {
+          "coefficient": 640,
+          "absolute_bound": 655360,
+          "width": 32
+        },
+        "t28": {
+          "coefficient": 635,
+          "absolute_bound": 650240,
+          "width": 32
+        },
+        "t61": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t7": {
+          "coefficient": 53,
+          "absolute_bound": 54272,
+          "width": 32
+        },
+        "t62": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t9": {
+          "coefficient": 71,
+          "absolute_bound": 72704,
+          "width": 32
+        },
+        "t63": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t11": {
+          "coefficient": 83,
+          "absolute_bound": 84992,
+          "width": 32
+        },
+        "t64": {
+          "coefficient": 22,
+          "absolute_bound": 22528,
+          "width": 32
+        },
+        "t13": {
+          "coefficient": 97,
+          "absolute_bound": 99328,
+          "width": 32
+        },
+        "t65": {
+          "coefficient": 122,
+          "absolute_bound": 124928,
+          "width": 32
+        },
+        "t14": {
+          "coefficient": 121,
+          "absolute_bound": 123904,
+          "width": 32
+        },
+        "t66": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t18": {
+          "coefficient": 163,
+          "absolute_bound": 166912,
+          "width": 32
+        },
+        "t67": {
+          "coefficient": 2,
+          "absolute_bound": 2048,
+          "width": 32
+        },
+        "t20": {
+          "coefficient": 209,
+          "absolute_bound": 214016,
+          "width": 32
+        },
+        "t68": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t21": {
+          "coefficient": 219,
+          "absolute_bound": 224256,
+          "width": 32
+        },
+        "t69": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t22": {
+          "coefficient": 289,
+          "absolute_bound": 295936,
+          "width": 32
+        },
+        "t70": {
+          "coefficient": 256,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t24": {
+          "coefficient": 341,
+          "absolute_bound": 349184,
+          "width": 32
+        },
+        "t71": {
+          "coefficient": 414,
+          "absolute_bound": 423936,
+          "width": 32
+        },
+        "t25": {
+          "coefficient": 413,
+          "absolute_bound": 422912,
+          "width": 32
+        },
+        "t72": {
+          "coefficient": 300,
+          "absolute_bound": 307200,
+          "width": 32
+        },
+        "t26": {
+          "coefficient": 431,
+          "absolute_bound": 441344,
+          "width": 32
+        },
+        "t73": {
+          "coefficient": 640,
+          "absolute_bound": 655360,
+          "width": 32
+        },
+        "t27": {
+          "coefficient": 565,
+          "absolute_bound": 578560,
+          "width": 32
+        },
+        "t74": {
+          "coefficient": 800,
+          "absolute_bound": 819200,
+          "width": 32
+        },
+        "t30": {
+          "coefficient": 755,
+          "absolute_bound": 773120,
+          "width": 32
+        },
+        "t75": {
+          "coefficient": 720,
+          "absolute_bound": 737280,
+          "width": 32
+        },
+        "t31": {
+          "coefficient": 759,
+          "absolute_bound": 777216,
+          "width": 32
+        },
+        "t76": {
+          "coefficient": 1016,
+          "absolute_bound": 1040384,
+          "width": 32
+        },
+        "t33": {
+          "coefficient": 997,
+          "absolute_bound": 1020928,
+          "width": 32
+        },
+        "t77": {
+          "coefficient": 1240,
+          "absolute_bound": 1269760,
+          "width": 32
+        },
+        "t34": {
+          "coefficient": 1033,
+          "absolute_bound": 1057792,
+          "width": 32
+        },
+        "t78": {
+          "coefficient": 1280,
+          "absolute_bound": 1310720,
+          "width": 32
+        },
+        "t36": {
+          "coefficient": 1299,
+          "absolute_bound": 1330176,
+          "width": 32
+        },
+        "t79": {
+          "coefficient": 1440,
+          "absolute_bound": 1474560,
+          "width": 32
+        },
+        "t37": {
+          "coefficient": 1761,
+          "absolute_bound": 1803264,
+          "width": 32
+        },
+        "t80": {
+          "coefficient": 2432,
+          "absolute_bound": 2490368,
+          "width": 32
+        },
+        "t42": {
+          "coefficient": 2471,
+          "absolute_bound": 2530304,
+          "width": 32
+        },
+        "t81": {
+          "coefficient": 4064,
+          "absolute_bound": 4161536,
+          "width": 32
+        },
+        "t43": {
+          "coefficient": 3429,
+          "absolute_bound": 3511296,
+          "width": 32
+        },
+        "t82": {
+          "coefficient": 10240,
+          "absolute_bound": 10485760,
+          "width": 32
+        },
+        "t45": {
+          "coefficient": 10395,
+          "absolute_bound": 10644480,
+          "width": 32
+        },
+        "t83": {
+          "coefficient": 1024,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t29": {
+          "coefficient": 737,
+          "absolute_bound": 754688,
+          "width": 32
+        },
+        "t84": {
+          "coefficient": 876,
+          "absolute_bound": 897024,
+          "width": 32
+        },
+        "t32": {
+          "coefficient": 865,
+          "absolute_bound": 885760,
+          "width": 32
+        },
+        "t85": {
+          "coefficient": 1248,
+          "absolute_bound": 1277952,
+          "width": 32
+        },
+        "t35": {
+          "coefficient": 1127,
+          "absolute_bound": 1154048,
+          "width": 32
+        },
+        "t86": {
+          "coefficient": 2,
+          "absolute_bound": 2048,
+          "width": 32
+        },
+        "t38": {
+          "coefficient": 1763,
+          "absolute_bound": 1805312,
+          "width": 32
+        },
+        "t87": {
+          "coefficient": 2560,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t39": {
+          "coefficient": 2147,
+          "absolute_bound": 2198528,
+          "width": 32
+        },
+        "t88": {
+          "coefficient": 176,
+          "absolute_bound": 180224,
+          "width": 32
+        },
+        "t40": {
+          "coefficient": 2295,
+          "absolute_bound": 2350080,
+          "width": 32
+        },
+        "t89": {
+          "coefficient": 2312,
+          "absolute_bound": 2367488,
+          "width": 32
+        },
+        "t41": {
+          "coefficient": 2313,
+          "absolute_bound": 2368512,
+          "width": 32
+        },
+        "t90": {
+          "coefficient": 6784,
+          "absolute_bound": 6946816,
+          "width": 32
+        },
+        "t44": {
+          "coefficient": 6495,
+          "absolute_bound": 6650880,
+          "width": 32
+        }
+      },
+      "hcub_output_sha256": "19c8e68612b45ae9ac9674bedc9f26972b8ded4ec979d15cd4393530af3448f1",
+      "screen": {
+        "named_graph_operations": 90,
+        "unique_primitive_expressions": 79,
+        "source_state_word_transfers_per_output": 94,
+        "single_word_access_cycle_estimate_without_products": 239,
+        "can_reject_candidate": false,
+        "scope": "source-operation estimate only; LDM/STM, CSE and register retention can reduce it; excludes product graph, control, quantizer and spills"
+      }
+    },
+    "32768": {
+      "maximum": 32768,
+      "coefficient_l1": 72509,
+      "sum_width": 64,
+      "state_bounds": [
+        2260434944,
+        1957265408,
+        1531609088,
+        1190985728,
+        1110016000,
+        969310208,
+        821592064,
+        815038464,
+        702676992,
+        644972544,
+        588283904,
+        513081344,
+        505151488,
+        439812096,
+        414941184,
+        372375552,
+        331743232,
+        314572800,
+        272498688,
+        268206080,
+        234356736,
+        215842816,
+        195035136,
+        170295296,
+        163119104,
+        138969088,
+        134971392,
+        116031488,
+        104857600,
+        93323264,
+        79200256,
+        75038720,
+        61505536,
+        59768832,
+        49086464,
+        43646976,
+        36798464,
+        29851648,
+        26673152,
+        19890176,
+        19562496,
+        13991936,
+        12517376,
+        8552448,
+        6225920,
+        3768320,
+        1277952
+      ],
+      "state_widths": [
+        64,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "state_payload_bytes": 192,
+      "direct_history_bytes": 94,
+      "graph_nodes": {
+        "t0": {
+          "coefficient": 1,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t46": {
+          "coefficient": 4,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t1": {
+          "coefficient": 5,
+          "absolute_bound": 163840,
+          "width": 32
+        },
+        "t47": {
+          "coefficient": 128,
+          "absolute_bound": 4194304,
+          "width": 32
+        },
+        "t15": {
+          "coefficient": 127,
+          "absolute_bound": 4161536,
+          "width": 32
+        },
+        "t48": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t2": {
+          "coefficient": 11,
+          "absolute_bound": 360448,
+          "width": 32
+        },
+        "t49": {
+          "coefficient": 20,
+          "absolute_bound": 655360,
+          "width": 32
+        },
+        "t3": {
+          "coefficient": 19,
+          "absolute_bound": 622592,
+          "width": 32
+        },
+        "t50": {
+          "coefficient": 20,
+          "absolute_bound": 655360,
+          "width": 32
+        },
+        "t4": {
+          "coefficient": 25,
+          "absolute_bound": 819200,
+          "width": 32
+        },
+        "t51": {
+          "coefficient": 40,
+          "absolute_bound": 1310720,
+          "width": 32
+        },
+        "t5": {
+          "coefficient": 39,
+          "absolute_bound": 1277952,
+          "width": 32
+        },
+        "t52": {
+          "coefficient": 40,
+          "absolute_bound": 1310720,
+          "width": 32
+        },
+        "t6": {
+          "coefficient": 45,
+          "absolute_bound": 1474560,
+          "width": 32
+        },
+        "t53": {
+          "coefficient": 122,
+          "absolute_bound": 3997696,
+          "width": 32
+        },
+        "t8": {
+          "coefficient": 61,
+          "absolute_bound": 1998848,
+          "width": 32
+        },
+        "t54": {
+          "coefficient": 80,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t10": {
+          "coefficient": 75,
+          "absolute_bound": 2457600,
+          "width": 32
+        },
+        "t55": {
+          "coefficient": 80,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t12": {
+          "coefficient": 85,
+          "absolute_bound": 2785280,
+          "width": 32
+        },
+        "t56": {
+          "coefficient": 4,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t16": {
+          "coefficient": 131,
+          "absolute_bound": 4292608,
+          "width": 32
+        },
+        "t57": {
+          "coefficient": 160,
+          "absolute_bound": 5242880,
+          "width": 32
+        },
+        "t17": {
+          "coefficient": 155,
+          "absolute_bound": 5079040,
+          "width": 32
+        },
+        "t58": {
+          "coefficient": 80,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t19": {
+          "coefficient": 207,
+          "absolute_bound": 6782976,
+          "width": 32
+        },
+        "t59": {
+          "coefficient": 320,
+          "absolute_bound": 10485760,
+          "width": 32
+        },
+        "t23": {
+          "coefficient": 321,
+          "absolute_bound": 10518528,
+          "width": 32
+        },
+        "t60": {
+          "coefficient": 640,
+          "absolute_bound": 20971520,
+          "width": 32
+        },
+        "t28": {
+          "coefficient": 635,
+          "absolute_bound": 20807680,
+          "width": 32
+        },
+        "t61": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t7": {
+          "coefficient": 53,
+          "absolute_bound": 1736704,
+          "width": 32
+        },
+        "t62": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t9": {
+          "coefficient": 71,
+          "absolute_bound": 2326528,
+          "width": 32
+        },
+        "t63": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t11": {
+          "coefficient": 83,
+          "absolute_bound": 2719744,
+          "width": 32
+        },
+        "t64": {
+          "coefficient": 22,
+          "absolute_bound": 720896,
+          "width": 32
+        },
+        "t13": {
+          "coefficient": 97,
+          "absolute_bound": 3178496,
+          "width": 32
+        },
+        "t65": {
+          "coefficient": 122,
+          "absolute_bound": 3997696,
+          "width": 32
+        },
+        "t14": {
+          "coefficient": 121,
+          "absolute_bound": 3964928,
+          "width": 32
+        },
+        "t66": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t18": {
+          "coefficient": 163,
+          "absolute_bound": 5341184,
+          "width": 32
+        },
+        "t67": {
+          "coefficient": 2,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t20": {
+          "coefficient": 209,
+          "absolute_bound": 6848512,
+          "width": 32
+        },
+        "t68": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t21": {
+          "coefficient": 219,
+          "absolute_bound": 7176192,
+          "width": 32
+        },
+        "t69": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t22": {
+          "coefficient": 289,
+          "absolute_bound": 9469952,
+          "width": 32
+        },
+        "t70": {
+          "coefficient": 256,
+          "absolute_bound": 8388608,
+          "width": 32
+        },
+        "t24": {
+          "coefficient": 341,
+          "absolute_bound": 11173888,
+          "width": 32
+        },
+        "t71": {
+          "coefficient": 414,
+          "absolute_bound": 13565952,
+          "width": 32
+        },
+        "t25": {
+          "coefficient": 413,
+          "absolute_bound": 13533184,
+          "width": 32
+        },
+        "t72": {
+          "coefficient": 300,
+          "absolute_bound": 9830400,
+          "width": 32
+        },
+        "t26": {
+          "coefficient": 431,
+          "absolute_bound": 14123008,
+          "width": 32
+        },
+        "t73": {
+          "coefficient": 640,
+          "absolute_bound": 20971520,
+          "width": 32
+        },
+        "t27": {
+          "coefficient": 565,
+          "absolute_bound": 18513920,
+          "width": 32
+        },
+        "t74": {
+          "coefficient": 800,
+          "absolute_bound": 26214400,
+          "width": 32
+        },
+        "t30": {
+          "coefficient": 755,
+          "absolute_bound": 24739840,
+          "width": 32
+        },
+        "t75": {
+          "coefficient": 720,
+          "absolute_bound": 23592960,
+          "width": 32
+        },
+        "t31": {
+          "coefficient": 759,
+          "absolute_bound": 24870912,
+          "width": 32
+        },
+        "t76": {
+          "coefficient": 1016,
+          "absolute_bound": 33292288,
+          "width": 32
+        },
+        "t33": {
+          "coefficient": 997,
+          "absolute_bound": 32669696,
+          "width": 32
+        },
+        "t77": {
+          "coefficient": 1240,
+          "absolute_bound": 40632320,
+          "width": 32
+        },
+        "t34": {
+          "coefficient": 1033,
+          "absolute_bound": 33849344,
+          "width": 32
+        },
+        "t78": {
+          "coefficient": 1280,
+          "absolute_bound": 41943040,
+          "width": 32
+        },
+        "t36": {
+          "coefficient": 1299,
+          "absolute_bound": 42565632,
+          "width": 32
+        },
+        "t79": {
+          "coefficient": 1440,
+          "absolute_bound": 47185920,
+          "width": 32
+        },
+        "t37": {
+          "coefficient": 1761,
+          "absolute_bound": 57704448,
+          "width": 32
+        },
+        "t80": {
+          "coefficient": 2432,
+          "absolute_bound": 79691776,
+          "width": 32
+        },
+        "t42": {
+          "coefficient": 2471,
+          "absolute_bound": 80969728,
+          "width": 32
+        },
+        "t81": {
+          "coefficient": 4064,
+          "absolute_bound": 133169152,
+          "width": 32
+        },
+        "t43": {
+          "coefficient": 3429,
+          "absolute_bound": 112361472,
+          "width": 32
+        },
+        "t82": {
+          "coefficient": 10240,
+          "absolute_bound": 335544320,
+          "width": 32
+        },
+        "t45": {
+          "coefficient": 10395,
+          "absolute_bound": 340623360,
+          "width": 32
+        },
+        "t83": {
+          "coefficient": 1024,
+          "absolute_bound": 33554432,
+          "width": 32
+        },
+        "t29": {
+          "coefficient": 737,
+          "absolute_bound": 24150016,
+          "width": 32
+        },
+        "t84": {
+          "coefficient": 876,
+          "absolute_bound": 28704768,
+          "width": 32
+        },
+        "t32": {
+          "coefficient": 865,
+          "absolute_bound": 28344320,
+          "width": 32
+        },
+        "t85": {
+          "coefficient": 1248,
+          "absolute_bound": 40894464,
+          "width": 32
+        },
+        "t35": {
+          "coefficient": 1127,
+          "absolute_bound": 36929536,
+          "width": 32
+        },
+        "t86": {
+          "coefficient": 2,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t38": {
+          "coefficient": 1763,
+          "absolute_bound": 57769984,
+          "width": 32
+        },
+        "t87": {
+          "coefficient": 2560,
+          "absolute_bound": 83886080,
+          "width": 32
+        },
+        "t39": {
+          "coefficient": 2147,
+          "absolute_bound": 70352896,
+          "width": 32
+        },
+        "t88": {
+          "coefficient": 176,
+          "absolute_bound": 5767168,
+          "width": 32
+        },
+        "t40": {
+          "coefficient": 2295,
+          "absolute_bound": 75202560,
+          "width": 32
+        },
+        "t89": {
+          "coefficient": 2312,
+          "absolute_bound": 75759616,
+          "width": 32
+        },
+        "t41": {
+          "coefficient": 2313,
+          "absolute_bound": 75792384,
+          "width": 32
+        },
+        "t90": {
+          "coefficient": 6784,
+          "absolute_bound": 222298112,
+          "width": 32
+        },
+        "t44": {
+          "coefficient": 6495,
+          "absolute_bound": 212828160,
+          "width": 32
+        }
+      },
+      "hcub_output_sha256": "19c8e68612b45ae9ac9674bedc9f26972b8ded4ec979d15cd4393530af3448f1",
+      "screen": {
+        "named_graph_operations": 90,
+        "unique_primitive_expressions": 79,
+        "source_state_word_transfers_per_output": 96,
+        "single_word_access_cycle_estimate_without_products": 245,
+        "can_reject_candidate": false,
+        "scope": "source-operation estimate only; LDM/STM, CSE and register retention can reduce it; excludes product graph, control, quantizer and spills"
+      }
+    }
+  },
+  "vibration_bp192": {
+    "1024": {
+      "maximum": 1024,
+      "coefficient_l1": 87676,
+      "sum_width": 32,
+      "state_bounds": [
+        89775104,
+        89767936,
+        89766912,
+        89765888,
+        89754624,
+        89741312,
+        89739264,
+        89737216,
+        89720832,
+        89703424,
+        89702400,
+        89701376,
+        89682944,
+        89665536,
+        89657344,
+        89646080,
+        89633792,
+        89623552,
+        89597952,
+        89567232,
+        89565184,
+        89564160,
+        89517056,
+        89463808,
+        89454592,
+        89444352,
+        89377792,
+        89308160,
+        89298944,
+        89291776,
+        89219072,
+        89147392,
+        89137152,
+        89117696,
+        89059328,
+        89008128,
+        88953856,
+        88885248,
+        88860672,
+        88845312,
+        88730624,
+        88599552,
+        88586240,
+        88564736,
+        88391680,
+        88207360,
+        88174592,
+        88142848,
+        87939072,
+        87734272,
+        87727104,
+        87718912,
+        87533568,
+        87361536,
+        87282688,
+        87173120,
+        87058432,
+        86968320,
+        86751232,
+        86494208,
+        86481920,
+        86469632,
+        86094848,
+        85684224,
+        85614592,
+        85533696,
+        85037056,
+        84523008,
+        84453376,
+        84404224,
+        83880960,
+        83371008,
+        83298304,
+        83162112,
+        82745344,
+        82376704,
+        81984512,
+        81485824,
+        81302528,
+        81190912,
+        80309248,
+        79282176,
+        79171584,
+        78993408,
+        77483008,
+        75795456,
+        75476992,
+        75149312,
+        72857600,
+        70321152,
+        70218752,
+        70082560,
+        66340864,
+        61690880,
+        58319872,
+        44890112,
+        31460352,
+        28089344,
+        23439360,
+        19697664,
+        19561472,
+        19459072,
+        16922624,
+        14630912,
+        14303232,
+        13984768,
+        12297216,
+        10786816,
+        10608640,
+        10498048,
+        9470976,
+        8589312,
+        8477696,
+        8294400,
+        7795712,
+        7403520,
+        7034880,
+        6618112,
+        6481920,
+        6409216,
+        5899264,
+        5376000,
+        5326848,
+        5257216,
+        4743168,
+        4246528,
+        4165632,
+        4096000,
+        3685376,
+        3310592,
+        3298304,
+        3286016,
+        3028992,
+        2811904,
+        2721792,
+        2607104,
+        2497536,
+        2418688,
+        2246656,
+        2061312,
+        2053120,
+        2045952,
+        1841152,
+        1637376,
+        1605632,
+        1572864,
+        1388544,
+        1215488,
+        1193984,
+        1180672,
+        1049600,
+        934912,
+        919552,
+        894976,
+        826368,
+        772096,
+        720896,
+        662528,
+        643072,
+        632832,
+        561152,
+        488448,
+        481280,
+        472064,
+        402432,
+        335872,
+        325632,
+        316416,
+        263168,
+        216064,
+        215040,
+        212992,
+        182272,
+        156672,
+        146432,
+        134144,
+        122880,
+        114688,
+        97280,
+        78848,
+        77824,
+        76800,
+        59392,
+        43008,
+        40960,
+        38912,
+        25600,
+        14336,
+        13312,
+        12288,
+        5120
+      ],
+      "state_widths": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "state_payload_bytes": 764,
+      "direct_history_bytes": 382,
+      "graph_nodes": {
+        "t0": {
+          "coefficient": 1,
+          "absolute_bound": 1024,
+          "width": 32
+        },
+        "t53": {
+          "coefficient": 4,
+          "absolute_bound": 4096,
+          "width": 32
+        },
+        "t2": {
+          "coefficient": 3,
+          "absolute_bound": 3072,
+          "width": 32
+        },
+        "t54": {
+          "coefficient": 4,
+          "absolute_bound": 4096,
+          "width": 32
+        },
+        "t3": {
+          "coefficient": 5,
+          "absolute_bound": 5120,
+          "width": 32
+        },
+        "t55": {
+          "coefficient": 8,
+          "absolute_bound": 8192,
+          "width": 32
+        },
+        "t4": {
+          "coefficient": 7,
+          "absolute_bound": 7168,
+          "width": 32
+        },
+        "t56": {
+          "coefficient": 8,
+          "absolute_bound": 8192,
+          "width": 32
+        },
+        "t5": {
+          "coefficient": 9,
+          "absolute_bound": 9216,
+          "width": 32
+        },
+        "t57": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t8": {
+          "coefficient": 15,
+          "absolute_bound": 15360,
+          "width": 32
+        },
+        "t58": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t9": {
+          "coefficient": 17,
+          "absolute_bound": 17408,
+          "width": 32
+        },
+        "t59": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t15": {
+          "coefficient": 31,
+          "absolute_bound": 31744,
+          "width": 32
+        },
+        "t60": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t20": {
+          "coefficient": 65,
+          "absolute_bound": 66560,
+          "width": 32
+        },
+        "t61": {
+          "coefficient": 512,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t43": {
+          "coefficient": 511,
+          "absolute_bound": 523264,
+          "width": 32
+        },
+        "t62": {
+          "coefficient": 8,
+          "absolute_bound": 8192,
+          "width": 32
+        },
+        "t6": {
+          "coefficient": 11,
+          "absolute_bound": 11264,
+          "width": 32
+        },
+        "t63": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t7": {
+          "coefficient": 13,
+          "absolute_bound": 13312,
+          "width": 32
+        },
+        "t64": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t10": {
+          "coefficient": 19,
+          "absolute_bound": 19456,
+          "width": 32
+        },
+        "t65": {
+          "coefficient": 16,
+          "absolute_bound": 16384,
+          "width": 32
+        },
+        "t11": {
+          "coefficient": 21,
+          "absolute_bound": 21504,
+          "width": 32
+        },
+        "t66": {
+          "coefficient": 24,
+          "absolute_bound": 24576,
+          "width": 32
+        },
+        "t12": {
+          "coefficient": 23,
+          "absolute_bound": 23552,
+          "width": 32
+        },
+        "t67": {
+          "coefficient": 24,
+          "absolute_bound": 24576,
+          "width": 32
+        },
+        "t13": {
+          "coefficient": 25,
+          "absolute_bound": 25600,
+          "width": 32
+        },
+        "t68": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t14": {
+          "coefficient": 27,
+          "absolute_bound": 27648,
+          "width": 32
+        },
+        "t69": {
+          "coefficient": 32,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t16": {
+          "coefficient": 35,
+          "absolute_bound": 35840,
+          "width": 32
+        },
+        "t70": {
+          "coefficient": 48,
+          "absolute_bound": 49152,
+          "width": 32
+        },
+        "t17": {
+          "coefficient": 45,
+          "absolute_bound": 46080,
+          "width": 32
+        },
+        "t71": {
+          "coefficient": 48,
+          "absolute_bound": 49152,
+          "width": 32
+        },
+        "t18": {
+          "coefficient": 53,
+          "absolute_bound": 54272,
+          "width": 32
+        },
+        "t72": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t19": {
+          "coefficient": 57,
+          "absolute_bound": 58368,
+          "width": 32
+        },
+        "t73": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t21": {
+          "coefficient": 67,
+          "absolute_bound": 68608,
+          "width": 32
+        },
+        "t74": {
+          "coefficient": 64,
+          "absolute_bound": 65536,
+          "width": 32
+        },
+        "t22": {
+          "coefficient": 71,
+          "absolute_bound": 72704,
+          "width": 32
+        },
+        "t75": {
+          "coefficient": 80,
+          "absolute_bound": 81920,
+          "width": 32
+        },
+        "t23": {
+          "coefficient": 77,
+          "absolute_bound": 78848,
+          "width": 32
+        },
+        "t76": {
+          "coefficient": 80,
+          "absolute_bound": 81920,
+          "width": 32
+        },
+        "t24": {
+          "coefficient": 79,
+          "absolute_bound": 80896,
+          "width": 32
+        },
+        "t77": {
+          "coefficient": 96,
+          "absolute_bound": 98304,
+          "width": 32
+        },
+        "t25": {
+          "coefficient": 87,
+          "absolute_bound": 89088,
+          "width": 32
+        },
+        "t78": {
+          "coefficient": 96,
+          "absolute_bound": 98304,
+          "width": 32
+        },
+        "t26": {
+          "coefficient": 103,
+          "absolute_bound": 105472,
+          "width": 32
+        },
+        "t79": {
+          "coefficient": 112,
+          "absolute_bound": 114688,
+          "width": 32
+        },
+        "t27": {
+          "coefficient": 107,
+          "absolute_bound": 109568,
+          "width": 32
+        },
+        "t80": {
+          "coefficient": 112,
+          "absolute_bound": 114688,
+          "width": 32
+        },
+        "t28": {
+          "coefficient": 109,
+          "absolute_bound": 111616,
+          "width": 32
+        },
+        "t81": {
+          "coefficient": 128,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t29": {
+          "coefficient": 133,
+          "absolute_bound": 136192,
+          "width": 32
+        },
+        "t82": {
+          "coefficient": 160,
+          "absolute_bound": 163840,
+          "width": 32
+        },
+        "t30": {
+          "coefficient": 169,
+          "absolute_bound": 173056,
+          "width": 32
+        },
+        "t83": {
+          "coefficient": 192,
+          "absolute_bound": 196608,
+          "width": 32
+        },
+        "t33": {
+          "coefficient": 183,
+          "absolute_bound": 187392,
+          "width": 32
+        },
+        "t84": {
+          "coefficient": 192,
+          "absolute_bound": 196608,
+          "width": 32
+        },
+        "t34": {
+          "coefficient": 199,
+          "absolute_bound": 203776,
+          "width": 32
+        },
+        "t85": {
+          "coefficient": 256,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t35": {
+          "coefficient": 249,
+          "absolute_bound": 254976,
+          "width": 32
+        },
+        "t86": {
+          "coefficient": 256,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t36": {
+          "coefficient": 251,
+          "absolute_bound": 257024,
+          "width": 32
+        },
+        "t87": {
+          "coefficient": 320,
+          "absolute_bound": 327680,
+          "width": 32
+        },
+        "t37": {
+          "coefficient": 311,
+          "absolute_bound": 318464,
+          "width": 32
+        },
+        "t88": {
+          "coefficient": 384,
+          "absolute_bound": 393216,
+          "width": 32
+        },
+        "t38": {
+          "coefficient": 383,
+          "absolute_bound": 392192,
+          "width": 32
+        },
+        "t89": {
+          "coefficient": 384,
+          "absolute_bound": 393216,
+          "width": 32
+        },
+        "t39": {
+          "coefficient": 401,
+          "absolute_bound": 410624,
+          "width": 32
+        },
+        "t90": {
+          "coefficient": 480,
+          "absolute_bound": 491520,
+          "width": 32
+        },
+        "t41": {
+          "coefficient": 485,
+          "absolute_bound": 496640,
+          "width": 32
+        },
+        "t91": {
+          "coefficient": 24,
+          "absolute_bound": 24576,
+          "width": 32
+        },
+        "t42": {
+          "coefficient": 487,
+          "absolute_bound": 498688,
+          "width": 32
+        },
+        "t92": {
+          "coefficient": 1088,
+          "absolute_bound": 1114112,
+          "width": 32
+        },
+        "t47": {
+          "coefficient": 1119,
+          "absolute_bound": 1145856,
+          "width": 32
+        },
+        "t93": {
+          "coefficient": 180,
+          "absolute_bound": 184320,
+          "width": 32
+        },
+        "t31": {
+          "coefficient": 179,
+          "absolute_bound": 183296,
+          "width": 32
+        },
+        "t94": {
+          "coefficient": 180,
+          "absolute_bound": 184320,
+          "width": 32
+        },
+        "t32": {
+          "coefficient": 181,
+          "absolute_bound": 185344,
+          "width": 32
+        },
+        "t95": {
+          "coefficient": 384,
+          "absolute_bound": 393216,
+          "width": 32
+        },
+        "t40": {
+          "coefficient": 407,
+          "absolute_bound": 416768,
+          "width": 32
+        },
+        "t96": {
+          "coefficient": 824,
+          "absolute_bound": 843776,
+          "width": 32
+        },
+        "t44": {
+          "coefficient": 823,
+          "absolute_bound": 842752,
+          "width": 32
+        },
+        "t97": {
+          "coefficient": 864,
+          "absolute_bound": 884736,
+          "width": 32
+        },
+        "t45": {
+          "coefficient": 861,
+          "absolute_bound": 881664,
+          "width": 32
+        },
+        "t98": {
+          "coefficient": 1024,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t46": {
+          "coefficient": 1003,
+          "absolute_bound": 1027072,
+          "width": 32
+        },
+        "t99": {
+          "coefficient": 1472,
+          "absolute_bound": 1507328,
+          "width": 32
+        },
+        "t48": {
+          "coefficient": 1475,
+          "absolute_bound": 1510400,
+          "width": 32
+        },
+        "t100": {
+          "coefficient": 1824,
+          "absolute_bound": 1867776,
+          "width": 32
+        },
+        "t49": {
+          "coefficient": 1827,
+          "absolute_bound": 1870848,
+          "width": 32
+        },
+        "t101": {
+          "coefficient": 2488,
+          "absolute_bound": 2547712,
+          "width": 32
+        },
+        "t50": {
+          "coefficient": 2477,
+          "absolute_bound": 2536448,
+          "width": 32
+        },
+        "t102": {
+          "coefficient": 4544,
+          "absolute_bound": 4653056,
+          "width": 32
+        },
+        "t51": {
+          "coefficient": 4541,
+          "absolute_bound": 4649984,
+          "width": 32
+        },
+        "t103": {
+          "coefficient": 13168,
+          "absolute_bound": 13484032,
+          "width": 32
+        },
+        "t52": {
+          "coefficient": 13115,
+          "absolute_bound": 13429760,
+          "width": 32
+        },
+        "t1": {
+          "coefficient": 1,
+          "absolute_bound": 1024,
+          "width": 32
+        }
+      },
+      "hcub_output_sha256": "54701bf44b59aa259818b5e16407620163f51005555f4298263258cfd7843efb",
+      "screen": {
+        "named_graph_operations": 103,
+        "unique_primitive_expressions": 79,
+        "source_state_word_transfers_per_output": 382,
+        "single_word_access_cycle_estimate_without_products": 959,
+        "can_reject_candidate": false,
+        "scope": "source-operation estimate only; LDM/STM, CSE and register retention can reduce it; excludes product graph, control, quantizer and spills"
+      }
+    },
+    "32768": {
+      "maximum": 32768,
+      "coefficient_l1": 87676,
+      "sum_width": 64,
+      "state_bounds": [
+        2872803328,
+        2872573952,
+        2872541184,
+        2872508416,
+        2872147968,
+        2871721984,
+        2871656448,
+        2871590912,
+        2871066624,
+        2870509568,
+        2870476800,
+        2870444032,
+        2869854208,
+        2869297152,
+        2869035008,
+        2868674560,
+        2868281344,
+        2867953664,
+        2867134464,
+        2866151424,
+        2866085888,
+        2866053120,
+        2864545792,
+        2862841856,
+        2862546944,
+        2862219264,
+        2860089344,
+        2857861120,
+        2857566208,
+        2857336832,
+        2855010304,
+        2852716544,
+        2852388864,
+        2851766272,
+        2849898496,
+        2848260096,
+        2846523392,
+        2844327936,
+        2843541504,
+        2843049984,
+        2839379968,
+        2835185664,
+        2834759680,
+        2834071552,
+        2828533760,
+        2822635520,
+        2821586944,
+        2820571136,
+        2814050304,
+        2807496704,
+        2807267328,
+        2807005184,
+        2801074176,
+        2795569152,
+        2793046016,
+        2789539840,
+        2785869824,
+        2782986240,
+        2776039424,
+        2767814656,
+        2767421440,
+        2767028224,
+        2755035136,
+        2741895168,
+        2739666944,
+        2737078272,
+        2721185792,
+        2704736256,
+        2702508032,
+        2700935168,
+        2684190720,
+        2667872256,
+        2665545728,
+        2661187584,
+        2647851008,
+        2636054528,
+        2623504384,
+        2607546368,
+        2601680896,
+        2598109184,
+        2569895936,
+        2537029632,
+        2533490688,
+        2527789056,
+        2479456256,
+        2425454592,
+        2415263744,
+        2404777984,
+        2331443200,
+        2250276864,
+        2247000064,
+        2242641920,
+        2122907648,
+        1974108160,
+        1866235904,
+        1436483584,
+        1006731264,
+        898859008,
+        750059520,
+        630325248,
+        625967104,
+        622690304,
+        541523968,
+        468189184,
+        457703424,
+        447512576,
+        393510912,
+        345178112,
+        339476480,
+        335937536,
+        303071232,
+        274857984,
+        271286272,
+        265420800,
+        249462784,
+        236912640,
+        225116160,
+        211779584,
+        207421440,
+        205094912,
+        188776448,
+        172032000,
+        170459136,
+        168230912,
+        151781376,
+        135888896,
+        133300224,
+        131072000,
+        117932032,
+        105938944,
+        105545728,
+        105152512,
+        96927744,
+        89980928,
+        87097344,
+        83427328,
+        79921152,
+        77398016,
+        71892992,
+        65961984,
+        65699840,
+        65470464,
+        58916864,
+        52396032,
+        51380224,
+        50331648,
+        44433408,
+        38895616,
+        38207488,
+        37781504,
+        33587200,
+        29917184,
+        29425664,
+        28639232,
+        26443776,
+        24707072,
+        23068672,
+        21200896,
+        20578304,
+        20250624,
+        17956864,
+        15630336,
+        15400960,
+        15106048,
+        12877824,
+        10747904,
+        10420224,
+        10125312,
+        8421376,
+        6914048,
+        6881280,
+        6815744,
+        5832704,
+        5013504,
+        4685824,
+        4292608,
+        3932160,
+        3670016,
+        3112960,
+        2523136,
+        2490368,
+        2457600,
+        1900544,
+        1376256,
+        1310720,
+        1245184,
+        819200,
+        458752,
+        425984,
+        393216,
+        163840
+      ],
+      "state_widths": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "state_payload_bytes": 1132,
+      "direct_history_bytes": 382,
+      "graph_nodes": {
+        "t0": {
+          "coefficient": 1,
+          "absolute_bound": 32768,
+          "width": 32
+        },
+        "t53": {
+          "coefficient": 4,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t2": {
+          "coefficient": 3,
+          "absolute_bound": 98304,
+          "width": 32
+        },
+        "t54": {
+          "coefficient": 4,
+          "absolute_bound": 131072,
+          "width": 32
+        },
+        "t3": {
+          "coefficient": 5,
+          "absolute_bound": 163840,
+          "width": 32
+        },
+        "t55": {
+          "coefficient": 8,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t4": {
+          "coefficient": 7,
+          "absolute_bound": 229376,
+          "width": 32
+        },
+        "t56": {
+          "coefficient": 8,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t5": {
+          "coefficient": 9,
+          "absolute_bound": 294912,
+          "width": 32
+        },
+        "t57": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t8": {
+          "coefficient": 15,
+          "absolute_bound": 491520,
+          "width": 32
+        },
+        "t58": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t9": {
+          "coefficient": 17,
+          "absolute_bound": 557056,
+          "width": 32
+        },
+        "t59": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t15": {
+          "coefficient": 31,
+          "absolute_bound": 1015808,
+          "width": 32
+        },
+        "t60": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t20": {
+          "coefficient": 65,
+          "absolute_bound": 2129920,
+          "width": 32
+        },
+        "t61": {
+          "coefficient": 512,
+          "absolute_bound": 16777216,
+          "width": 32
+        },
+        "t43": {
+          "coefficient": 511,
+          "absolute_bound": 16744448,
+          "width": 32
+        },
+        "t62": {
+          "coefficient": 8,
+          "absolute_bound": 262144,
+          "width": 32
+        },
+        "t6": {
+          "coefficient": 11,
+          "absolute_bound": 360448,
+          "width": 32
+        },
+        "t63": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t7": {
+          "coefficient": 13,
+          "absolute_bound": 425984,
+          "width": 32
+        },
+        "t64": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t10": {
+          "coefficient": 19,
+          "absolute_bound": 622592,
+          "width": 32
+        },
+        "t65": {
+          "coefficient": 16,
+          "absolute_bound": 524288,
+          "width": 32
+        },
+        "t11": {
+          "coefficient": 21,
+          "absolute_bound": 688128,
+          "width": 32
+        },
+        "t66": {
+          "coefficient": 24,
+          "absolute_bound": 786432,
+          "width": 32
+        },
+        "t12": {
+          "coefficient": 23,
+          "absolute_bound": 753664,
+          "width": 32
+        },
+        "t67": {
+          "coefficient": 24,
+          "absolute_bound": 786432,
+          "width": 32
+        },
+        "t13": {
+          "coefficient": 25,
+          "absolute_bound": 819200,
+          "width": 32
+        },
+        "t68": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t14": {
+          "coefficient": 27,
+          "absolute_bound": 884736,
+          "width": 32
+        },
+        "t69": {
+          "coefficient": 32,
+          "absolute_bound": 1048576,
+          "width": 32
+        },
+        "t16": {
+          "coefficient": 35,
+          "absolute_bound": 1146880,
+          "width": 32
+        },
+        "t70": {
+          "coefficient": 48,
+          "absolute_bound": 1572864,
+          "width": 32
+        },
+        "t17": {
+          "coefficient": 45,
+          "absolute_bound": 1474560,
+          "width": 32
+        },
+        "t71": {
+          "coefficient": 48,
+          "absolute_bound": 1572864,
+          "width": 32
+        },
+        "t18": {
+          "coefficient": 53,
+          "absolute_bound": 1736704,
+          "width": 32
+        },
+        "t72": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t19": {
+          "coefficient": 57,
+          "absolute_bound": 1867776,
+          "width": 32
+        },
+        "t73": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t21": {
+          "coefficient": 67,
+          "absolute_bound": 2195456,
+          "width": 32
+        },
+        "t74": {
+          "coefficient": 64,
+          "absolute_bound": 2097152,
+          "width": 32
+        },
+        "t22": {
+          "coefficient": 71,
+          "absolute_bound": 2326528,
+          "width": 32
+        },
+        "t75": {
+          "coefficient": 80,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t23": {
+          "coefficient": 77,
+          "absolute_bound": 2523136,
+          "width": 32
+        },
+        "t76": {
+          "coefficient": 80,
+          "absolute_bound": 2621440,
+          "width": 32
+        },
+        "t24": {
+          "coefficient": 79,
+          "absolute_bound": 2588672,
+          "width": 32
+        },
+        "t77": {
+          "coefficient": 96,
+          "absolute_bound": 3145728,
+          "width": 32
+        },
+        "t25": {
+          "coefficient": 87,
+          "absolute_bound": 2850816,
+          "width": 32
+        },
+        "t78": {
+          "coefficient": 96,
+          "absolute_bound": 3145728,
+          "width": 32
+        },
+        "t26": {
+          "coefficient": 103,
+          "absolute_bound": 3375104,
+          "width": 32
+        },
+        "t79": {
+          "coefficient": 112,
+          "absolute_bound": 3670016,
+          "width": 32
+        },
+        "t27": {
+          "coefficient": 107,
+          "absolute_bound": 3506176,
+          "width": 32
+        },
+        "t80": {
+          "coefficient": 112,
+          "absolute_bound": 3670016,
+          "width": 32
+        },
+        "t28": {
+          "coefficient": 109,
+          "absolute_bound": 3571712,
+          "width": 32
+        },
+        "t81": {
+          "coefficient": 128,
+          "absolute_bound": 4194304,
+          "width": 32
+        },
+        "t29": {
+          "coefficient": 133,
+          "absolute_bound": 4358144,
+          "width": 32
+        },
+        "t82": {
+          "coefficient": 160,
+          "absolute_bound": 5242880,
+          "width": 32
+        },
+        "t30": {
+          "coefficient": 169,
+          "absolute_bound": 5537792,
+          "width": 32
+        },
+        "t83": {
+          "coefficient": 192,
+          "absolute_bound": 6291456,
+          "width": 32
+        },
+        "t33": {
+          "coefficient": 183,
+          "absolute_bound": 5996544,
+          "width": 32
+        },
+        "t84": {
+          "coefficient": 192,
+          "absolute_bound": 6291456,
+          "width": 32
+        },
+        "t34": {
+          "coefficient": 199,
+          "absolute_bound": 6520832,
+          "width": 32
+        },
+        "t85": {
+          "coefficient": 256,
+          "absolute_bound": 8388608,
+          "width": 32
+        },
+        "t35": {
+          "coefficient": 249,
+          "absolute_bound": 8159232,
+          "width": 32
+        },
+        "t86": {
+          "coefficient": 256,
+          "absolute_bound": 8388608,
+          "width": 32
+        },
+        "t36": {
+          "coefficient": 251,
+          "absolute_bound": 8224768,
+          "width": 32
+        },
+        "t87": {
+          "coefficient": 320,
+          "absolute_bound": 10485760,
+          "width": 32
+        },
+        "t37": {
+          "coefficient": 311,
+          "absolute_bound": 10190848,
+          "width": 32
+        },
+        "t88": {
+          "coefficient": 384,
+          "absolute_bound": 12582912,
+          "width": 32
+        },
+        "t38": {
+          "coefficient": 383,
+          "absolute_bound": 12550144,
+          "width": 32
+        },
+        "t89": {
+          "coefficient": 384,
+          "absolute_bound": 12582912,
+          "width": 32
+        },
+        "t39": {
+          "coefficient": 401,
+          "absolute_bound": 13139968,
+          "width": 32
+        },
+        "t90": {
+          "coefficient": 480,
+          "absolute_bound": 15728640,
+          "width": 32
+        },
+        "t41": {
+          "coefficient": 485,
+          "absolute_bound": 15892480,
+          "width": 32
+        },
+        "t91": {
+          "coefficient": 24,
+          "absolute_bound": 786432,
+          "width": 32
+        },
+        "t42": {
+          "coefficient": 487,
+          "absolute_bound": 15958016,
+          "width": 32
+        },
+        "t92": {
+          "coefficient": 1088,
+          "absolute_bound": 35651584,
+          "width": 32
+        },
+        "t47": {
+          "coefficient": 1119,
+          "absolute_bound": 36667392,
+          "width": 32
+        },
+        "t93": {
+          "coefficient": 180,
+          "absolute_bound": 5898240,
+          "width": 32
+        },
+        "t31": {
+          "coefficient": 179,
+          "absolute_bound": 5865472,
+          "width": 32
+        },
+        "t94": {
+          "coefficient": 180,
+          "absolute_bound": 5898240,
+          "width": 32
+        },
+        "t32": {
+          "coefficient": 181,
+          "absolute_bound": 5931008,
+          "width": 32
+        },
+        "t95": {
+          "coefficient": 384,
+          "absolute_bound": 12582912,
+          "width": 32
+        },
+        "t40": {
+          "coefficient": 407,
+          "absolute_bound": 13336576,
+          "width": 32
+        },
+        "t96": {
+          "coefficient": 824,
+          "absolute_bound": 27000832,
+          "width": 32
+        },
+        "t44": {
+          "coefficient": 823,
+          "absolute_bound": 26968064,
+          "width": 32
+        },
+        "t97": {
+          "coefficient": 864,
+          "absolute_bound": 28311552,
+          "width": 32
+        },
+        "t45": {
+          "coefficient": 861,
+          "absolute_bound": 28213248,
+          "width": 32
+        },
+        "t98": {
+          "coefficient": 1024,
+          "absolute_bound": 33554432,
+          "width": 32
+        },
+        "t46": {
+          "coefficient": 1003,
+          "absolute_bound": 32866304,
+          "width": 32
+        },
+        "t99": {
+          "coefficient": 1472,
+          "absolute_bound": 48234496,
+          "width": 32
+        },
+        "t48": {
+          "coefficient": 1475,
+          "absolute_bound": 48332800,
+          "width": 32
+        },
+        "t100": {
+          "coefficient": 1824,
+          "absolute_bound": 59768832,
+          "width": 32
+        },
+        "t49": {
+          "coefficient": 1827,
+          "absolute_bound": 59867136,
+          "width": 32
+        },
+        "t101": {
+          "coefficient": 2488,
+          "absolute_bound": 81526784,
+          "width": 32
+        },
+        "t50": {
+          "coefficient": 2477,
+          "absolute_bound": 81166336,
+          "width": 32
+        },
+        "t102": {
+          "coefficient": 4544,
+          "absolute_bound": 148897792,
+          "width": 32
+        },
+        "t51": {
+          "coefficient": 4541,
+          "absolute_bound": 148799488,
+          "width": 32
+        },
+        "t103": {
+          "coefficient": 13168,
+          "absolute_bound": 431489024,
+          "width": 32
+        },
+        "t52": {
+          "coefficient": 13115,
+          "absolute_bound": 429752320,
+          "width": 32
+        },
+        "t1": {
+          "coefficient": 1,
+          "absolute_bound": 32768,
+          "width": 32
+        }
+      },
+      "hcub_output_sha256": "54701bf44b59aa259818b5e16407620163f51005555f4298263258cfd7843efb",
+      "screen": {
+        "named_graph_operations": 103,
+        "unique_primitive_expressions": 79,
+        "source_state_word_transfers_per_output": 566,
+        "single_word_access_cycle_estimate_without_products": 1420,
+        "can_reject_candidate": false,
+        "scope": "source-operation estimate only; LDM/STM, CSE and register retention can reduce it; excludes product graph, control, quantizer and spills"
+      }
+    }
+  }
+}

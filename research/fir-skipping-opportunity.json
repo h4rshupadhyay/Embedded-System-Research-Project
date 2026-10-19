@@ -1,0 +1,226 @@
+{
+  "seed": 20261019,
+  "windows_per_condition": 2000,
+  "python": "3.10.12",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "warning": "Opportunity counts only; all implementation overhead excluded; independent windows; no symmetry baseline.",
+  "rows": [
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 8,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 30.962500000000006,
+      "early_exit_percent": 96.45
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 8,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 53.893750000000004,
+      "early_exit_percent": 99.15
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 8,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 53.893750000000004,
+      "early_exit_percent": 99.15
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 128,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 5.300000000000004,
+      "early_exit_percent": 42.4
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 128,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 30.518749999999994,
+      "early_exit_percent": 96.3
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 128,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 52.21249999999999,
+      "early_exit_percent": 98.7
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 8192,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 0.0,
+      "early_exit_percent": 0.0
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 8192,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 0.0,
+      "early_exit_percent": 0.0
+    },
+    {
+      "nonzero_taps": 64,
+      "input_amplitude": 8192,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 15.056250000000004,
+      "early_exit_percent": 86.6
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 8,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 32.49375,
+      "early_exit_percent": 98.45
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 8,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 56.440625,
+      "early_exit_percent": 99.65
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 8,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 56.440625,
+      "early_exit_percent": 99.65
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 128,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 5.7656249999999964,
+      "early_exit_percent": 73.35000000000001
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 128,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 32.7125,
+      "early_exit_percent": 98.1
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 128,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 55.4875,
+      "early_exit_percent": 99.6
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 8192,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 0.0,
+      "early_exit_percent": 0.0
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 8192,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 0.03750000000000142,
+      "early_exit_percent": 0.6
+    },
+    {
+      "nonzero_taps": 128,
+      "input_amplitude": 8192,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 16.493749999999995,
+      "early_exit_percent": 94.15
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 8,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 33.959375,
+      "early_exit_percent": 99.3
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 8,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 58.5609375,
+      "early_exit_percent": 99.9
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 8,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 58.5609375,
+      "early_exit_percent": 99.9
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 128,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 6.289062499999998,
+      "early_exit_percent": 90.55
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 128,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 34.050000000000004,
+      "early_exit_percent": 99.65
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 128,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 57.167187500000004,
+      "early_exit_percent": 99.95
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 8192,
+      "output_bits": 16,
+      "shift": 15,
+      "mean_products_omitted_percent": 0.0,
+      "early_exit_percent": 0.0
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 8192,
+      "output_bits": 12,
+      "shift": 19,
+      "mean_products_omitted_percent": 1.9656250000000042,
+      "early_exit_percent": 62.9
+    },
+    {
+      "nonzero_taps": 256,
+      "input_amplitude": 8192,
+      "output_bits": 8,
+      "shift": 23,
+      "mean_products_omitted_percent": 16.660937499999996,
+      "early_exit_percent": 97.35000000000001
+    }
+  ]
+}

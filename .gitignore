@@ -16,3 +16,26 @@ __pycache__/
 # Local Python environments and additional experiment runs
 .venv/
 results/local/
+
+# Current exact-FIR research snapshot
+# Local environments and machine-specific state
+.venv/
+.aws/
+.agents/
+.codex/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Reproducible build caches, installed tools and downloaded pilot data
+build/
+research/data/
+*.o
+*.so
+*.elf
+*.bin
+*.map
+research/fir-sharing-probe/vendor/synth-jan-14-2009/acm
