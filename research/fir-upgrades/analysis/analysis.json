@@ -1,0 +1,828 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "samples": 257,
+    "pair_count": 12,
+    "order": "gcc10 then gcc15; block 1 then 64; partial-minus-wide, Hcub-minus-ordinary, Hcub-minus-partial",
+    "lambda_domain": "lambda >= 0",
+    "selected_region": [
+      "0.5",
+      "2"
+    ],
+    "stress_interpretation": "arbitrary uncalibrated RAM-weight sensitivity; not a confidence interval, hardware configuration, or physical price"
+  },
+  "source_digests": {
+    "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+    "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+    "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+    "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+    "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+    "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+  },
+  "pairs": [
+    {
+      "compiler": "gcc10",
+      "block": 1,
+      "left_variant": "partial_direct32x2",
+      "right_variant": "spec_direct",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -90207,
+        "mul": 0,
+        "taken_branches": -257,
+        "ram_reads": -24415,
+        "ram_writes": -23901,
+        "flash_reads": 0,
+        "instructions": -90207,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -90207,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-86982.821406",
+        "mul": "0.000000",
+        "taken_branches": "-537.640402",
+        "ram_reads": "-27096.572695",
+        "ram_writes": "-15549.106263",
+        "flash_reads": "0.000000"
+      },
+      "delta_energy_nj": "-130166.140766",
+      "delta_energy_nj_per_output": "-506.483038",
+      "left_relative_percent": "-32.823800624397802870398128300062363204984351168528",
+      "delta_cycles": -139037,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": -368,
+      "delta_kernel_and_coefficient_symbol_bytes": -700,
+      "event_dominance": "left_dominates",
+      "affine": {
+        "A_nj": "-87520.461808",
+        "B_nj": "-42645.678958",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": -170273272,
+            "denominator": 82968247
+          },
+          "root_decimal": "-2.052270",
+          "root_domain": "outside",
+          "root_region": "outside",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "left",
+          "strict_lower_throughout_region": true,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc10",
+      "block": 1,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "trans_const",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": 0,
+        "mul": -2570,
+        "taken_branches": 0,
+        "ram_reads": 9509,
+        "ram_writes": 5397,
+        "flash_reads": -1028,
+        "instructions": -2570,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -2570,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "0.000000",
+        "mul": "-4246.809350",
+        "taken_branches": "0.000000",
+        "ram_reads": "10553.401997",
+        "ram_writes": "3511.088511",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "9166.318770",
+      "delta_energy_nj_per_output": "35.666610",
+      "left_relative_percent": "3.4105363150662064864518928910903040912074770782400",
+      "delta_cycles": 11308,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": 72,
+      "delta_kernel_and_coefficient_symbol_bytes": -36,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-4898.171738",
+        "B_nj": "14064.490508",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 9529517,
+            "denominator": 27362822
+          },
+          "root_decimal": "0.348265",
+          "root_domain": "inside_domain",
+          "root_region": "below",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "right",
+          "at_1": "right",
+          "at_2": "right",
+          "strict_lower_throughout_region": false,
+          "strict_higher_throughout_region": true
+        }
+      }
+    },
+    {
+      "compiler": "gcc10",
+      "block": 1,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "partial_direct32x2",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -5141,
+        "mul": -2570,
+        "taken_branches": -10794,
+        "ram_reads": 21845,
+        "ram_writes": 30326,
+        "flash_reads": -1028,
+        "instructions": -7711,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -7711,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-4957.250378",
+        "mul": "-4246.809350",
+        "taken_branches": "-22580.896884",
+        "ram_reads": "24244.301885",
+        "ram_writes": "19728.973538",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "11536.956423",
+      "delta_energy_nj_per_output": "44.890881023346303501945525291828793774319066147860",
+      "left_relative_percent": "4.3307853624923749412171887008222423471720673810300",
+      "delta_cycles": 21844,
+      "delta_state_allocation_bytes": 94,
+      "delta_probe_process_stack_bytes": 272,
+      "delta_kernel_and_coefficient_symbol_bytes": 468,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-32436.319000",
+        "B_nj": "43973.275423",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 32436319000,
+            "denominator": 43973275423
+          },
+          "root_decimal": "0.737637",
+          "root_domain": "inside_domain",
+          "root_region": "within",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "right",
+          "at_2": "right",
+          "strict_lower_throughout_region": false,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc10",
+      "block": 64,
+      "left_variant": "partial_direct32x2",
+      "right_variant": "spec_direct",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -66326,
+        "mul": 0,
+        "taken_branches": -257,
+        "ram_reads": -23886,
+        "ram_writes": -23649,
+        "flash_reads": -252,
+        "instructions": -66326,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -66326,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-63955.376108",
+        "mul": "0.000000",
+        "taken_branches": "-537.640402",
+        "ram_reads": "-26509.471038",
+        "ram_writes": "-15385.164387",
+        "flash_reads": "-159.672492"
+      },
+      "delta_energy_nj": "-106547.324427",
+      "delta_energy_nj_per_output": "-414.58102889883268482490272373540856031128404669261",
+      "left_relative_percent": "-41.860155044646591399862826043858677426980114979831",
+      "delta_cycles": -114627,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": -368,
+      "delta_kernel_and_coefficient_symbol_bytes": -524,
+      "event_dominance": "left_dominates",
+      "affine": {
+        "A_nj": "-64652.689002",
+        "B_nj": "-41894.635425",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": -21550896334,
+            "denominator": 13964878475
+          },
+          "root_decimal": "-1.543221",
+          "root_domain": "outside",
+          "root_region": "outside",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "left",
+          "strict_lower_throughout_region": true,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc10",
+      "block": 64,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "trans_const",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -9324,
+        "mul": -2570,
+        "taken_branches": 0,
+        "ram_reads": 9257,
+        "ram_writes": 5145,
+        "flash_reads": -1028,
+        "instructions": -11894,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -11894,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-8990.741592",
+        "mul": "-4246.809350",
+        "taken_branches": "0.000000",
+        "ram_reads": "10273.724081",
+        "ram_writes": "3347.146635",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "-268.042614",
+      "delta_energy_nj_per_output": "-1.0429673696498054474708171206225680933852140077821",
+      "left_relative_percent": "-0.17220209366028594431709018582881637724847565827100",
+      "delta_cycles": 1480,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": 72,
+      "delta_kernel_and_coefficient_symbol_bytes": -36,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-13888.913330",
+        "B_nj": "13620.870716",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 6944456665,
+            "denominator": 6810435358
+          },
+          "root_decimal": "1.019679",
+          "root_domain": "inside_domain",
+          "root_region": "within",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "right",
+          "strict_lower_throughout_region": false,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc10",
+      "block": 64,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "partial_direct32x2",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -10772,
+        "mul": -2570,
+        "taken_branches": -734,
+        "ram_reads": 10994,
+        "ram_writes": 18235,
+        "flash_reads": -776,
+        "instructions": -13342,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -13342,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-10386.987176",
+        "mul": "-4246.809350",
+        "taken_branches": "-1535.517724",
+        "ram_reads": "12201.504002",
+        "ram_writes": "11863.016305",
+        "flash_reads": "-491.689896"
+      },
+      "delta_energy_nj": "7403.516161",
+      "delta_energy_nj_per_output": "28.807455879377431906614785992217898832684824902724",
+      "left_relative_percent": "5.0029071600968432971341886577851821495664155343600",
+      "delta_cycles": 13643,
+      "delta_state_allocation_bytes": -32,
+      "delta_probe_process_stack_bytes": 272,
+      "delta_kernel_and_coefficient_symbol_bytes": 308,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-16661.004146",
+        "B_nj": "24064.520307",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 16661004146,
+            "denominator": 24064520307
+          },
+          "root_decimal": "0.692347",
+          "root_domain": "inside_domain",
+          "root_region": "within",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "right",
+          "at_2": "right",
+          "strict_lower_throughout_region": false,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1,
+      "left_variant": "partial_direct32x2",
+      "right_variant": "spec_direct",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -64119,
+        "mul": 0,
+        "taken_branches": -126,
+        "ram_reads": -23130,
+        "ram_writes": -23387,
+        "flash_reads": -257,
+        "instructions": -64119,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -64119,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-61827.258702",
+        "mul": "0.000000",
+        "taken_branches": "-263.590236",
+        "ram_reads": "-25670.437290",
+        "ram_writes": "-15214.716881",
+        "flash_reads": "-162.840597"
+      },
+      "delta_energy_nj": "-103138.843706",
+      "delta_energy_nj_per_output": "-401.318458",
+      "left_relative_percent": "-23.440505787980349572271885851759617761799059073763",
+      "delta_cycles": -111145,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": -368,
+      "delta_kernel_and_coefficient_symbol_bytes": -500,
+      "event_dominance": "left_dominates",
+      "affine": {
+        "A_nj": "-62253.689535",
+        "B_nj": "-40885.154171",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": -242232255,
+            "denominator": 159086203
+          },
+          "root_decimal": "-1.522648",
+          "root_domain": "outside",
+          "root_region": "outside",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "left",
+          "strict_lower_throughout_region": true,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "trans_const",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -17990,
+        "mul": -2570,
+        "taken_branches": -257,
+        "ram_reads": 7196,
+        "ram_writes": 5140,
+        "flash_reads": -1028,
+        "instructions": -20560,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -20560,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-17347.001420",
+        "mul": "-4246.809350",
+        "taken_branches": "-537.640402",
+        "ram_reads": "7986.358268",
+        "ram_writes": "3343.893820",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "-11452.561472",
+      "delta_energy_nj_per_output": "-44.562496",
+      "left_relative_percent": "-4.2848899217291220759680832331212805292863158447200",
+      "delta_cycles": -9766,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": 72,
+      "delta_kernel_and_coefficient_symbol_bytes": -180,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-22782.813560",
+        "B_nj": "11330.252088",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 11081135,
+            "denominator": 5510823
+          },
+          "root_decimal": "2.010795",
+          "root_domain": "inside_domain",
+          "root_region": "above",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "left",
+          "strict_lower_throughout_region": true,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 1,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "partial_direct32x2",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -68493,
+        "mul": -2570,
+        "taken_branches": -11182,
+        "ram_reads": 5654,
+        "ram_writes": 10794,
+        "flash_reads": -1028,
+        "instructions": -71063,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -71063,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-66044.923194",
+        "mul": "-4246.809350",
+        "taken_branches": "-23392.587452",
+        "ram_reads": "6274.995782",
+        "ram_writes": "7022.177022",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "-81038.509580",
+      "delta_energy_nj_per_output": "-315.324940",
+      "left_relative_percent": "-24.056758570535991405388606607608404739132906240155",
+      "delta_cycles": -78007,
+      "delta_state_allocation_bytes": 94,
+      "delta_probe_process_stack_bytes": 104,
+      "delta_kernel_and_coefficient_symbol_bytes": -20,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-94335.682384",
+        "B_nj": "13297.172804",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 3989836,
+            "denominator": 562391
+          },
+          "root_decimal": "7.094417",
+          "root_domain": "inside_domain",
+          "root_region": "above",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "left",
+          "strict_lower_throughout_region": true,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 64,
+      "left_variant": "partial_direct32x2",
+      "right_variant": "spec_direct",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -71738,
+        "mul": 0,
+        "taken_branches": -257,
+        "ram_reads": -22621,
+        "ram_writes": -23921,
+        "flash_reads": -5,
+        "instructions": -71738,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -71738,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-69173.940404",
+        "mul": "0.000000",
+        "taken_branches": "-537.640402",
+        "ram_reads": "-25105.532293",
+        "ram_writes": "-15562.117523",
+        "flash_reads": "-3.168105"
+      },
+      "delta_energy_nj": "-110382.398727",
+      "delta_energy_nj_per_output": "-429.50349699221789883268482490272373540856031128405",
+      "left_relative_percent": "-41.980693931028076515576788961464637820753410411287",
+      "delta_cycles": -118799,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": -376,
+      "delta_kernel_and_coefficient_symbol_bytes": -572,
+      "event_dominance": "left_dominates",
+      "affine": {
+        "A_nj": "-69714.748911",
+        "B_nj": "-40667.649816",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": -23238249637,
+            "denominator": 13555883272
+          },
+          "root_decimal": "-1.714256",
+          "root_domain": "outside",
+          "root_region": "outside",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "left",
+          "strict_lower_throughout_region": true,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 64,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "trans_const",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -17234,
+        "mul": -2570,
+        "taken_branches": -5,
+        "ram_reads": 7196,
+        "ram_writes": 4888,
+        "flash_reads": -1028,
+        "instructions": -19804,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -19804,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-16618.022372",
+        "mul": "-4246.809350",
+        "taken_branches": "-10.459930",
+        "ram_reads": "7986.358268",
+        "ram_writes": "3179.951944",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "-10360.343828",
+      "delta_energy_nj_per_output": "-40.312621898832684824902723735408560311284046692607",
+      "left_relative_percent": "-6.6868225480459873847967903707474379060592507007400",
+      "delta_cycles": -8758,
+      "delta_state_allocation_bytes": 0,
+      "delta_probe_process_stack_bytes": 72,
+      "delta_kernel_and_coefficient_symbol_bytes": -180,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-21526.654040",
+        "B_nj": "11166.310212",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 5381663510,
+            "denominator": 2791577553
+          },
+          "root_decimal": "1.927822",
+          "root_domain": "inside_domain",
+          "root_region": "within",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "right",
+          "strict_lower_throughout_region": false,
+          "strict_higher_throughout_region": false
+        }
+      }
+    },
+    {
+      "compiler": "gcc15",
+      "block": 64,
+      "left_variant": "trans_hcub_demand",
+      "right_variant": "partial_direct32x2",
+      "samples": 257,
+      "source_digests": {
+        "research/fir-baseline/selection-design.json": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "research/fir-sharing-probe/results.json": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "research/fir-sharing-probe/partial-direct/results.json": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "research/fir-sharing-probe/independent-check/verification.json": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "research/fir-sharing-probe/compiler-explanation/accounting.json": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "research/fir-sharing-probe/explanation-check/verification.json": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003"
+      },
+      "delta_events": {
+        "nonmul": -12505,
+        "mul": -2570,
+        "taken_branches": 289,
+        "ram_reads": 3124,
+        "ram_writes": 7543,
+        "flash_reads": -1028,
+        "instructions": -15075,
+        "bl": 0,
+        "flash_writes": 0
+      },
+      "delta_instructions": -15075,
+      "delta_bl": 0,
+      "delta_flash_writes": 0,
+      "cost_components_nj": {
+        "nonmul": "-12058.046290",
+        "mul": "-4246.809350",
+        "taken_branches": "604.583954",
+        "ram_reads": "3467.118292",
+        "ram_writes": "4907.196709",
+        "flash_reads": "-651.362388"
+      },
+      "delta_energy_nj": "-7977.319073",
+      "delta_energy_nj_per_output": "-31.040152035019455252918287937743190661478599221790",
+      "left_relative_percent": "-5.2291875498077714666894743783523281082889560682320",
+      "delta_cycles": -4858,
+      "delta_state_allocation_bytes": -32,
+      "delta_probe_process_stack_bytes": 112,
+      "delta_kernel_and_coefficient_symbol_bytes": 40,
+      "event_dominance": "mixed",
+      "affine": {
+        "A_nj": "-16351.634074",
+        "B_nj": "8374.315001",
+        "boundary": {
+          "kind": "root",
+          "root_exact": {
+            "numerator": 16351634074,
+            "denominator": 8374315001
+          },
+          "root_decimal": "1.952594",
+          "root_domain": "inside_domain",
+          "root_region": "within",
+          "sign": null
+        },
+        "stress": {
+          "at_0_5": "left",
+          "at_1": "left",
+          "at_2": "right",
+          "strict_lower_throughout_region": false,
+          "strict_higher_throughout_region": false
+        }
+      }
+    }
+  ]
+}
