@@ -1,6 +1,6 @@
 {
   "archive": "evidence.tar.gz",
-  "archive_sha256": "7e88d626b835da0f0cd2a2636969e3f15b5b2e0a062330eaab55a27fa4306e1c",
+  "archive_sha256": "bf08c652fb8cdfec8951fbd5e0df5fd3a068c512942bfc2515e7fd27c8782b94",
   "files": [
     {
       "path": "research/fir-baseline/README.md",
@@ -2719,8 +2719,8 @@
     },
     {
       "path": "research/fir-upgrades/PROGRESS.md",
-      "sha256": "ddc376aab1c488e816e1bab4d4f4f8b8b167275da8b47e23fc77c20f28e7dfb0",
-      "size": 16543
+      "sha256": "55b0b3e2d0a0a2901cbbcf7e6f2057bf05281c4fb963e025193e507af53eaa51",
+      "size": 17052
     },
     {
       "path": "research/fir-upgrades/README.md",
@@ -35799,8 +35799,8 @@
     },
     {
       "path": "research/fir-upgrades/paper/README.md",
-      "sha256": "f28d050fd4ac6cbc2b0aa9926d2e31d907f7f287fde2b3753c119dcd5c45c883",
-      "size": 1591
+      "sha256": "6f584a6dc2d2944a0718edf4cf9cd515f2ff90d3c3490af4598f6d3afcccad05",
+      "size": 1789
     },
     {
       "path": "research/fir-upgrades/paper/figures/panel-boundaries.png",
@@ -35839,8 +35839,8 @@
     },
     {
       "path": "research/fir-upgrades/paper/ieee-template.tex",
-      "sha256": "acdcfeeb700fa6c8c5524070f52b3ef30bea891d67d1ea3d59d8e8df7e0e014b",
-      "size": 600
+      "sha256": "6f13199e3ea78400daaaf0646d50fc3ac5c4ae1739c471805ee6e6c689f53b07",
+      "size": 767
     },
     {
       "path": "research/fir-upgrades/paper/make_figures.py",
@@ -35849,28 +35849,28 @@
     },
     {
       "path": "research/fir-upgrades/paper/manuscript.md",
-      "sha256": "2e899f7b5f8c00c4a2fa78bf3cf236b758179b468b80aa4876728ed4229761c4",
-      "size": 53819
+      "sha256": "f5043851c8834ec01b78ced2661a5d9d54d6e132827eabf36814f3995169ba61",
+      "size": 54036
     },
     {
       "path": "research/fir-upgrades/paper/manuscript.pdf",
-      "sha256": "f7caacaefc40b5c02a7d487e245c85cf20a1ff11ccd8009b6d7ae11a68df8fb2",
-      "size": 418487
+      "sha256": "4efa0c0f404c1e3770a1d10edb0091d6f171667d5654acc1aa153b9924e2ce48",
+      "size": 418580
     },
     {
       "path": "research/fir-upgrades/paper/manuscript.tex",
-      "sha256": "be76353d2b375fe96e9ca35127448a283f20a056f092aa25cbfca61233368987",
-      "size": 60421
+      "sha256": "ade4dc9f63a130ccdf24c4eda3dcb7de686185c08e2aa27ca6a8a029b1e1a7c0",
+      "size": 60652
     },
     {
       "path": "research/fir-upgrades/paper/render-log.md",
-      "sha256": "814b0e9ca744e3b7fa9f8d7980dbc36303527539031521e26758d4e01bbe5d86",
-      "size": 2675
+      "sha256": "fba5e3456b1b398c9f3b0ef7a54e9a240b0488939b682e3e4a5ba00e25966179",
+      "size": 4858
     },
     {
       "path": "research/fir-upgrades/paper/render_paper.py",
-      "sha256": "b4d7f1b7501eea72b451b2ec2490792e521f2fb256ceab7edf0a9c47685b359d",
-      "size": 4874
+      "sha256": "d06c1ddef04e05165b2f5299c8e1649c46ae7977f3abd77496519e32136be7a6",
+      "size": 4925
     },
     {
       "path": "research/fir-upgrades/paper/requirements-paper.txt",

@@ -5,6 +5,10 @@ template and filter, the plot helper and its PNG/SVG outputs. The PDF and TeX
 are generated from this source; numeric source files and admitted results live
 one directory above in `research/fir-upgrades/`.
 
+The manuscript's YAML `author` list supplies the three names, registration numbers and
+roll numbers for the IEEE title block. Edit that list before rendering to keep
+the source and PDF consistent.
+
 From the repository root, regenerate the figures with:
 
 ```sh

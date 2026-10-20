@@ -49,7 +49,8 @@ def pandoc_source(source: Path) -> tuple[str, str]:
         del lines[title_line + 1:next_line + 1]
     lines[title_line] = f"# {title} {{#paper-title}}"
     text = "\n".join(lines) + "\n"
-    # Source has an editorial author/date block; the IEEE rendering is anonymous.
+    # Author metadata is rendered by the template; omit the editorial date and
+    # any legacy anonymous-author line from the body.
     text = re.sub(r"(?m)^(?:Anonymous authors|\d{1,2} [A-Za-z]+ \d{4})\s*\n", "", text)
     return title, text
 

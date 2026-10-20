@@ -14,7 +14,10 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,fontsize=\small}
 \newenvironment{Shaded}{}{}
 \title{$title$}
-\author{\IEEEauthorblockN{Anonymous authors}}
+\author{$if(author)$$for(author)$\IEEEauthorblockN{$author.name$}
+\IEEEauthorblockA{Reg No.: $author.regnumber$\\Roll No.: $author.rollnumber$}$sep$
+\and
+$endfor$$else$\IEEEauthorblockN{Anonymous authors}$endif$}
 \begin{document}
 \pagestyle{plain}
 \maketitle

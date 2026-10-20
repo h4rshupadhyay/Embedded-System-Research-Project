@@ -8,7 +8,7 @@ User authorized all five upgrades and per-upgrade novelty/pursuit gates.
 ## Current state
 
 All seven tasks are complete and accepted on 20 October 2026. The revised
-anonymous IEEEtran manuscript, TeX and eleven-page PDF are under `paper/`;
+IEEEtran manuscript, TeX and eleven-page PDF are under `paper/`;
 the extended evidence package contains 7,266 manifested payload files.
 Independent Sol6.1/high whole-change review passes science/spec/quality and
 reproduces all seven verification commands from a relocated tree with target
@@ -16,6 +16,14 @@ tools unavailable. Mechanical completion used Luna/low; scientific editorial
 closure used preferred Sol6.1/high. These are requested settings, not
 independent backend telemetry. No new target measurement was run in this
 continuation. Work remains local on `research/fir-independent-check`.
+
+The author block was updated at the user's request on 20 October 2026:
+Harsh Upadhyay (Reg No. 240911650, roll 57), Aishwarya Singh
+(240911232, roll 24), and Aryan Devpura (240911108, roll 12), in that order.
+The named PDF replaces the anonymous revision; the abstract and research body
+are unchanged. Author metadata is maintained in the manuscript's YAML header
+and rendered by the IEEE template. The paper and evidence bundle are refreshed
+together; current file hashes are recorded in the manifest and render log.
 
 Tasks1-2 complete: gates/design `a5ba80b`; exact saved-event analysis through
 `0f52a87`, approved after two scoped fix rounds. Root verified production export,

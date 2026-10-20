@@ -1,6 +1,17 @@
-# Arithmetic-Fair Comparisons of Exact FIR Software: A Cortex-M0 Model Case Study
+---
+author:
+  - name: Harsh Upadhyay
+    regnumber: "240911650"
+    rollnumber: "57"
+  - name: Aishwarya Singh
+    regnumber: "240911232"
+    rollnumber: "24"
+  - name: Aryan Devpura
+    regnumber: "240911108"
+    rollnumber: "12"
+---
 
-Anonymous authors
+# Arithmetic-Fair Comparisons of Exact FIR Software: A Cortex-M0 Model Case Study
 
 20 October 2026
 
