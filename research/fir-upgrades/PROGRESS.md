@@ -15,7 +15,7 @@ Task3 complete at `2394cf4`; independent Astra spec/quality review approved. The
 and two explanation-row checks with 29 explanation hashes and zero skips.
 Task4 preparation and independent scientific/code review complete after two
 admission fix rounds. Task5 execution and independent scientific/spec/code review are complete,
-including the provenance admission repair. Remaining: Tasks6-7.
+including the provenance admission repair. Remaining: Task7 final artifact, PDF and whole-change review.
 
 ## Workflow and decisions
 
@@ -165,3 +165,40 @@ sanitation checks remain separate from library/compiler-specific evidence.
 - Task6 interrupted source is preserved and undergoing pre-release admission
   repairs. No intervention target measurements have run. Scientific draft
   integrates panel results; final intervention/artifact/PDF remain pending.
+
+## Task6 measured and scientifically reviewed
+
+- Four performance and four edge correctness rows completed, with exactly one
+  attempt per identity. Both general binary/event anchors reproduced exactly.
+  A GCC10 binutils-path parser repair reused its saved execution, with no rerun.
+- Root independently reconstructed all eight raw event/cost/binary identities;
+  39 tests and local saved verification passed. General/specialized total nJ:
+  GCC10 266394.09385/242800.957748; GCC15 336863.793775/230943.514627.
+  The compiler gap changes from70469.699925 to-11857.443121 nJ.
+- Independent Sol6.1/high assembly review accepts identified preparation removal
+  and both strict numeric predicates. Required history copying remains; the
+  complete intervention delta includes other generated-code changes. See
+  intervention-review.md for the bounded manual scientific ruling.
+- Artifact/code acceptance remains pending three Important repairs: canonical
+  relocated stack diagnostic paths, fail-closed handling of executed incomplete
+  attempts, and duplicate historical/resource-summary binding. No new target
+  runs are authorized for those repairs. Task7 mechanics paused for this round.
+- Scientific manuscript is complete except the final extended-artifact paragraph.
+  Three figure PNG/SVG pairs exist and need final layout corrections. No new
+  PDF has been generated and the PDF operation marker has not been run.
+
+## Task6 final acceptance
+
+- Independent Sol6.1/high scoped re-review2 passes spec and quality. All three
+  Important findings and two residual restart cases are resolved. Fresh root
+  50-test suite and local8-row verification pass; reviewer also executes the
+  actual relocated8-row package with no target tools. No raw result changed.
+- Interrupted attempts with execution evidence now block automatic reruns unless
+  independently recoverable; valid partial checkpoints preserve both frozen
+  toolchain identities. Diagnostic stack paths relocate without dropping frame
+  semantics, and published duplicate source/resource/anchor fields are checked.
+- The manual stronger conjunction is accepted in intervention-review.md. The
+  numeric reducer's manual-pending label remains distinct from that scientific
+  decision. No compiler-pass, exclusive-transfer, other-form or physical claim.
+- Task7 mechanical work resumes: three figures are prepared, manuscript science
+  is complete, and final upgraded evidence packaging/IEEE rendering remain.

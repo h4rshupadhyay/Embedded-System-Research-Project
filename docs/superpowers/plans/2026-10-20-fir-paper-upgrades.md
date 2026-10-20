@@ -77,10 +77,10 @@
 
 **Files:** new `research/fir-upgrades/intervention.py`, `test_intervention.py`, `intervention-results.json`, `intervention.md`, raw `build/intervention/`.
 **Interfaces:** consumes scientific U5 contract and original partial kernel/wrapper; produces four matched rows, admission and bounded assembly interpretation.
-- [ ] RED/GREEN actual host behavior: b=1 specialized clone matches arbitrary-precision output/history/guards on signed windows, negative floor, zeros and long one-sample calls under UBSan. Document b=1 precondition without falsely preserving general-b semantics.
-- [ ] Clone original source and replace body uses of runtime b by literal1 with `(void)b`; retain ABI and all other sources/flags. Rebuild general/specialized with both compilers, original257input; four measured rows only.
-- [ ] General controls reproduce frozen binaries/events or stop comparability interpretation and diagnose. Independently audit all new raw outputs/events and compare code/frame/traffic. Sol reviews emitted code for intended loop/rotation change and any confound; preserve null results, no pass-cause or winner claim.
-- [ ] Run scoped tests/admission, record exact evidence and commit; scientific review before prose integration.
+- [x] RED/GREEN actual host behavior: b=1 specialized clone matches arbitrary-precision output/history/guards on signed windows, negative floor, zeros and long one-sample calls under UBSan. Document b=1 precondition without falsely preserving general-b semantics.
+- [x] Clone original source and replace body uses of runtime b by literal1 with `(void)b`; retain ABI and all other sources/flags. Rebuild general/specialized with both compilers, original257input; four measured rows only.
+- [x] General controls reproduce frozen binaries/events or stop comparability interpretation and diagnose. Independently audit all new raw outputs/events and compare code/frame/traffic. Sol reviews emitted code for intended loop/rotation change and any confound; preserve null results, no pass-cause or winner claim.
+- [x] Run scoped tests/admission, record exact evidence and commit; scientific review before prose integration.
 
 ### Task 7: Updated paper, figures, artifact and final review
 
