@@ -11,14 +11,20 @@ Tasks1-2 complete: gates/design `a5ba80b`; exact saved-event analysis through
 `0f52a87`, approved after two scoped fix rounds. Root verified production export,
 18-test first fix suite and >4300-digit finite root at caller precision6; worker's
 final19 analyzer +15 exporter tests pass. Original four paper hashes unchanged.
-Task3 portable evidence package is next. No new target costs observed.
-Remaining: Tasks3-7.
+Task3 complete at `2394cf4`; independent Astra spec/quality review approved. The package contains 531 files and passes 24 historical, four peer
+and two explanation-row checks with 29 explanation hashes and zero skips.
+Task4 preparation is in progress; no new target costs observed.
+Remaining: Tasks4-7.
 
 ## Workflow and decisions
 
 - Sol6.1 high scientific research/decisions/manuscript/review; Luna6 low explicit
   mechanical implementation with actual RED/GREEN tests. Routing telemetry not
   observable. No recursive delegation, one implementation task at a time.
+- Resume routing: Sol6.1 is absent from the current runtime's model allowlist.
+  The user authorized Astra as fallback: request `gpt-6-astra`, high, for
+  scientific work and review; retain `gpt-6-luna`, low, for mechanical work.
+  This records requested settings, not independently verified backend routing.
 - Continue existing dedicated research branch to retain pinned ignored raw/tools;
   no main edit, merge, push or publication. Existing artifact hashes are binding.
 - User's concrete five-upgrade authorization covers routine reversible execution
@@ -56,3 +62,20 @@ or repeat already admitted measurements to seek a preferred outcome.
   unittest.main() precedes it; documented discovery command runs all19 tests.
 - Initial Task2 CLI RED history was not independently verifiable; later real-file
   mutation/preservation tests and actual successful CLI are recorded honestly.
+
+## Resume verification, 20 October 2026
+
+- At `582a4c1`, all 19 saved-analysis tests passed and all six frozen source
+  hashes matched. Original manuscript Markdown/TeX/PDF and results digests were
+  saved in the ignored plan workspace for final preservation checks.
+- Pinned NumPy 1.26.4/SciPy 1.15.3, both target compilers, simulator and Hcub
+  executable remain available. Existing dedicated research checkout retained.
+- Task3 worker: `/root/resume_portable_evidence`; read-only Task4 scientific
+  preflight: `/root/panel_science_preflight`. Both were resumed after the user
+  interruption; no replacement workers or duplicate measurements were started.
+
+Task4 preflight: Astra permits preparation with explicit pinned-GCC integer
+semantics for CMSIS helpers. A distinct fast-CMSIS block64 pointer-aliasing
+question remains pending; unresolved cases must remain unavailable, never
+counted as admitted through finite tests. Generated source proofs and host
+sanitation checks remain separate from library/compiler-specific evidence.
