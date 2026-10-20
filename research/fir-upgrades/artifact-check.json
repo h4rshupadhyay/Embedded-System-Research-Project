@@ -1,0 +1,2717 @@
+{
+  "verified_files": 531,
+  "manifest": {
+    "description": "SHA-256 consistency manifest; hashes do not prove authenticity.",
+    "files": [
+      {
+        "path": "research/fir-baseline/README.md",
+        "sha256": "0a9be10bd90a372f15b5959591a55d88cfc391bdbfa3ececed0f66b889e32408",
+        "size": 12567
+      },
+      {
+        "path": "research/fir-baseline/build/cmsis-dsp/Source/FilteringFunctions/arm_fir_fast_q15.c",
+        "sha256": "b8833ae779d0336d4f36112d07bdbb70946cc1faac31edd9d56afde97fceb1f2",
+        "size": 10614
+      },
+      {
+        "path": "research/fir-baseline/build/cmsis-dsp/Source/FilteringFunctions/arm_fir_q15.c",
+        "sha256": "d82c6bf43e8596152e914395575a6df379725da6cf5326e94aec018e45b4c97d",
+        "size": 26815
+      },
+      {
+        "path": "research/fir-baseline/cmsis_baseline.py",
+        "sha256": "53820825d8f4884670d1da861f681d99308ab2d8c0bdf7ce617513ea4ca62a5b",
+        "size": 6725
+      },
+      {
+        "path": "research/fir-baseline/experiment.py",
+        "sha256": "1b20d313a433c30dedc98eb52393389836e7d19ff23625d082c9f48686df72df",
+        "size": 9977
+      },
+      {
+        "path": "research/fir-baseline/kernels.c",
+        "sha256": "0aacc31ea1fddcca54ab8d301ca354625a6ac6a9ba60fe71e3d0d9c907befe56",
+        "size": 2074
+      },
+      {
+        "path": "research/fir-baseline/kernels.h",
+        "sha256": "00c2e621e86ee69d6080dd55d4a2bdaa587f6c5284f33e0ad027c12a57703b0c",
+        "size": 888
+      },
+      {
+        "path": "research/fir-baseline/link.ld",
+        "sha256": "37fd6a919b5887762492571804dc8cdfbc5f87afadae4b31734297d52b55d4ca",
+        "size": 460
+      },
+      {
+        "path": "research/fir-baseline/selection-design.json",
+        "sha256": "bc4fac9ed74742667f90e3ef6504d7fbf41a567ca266f54f3ec12a72b78a876f",
+        "size": 22288
+      },
+      {
+        "path": "research/fir-baseline/selection_validation.py",
+        "sha256": "05ea5d2d52ddabef3dcb34f28be5f79b15b0a9c300a7ffc94c4a1591921a1537",
+        "size": 18387
+      },
+      {
+        "path": "research/fir-baseline/simulator.py",
+        "sha256": "c22ecb25b2b8ef212b62a473ee69a7c1f9d9fd51a8e48b5765e3138b3ef9ac43",
+        "size": 7446
+      },
+      {
+        "path": "research/fir-baseline/startup.s",
+        "sha256": "8859527adcb9943e5a648fcea01fdf8a2506ee27173b08fc55d82cac3a5b4054",
+        "size": 592
+      },
+      {
+        "path": "research/fir-paper/README.md",
+        "sha256": "593f36bd554c335c231399aa9288a017577982fefe25bb1a7ad34254b4053e2b",
+        "size": 5627
+      },
+      {
+        "path": "research/fir-paper/build_results.py",
+        "sha256": "ed39d2b18a7676e911d29f6dfb47a9329d66f19ad472780c79fae76955d84b04",
+        "size": 18751
+      },
+      {
+        "path": "research/fir-paper/results.json",
+        "sha256": "3161d9a01ae81d0cb1ae38b81bc0ea2d02bd1e3cb8ca604e13f5a2f72defe6fd",
+        "size": 24176
+      },
+      {
+        "path": "research/fir-paper/source-manifest.json",
+        "sha256": "d1790b30f56ec2e76b6531e614b0ddd7a5033d94be9f71053884dcc0dc232e02",
+        "size": 958
+      },
+      {
+        "path": "research/fir-paper/tables.md",
+        "sha256": "e937df9add2f1948c96d30a1acd6fc1ca2ceab1c921d90ab22e13564426ad2bf",
+        "size": 1538
+      },
+      {
+        "path": "research/fir-sharing-probe/PROTOCOL.md",
+        "sha256": "24a840a0742b964688dee96183fafe7580f586aa03900848c58169207a5cde34",
+        "size": 5345
+      },
+      {
+        "path": "research/fir-sharing-probe/README.md",
+        "sha256": "ac08cb5224f1e1e2963c46ee3cf2f018f0ad4748a288f8a5fc4f8c9e5ffb9f28",
+        "size": 2941
+      },
+      {
+        "path": "research/fir-sharing-probe/analysis.json",
+        "sha256": "53b3d3f28fce0097d9ca8b8f7578134339e5f25729265ccb17177c6ff3f2cd6c",
+        "size": 93799
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.bin",
+        "sha256": "8781568b6c476493c89fa4553f7fb0c4ea2789221939c21bd0930d863bc7fd4e",
+        "size": 1550
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.disasm",
+        "sha256": "8b11fba2f8f4fb58783057fe1a53dca33311cc98f945f710523f0361a86bd5d4",
+        "size": 19930
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.elf",
+        "sha256": "3161412b36c7f0aabc8ff85ffd75e5de6e868c1b1c17a909afc58753f9ef83c0",
+        "size": 68588
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.map",
+        "sha256": "d1aa958143375e5e0f405d9ef403cc0a5599efd48677e9ceeb142962436fe87c",
+        "size": 9148
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.o",
+        "sha256": "12210fad995834877c739f211068f209818de463aee9d7d3a4d3e12d1ec24da6",
+        "size": 3092
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.stderr",
+        "sha256": "5007dd65427e64b12473555a0f73bf98e91353bb096b466564fbbdb14265d93b",
+        "size": 5547
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.stdout",
+        "sha256": "8713d42ff5c8c802d9210a0899940280a590fe6546adde989ef0590bdebc4668",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/firmware.su",
+        "sha256": "26bc71126400aa87d2fa2fc58636f0562d4166776ccca9098a205dd71671b0ad",
+        "size": 533
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/library.o",
+        "sha256": "371e6f7388145180775b3b6fdc3a0e0534874399f85ba7cf6dd9f2735c7018f4",
+        "size": 1144
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/library.su",
+        "sha256": "056fd31c2528e6c8391bbb683c383a578468024d4bb0039fa37f7bf78ab6f229",
+        "size": 125
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/probe.h",
+        "sha256": "aa777114644e9db4e6a2d43d469794fe3af015394aec62d03821e8cb082ba0cf",
+        "size": 338
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/probe.o",
+        "sha256": "33e3049c5b3a050771fdca264bc857a8ed1954da674605393dab424a7ae825bb",
+        "size": 1624
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/probe.su",
+        "sha256": "2750d5cedaf83537fbb11f25fe6a0cbcc02562a6a8d5332d54f2ed2b33b4c62e",
+        "size": 542
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/size.txt",
+        "sha256": "bda2faa25230efe8fd2b56088841be5e439d6c09247b974c23c374086c87c82e",
+        "size": 201
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.bin",
+        "sha256": "6f83a0a58fb6c7bb95204bcc164d6f9049a9a3ef7d76a1ff4542df0fc508b6a8",
+        "size": 2638
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.disasm",
+        "sha256": "b7cdc91917a4b11c9e07913ec3ee6a1a1661d89c7b21991818fbf9d67bac6166",
+        "size": 41836
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.elf",
+        "sha256": "8097ff0f6ed6949241e0ab13c1cd4731f2eaaf3d2b534edc19eb11571c137b13",
+        "size": 69708
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.map",
+        "sha256": "1459a4476d2561bef3fdfedb3982ee0e363921a8b844162efa701d4125a578a5",
+        "size": 9456
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.o",
+        "sha256": "12210fad995834877c739f211068f209818de463aee9d7d3a4d3e12d1ec24da6",
+        "size": 3092
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.stderr",
+        "sha256": "98493316f9d979b9d37b7d943590ad5f947a4a2bde7cd51eb29006f3d42d325f",
+        "size": 5557
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.stdout",
+        "sha256": "9c04e01690344059935b2e673e38e455d39b6d369b621b5d624fb3606e807bd1",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/firmware.su",
+        "sha256": "73296439f0f259e897b2ef27c1a68f63342737dbee3bf05e80599322df04a774",
+        "size": 561
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/library.o",
+        "sha256": "ea3c35c5dcf15450e7d528cdcc71d033052d2f5504aa515e866e5f83fe458c68",
+        "size": 2264
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/library.su",
+        "sha256": "f0bcef013fdbf5a6ed25ba6e364caf82c4e2fc0ad8f2f58dde119a707c52eeb9",
+        "size": 126
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/probe.h",
+        "sha256": "aa777114644e9db4e6a2d43d469794fe3af015394aec62d03821e8cb082ba0cf",
+        "size": 338
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/probe.o",
+        "sha256": "33e3049c5b3a050771fdca264bc857a8ed1954da674605393dab424a7ae825bb",
+        "size": 1624
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/probe.su",
+        "sha256": "bebb40edae2c239f0d81f237800dc50d02aa6e2e6fc01ed5e40f4e375db7506f",
+        "size": 570
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/size.txt",
+        "sha256": "5923080472742360c4647270e3546154ab6d9bab41d9202470e1fb7c2646ab66",
+        "size": 208
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-cmsis64_unroll/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.bin",
+        "sha256": "6a1294e5ead8e106b3da93058779058537bf9a88371f72d77a51d79365dcf119",
+        "size": 1494
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.disasm",
+        "sha256": "b3b28ee313af1f89784405c59cd7cf94bbd8a3aaf14378da21c9886bf08d4b46",
+        "size": 18860
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.elf",
+        "sha256": "21e08f434ee73e5a914f09b61f0cafc9558005ad8acd6e9807405c81813507f7",
+        "size": 68520
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.map",
+        "sha256": "e82019f012be822a6db0dd8b65c8a74cd10f5cf894126a4dffc7210c99d2bea7",
+        "size": 11654
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.o",
+        "sha256": "b255648d149a4a5432ec5ca9a1a370e5496142168791df05d02dba22b6a81e31",
+        "size": 3092
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.stderr",
+        "sha256": "69593129bf6a6533704d9f38c7cb3d8d2d243446e7ff39d3fbdf9fd3394ecc53",
+        "size": 5544
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.stdout",
+        "sha256": "5b787fe9d275e151a5435f69b70a3be195c5654e1f2bdc20929ea94d85d3e5d9",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/firmware.su",
+        "sha256": "23b11780ccfa3fa2679fd9adda86c7d9c85e3b9eefd06002e904bd045aeafa29",
+        "size": 537
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/generic.o",
+        "sha256": "73b89dac982e82414bffaa6d562cac9c45ca537ba9b2d6003b45811299305ebd",
+        "size": 2892
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/generic.su",
+        "sha256": "55732e30cb3a933b4b5ca138d01009ca08cafb363010f4fd0b0dda315d980d96",
+        "size": 374
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/probe.c",
+        "sha256": "c640795665241b3da7bcf2e60774dbab36b974b8b4bdd53f451fb4fe41de46d0",
+        "size": 671
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/probe.h",
+        "sha256": "5fd6e689a0453f69e462911db74aa77b8630165641da1b7aa7d1162400ddf88e",
+        "size": 270
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/probe.o",
+        "sha256": "ca98e41076280e0707baf09e05fba8e1707b90043afaefd30d90462f92ecc2ed",
+        "size": 1556
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/probe.su",
+        "sha256": "f3bae03714e4ca87530fdf85d87cec8bd2635b72df849c3710865bbb0367cace",
+        "size": 546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/size.txt",
+        "sha256": "b736024a2314a43e01fe9d0f89b09bdfe067ebc137bbdc6a1ebb316ed3c90ab6",
+        "size": 202
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-direct64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.bin",
+        "sha256": "e440eebdcb8b78c574ddbb10362d0e6fb60e94123985e3c3060243cfad222ae7",
+        "size": 2866
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.disasm",
+        "sha256": "5759dafb1147e2b6ee44833eb933e19ec1dc296bc83b35e43228f8acb0746613",
+        "size": 46986
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.elf",
+        "sha256": "038998b7680c6547fb1a9f3d31d57498438beb6176f23da4d1f26e4409f49638",
+        "size": 69804
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.map",
+        "sha256": "4f096750e93868abd7ada7f0f3e4b9f8a97e5228804961d6b41c89a2aa55db26",
+        "size": 7986
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.o",
+        "sha256": "b255648d149a4a5432ec5ca9a1a370e5496142168791df05d02dba22b6a81e31",
+        "size": 3092
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.stderr",
+        "sha256": "e4bcd37f802a79bcb67c2eace5ce8948ba52521998b2b39a3636a544ecabb6e5",
+        "size": 5553
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.stdout",
+        "sha256": "418241517bc57d2daee6c3a9dc2b2dad4970ac7fd7b05203fd37e0303906f295",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/firmware.su",
+        "sha256": "898a9bdfb24a9a5c3077ff89badf4703b79aca143d7714db2dd6e8c56e72ed0b",
+        "size": 549
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/probe.c",
+        "sha256": "d6a449b57b8efa0ea8e74250d24f6f5e1b6fd01b40cbdb50fb901a2add0787dc",
+        "size": 2608
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/probe.h",
+        "sha256": "5fd6e689a0453f69e462911db74aa77b8630165641da1b7aa7d1162400ddf88e",
+        "size": 270
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/probe.o",
+        "sha256": "ae07c7b65f90c04a2b843323f46acdb5186513ae272e85d6eff7324be997a4fb",
+        "size": 3012
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/probe.su",
+        "sha256": "6ced4a483d56d172f349b0b7bcc0dd6e9c694ab4442c512f03a690f664e159f4",
+        "size": 559
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/size.txt",
+        "sha256": "7b31ce61a0b3f1a64fa3255b30b36be6b13d93abf2403a59f1bb1c6425c48551",
+        "size": 205
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-spec_direct/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.bin",
+        "sha256": "7b48262fd7f9624f4c82309164faa7069ecc7986c5f67538a1ae52470d7150c5",
+        "size": 3190
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.disasm",
+        "sha256": "0408918abec7f34e525550cf2f039b91802f66ecb05703f408c9accb898cae79",
+        "size": 52987
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.elf",
+        "sha256": "c779e0eacd08011f73ba5c992477904e5e7d0052cbd7254c64f3f30ab232fe49",
+        "size": 70160
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.map",
+        "sha256": "e03be537b09705bd3a293dc7d00976f6f8753edcef915eaed56c71b85fec5b42",
+        "size": 8159
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.o",
+        "sha256": "bc2a42549a6c867ec08d046d32ebf4baa01862a3d20d590c8f02c7343a791e53",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.stderr",
+        "sha256": "0a24614ab95aaea303ed9feee06b35dcc21e544c18b138248df3586624e37c88",
+        "size": 5550
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.stdout",
+        "sha256": "ec70af8b2edc0ed879e26807b0c38af19d173ebc08aec0a6ab7d389580be1126",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/firmware.su",
+        "sha256": "296ca10d12c9367ebf662721ced3ac67fbdab9a448404b95729eea13e086e06b",
+        "size": 549
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/probe.c",
+        "sha256": "7fa21c7b774f3b3072fdd811b575295fb25e468c2cc39711fb908ebde222c47c",
+        "size": 3842
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/probe.o",
+        "sha256": "13e6772ef41ebcd526d0e703d196cf454ee84900ea5b05b62128c48678a4301e",
+        "size": 3920
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/probe.su",
+        "sha256": "aaffe0a377d5bb03be268e6c0649a4cae94b4ae7ed65e28d7ddaf0c60cef6e04",
+        "size": 559
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/size.txt",
+        "sha256": "bfdaa023612c1d9f8dba827fb85bbd13bd56a43ad8f8594472ef0694ad5e92e0",
+        "size": 205
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_const/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.bin",
+        "sha256": "c90260f37b402fdf013e0eee035563cb6e43b17d320455970e417a4ee0d065f2",
+        "size": 3154
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.disasm",
+        "sha256": "74fc3b20bb95b8a28719c2efb4b26f830ebd197c308090297cc54e8a64e2be57",
+        "size": 52769
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.elf",
+        "sha256": "dba813908ac7c8c92e69b6cfd8e870403024d82014825a1947038c828d5636c3",
+        "size": 70092
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.map",
+        "sha256": "91a71ad75f140adafd32ac91f77769df72f50a3b43c17c52176cc55eab08b597",
+        "size": 8381
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.o",
+        "sha256": "bc2a42549a6c867ec08d046d32ebf4baa01862a3d20d590c8f02c7343a791e53",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.stderr",
+        "sha256": "c15ce03cebc275a529310fe12c0d5812aa84e54fcd85fb87f7c1207ea77b0cc9",
+        "size": 5554
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.stdout",
+        "sha256": "93e33024306b10e298cc67e3ed9eb8163bb4a3861aea6acc46a6db8dfbe17ead",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/firmware.su",
+        "sha256": "6b9721e27a555b32bdd46103ab57253296248fa8804b188d047cd697442ea142",
+        "size": 573
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/probe.c",
+        "sha256": "526423f4770c0582d464b6529e5e1329448cc5d862d89f8edb7a40ad736297e1",
+        "size": 7645
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/probe.o",
+        "sha256": "e72e2ceb873b9570b4181c1ba82b323022c2e2c37df86562f244c3672fa30e38",
+        "size": 3852
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/probe.su",
+        "sha256": "efd3fa427c68ef5804916598ecda1e509d19b499bccdf557acd619df07701624",
+        "size": 587
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/size.txt",
+        "sha256": "cb20fe4bc58819bf451d9e878540350b1c55505dd116a22249151c32f5ce9c55",
+        "size": 211
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b1-trans_hcub_demand/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.bin",
+        "sha256": "87e65cbc4b0aa7a2745019dfa242e35927e401f49b75f6d1edd6c7abe0390b35",
+        "size": 1566
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.disasm",
+        "sha256": "9ef75af1a0bf692a072f29b409abc47218a18c2708e166668fb258399294bb9d",
+        "size": 20227
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.elf",
+        "sha256": "6747947711cc3dbeb7ddac20e393ca71d0aa535f198884afea2e43784f34086c",
+        "size": 68604
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.map",
+        "sha256": "c8afef438877bedf1b4a2ea354e1276be0465beeb1c4882b7d8cd34cce640cc1",
+        "size": 9192
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.o",
+        "sha256": "a8f93b658a10d7035bf6bae480933877a890d687a1abb51b056d1d508fd7a5ab",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.stderr",
+        "sha256": "c1e9eb5c28a3a1c2362499992bc080ba76753566650d97cc9b6050bdcb7dfe0a",
+        "size": 5538
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.stdout",
+        "sha256": "c5fca7161e40dbd4f20fc25fcf790e7baaeccacaaee47f2e0caeae4d6e6c8d36",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/firmware.su",
+        "sha256": "8fb37b62741530679293e47a025dfbf8095ecd6f4d870af76fe27cb836b9f13c",
+        "size": 537
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/library.o",
+        "sha256": "371e6f7388145180775b3b6fdc3a0e0534874399f85ba7cf6dd9f2735c7018f4",
+        "size": 1144
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/library.su",
+        "sha256": "056fd31c2528e6c8391bbb683c383a578468024d4bb0039fa37f7bf78ab6f229",
+        "size": 125
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/probe.h",
+        "sha256": "1a2289a541281988500f268385c78201c3a30e705e80158dedd05575e7b8ddbc",
+        "size": 339
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/probe.o",
+        "sha256": "4a9e30b202b6fe434275d88bde45af7190db8bbd4538a91bf644920dcb5efc4a",
+        "size": 1628
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/probe.su",
+        "sha256": "627b9e7f0a2427bd6aa18cfd774b1cb1a8b0284fa018cef0b96d8c13aa1b3319",
+        "size": 546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/size.txt",
+        "sha256": "2f43b81f40282fe70b20be6d1c085badefb00652b97a00b05dec8eda4b7f9ca0",
+        "size": 202
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.bin",
+        "sha256": "e2e782c60071e1223a67d6088b3c5ad63a61d2df3b5a6a439d11bac5ad5e77d2",
+        "size": 2654
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.disasm",
+        "sha256": "042a0910b4a39f91c2ddf36d8708d4db0d50876e0698f111928be977ade7503d",
+        "size": 42133
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.elf",
+        "sha256": "25f0e6f170243545b1664f58099d8c4e138d768e994ed87ec27750d122b0dbb6",
+        "size": 69724
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.map",
+        "sha256": "a28b5842d3b27186818472a21316ce9832f42566c5d603e278470a263f5c6435",
+        "size": 9500
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.o",
+        "sha256": "a8f93b658a10d7035bf6bae480933877a890d687a1abb51b056d1d508fd7a5ab",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.stderr",
+        "sha256": "c52649679773f47a0ee806228769f0dea649f982c7c0333a182a546802955715",
+        "size": 5540
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.stdout",
+        "sha256": "3c1b4e1976408d2373855359e4ea8d1f1bd7f7ae685165744f3a63211cbb137e",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/firmware.su",
+        "sha256": "dc6f7f1b3dbbd2be6faf89221056aa59ba0ea9789d6bfe17e446e22e23d7ce9d",
+        "size": 565
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/library.o",
+        "sha256": "ea3c35c5dcf15450e7d528cdcc71d033052d2f5504aa515e866e5f83fe458c68",
+        "size": 2264
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/library.su",
+        "sha256": "f0bcef013fdbf5a6ed25ba6e364caf82c4e2fc0ad8f2f58dde119a707c52eeb9",
+        "size": 126
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/probe.h",
+        "sha256": "1a2289a541281988500f268385c78201c3a30e705e80158dedd05575e7b8ddbc",
+        "size": 339
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/probe.o",
+        "sha256": "4a9e30b202b6fe434275d88bde45af7190db8bbd4538a91bf644920dcb5efc4a",
+        "size": 1628
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/probe.su",
+        "sha256": "28ee678edf8ad25071cd86624dca867a5da1be260f1208f5a9bdf545dc26af21",
+        "size": 574
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/size.txt",
+        "sha256": "bd440d89e8f4468e2e40fcce5c5953b52aff1834fe9f92285d8ac22c3d50b9a5",
+        "size": 209
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-cmsis64_unroll/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.bin",
+        "sha256": "1802a5ba03f48bd46316589445facaf50a25c7ed486f6ab13d5bf9c3887e8693",
+        "size": 1498
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.disasm",
+        "sha256": "42669f263600b87a1e0d42898e0e4e6f5277a24895c33155e20309125a57e6b3",
+        "size": 18978
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.elf",
+        "sha256": "d0d8e87e1defcbe0552f95711659b351440f715e9d539b59d7502e47c1980cd0",
+        "size": 68524
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.map",
+        "sha256": "7f85fbac834a76fd23bb85ea119fa56c5b1edb5fbdfbd42d79fd682d939bafe0",
+        "size": 11703
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.o",
+        "sha256": "b1595e9da64c078e0eab8118f80c9c4799946cc89b1f416dad39862304b3ea2e",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.stderr",
+        "sha256": "a8ca1a773c2aac14bb8b98b9fa840afb5d35cd83e6d9a16a34a9ac8a6e10682f",
+        "size": 5536
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.stdout",
+        "sha256": "526bc74b3340a6e0ce3ffbb6396a62ab6a31a6720cdc7a58a352cb87aa5726fe",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/firmware.su",
+        "sha256": "5de29544053e21de88e6ea0f802952bccf413ecbf50a2a3bb5bf50b5e491f758",
+        "size": 541
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/generic.o",
+        "sha256": "73b89dac982e82414bffaa6d562cac9c45ca537ba9b2d6003b45811299305ebd",
+        "size": 2892
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/generic.su",
+        "sha256": "55732e30cb3a933b4b5ca138d01009ca08cafb363010f4fd0b0dda315d980d96",
+        "size": 374
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/probe.c",
+        "sha256": "c640795665241b3da7bcf2e60774dbab36b974b8b4bdd53f451fb4fe41de46d0",
+        "size": 671
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/probe.h",
+        "sha256": "e1b648e5dce0d419e3823cdd857e133d618672b8665f786b7ff8a9675764f04c",
+        "size": 271
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/probe.o",
+        "sha256": "4314740f65601ee4408444ad2c311c5d19d2a6728b31348bd7927eb08f991f59",
+        "size": 1556
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/probe.su",
+        "sha256": "de140b9fbd3e2b76965e22b54447df89c9db3f4393e782c3dc2c3b06686bd63d",
+        "size": 550
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/size.txt",
+        "sha256": "75058801dc9d6fad75ef644bb79194e4f91d0c8071907adc8e3fda9bff6cc9df",
+        "size": 203
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-direct64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.bin",
+        "sha256": "96f8e8fa423218ffc4d590cfb65c52d8e7342054468a6da07114613e42bb68d8",
+        "size": 2854
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.disasm",
+        "sha256": "9ebfe0e5a6f4efe9b4a6ab53c6d9dd4ec1eab50483c26a08e290c0aa5a290183",
+        "size": 47054
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.elf",
+        "sha256": "5a24aeb869879d2410b79a6d4d76f4d882dc628c4ba04f25a878f468690acb20",
+        "size": 69792
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.map",
+        "sha256": "b52c43b9a1c5dce83699d7f60d40df8eb686cbe5faddb6afe25f413227d84432",
+        "size": 8022
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.o",
+        "sha256": "b1595e9da64c078e0eab8118f80c9c4799946cc89b1f416dad39862304b3ea2e",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.stderr",
+        "sha256": "7f5ed6baa58dbdece77c14b1f06d58b89c5cb1a0dcc97f0b7391031f81286f2b",
+        "size": 5546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.stdout",
+        "sha256": "3d63a52cf2db7efd571abcf175c9201ce290826fd6064e29d955e85c22b709f8",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/firmware.su",
+        "sha256": "1a68ead390260566def83dd17f1469a16d50742f837e76e2ec5379c17cbbc7c7",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/probe.c",
+        "sha256": "d6a449b57b8efa0ea8e74250d24f6f5e1b6fd01b40cbdb50fb901a2add0787dc",
+        "size": 2608
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/probe.h",
+        "sha256": "e1b648e5dce0d419e3823cdd857e133d618672b8665f786b7ff8a9675764f04c",
+        "size": 271
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/probe.o",
+        "sha256": "a795388557541ee5fcd936040a534edf7d5b98f999fe0a04b4be0f2c455820b3",
+        "size": 2996
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/probe.su",
+        "sha256": "0f80dc72689f8065b581421ab69173539ac8bb316b71dac7257a7dbaaf1727ff",
+        "size": 563
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/size.txt",
+        "sha256": "cf940df888ab745852613bc7fd430995750e7838990a5823467726973779679c",
+        "size": 206
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-spec_direct/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.bin",
+        "sha256": "e4075c19761382d80638229388d937a82b5a8e645e71848bd3d7c75f9b6424e2",
+        "size": 3194
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.disasm",
+        "sha256": "6c4513302f7830c9b4b3f7231f545fd4e139d128348c586a727f28f263969cf0",
+        "size": 53113
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.elf",
+        "sha256": "790836f0b8c8ceecb02873bf441dd48d1e477c6f9618b4b71d75d670b2ead208",
+        "size": 70164
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.map",
+        "sha256": "329b9fbf6c68d6d3c66c50dede590ec2b46c641fae0ae2e37373be3c8c4e7d5a",
+        "size": 8196
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.o",
+        "sha256": "777c6e0b61f0c26d7a6f5b9a0de8b66749c4e09089377cc90dd50833b68027f6",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.stderr",
+        "sha256": "82b86bb324cedc1e356ec045e9e51203aecd760300cb8778ea46762f23091c88",
+        "size": 5540
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.stdout",
+        "sha256": "264e10ebdcf79d65aa4f0df238134c7d80c1c361249e5360d787bcf22b525a80",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/firmware.su",
+        "sha256": "56444bfccd22c7921c30ce8fa50c452c8d3ba2bdbfbf8f7e5c3af6a0fdd48145",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/probe.c",
+        "sha256": "7fa21c7b774f3b3072fdd811b575295fb25e468c2cc39711fb908ebde222c47c",
+        "size": 3842
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/probe.o",
+        "sha256": "13e6772ef41ebcd526d0e703d196cf454ee84900ea5b05b62128c48678a4301e",
+        "size": 3920
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/probe.su",
+        "sha256": "7e8f59be4050cd2b4ceb033ccacbee19bff23faa8c048981f8500074871563a7",
+        "size": 563
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/size.txt",
+        "sha256": "eb7200407200533e4281e544edcb482b0b4281db0d21a2e26c54052bdd2fd193",
+        "size": 206
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_const/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.bin",
+        "sha256": "decf81a32acfa582a8408a3f2e3a42a5790a5f702d96ed908ca1b00f6b12b9f2",
+        "size": 3158
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.disasm",
+        "sha256": "710ca4d17c6a61b45c88b41e317be7a436a76098908b0838e18743076e0ece20",
+        "size": 52895
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.elf",
+        "sha256": "6dcd8a4e013862227bc2909a8d934999b0671a1dbbfa1ba877d8db068a6febf9",
+        "size": 70096
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.map",
+        "sha256": "ef7803372f69bce0e5a64ac931ed35e47bf0f70404312d47e9b7101e082d62a4",
+        "size": 8418
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.o",
+        "sha256": "777c6e0b61f0c26d7a6f5b9a0de8b66749c4e09089377cc90dd50833b68027f6",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.stderr",
+        "sha256": "3c83a9547e00194e50572aec753863ad30c75e391ef6d8e7e539695460939394",
+        "size": 5543
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.stdout",
+        "sha256": "f389a6c8665efc7aed9d526d9bdcbc3deb1bcbed5c9106cf0b1885ad7dc43529",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/firmware.su",
+        "sha256": "57bea0244dcf6d71a596d0a798a3a4c8f7aad1c2f2b2984e4a73241984ca8449",
+        "size": 577
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/probe.c",
+        "sha256": "526423f4770c0582d464b6529e5e1329448cc5d862d89f8edb7a40ad736297e1",
+        "size": 7645
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/probe.o",
+        "sha256": "e72e2ceb873b9570b4181c1ba82b323022c2e2c37df86562f244c3672fa30e38",
+        "size": 3852
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/probe.su",
+        "sha256": "36e34bb3114492c5ad7c48df181cada2ae2325de5cf3467f52c92b8079143a9b",
+        "size": 591
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/size.txt",
+        "sha256": "90d15f37530449f0392618a33c0989ad45be62f4bbf8922e7a8d38e0c3b7d916",
+        "size": 212
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc10-speech_minphase48-32768-b64-trans_hcub_demand/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.bin",
+        "sha256": "c250e364f2e840b03b8364dbb201af4422382a020bd52baef6e87cef7dbda3b2",
+        "size": 1530
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.disasm",
+        "sha256": "ffa82eaac2e160e108b5b0007051e987dbdebb5666b7da89acc43380c7a5ad15",
+        "size": 19567
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.elf",
+        "sha256": "63eb9437df1c0b9e9de59f7ea2447fb5ca6993347cbf722cbcb6d4caccfd2534",
+        "size": 7128
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.map",
+        "sha256": "35f9b663b24abd485a10951504c1a0c2052b0b637a7d4757fd69e49cd0d20641",
+        "size": 8729
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.o",
+        "sha256": "edf6e20b28e4d5cb55619898869eec2f644834f33e5a0ad644004fabe32631e2",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.stderr",
+        "sha256": "f3ab34e37f9825d59f466bc53d03def6f2e7d5675487e32216ee22c19d5b6d4a",
+        "size": 5539
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.stdout",
+        "sha256": "0fb9888554da2eebe6d67c4ccfd6c728dbe804a3707740fdb573f97265e70214",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/firmware.su",
+        "sha256": "885ea70d05d205a0b2f12d1179b17677fa6de94e1e1738552be6ac9380b62385",
+        "size": 533
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/library.o",
+        "sha256": "7f592007abee0f5ef2d65bd7b311562bf34acf0a8c226e07cb330372917941cf",
+        "size": 1148
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/library.su",
+        "sha256": "056fd31c2528e6c8391bbb683c383a578468024d4bb0039fa37f7bf78ab6f229",
+        "size": 125
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/probe.h",
+        "sha256": "aa777114644e9db4e6a2d43d469794fe3af015394aec62d03821e8cb082ba0cf",
+        "size": 338
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/probe.o",
+        "sha256": "59d76b80cbb46ec8bb86409e99dc736505c3d380bd8bc20ae7c902b883cdc6e9",
+        "size": 1644
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/probe.su",
+        "sha256": "d9c59f810b98ac8eb90f98f5682a2e9ac99cd450fb2b1f47842b3a3abce17375",
+        "size": 542
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/size.txt",
+        "sha256": "c9fd263ff68cf45e6cd20f12a25f8acbc648975156d8879b6da3a57beb736373",
+        "size": 201
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.bin",
+        "sha256": "25e119e1bc0d975b60c959d77fbb555721cbb968c5faf328dc3ffe948f2fa71f",
+        "size": 2590
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.disasm",
+        "sha256": "c7248142ae9b4f618a3c418e93c748c360d7bfd02fa800a4d8885a0066b63cd3",
+        "size": 40776
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.elf",
+        "sha256": "032d268d10b3225eca93e860e0ca9cbcbde7720b6bc152e67eeb6234a13e1623",
+        "size": 8220
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.map",
+        "sha256": "e117f0b44c7809ede39c2b53e1998c3f6fa11592098e062eff41f2761ff7497f",
+        "size": 9037
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.o",
+        "sha256": "edf6e20b28e4d5cb55619898869eec2f644834f33e5a0ad644004fabe32631e2",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.stderr",
+        "sha256": "3d29862c243c55fecf396306c23f97283117b40792dde59c64d4c4463537cefe",
+        "size": 5552
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.stdout",
+        "sha256": "b488c2c251a3493645876db29ca886d9e19c26f8a0f8a87a04bbbbe060c5fc7d",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/firmware.su",
+        "sha256": "5f4bf8bd9ccf4b684316ec78a193ce01619b8e2b151852c051b2da7cb78ad8e8",
+        "size": 561
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/library.o",
+        "sha256": "0564cab40d0e53dccc261284b466903e2e86a2a9dd319c6f3b2879d6802e697f",
+        "size": 2240
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/library.su",
+        "sha256": "8c1e42b1d4eee1afb99653eebf52a0c1ab896e6a3f25997fb0195042f3e4c770",
+        "size": 126
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/probe.h",
+        "sha256": "aa777114644e9db4e6a2d43d469794fe3af015394aec62d03821e8cb082ba0cf",
+        "size": 338
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/probe.o",
+        "sha256": "59d76b80cbb46ec8bb86409e99dc736505c3d380bd8bc20ae7c902b883cdc6e9",
+        "size": 1644
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/probe.su",
+        "sha256": "eb9b12e3c27b046b7960ab47d3528f034afcb6d75e7f4fb6edf5322694d9689c",
+        "size": 570
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/size.txt",
+        "sha256": "0ca620bf17b22b076a09a59d45ddf085df9a577cb1aefc91cb5287a185300e48",
+        "size": 208
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-cmsis64_unroll/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.bin",
+        "sha256": "71f7feb5a3200e94991645eebab54a2675d07c78d22b1ab4c5010704d7a2b0ff",
+        "size": 1546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.disasm",
+        "sha256": "60ac1fd1da261db5907cee5cca8cc39a83710c87d80408a701202c3d61c92043",
+        "size": 19864
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.elf",
+        "sha256": "1370e530fb07be27dfde0908faefc4bc58c7f3ad68106b2b68a6a1554116a3b0",
+        "size": 7132
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.map",
+        "sha256": "4fcdb58e208f030e4ac9865fcb72a085e8f21a5949377202e330fcf279fb7c56",
+        "size": 11106
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.o",
+        "sha256": "75996684b1450bcc0e302042f7f7b65e225374ffca8cde0876caa4555db43ea8",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.stderr",
+        "sha256": "3bbeb3892644f91a18459bd2df2ee499a7430e20e02cc9500574bde28c8befd1",
+        "size": 5545
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.stdout",
+        "sha256": "63cead50d284df1797cf4923b6d1ea068eaf429bad816af64dafb9b06ae14a5e",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/firmware.su",
+        "sha256": "9baef6f9d80b529dcbdef17d797d1b6ae3ec8ddcfcf05782407e064290ca0d30",
+        "size": 537
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/generic.o",
+        "sha256": "095eb01a45736ffc5fa47e65adcda7c80158b67a92dcc7aff644ccecf9d8207e",
+        "size": 2956
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/generic.su",
+        "sha256": "778d39839b5efddfd53f250021d1002ee8b4977b531735cd5becfa3fe48bd256",
+        "size": 374
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/probe.c",
+        "sha256": "c640795665241b3da7bcf2e60774dbab36b974b8b4bdd53f451fb4fe41de46d0",
+        "size": 671
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/probe.h",
+        "sha256": "5fd6e689a0453f69e462911db74aa77b8630165641da1b7aa7d1162400ddf88e",
+        "size": 270
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/probe.o",
+        "sha256": "988cda771592bb424ea61d58b7647a16b3086478f51bacc3f44a0d18ebeece40",
+        "size": 1580
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/probe.su",
+        "sha256": "d26a921af2f2d19af4cdcc17b3a8c1e39afd2e02d231fa8c0210d25d7dbb5299",
+        "size": 546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/size.txt",
+        "sha256": "5166a10f63fc566e49ebeba801220eb418e1b3b0b41355c231709b0be347fcec",
+        "size": 202
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-direct64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.bin",
+        "sha256": "f8960807eac6b9b9500cc9790f8924aac8d495e9044be83ed332781ca2fa7a5d",
+        "size": 2990
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.disasm",
+        "sha256": "c4f7f5f5111a6aaf09b39b672120be53240126dba3727333c8bacc3adcab3bb6",
+        "size": 51083
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.elf",
+        "sha256": "a448672667447729f2c144a4cd3bb6346cb44875b89a9947faa273b25de61e8b",
+        "size": 8488
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.map",
+        "sha256": "0a55665dbdc80e35a85b7fc1ea1aa0e9d3aaa5563c95c83a37c2e594c8e5126b",
+        "size": 7631
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.o",
+        "sha256": "75996684b1450bcc0e302042f7f7b65e225374ffca8cde0876caa4555db43ea8",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.stderr",
+        "sha256": "a916b565c770d4f6de89c5d8940fefd8cdfa42fe35221a61e8d24f9ad08b7f41",
+        "size": 5546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.stdout",
+        "sha256": "a4fbaa12645ed4a2795c1b48a01b74ac335ee5ad34974310ac3a1ba88b306677",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/firmware.su",
+        "sha256": "dc51ee778954127a7c8fdb57c022d0b0af694f8fe44cd92106fce4c8dd444264",
+        "size": 549
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/probe.c",
+        "sha256": "d6a449b57b8efa0ea8e74250d24f6f5e1b6fd01b40cbdb50fb901a2add0787dc",
+        "size": 2608
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/probe.h",
+        "sha256": "5fd6e689a0453f69e462911db74aa77b8630165641da1b7aa7d1162400ddf88e",
+        "size": 270
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/probe.o",
+        "sha256": "b96cd0deeffda738c35ed1a66a296a0ead6afb65c81b8c168331f40c1c7de006",
+        "size": 3168
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/probe.su",
+        "sha256": "504ab99a3bd6759302d6a4703faf886bc83730f159fa677ebc2f5de4f859e51d",
+        "size": 559
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/size.txt",
+        "sha256": "f03d6c7700cd3f2a1ee216ef6164ad997542d0d7a6c260883ba43cd5c520c506",
+        "size": 205
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-spec_direct/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.bin",
+        "sha256": "fe3e4548aaaecd307b7ad138b8615e4ccf9c34bf560888e325cf266c5fa737ed",
+        "size": 3170
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.disasm",
+        "sha256": "f591e5fd27432059e3a2e98fe5988961a334a659b8750ffa22c3aff081438541",
+        "size": 52628
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.elf",
+        "sha256": "b24224ca23e37bbcef0077525b611087f144c2a53ad14563e615dbe81d7aabee",
+        "size": 8700
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.map",
+        "sha256": "8221d2d03dcbde1d93eef15b31eba64e8f2638a329a6ec07f1c3ce07eb92ea15",
+        "size": 7796
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.o",
+        "sha256": "87ee18db4b2ada63cad0d801a75672bca4912d9e3da122ae94a85cefbcd50f98",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.stderr",
+        "sha256": "d93e69e5f8de21f41fc40176d48fa333f2250ec64561624cbb77e975ce5f015e",
+        "size": 5546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.stdout",
+        "sha256": "852586be22c89a174426e2928d3c949ea7142c068c258835ea81c7a35783b883",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/firmware.su",
+        "sha256": "314249965f1d9f192700e610799006e25b26100b87221e0a976b4852f9f98208",
+        "size": 549
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/probe.c",
+        "sha256": "7fa21c7b774f3b3072fdd811b575295fb25e468c2cc39711fb908ebde222c47c",
+        "size": 3842
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/probe.o",
+        "sha256": "102d525033d8f9d5c4f3a2e198ea673f0d6fd95469152b83667f595351345a5e",
+        "size": 3932
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/probe.su",
+        "sha256": "eb2ca78e8018656990a9a8edf8bd74ae54d1cf45eb4212747d9f6518383b6eb7",
+        "size": 559
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/size.txt",
+        "sha256": "cebe24760c1d455bb3b02d5a7dcef843eaf579c6ffd814c166c2ed91a623a94e",
+        "size": 205
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_const/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.bin",
+        "sha256": "b771e916e8cb12a45af034cdf9d34104840124639d2535808474825cca7f7a70",
+        "size": 2990
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.c",
+        "sha256": "160c175adaeb69e226bf46e8fd8efa1520897a37f64b40031a22049dc8a461c0",
+        "size": 2698
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.disasm",
+        "sha256": "b8affc33a26cd83a9316a92dc1b0de9899d66b133f329c990356e9376c31fb33",
+        "size": 50058
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.elf",
+        "sha256": "b0ce846838a6c9b798a3729c63df0b8cc7352b9dcf4e05d2a839d392b662393d",
+        "size": 8488
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.map",
+        "sha256": "7fb12f063e0db9a8f2a3d6f09f4cc7620a5b8d9c014348adebfc3aaff33e7c53",
+        "size": 8018
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.o",
+        "sha256": "87ee18db4b2ada63cad0d801a75672bca4912d9e3da122ae94a85cefbcd50f98",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.stderr",
+        "sha256": "94e216ebcf79e820233a5040f9a0d13a4985c0180a4115d1e37a94e85b53a791",
+        "size": 5548
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.stdout",
+        "sha256": "6f7087782f0e8955b054cbb1d081fb94a954f5c889c5345ab5fa613f9a3fc248",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/firmware.su",
+        "sha256": "1c63436130879aa58cd1cc065cdd0c11a89d9f99edb35929913d979420c8c31f",
+        "size": 573
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/probe.c",
+        "sha256": "526423f4770c0582d464b6529e5e1329448cc5d862d89f8edb7a40ad736297e1",
+        "size": 7645
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/probe.o",
+        "sha256": "7df22a8c9726c158185fbc9a4428bde1de84ff1f275d40bce3d63ddedc38d37a",
+        "size": 3720
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/probe.su",
+        "sha256": "ada9ebe89c69ed3148b33204174c393664b983117ecc2683fc1907d03b856c70",
+        "size": 587
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/size.txt",
+        "sha256": "bde88f3b44002ed414c137d49cb329d8bdda7379e976ca8d21c62ef8a6aa08e3",
+        "size": 211
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b1-trans_hcub_demand/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.bin",
+        "sha256": "0bfd43c9ad5937f7c3fc3c594018523be099067b0974d22ced41b08f08825ce8",
+        "size": 1566
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.disasm",
+        "sha256": "16f239d1bf31c2caa5b16b343fa1efe22c63c77cdd768fc1af2601d06e525068",
+        "size": 20175
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.elf",
+        "sha256": "f28fc6cd0ed8605e7961c502d751d5149d24bcaa4a0c8dc9252bc0741333de47",
+        "size": 7164
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.map",
+        "sha256": "dbea75bba3b6618d76ffa10465778f4d486c26c100513691a0414b318cdd76b9",
+        "size": 8773
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.o",
+        "sha256": "ef511f365e1cb417efd4ff9295560613ebab580e4d2b9e43c858199517030421",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.stderr",
+        "sha256": "25d82d262a1a2bbee9b9ff8d00241ca79027f8bb6ece1c03206b0f7e51940c41",
+        "size": 5531
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.stdout",
+        "sha256": "4fb85b0a08d7dc2c9b0ace3820d11245bc58719ae9320ddf10f73db7af684e8b",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/firmware.su",
+        "sha256": "b655faa65605de521e239b4a13d01640c500bfb95551adc9efac8ee49a126cb2",
+        "size": 537
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/library.o",
+        "sha256": "7f592007abee0f5ef2d65bd7b311562bf34acf0a8c226e07cb330372917941cf",
+        "size": 1148
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/library.su",
+        "sha256": "056fd31c2528e6c8391bbb683c383a578468024d4bb0039fa37f7bf78ab6f229",
+        "size": 125
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/probe.h",
+        "sha256": "1a2289a541281988500f268385c78201c3a30e705e80158dedd05575e7b8ddbc",
+        "size": 339
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/probe.o",
+        "sha256": "fbb5b72de33e65eee19bb94bc71aa5df009214318f463e26eb3d3cbd50419b07",
+        "size": 1648
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/probe.su",
+        "sha256": "4d69d1b1b9ef466486b180ad51fa35ff770fb1d2961b8308f2848affa5632853",
+        "size": 546
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/size.txt",
+        "sha256": "a694cf31884acf8e6b67f89ac1515ec2efe4244fbd295ce173fafa47d5e8f662",
+        "size": 202
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.bin",
+        "sha256": "e2bbd374e467273fc3203f57760016aa0259d8c091dc3142786a39fb0cc2132e",
+        "size": 2626
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.disasm",
+        "sha256": "78ab627168821d23953fcf1ffd7e092f7e7b43ddab98dbf2842017f713bf8b25",
+        "size": 41384
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.elf",
+        "sha256": "4ad5d898881f420a9cb62076d66e8cd35da5ba94955c7f2481bde9f8597d04e7",
+        "size": 8256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.map",
+        "sha256": "bd33bff7d273fc1029a369e3a3172ddbfd50e38f049697de1da5fbb64b7159c4",
+        "size": 9081
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.o",
+        "sha256": "ef511f365e1cb417efd4ff9295560613ebab580e4d2b9e43c858199517030421",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.stderr",
+        "sha256": "6e4e3b73b17b5f53a85303fa332205adce7eec4c80ddfbb6149597c8da880cd2",
+        "size": 5539
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.stdout",
+        "sha256": "644cee4621c738a4258faf6bd820a96f9b04e11655c73b146d81e952202f19e7",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/firmware.su",
+        "sha256": "69bfb622d1132a2047d81d15128c154e95a7984f9a981a6457b22ac60871d0d9",
+        "size": 565
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/library.o",
+        "sha256": "0564cab40d0e53dccc261284b466903e2e86a2a9dd319c6f3b2879d6802e697f",
+        "size": 2240
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/library.su",
+        "sha256": "8c1e42b1d4eee1afb99653eebf52a0c1ab896e6a3f25997fb0195042f3e4c770",
+        "size": 126
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/probe.c",
+        "sha256": "6498cbc6e5fe1933e01ba31aab1f8746f3533c009b86608fc2b0beb9049698d9",
+        "size": 763
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/probe.h",
+        "sha256": "1a2289a541281988500f268385c78201c3a30e705e80158dedd05575e7b8ddbc",
+        "size": 339
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/probe.o",
+        "sha256": "fbb5b72de33e65eee19bb94bc71aa5df009214318f463e26eb3d3cbd50419b07",
+        "size": 1648
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/probe.su",
+        "sha256": "428c8aab3d11e3ec579c8d05cb8ccef03ad080502b021bbaacbb3ccba6d0b51e",
+        "size": 574
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/size.txt",
+        "sha256": "b05597cd53b22257730a81a20c33c3a761fc3507d5f13b8ca5b9b4a8f8894f3d",
+        "size": 209
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-cmsis64_unroll/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.bin",
+        "sha256": "ff010e664192f374201f013a224b26ecfec50de4490615ed824002d0017bad8b",
+        "size": 1578
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.disasm",
+        "sha256": "49d470a4d7864e2a84b68aec8a7f1b02cfd6513902690efb643fec1162133487",
+        "size": 20417
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.elf",
+        "sha256": "7f0a1317baf85e1e799ae4bd2dcf916e4ab96a53d710ec8f85261e8e38e68883",
+        "size": 7164
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.map",
+        "sha256": "583c4670b41923da9081407911ef48b95c6e7dd55be243193805d63e20ea281b",
+        "size": 11155
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.o",
+        "sha256": "09af7bb20a13eb0db5eb293d340bfe5af1b7785e460ce834ef1d0fc498c00516",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.stderr",
+        "sha256": "4158f821645daa4aa346aa8d1df3804ef406009947752cf0639a5dea3ada32e0",
+        "size": 5541
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.stdout",
+        "sha256": "699fd892fa4bce75ab724e76847aea52702ae232738b1024c92c22941528ba66",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/firmware.su",
+        "sha256": "ab1bb23ad2de5331cb1f54662af8f7b6378c989266551cdc8986d17d043e62db",
+        "size": 541
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/generic.o",
+        "sha256": "095eb01a45736ffc5fa47e65adcda7c80158b67a92dcc7aff644ccecf9d8207e",
+        "size": 2956
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/generic.su",
+        "sha256": "778d39839b5efddfd53f250021d1002ee8b4977b531735cd5becfa3fe48bd256",
+        "size": 374
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/probe.c",
+        "sha256": "c640795665241b3da7bcf2e60774dbab36b974b8b4bdd53f451fb4fe41de46d0",
+        "size": 671
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/probe.h",
+        "sha256": "e1b648e5dce0d419e3823cdd857e133d618672b8665f786b7ff8a9675764f04c",
+        "size": 271
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/probe.o",
+        "sha256": "f1cc0a139c3b43788a14714657f244afd5afe327f1c3a61926569bb700179909",
+        "size": 1580
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/probe.su",
+        "sha256": "46251e3820e12057ec20dac36791b2d4c22b042ae72acd7c46c7f6341def358f",
+        "size": 550
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/size.txt",
+        "sha256": "eb510c5ebe747367f13bbda85457205e56455912dbe7be9730ca973d36369450",
+        "size": 203
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-direct64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.bin",
+        "sha256": "ba8907d2b88099dc81a1e1f08bf15f7dbb037e077516770efce415909a216452",
+        "size": 3034
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.disasm",
+        "sha256": "ffb45136eb1b2b9bc1d5dbdd0f636213e7b1a23f8a219f1e2641c749e864139c",
+        "size": 51882
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.elf",
+        "sha256": "d4f441c41b4cc66ae94f049a6b60d4caebe95779b54b9e96cd6e1f435091b9c6",
+        "size": 8532
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.map",
+        "sha256": "a9476e4fda621168ba7816be89dcc6e9382ba1a1d3a6d65ae3c3de13e46eb314",
+        "size": 7667
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.o",
+        "sha256": "09af7bb20a13eb0db5eb293d340bfe5af1b7785e460ce834ef1d0fc498c00516",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.stderr",
+        "sha256": "9d99de248fed7d5b6c6f3bfc380e34a0ae001b83935cad299068b9f2d77cac31",
+        "size": 5540
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.stdout",
+        "sha256": "16565b453e5cd4bda2cd2316a75ff7a290adaa12188275f62714eeed5e9c8f5d",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/firmware.su",
+        "sha256": "77fa276fc03a6cfdde632e9d918d9cba32610d34feb6024091a10fb4654a98a3",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/probe.c",
+        "sha256": "d6a449b57b8efa0ea8e74250d24f6f5e1b6fd01b40cbdb50fb901a2add0787dc",
+        "size": 2608
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/probe.h",
+        "sha256": "e1b648e5dce0d419e3823cdd857e133d618672b8665f786b7ff8a9675764f04c",
+        "size": 271
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/probe.o",
+        "sha256": "67644cf09ba5167e6e9088de1a33130e6e3284b0df4be2711577bccaaf040427",
+        "size": 3180
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/probe.su",
+        "sha256": "f56d28fe383cc62b9fb0e1a6fe72ab693ab4fb5c594142281a74e42a47fbf9cb",
+        "size": 563
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/size.txt",
+        "sha256": "75d2dcb2799baade9263f9da813725af964355d6dc12716087965a7dfc5ffcf7",
+        "size": 206
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-spec_direct/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.bin",
+        "sha256": "4af2125ea251cc83b6f8424eae73e9dd4eae94bab86c6e38c48ef44e7e7e8524",
+        "size": 3202
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.disasm",
+        "sha256": "86e74a5bc6e7561e8996db94358a7619ca9cc437368c5b71ef046dfbfe123091",
+        "size": 53212
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.elf",
+        "sha256": "9a2ee25d593c6c562221f1bc25c024b2406a7f523c965bbb18bb2dc418a03174",
+        "size": 8732
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.map",
+        "sha256": "7fd2ca8daba86d117656d92ecb6d56b866737672e095792866596b3c7b6ceaea",
+        "size": 7833
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.o",
+        "sha256": "984e020bda4ef77d9667f9ec2d54d699c33689c7c51975fb6e0c634567847695",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.stderr",
+        "sha256": "5b2c07af879d52a6c466890416db82a01b2be1ad5c2be5af4836bf49194dd4ae",
+        "size": 5538
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.stdout",
+        "sha256": "84203bfc8e580d602db5b9b6b9195fe0261253c44714876f270912d23baeefba",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/firmware.su",
+        "sha256": "83ab8f2dff0421579da7bea1398b384e80a1853a2970f23c147078682d1ceeaf",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/probe.c",
+        "sha256": "7fa21c7b774f3b3072fdd811b575295fb25e468c2cc39711fb908ebde222c47c",
+        "size": 3842
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/probe.o",
+        "sha256": "102d525033d8f9d5c4f3a2e198ea673f0d6fd95469152b83667f595351345a5e",
+        "size": 3932
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/probe.su",
+        "sha256": "c573cf3c611ad7c9a5eab441397d736441d8dee4a141561d8846b2cf92d3e868",
+        "size": 563
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/size.txt",
+        "sha256": "142490088b7b0954b484c5add2712362c1cc039a3b528c89db0da900ee42cddb",
+        "size": 206
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_const/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.bin",
+        "sha256": "e9e1e38dfbbb7aec9d564902ea2e9ed12d489e9e3d505e96d00b468ce2997470",
+        "size": 3022
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.c",
+        "sha256": "337f25f757fc932d32612e98f292a294af46f05a6fcd0229c390ef45bca48be5",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.disasm",
+        "sha256": "7e0137f044ed20455d8ba7e6c6533c9f285397b08259efdcf66041482f55e4ed",
+        "size": 50642
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.elf",
+        "sha256": "4c592fea9893c13e2f967ee0663116377b11ffe44b01c992823501daf30ce0d0",
+        "size": 8520
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.map",
+        "sha256": "8e60067f912b1d68000e8cdb6f85e3f993aaa54e9b3bdc06a3b58b0a618cc818",
+        "size": 8055
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.o",
+        "sha256": "984e020bda4ef77d9667f9ec2d54d699c33689c7c51975fb6e0c634567847695",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.stderr",
+        "sha256": "e484c938f9822372df4bd9b8144e7e5e254cb8a95c44af1b16e64ccf8d4ef208",
+        "size": 5540
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.stdout",
+        "sha256": "9074b38787ce364861e6a1bf466cf315adaf5908cb07f251f3d9dbd6dffe9e6a",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/firmware.su",
+        "sha256": "4a0241680643f8fef80135b8bdc575d5e2d63562affb679166283af306fe4ef0",
+        "size": 577
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/probe.c",
+        "sha256": "526423f4770c0582d464b6529e5e1329448cc5d862d89f8edb7a40ad736297e1",
+        "size": 7645
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/probe.h",
+        "sha256": "6119aabd079fed912e9a17547d558d8b51ef7e22cde794c441d5f0a9f43aa66e",
+        "size": 850
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/probe.o",
+        "sha256": "7df22a8c9726c158185fbc9a4428bde1de84ff1f275d40bce3d63ddedc38d37a",
+        "size": 3720
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/probe.su",
+        "sha256": "79c4df5556fa18f6f9b85c77cdfef646d1779c82095a809da5cdc0aa0a83b90f",
+        "size": 591
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/size.txt",
+        "sha256": "ec68dadd0492c7de28eff35b1f50707fcef21974c0978c0ce867be195c2061fc",
+        "size": 212
+      },
+      {
+        "path": "research/fir-sharing-probe/build/cases/gcc15-speech_minphase48-32768-b64-trans_hcub_demand/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/certificates.json",
+        "sha256": "3419922a1da24333d4a6b62e0643c36f1206fda42a637ad3e5ef2afb3b9b5591",
+        "size": 77866
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/accounting.json",
+        "sha256": "f39dc297271e4d706196690884a91b7eaedb414661230bd6e678a2bfc593aad2",
+        "size": 14096
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/analyze.py",
+        "sha256": "bdbf0754b5c93763eee8ca613b39a6fb2452636617aea3d41d57755bcbc62b3e",
+        "size": 22199
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/assembly-notes.md",
+        "sha256": "a328605ddfa5847981e1abb9f31e7f98f404a73d1103642741cb00fcde170e7e",
+        "size": 23938
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/command-record.json",
+        "sha256": "c2c9732413df5f5755cd431d2a1f5d0bf3dd7aeecca030d86d9c95651bfe84d4",
+        "size": 1303
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/commands.json",
+        "sha256": "e42afadef20aca57f9516a6618cd2dd469ef3f6d339b667e92a1dee862e11162",
+        "size": 3416
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.bin",
+        "sha256": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+        "size": 2166
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.c",
+        "sha256": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.disasm",
+        "sha256": "8085bd153b56cd955ff026d6cf708526316cb56639157d040dba626c109e0449",
+        "size": 32807
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.map",
+        "sha256": "c9d79cdeae3256e637c6a5c83337ea559d85683f1d55bf6056682ee7c31f67eb",
+        "size": 7276
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.stderr",
+        "sha256": "83e89fe00b57b5d585c47ac41d9d37235490c3155ef2121b60ab287d1a1e67ba",
+        "size": 5529
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.stdout",
+        "sha256": "f2959cca91d1bfe09a3531b8825baa98da3cfe89610fe3c5849e60e5dc517275",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/firmware.su",
+        "sha256": "f1b45870226539c1076b2e918de17bf672a17db706b64ef6b293a9809b64caa5",
+        "size": 469
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/kernel.su",
+        "sha256": "9e185a1d59a781b6f411d321489a51561d3ff1d4042d8198b75f87b55bfb8058",
+        "size": 484
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/probe_process.disasm",
+        "sha256": "d35f1ec9ad3154d6ef89859a348f76d48dc98766d0023e33224e7901b28b9d7e",
+        "size": 19413
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/site-classification.json",
+        "sha256": "df5fcba0e84272cd627846e165576b6d1f9d9d2fa30c14eae0601f34b08bf511",
+        "size": 29729
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc10-b1/size.txt",
+        "sha256": "fbc211608fe1e9c1104b2dca5613c9bdf96c901fb0172ca01cf15de95fcb50e1",
+        "size": 185
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/commands.json",
+        "sha256": "dbf40fc8accc06c9b69a2333670af5849385247caf0bdc1ab4c514b921d04463",
+        "size": 4130
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.bin",
+        "sha256": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+        "size": 2490
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.c",
+        "sha256": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.disasm",
+        "sha256": "33218f294375f99062ec906c47033ca8aa2cc902fe4d47c7e4de788f6dda27ad",
+        "size": 39744
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.map",
+        "sha256": "72ede55e7216e7536306a3a85df0ca44d72b085aa35f6310cbb399c15c483dc0",
+        "size": 6921
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.stderr",
+        "sha256": "22ca6390cac14083a9bc9660932583b928ba401d51568a36066395a4b6a247bc",
+        "size": 5528
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.stdout",
+        "sha256": "638c3396f461b242c9b7c7fad1dca7a5aa538ecc5118ef6419e111de5280da83",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/firmware.su",
+        "sha256": "012903a68eccd7706fa5449ef0a3d75fa9524b17d338bd7270350b2f338fa445",
+        "size": 469
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/kernel.su",
+        "sha256": "83849d03b87054823f068e1b236d024ca39101d3ae718e7b4e7c8756f5abe75f",
+        "size": 485
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/probe_process.disasm",
+        "sha256": "ae5a68dda1cec76702ff4bf08227ab8eb8f8765ffb8866fc4d5f176850470154",
+        "size": 26546
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/site-classification.json",
+        "sha256": "e7825ec27e6ea62c77876dbef09ca641762c10af018267ea6775355cd9b92539",
+        "size": 40050
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/gcc15-b1/size.txt",
+        "sha256": "b8a5e01ce24c4cfc9e8335e5ac5cc98437464d0e11b47bfb92b7c13ef1b3fbf1",
+        "size": 185
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/evidence/test-first-transcript.md",
+        "sha256": "001b592a4e156fa168fe4871dc7cf8a91ad6caf9673609b80aa7e5b5dfda4e59",
+        "size": 1919
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/findings.md",
+        "sha256": "b6458de7266be731206d2f4dceda0e729ea841bf84f2d6c67f76b937fca1bca1",
+        "size": 7039
+      },
+      {
+        "path": "research/fir-sharing-probe/compiler-explanation/review.md",
+        "sha256": "a67512b4163990c150ca8405950164faa37429cde6bfbedc3330472478a9c6da",
+        "size": 2869
+      },
+      {
+        "path": "research/fir-sharing-probe/explanation-check/verification.json",
+        "sha256": "64e975a82a978254596e6aa2b16753527cf9bd9d78887a90777f74f337c26003",
+        "size": 20159
+      },
+      {
+        "path": "research/fir-sharing-probe/explanation-check/verify.py",
+        "sha256": "19132ef042a15b8a125a6608b5f71a0261ccbb26dee6451ef382083c96ac9f28",
+        "size": 21502
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/check.py",
+        "sha256": "b96bc54469dcda343ea0339ae94381398829e84d8546420750bf49e6cf244803",
+        "size": 27793
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/join-review.md",
+        "sha256": "de79f1aafccb3e7fb6b5f21235bba5607b22ce3fd27a481f260f1f23d2f50660",
+        "size": 9467
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/partial-direct-target-evidence.sha256",
+        "sha256": "804ebb81d0637d9efcc7b9228fd6668673925159a16e30b5c3f835a7597ee86b",
+        "size": 149
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/partial-direct-target-evidence.tar.gz",
+        "sha256": "8aa24f417ff266a2be2a850750defe06d8cbc46766b03d0ba67639f0a154cb83",
+        "size": 147500
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/positioning.md",
+        "sha256": "0d5e052c8e3678a8a661363631ce94ab535f25b43c4217b020517176be6aa524",
+        "size": 13772
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/reference-cases.json",
+        "sha256": "95844bb71b2b7d8c38c435b4a612fd53a995494463b44d029282e4bc0a2469b9",
+        "size": 41750
+      },
+      {
+        "path": "research/fir-sharing-probe/independent-check/verification.json",
+        "sha256": "e8ce76157aee913d05f16219117a5f3b0ed4aa1a08423a9acf8282095ab326c7",
+        "size": 39516
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/commands.json",
+        "sha256": "e42afadef20aca57f9516a6618cd2dd469ef3f6d339b667e92a1dee862e11162",
+        "size": 3416
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.bin",
+        "sha256": "07fd7023d12ead52fee14a266c647627d664f37c18c234a0b41e2f226f143a6a",
+        "size": 2166
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.c",
+        "sha256": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.disasm",
+        "sha256": "8085bd153b56cd955ff026d6cf708526316cb56639157d040dba626c109e0449",
+        "size": 32807
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.elf",
+        "sha256": "b9af7852c2af97ee5b2d182de3d870f9a7dd0dbfd0efdaa5540cb2e1c938742b",
+        "size": 69072
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.map",
+        "sha256": "c9d79cdeae3256e637c6a5c83337ea559d85683f1d55bf6056682ee7c31f67eb",
+        "size": 7276
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.o",
+        "sha256": "b255648d149a4a5432ec5ca9a1a370e5496142168791df05d02dba22b6a81e31",
+        "size": 3092
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.stderr",
+        "sha256": "83e89fe00b57b5d585c47ac41d9d37235490c3155ef2121b60ab287d1a1e67ba",
+        "size": 5529
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.stdout",
+        "sha256": "f2959cca91d1bfe09a3531b8825baa98da3cfe89610fe3c5849e60e5dc517275",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/firmware.su",
+        "sha256": "f1b45870226539c1076b2e918de17bf672a17db706b64ef6b293a9809b64caa5",
+        "size": 469
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.h",
+        "sha256": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.o",
+        "sha256": "866f4c90af341dbbe109f1d8528d7a599853fac232353798f4ffe30d1a18ddc7",
+        "size": 2280
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/kernel.su",
+        "sha256": "9e185a1d59a781b6f411d321489a51561d3ff1d4042d8198b75f87b55bfb8058",
+        "size": 484
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/probe_process.disasm",
+        "sha256": "d35f1ec9ad3154d6ef89859a348f76d48dc98766d0023e33224e7901b28b9d7e",
+        "size": 19413
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/size.txt",
+        "sha256": "fbc211608fe1e9c1104b2dca5613c9bdf96c901fb0172ca01cf15de95fcb50e1",
+        "size": 185
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b1/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/commands.json",
+        "sha256": "4c290341538013bcaf1399e2ee9399b2c529f757695f905ceb93a4a29f387d8f",
+        "size": 3437
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.bin",
+        "sha256": "fb08c19043261b1db7644a8ca4f0749f46b893e51a4d685e2a5cf339fbe23f11",
+        "size": 2330
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.c",
+        "sha256": "ea27bf917eda6cc4aa4cb21c059ee3ffec83cbe208efa80854ff4ea7c7851d27",
+        "size": 2700
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.disasm",
+        "sha256": "dc1b9a0b4fd5d18f569e516efd368d45ee44f506a4944f2a8f84ea525c873ad2",
+        "size": 35474
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.elf",
+        "sha256": "aceb2381d4c770b5898e3647b6bfb90a6b1979801af1bfc213a4b125809ed466",
+        "size": 69300
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.map",
+        "sha256": "3c68654d4ccb2492734302c954c8574a09a6ee7a5b60ca6c05f08c3c82b9ec9d",
+        "size": 7312
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.o",
+        "sha256": "b1595e9da64c078e0eab8118f80c9c4799946cc89b1f416dad39862304b3ea2e",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.stderr",
+        "sha256": "4158dbe93cee73b311877a3c97783587cd332c4feabd6fac168daa2d39a204bc",
+        "size": 5524
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.stdout",
+        "sha256": "0c4f77d889d66edf9c60e005dc4252daf1edd174b70d5d3e6200643ff919413d",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/firmware.su",
+        "sha256": "83295b8fd6c5e1dda4759f56eeb9d78f639b2dd1f7ad9747b5c16c5fd8edb7fe",
+        "size": 473
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/kernel.h",
+        "sha256": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/kernel.o",
+        "sha256": "7d0588a64d6868a87c346eb706032ebc0be9920cc0d0cb7bf04f5909ff0159c2",
+        "size": 2504
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/kernel.su",
+        "sha256": "a29bd07f98f92cbc33ab6fbd7c7cdbe1fdd878f00baa5fadee4ae85dd01d39cc",
+        "size": 488
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/probe_process.disasm",
+        "sha256": "f34ddaff40cb0537eca43f596e648248eadcf459debd157fe06ccca13184f3d7",
+        "size": 21962
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/size.txt",
+        "sha256": "456b4ca150f6099b471c6c5e6c20acfbb324866c8627c135a24d81f035ac375e",
+        "size": 186
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc10-b64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/commands.json",
+        "sha256": "dbf40fc8accc06c9b69a2333670af5849385247caf0bdc1ab4c514b921d04463",
+        "size": 4130
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.bin",
+        "sha256": "114041b0f03a20c34a9c8a37b147116dff9f74c3c321bd2af4d7709d710e3470",
+        "size": 2490
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.c",
+        "sha256": "b5e473d75aa16caa25242215100b13c5ad6b60471ececf9057bca5e99c4d971c",
+        "size": 2699
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.disasm",
+        "sha256": "33218f294375f99062ec906c47033ca8aa2cc902fe4d47c7e4de788f6dda27ad",
+        "size": 39744
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.elf",
+        "sha256": "6b8641198d529b3414684cd48afaadbedb982b0b8b55ad8185b74011accc6493",
+        "size": 7988
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.map",
+        "sha256": "72ede55e7216e7536306a3a85df0ca44d72b085aa35f6310cbb399c15c483dc0",
+        "size": 6921
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.o",
+        "sha256": "75996684b1450bcc0e302042f7f7b65e225374ffca8cde0876caa4555db43ea8",
+        "size": 3100
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.stderr",
+        "sha256": "22ca6390cac14083a9bc9660932583b928ba401d51568a36066395a4b6a247bc",
+        "size": 5528
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.stdout",
+        "sha256": "638c3396f461b242c9b7c7fad1dca7a5aa538ecc5118ef6419e111de5280da83",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/firmware.su",
+        "sha256": "012903a68eccd7706fa5449ef0a3d75fa9524b17d338bd7270350b2f338fa445",
+        "size": 469
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.h",
+        "sha256": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.o",
+        "sha256": "805d887680cce62d1e70b274f654698b5915c29425bccff9db9e36796a66d76f",
+        "size": 2668
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/kernel.su",
+        "sha256": "83849d03b87054823f068e1b236d024ca39101d3ae718e7b4e7c8756f5abe75f",
+        "size": 485
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/probe_process.disasm",
+        "sha256": "ae5a68dda1cec76702ff4bf08227ab8eb8f8765ffb8866fc4d5f176850470154",
+        "size": 26546
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/size.txt",
+        "sha256": "b8a5e01ce24c4cfc9e8335e5ac5cc98437464d0e11b47bfb92b7c13ef1b3fbf1",
+        "size": 185
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b1/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/commands.json",
+        "sha256": "8439cafb814ebae7eb00975b44a84a578ec56738dc485406b301e6791d211e6a",
+        "size": 4151
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.bin",
+        "sha256": "140f1e446715a79b1384f1b46a274c8ac03bb097879b959ad4c7a743a7418638",
+        "size": 2462
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.c",
+        "sha256": "ea27bf917eda6cc4aa4cb21c059ee3ffec83cbe208efa80854ff4ea7c7851d27",
+        "size": 2700
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.disasm",
+        "sha256": "05a4f3364aef5273933fe1720187b05febbd070383e3e2ffd10807cf7da19f5c",
+        "size": 39317
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.elf",
+        "sha256": "54d0da67af9bb48011250aa7def73e62051fe04c17ea890f2e9b1add153322a4",
+        "size": 7960
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.map",
+        "sha256": "b61e21bbeabcbf7395b511a4550055d3fa59bfaf5d3efadd99e133e60f700a9f",
+        "size": 6957
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.o",
+        "sha256": "09af7bb20a13eb0db5eb293d340bfe5af1b7785e460ce834ef1d0fc498c00516",
+        "size": 3140
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.stderr",
+        "sha256": "41eebb960aa57ef88d6682ac9953400fac87fc8dca0490aea3914e122123125a",
+        "size": 5516
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.stdout",
+        "sha256": "fb93329e041c689ecec884f2a05e33d408c867c8fcb4326edbf1207be13019a3",
+        "size": 1902
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/firmware.su",
+        "sha256": "c3a4d7f10615611c052d25ccabe82659a4c50d0a1b5b798a85afe2e78ece45e4",
+        "size": 473
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/kernel.h",
+        "sha256": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/kernel.o",
+        "sha256": "e992fc62b0e2262e997238754cdcf5cdc7d48cc61f4cfe08eed1284bc0dcc9dc",
+        "size": 2608
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/kernel.su",
+        "sha256": "62628f6d21e636132b433f10d0cfb3b76d8f6762a3d515a42b0e1319f5dbf1da",
+        "size": 489
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/probe_process.disasm",
+        "sha256": "bb22e0899da1d36cf4ac37cd6af007ccd1a813e3fd11f6345b2c2440477d494d",
+        "size": 25566
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/size.txt",
+        "sha256": "8e4396eaa08d67c61a52bb436a84bffae8b58264e2038a6218e1d779dce792ef",
+        "size": 186
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/build/target/gcc15-b64/startup.o",
+        "sha256": "f42e5cf1b1073bf14ae8a292755a4d0b800b2bd04984022668287bb5c6946138",
+        "size": 1256
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/host-tests.txt",
+        "sha256": "981ee7327e94873a4005d884c24f483d5b6928396c8bb5c8e224b402d410a496",
+        "size": 453
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/host_harness.c",
+        "sha256": "0116df84e45f014685ba1e5d36e5e2ea54922e209b21aebea44e68d4a66437c1",
+        "size": 1726
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/kernel.c",
+        "sha256": "5832b52eaf1d5eb76e8087d47307feeccf74809cc0f22b288d111505851501cd",
+        "size": 4017
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/kernel.h",
+        "sha256": "bfc6b12af730bad80afd51ab9b235dc9bd4fa12f7ad394d4082155891b5b08b6",
+        "size": 553
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/notes.md",
+        "sha256": "41db87f330e595244e515508d00ade2112578d6fb41ee5cb84947482345d1e4a",
+        "size": 4646
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/results.json",
+        "sha256": "eb53d3e556a6f8444742856b8c45a7d3236f443fed6cc0312010b2840095dc4f",
+        "size": 28726
+      },
+      {
+        "path": "research/fir-sharing-probe/partial-direct/run.py",
+        "sha256": "6da706332e5a7663f872d6bdb09fa216df795b4faabcd86146692bbb98359864",
+        "size": 15697
+      },
+      {
+        "path": "research/fir-sharing-probe/probe.py",
+        "sha256": "0f08725923270c3d8945eca225f1a38d90885381103ce82ca7c42f6a9e6b9b3f",
+        "size": 28617
+      },
+      {
+        "path": "research/fir-sharing-probe/results.json",
+        "sha256": "57c8b9f95a72a041193aebb70e12319a9c05daf11ef8be37e9f1955875d4edfa",
+        "size": 1194726
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/BUILD.md",
+        "sha256": "221ea3d7b282122c0ca10418ca9005475b6367be7ff04417fbb952f975e9bd65",
+        "size": 2374
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/examples-manifest.json",
+        "sha256": "16243004c8dfa23ad34eb567216f22f166b1c36a9ff57cfacad4c8d80d2cb9a8",
+        "size": 4710
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/speech_minphase48.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/speech_minphase48.txt",
+        "sha256": "19c8e68612b45ae9ac9674bedc9f26972b8ded4ec979d15cd4393530af3448f1",
+        "size": 4337
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/synth-jan-14-2009.tar.gz",
+        "sha256": "24b3fd41181f2e5443f0324a4138096dfce91fa2514b0f96b25b5a1da6c33bc2",
+        "size": 324608
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/synth-jan-14-2009/COPYING",
+        "sha256": "6efe207f5847adab276f112d673485afa3c51d395cda68a2026d970cead4eabd",
+        "size": 18104
+      },
+      {
+        "path": "research/fir-sharing-probe/vendor/synth-jan-14-2009/COPYRIGHT",
+        "sha256": "778bc9019bfbc888009b0c409ea7cc067d6c3e42758dc5eeadc02d66b653b2f6",
+        "size": 1455
+      }
+    ],
+    "schema_version": 1
+  },
+  "archive_sha256": "f09c780d70d1b62750892c0e18efd098422779dabd1d2d0b51e24f50e0cdfa66",
+  "fresh_copy": "/tmp/fir-portable-evidence-copy-2",
+  "integration": {
+    "commands": [
+      {
+        "command": [
+          "/usr/bin/python",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-paper/build_results.py",
+          "--repo-root",
+          "/tmp/fir-portable-evidence-copy-2",
+          "--output-dir",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-upgrades/build/paper-export"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/usr/bin/python",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-sharing-probe/independent-check/check.py",
+          "--probe-root",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-sharing-probe",
+          "--peer-results",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-sharing-probe/partial-direct/results.json",
+          "--output-dir",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-upgrades/build/raw-check"
+        ],
+        "returncode": 0,
+        "stdout": "{\"historical_rows_verified\": 24, \"output_comparisons\": 6168, \"peer_rows_verified\": 4, \"peer_status\": \"four performance rows independently checked; manual arithmetic/assembly review still required\"}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/usr/bin/python",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-sharing-probe/explanation-check/verify.py",
+          "--peer-report",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-sharing-probe/compiler-explanation/accounting.json",
+          "--output-dir",
+          "/tmp/fir-portable-evidence-copy-2/research/fir-upgrades/build/explanation-check"
+        ],
+        "returncode": 0,
+        "stdout": "{\"status\": \"consistent\", \"peer_rows_checked\": 2}\n",
+        "stderr": ""
+      }
+    ],
+    "historical_rows": 24,
+    "peer_rows": 4,
+    "explanation_rows": 2,
+    "evidence_hashes": 29,
+    "export_matches_saved": true,
+    "skip_count": 0
+  }
+}
