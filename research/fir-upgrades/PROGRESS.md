@@ -13,8 +13,8 @@ Tasks1-2 complete: gates/design `a5ba80b`; exact saved-event analysis through
 final19 analyzer +15 exporter tests pass. Original four paper hashes unchanged.
 Task3 complete at `2394cf4`; independent Astra spec/quality review approved. The package contains 531 files and passes 24 historical, four peer
 and two explanation-row checks with 29 explanation hashes and zero skips.
-Task4 preparation is in progress; no new target costs observed.
-Remaining: Tasks4-7.
+Task4 preparation and independent scientific/code review complete after two
+admission fix rounds; no new target costs observed. Remaining: Tasks5-7.
 
 ## Workflow and decisions
 
@@ -79,3 +79,26 @@ semantics for CMSIS helpers. A distinct fast-CMSIS block64 pointer-aliasing
 question remains pending; unresolved cases must remain unavailable, never
 counted as admitted through finite tests. Generated source proofs and host
 sanitation checks remain separate from library/compiler-specific evidence.
+
+## Continued Task4 acceptance, 20 October 2026
+
+- Preparation was committed as `bf97665`; do not regenerate its three Hcub
+  graphs or repeat completed preparation as a new experiment.
+- Fresh coordinator verification: nine panel tests passed; 28 generated-C
+  UBSan builds and 140 stream/state/guard checks passed. All ten preserved
+  historical/paper hashes and 36 generated source-pair identities matched.
+  The frozen protocol contains 288 unique cases and has SHA256
+  `d2b85b2580ec551efcbc457159ff9237482aa2f146417ed236bbd0c0aeb8646c`.
+- Independent Astra/high review confirmed the frozen arithmetic and graph
+  identities, but requires three admission repairs: enforce public candidate
+  eligibility/named cuts, reject missing recorded graphs without rerunning Hcub,
+  and reject frozen dependency drift before preparation writes any output.
+- Luna/low worker `/root/task4_admission_fixes` owns that validation-only fix
+  round. Frozen arrays, protocol, graphs and generated sources must remain
+  byte-identical. Task5 target work remains gated on accepted fixes.
+- Requested model settings are recorded, with backend routing still unobservable.
+- All three Important findings are addressed after two scoped fix rounds;
+  Astra/high accepted the final preparation gate. Fresh coordinator checks:
+  16 panel tests passed and all 95 frozen payload/historical hashes matched.
+  No graph was regenerated and no target work occurred. Task5 may now proceed
+  under its independent source/binary, correctness, memory and event gates.

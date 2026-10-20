@@ -13,6 +13,7 @@ TAPS=48; MAXIMUM=32768
 SPECS=(('native_lp1800',1800,'hamming',50000,'4cc95f66dcae4fa848d8b5870ecca26a5be6101c91fc7e28bd52e404419c4118'),('wide_lp2800',2800,'hamming',100000,'6293e26668672b816f2a5f22d4f0ce09ef7af8bc5d01cb0d433cff432615f573'),('wide_lp4600',4600,'blackman',110000,'900cf584be9d2b3597a63e5acd42e14594bd768607ac05e5c705a71f405b310b'))
 FULL_SHA='45f756624d8bb824a19352860fff89648c26971c961433f5ee1bcc8dab6fefc8'; ADC_SHA='4ee975455373f3b8c4af42282b82d542e8e2810b4f46cf253a0f13ce4a78095e'
 CMSIS_PIN='3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80'; VARIANTS=('wide_direct64','cert_direct_first','trans_const','trans_hcub_demand','cmsis64_unroll'); COMPILERS=('gcc10','gcc15'); _MODULES={}
+FROZEN_PROTOCOL_SHA='d2b85b2580ec551efcbc457159ff9237482aa2f146417ed236bbd0c0aeb8646c'; LEGACY_SHA='0f08725923270c3d8945eca225f1a38d90885381103ce82ca7c42f6a9e6b9b3f'; CORE_HEADERS_SHA='ca5e5fb8b5b4af3f3e95ccdb648c59fcaa2c9ac5be43209997ab6ec23bb9b3e2'
 
 def _dump(x): return (json.dumps(x,sort_keys=True,indent=2)+'\n').encode()
 def coefficient_bytes(x): return np.asarray(x,dtype='<i2').tobytes()
@@ -120,10 +121,22 @@ def _direct(h,variant,block,groups):
     return header,'\n'.join(src)+'\n'
 def generate_kernel(h:list[int],variant:str,block:int,groups:list[tuple[int,int]])->tuple[str,str]: return _generate(h,variant,block,groups,ROOT)
 def _generate(h,variant,block,groups,root):
+    name=_name(h,root)
+    if variant not in ('wide_direct64','cert_direct_first','cert_direct_balanced','trans_const','trans_hcub_demand','cmsis64_unroll','cmsis32_unroll'): raise ValueError('unknown panel variant')
+    design=json.loads((Path(root)/'panel-design.json').read_text()) if (Path(root)/'panel-design.json').exists() else make_design()
+    row=design['filters'][name]; expected=list(VARIANTS)+(['cmsis32_unroll'] if name=='native_lp1800' else ['cert_direct_balanced'])
+    if variant not in expected: raise ValueError(f'{variant} is not eligible for frozen filter {name}')
     groups=_groups(h,variant,block,groups)
+    if variant=='wide_direct64': wanted=[(0,TAPS)]
+    elif variant=='cert_direct_first':
+        k=row['cuts'][0] if row['cuts'] else TAPS; wanted=[(0,k),(k,TAPS)] if k<TAPS else [(0,TAPS)]
+    elif variant=='cert_direct_balanced':
+        if len(row['cuts'])<2: raise ValueError('balanced cut is not defined for this filter')
+        k=row['cuts'][1]; wanted=[(0,k),(k,TAPS)]
+    else: wanted=[(0,TAPS)]
+    if groups!=wanted: raise ValueError(f'{variant} requires frozen cut groups {wanted}')
     if variant in ('wide_direct64','cert_direct_first','cert_direct_balanced'): return _direct(h,variant,block,groups)
-    name=_name(h,root); m=_legacy(root)
-    if variant not in ('trans_const','trans_hcub_demand','cmsis64_unroll','cmsis32_unroll'): raise ValueError('unknown panel variant')
+    m=_legacy(root)
     header,source,_=m.generate(name,h,MAXIMUM,variant,block)
     return header,source
 
@@ -133,23 +146,31 @@ def _graphs(root,design):
     if Path(root).resolve()!=ROOT.resolve():
         frozen=ROOT/'vendor'; frozen_manifest=frozen/'graphs-manifest.json'
         if not frozen_manifest.exists(): raise RuntimeError('production graph prepare is required first')
-        present=manifest_path.exists() or any((vendor/(n+'.txt')).exists() for n in design['filters'])
+        present=manifest_path.exists() or any((vendor/(n+'.txt')).exists() or (vendor/(n+'.stderr.txt')).exists() for n in design['filters'])
         if present:
             if not manifest_path.exists(): raise ValueError('partial temporary graph set has no manifest')
         else:
             for name in design['filters']:
                 for suffix in ('.txt','.stderr.txt'): shutil.copyfile(frozen/(name+suffix),vendor/(name+suffix))
             shutil.copyfile(frozen_manifest,manifest_path)
+    graph_outputs=[vendor/(n+suffix) for n in design['filters'] for suffix in ('.txt','.stderr.txt')]
+    if Path(root).resolve()==ROOT.resolve() and not manifest_path.exists():
+        prior_protocol=(Path(root)/'panel-protocol.json').exists()
+        prior_graph=any(path.exists() for path in graph_outputs)
+        if prior_protocol or prior_graph:
+            raise ValueError('incomplete frozen production graph set; refusing Hcub regeneration')
     manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    recorded=manifest_path.exists()
     if manifest and manifest.get('provenance')!=provenance:
         if Path(root).resolve()==ROOT.resolve() and 'provenance' not in manifest: manifest['provenance']=provenance
         else: raise ValueError('Hcub executable/source provenance changed')
     for name,row in design['filters'].items():
         path=vendor/f'{name}.txt'; err=vendor/f'{name}.stderr.txt'; odds=sorted({abs(c)//(abs(c)&-abs(c)) for c in row['coefficients'] if c}); cmd=[str(acm),*map(str,odds),'-b','15','-seed','1','-nofs','-gc']
-        if path.exists():
+        if recorded or path.exists() or err.exists():
             record=manifest.get(name)
-            if not record or not err.exists() or hashlib.sha256(path.read_bytes()).hexdigest()!=record.get('stdout_sha256') or hashlib.sha256(err.read_bytes()).hexdigest()!=record.get('stderr_sha256') or record.get('command')!=cmd or record.get('fundamentals')!=odds: raise ValueError(f'{name} saved Hcub outputs/command fail identity validation')
+            if not record or not path.is_file() or not err.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=record.get('stdout_sha256') or hashlib.sha256(err.read_bytes()).hexdigest()!=record.get('stderr_sha256') or record.get('command')!=cmd or record.get('fundamentals')!=odds: raise ValueError(f'{name} saved Hcub outputs/command fail identity validation')
             continue
+        if Path(root).resolve()!=ROOT.resolve(): raise ValueError('temporary graph roots may only copy frozen Hcub outputs')
         p=subprocess.run(cmd,cwd=srcdir,capture_output=True)
         if p.returncode: raise RuntimeError(p.stderr.decode(errors='replace'))
         path.write_bytes(p.stdout); err.write_bytes(p.stderr)
@@ -204,17 +225,49 @@ def _cmsis_cert(h):
     fast=(cmsis/'Source/FilteringFunctions/arm_fir_fast_q15.c').read_text(); standard=(cmsis/'Source/FilteringFunctions/arm_fir_q15.c').read_text()
     none=(inc/'dsp/none.h').read_text(); memory=(inc/'arm_math_memory.h').read_text()
     revision=subprocess.run(['git','-C',str(cmsis),'rev-parse','HEAD'],check=True,capture_output=True,text=True).stdout.strip()
+    tracked=[str(f.relative_to(cmsis)) for f in files if f.is_relative_to(cmsis)]
+    if revision!=CMSIS_PIN or subprocess.run(['git','-C',str(cmsis),'diff','--quiet','HEAD','--',*tracked]).returncode:
+        raise ValueError('pinned CMSIS working-tree sources or headers differ from HEAD')
+    core_hashes={k:v for k,v in hashes.items() if k.startswith('cmsis-core/')}
+    if hashlib.sha256(_dump(core_hashes)).hexdigest()!=CORE_HEADERS_SHA:
+        raise ValueError('separately pinned CMSIS Core header identity changed')
     source_checks={'pinned_revision':revision==CMSIS_PIN,'fast_pb_const_decl':bool(__import__('re').search(r'const\s+q15_t\s*\*\s*pb',fast)),'fast_casted_incremental_read':'read_q15x2_ia ((q15_t **) &pb)' in fast,'standard_typed_incremental_read':'read_q15x2_ia (&pb)' in standard,'fast_four_output_gate':'blkCnt = blockSize >> 2U;' in fast,'packed_fallback_helpers':all(k in none for k in ('__PKHBT','__SMLAD','__SMLALD','__SMLALDX')),'q15_pair_reader':bool(__import__('re').search(r'read_q15x2\s*\(\s*q15_t const',memory)),'q15_pair_writer':'write_q15x2_ia' in memory}
     if not all(source_checks.values()): raise ValueError('pinned CMSIS source no longer matches audited helper paths')
     return {'source_pin':CMSIS_PIN,'source_hashes':hashes,'transitive_header_tree_sha256':tree,'source_checks':source_checks,'pair_bounds':pair,'maximum_pair_bound':max(pair),'full_sum_interval':interval,'floored_interval':[interval[0]//32768,interval[1]//32768],'reversed_coefficients':h[::-1],'state_storage_samples_by_block':{'1':TAPS+1,'64':TAPS+64},'full_domain_accumulator_abs_bound':32768*sum(map(abs,h)),'standard_postshift_int32_safe':max(abs(interval[0]//32768),abs(interval[1]//32768))<=2**31-1,'gcc_contract':'GCC 10.3/Arm GCC 15.2 implementation semantics; portable ISO-C packed-helper proof not claimed','helper_obligations':['packed halfword extraction/packing signed shifts follow pinned GCC implementation semantics','__PKHBT and write_q15x2 narrowing/right-shift semantics follow GCC contract','unsigned packed helper returns converted to signed accumulator types per GCC contract','ordinary signed pair multiplication/addition intermediates fit certified widths','reversed coefficient pair bounds and every accumulation prefix certified','standard acc>>15 conversion to int32 is inside certified range'],'ARM_MATH_LOOPUNROLL':True,'DSP_MVE_NEON_HELIUM':False,'ARM_FEATURE_UNALIGNED':'record effective compiler macro at Task 5','fast_full_domain_arithmetic_eligible':32768*sum(map(abs,h))<=2**31-1,'fast_cmsis_block64_admission':'pending unresolved pointer-object aliasing','fast_cmsis_block1_alias_path':'source sets blkCnt=blockSize>>2; b=1 bypasses four-output cast path and uses scalar remainder; verify target source identity at Task 5'}
 def _protocol(design,inputs,certs):
     return {'schema':'fir-task4-protocol-v1','case_identity':['filter','variant','compiler','block','stimulus','regime'],'filters':list(design['filters']),'variants_by_filter':{n:list(VARIANTS)+(['cmsis32_unroll'] if n=='native_lp1800' else ['cert_direct_balanced']) for n in design['filters']},'compilers':COMPILERS,'toolchain_identities':{'gcc10':{'path':'/usr/bin/arm-none-eabi-gcc','version':'GNU Arm Embedded 10.3.1'},'gcc15':{'path':str((BASE/'build/toolchains/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc').resolve()),'version':'Arm GNU Toolchain 15.2.rel1'},'target':'Cortex-M0 Thumb, little-endian','optimization':'-O2','LTO':False,'flags':['-mcpu=cortex-m0','-mthumb','-std=c11','-ffreestanding','-fno-builtin','-ffunction-sections','-fdata-sections','-g0']},'legacy_helper_sha256':hashlib.sha256(LEGACY.read_bytes()).hexdigest(),'blocks':[1,64],'stimuli':['adc','full'],'regimes':[{'name':'startup','warmup_samples':0,'measured_samples':257,'total_samples':257},{'name':'post_startup','warmup_samples':64,'measured_samples':1025,'total_samples':1089}],'case_count':288,'cases':case_rows(),'inputs':inputs,'reference':{'causal':True,'initial_history':0,'single_saturating_floor_quantizer':True,'append_tail':False,'full_domain_for_both_stimuli':[-32768,32767]},'measurement':{'retained_warm_history':True,'measured_offsets':[64,1089],'performance_runs_task4':0,'flash_limit_bytes':65536,'ram_limit_bytes':8192,'initial_sp':'0x20001ff0','stack_reservation_bytes':2048,'static_ram_ceiling':'0x200017f0','markers_include':['wrapper','calls','copies','quantizer','retained-state movement'],'markers_exclude':['initialization','printing']},'cmsis':{n:_cmsis_cert(r['coefficients']) for n,r in design['filters'].items()},'certificates':certs,'correctness_gate':{'maximum_conditions':72,'stream_definition':'48 zeros, 48-sample upper extremal window, 48-sample lower extremal window, then ten repetitions of [-32768,32767,-1,0,1] (194 samples)','target_compilers':COMPILERS,'blocks':[1,64],'one_fixed_stream_per_condition':True,'host_mixed_call_partitions':[1,64,3,16]},'performance_gate':{'maximum_conditions':288,'compile_or_run_each_logical_condition_once':True,'binary_deduplication':'document identical binaries; no repeated sampling to invent variance','target_performance_runs_task4':0,'flags':'-O2 Cortex-M0 Thumb, no LTO'},'response_metrics':['integer events','cycles and energy','per measured-output normalization','state/frame/symbol diagnostics','reference quantizer clamp-path count'], 'clamp_path_predicates':{'positive':'prequantized S >= 1073741824','negative':'prequantized S <= -1073741824'},'comparison':{'D_old':'min(wide_direct64,cmsis64_unroll[,cmsis32_unroll when eligible])','D_new':'min(D_old,cert_direct_first[,cert_direct_balanced])','primary_claim':'at least one wide-required fixed-compiler cell with E_Hcub < D_old and E_Hcub >= D_new','unavailable_required_cell':'full-panel assessment incomplete'},'unavailability_rule':'Pending native fast block64 remains unavailable unless aliasing source-semantic item is discharged; do not change denominator.'}
 
+def _validate_existing_dependencies(output,design):
+    if hashlib.sha256(LEGACY.read_bytes()).hexdigest()!=LEGACY_SHA:
+        raise ValueError('pinned legacy helper identity changed')
+    protocol_path=output/'panel-protocol.json'; certificates_path=output/'panel-certificates.json'
+    if protocol_path.exists()!=certificates_path.exists():
+        raise ValueError('partial frozen protocol/certificate set')
+    if not protocol_path.exists(): return
+    raw=protocol_path.read_bytes(); digest=hashlib.sha256(raw).hexdigest(); checksum=output/'panel-protocol.sha256'
+    if not checksum.is_file() or checksum.read_text()!=digest+'  panel-protocol.json\n':
+        raise ValueError('frozen protocol checksum mismatch')
+    if output.resolve()==ROOT.resolve() and digest!=FROZEN_PROTOCOL_SHA:
+        raise ValueError('production protocol differs from frozen identity')
+    protocol=json.loads(raw); certificates=json.loads(certificates_path.read_text())
+    if protocol.get('legacy_helper_sha256')!=LEGACY_SHA:
+        raise ValueError('frozen protocol legacy helper identity mismatch')
+    for name,row in design['filters'].items():
+        actual=_cmsis_cert(row['coefficients']); frozen=certificates.get(name,{}).get('cmsis'); protocol_cmsis=protocol.get('cmsis',{}).get(name)
+        for saved in (frozen,protocol_cmsis):
+            if not isinstance(saved,dict) or saved.get('source_pin')!=CMSIS_PIN or saved.get('source_hashes')!=actual['source_hashes'] or saved.get('transitive_header_tree_sha256')!=actual['transitive_header_tree_sha256']:
+                raise ValueError(f'{name} frozen CMSIS/Core dependency identity mismatch')
+
 def prepare_panel(output:Path)->dict:
-    output=Path(output).resolve(); output.mkdir(parents=True,exist_ok=True); design=make_design(); (output/'panel-design.json').write_bytes(_dump(design)); inputs=make_inputs(); (output/'panel-inputs.json').write_bytes(_dump(inputs)); graphs=_graphs(output,design)
-    certs={n:{'graph':_graph_cert(n,r['coefficients'],output),'cmsis':_cmsis_cert(r['coefficients'])} for n,r in design['filters'].items()}; (output/'panel-certificates.json').write_bytes(_dump(certs))
-    protocol=_dump(_protocol(design,inputs,certs)); (output/'panel-protocol.json').write_bytes(protocol); ph=hashlib.sha256(protocol).hexdigest(); (output/'panel-protocol.sha256').write_text(ph+'  panel-protocol.json\n')
-    sources=[]
+    output=Path(output).resolve(); design=make_design(); inputs=make_inputs(); _validate_existing_dependencies(output,design); output.mkdir(parents=True,exist_ok=True)
+    fixed={'panel-design.json':_dump(design),'panel-inputs.json':_dump(inputs)}
+    for filename,expected in fixed.items():
+        existing=output/filename
+        if existing.exists() and existing.read_bytes()!=expected: raise ValueError(f'frozen {filename} identity mismatch')
+    graphs=_graphs(output,design)
+    certs={n:{'graph':_graph_cert(n,r['coefficients'],output),'cmsis':_cmsis_cert(r['coefficients'])} for n,r in design['filters'].items()}
+    cert_bytes=_dump(certs); protocol=_dump(_protocol(design,inputs,certs)); ph=hashlib.sha256(protocol).hexdigest()
+    pending_sources={}; sources=[]
     for name,row in design['filters'].items():
       variants=list(VARIANTS)+(['cmsis32_unroll'] if name=='native_lp1800' else ['cert_direct_balanced'])
       for variant in variants:
@@ -223,12 +276,19 @@ def prepare_panel(output:Path)->dict:
         k=row['cuts'][0] if row['cuts'] else 48; groups=[(0,k),(k,48)] if k<48 else [(0,48)]
        else: k=row['cuts'][1]; groups=[(0,k),(k,48)]
        for block in (1,64):
-        header,source=_generate(row['coefficients'],variant,block,groups,output); d=hashlib.sha256((header+source).encode()).hexdigest(); dest=output/'sources'/name/variant/f'b{block}'; dest.mkdir(parents=True,exist_ok=True)
+        header,source=_generate(row['coefficients'],variant,block,groups,output); d=hashlib.sha256((header+source).encode()).hexdigest(); dest=output/'sources'/name/variant/f'b{block}'
         for fn,content in (('probe.h',header),('probe.c',source)):
-         path=dest/fn
-         path.write_text(content)
+         pending_sources[dest/fn]=content.encode()
         sources.append({'filter':name,'variant':variant,'block':block,'header_sha256':hashlib.sha256(header.encode()).hexdigest(),'source_sha256':hashlib.sha256(source.encode()).hexdigest(),'combined_sha256':d})
-    (output/'sources-manifest.json').write_bytes(_dump({'schema':'fir-task4-sources-v1','sources':sources}))
+    source_manifest=_dump({'schema':'fir-task4-sources-v1','sources':sources})
+    fixed.update({'panel-certificates.json':cert_bytes,'panel-protocol.json':protocol,'panel-protocol.sha256':(ph+'  panel-protocol.json\n').encode(),'sources-manifest.json':source_manifest})
+    for filename,expected in fixed.items():
+        existing=output/filename
+        if existing.exists() and existing.read_bytes()!=expected: raise ValueError(f'frozen {filename} identity mismatch')
+    for path,expected in pending_sources.items():
+        if path.exists() and path.read_bytes()!=expected: raise ValueError(f'frozen generated source identity mismatch: {path.relative_to(output)}')
+    for filename,content in fixed.items(): (output/filename).write_bytes(content)
+    for path,content in pending_sources.items(): path.parent.mkdir(parents=True,exist_ok=True); path.write_bytes(content)
     return {'design_sha256':hashlib.sha256((output/'panel-design.json').read_bytes()).hexdigest(),'input_sha256':hashlib.sha256((output/'panel-inputs.json').read_bytes()).hexdigest(),'protocol_sha256':ph,'graphs':graphs,'source_count':len(sources),'performance_runs':0,'fast_cmsis_block64_admission':'pending unresolved pointer-object aliasing'}
 
 def _quantize(s):

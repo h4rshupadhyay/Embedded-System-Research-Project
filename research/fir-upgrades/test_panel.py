@@ -128,3 +128,129 @@ def test_generator_rejects_noninteger_coefficients_and_group_cuts():
         panel.generate_kernel(bad, 'cert_direct_first', 64, [(0, 4), (4, 48)])
     with pytest.raises(ValueError):
         panel.generate_kernel(h, 'cert_direct_first', 64, [(0, 4.5), (4.5, 48)])
+
+
+def test_public_generator_enforces_frozen_form_and_cut_eligibility():
+    designs = panel.make_design()['filters']
+    wide = designs['wide_lp2800']['coefficients']
+    native = designs['native_lp1800']['coefficients']
+    with pytest.raises(ValueError):
+        panel.generate_kernel(wide, 'cmsis32_unroll', 64, [(0, 48)])
+    with pytest.raises(ValueError):
+        panel.generate_kernel(wide, 'cert_direct_first', 64, [(0, 5), (5, 48)])
+    with pytest.raises(ValueError):
+        panel.generate_kernel([1] * 48, 'wide_direct64', 64, [(0, 48)])
+    # Source generation stays available while its separate aliasing admission is pending.
+    assert 'arm_fir_fast_q15' in panel.generate_kernel(
+        native, 'cmsis32_unroll', 64, [(0, 48)])[1]
+
+
+@pytest.mark.parametrize('suffix', ('.txt', '.stderr.txt'))
+def test_recorded_or_temporary_missing_graph_fails_without_acm(tmp_path, monkeypatch, suffix):
+    panel.prepare_panel(tmp_path)
+    missing = tmp_path / 'vendor' / ('wide_lp2800' + suffix)
+    missing.unlink()
+    real_run = panel.subprocess.run
+    calls = []
+
+    def guarded_run(args, *a, **kw):
+        if str(args[0]).endswith('/acm'):
+            calls.append(args)
+            raise AssertionError('recorded graph must never be regenerated')
+        return real_run(args, *a, **kw)
+
+    monkeypatch.setattr(panel.subprocess, 'run', guarded_run)
+    with pytest.raises(ValueError):
+        panel.prepare_panel(tmp_path)
+    assert calls == []
+
+
+def test_production_partial_graph_set_without_manifest_fails_without_writes(tmp_path, monkeypatch):
+    frozen_root = panel.ROOT
+    vendor = tmp_path / 'vendor'
+    vendor.mkdir()
+    for suffix in ('.txt', '.stderr.txt'):
+        source = frozen_root / 'vendor' / ('wide_lp2800' + suffix)
+        (vendor / source.name).write_bytes(source.read_bytes())
+    (tmp_path / 'panel-protocol.json').write_bytes(b'previously prepared panel\n')
+    before = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
+    monkeypatch.setattr(panel, 'ROOT', tmp_path)
+    real_run = panel.subprocess.run
+    calls = []
+
+    def guarded_run(args, *a, **kw):
+        if str(args[0]).endswith('/acm'):
+            calls.append(args)
+            raise AssertionError('partially frozen production graph set must never regenerate')
+        return real_run(args, *a, **kw)
+
+    monkeypatch.setattr(panel.subprocess, 'run', guarded_run)
+    with pytest.raises(ValueError):
+        panel._graphs(tmp_path, panel.make_design())
+    after = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
+    assert calls == []
+    assert after == before
+
+
+def test_previously_prepared_production_with_no_graphs_fails_without_acm(tmp_path, monkeypatch):
+    vendor = tmp_path / 'vendor'
+    vendor.mkdir()
+    (tmp_path / 'panel-protocol.json').write_bytes(b'previously prepared panel\n')
+    before = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
+    monkeypatch.setattr(panel, 'ROOT', tmp_path)
+    real_run = panel.subprocess.run
+    calls = []
+
+    def guarded_run(args, *a, **kw):
+        if str(args[0]).endswith('/acm'):
+            calls.append(args)
+            raise AssertionError('previously prepared panel must never regenerate missing graphs')
+        return real_run(args, *a, **kw)
+
+    monkeypatch.setattr(panel.subprocess, 'run', guarded_run)
+    with pytest.raises(ValueError):
+        panel._graphs(tmp_path, panel.make_design())
+    after = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
+    assert calls == []
+    assert after == before
+
+
+def test_empty_production_graph_manifest_is_recorded_and_fails_closed(tmp_path, monkeypatch):
+    vendor = tmp_path / 'vendor'
+    vendor.mkdir()
+    (vendor / 'graphs-manifest.json').write_bytes(b'{}\n')
+    before = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
+    monkeypatch.setattr(panel, 'ROOT', tmp_path)
+    real_run = panel.subprocess.run
+    calls = []
+
+    def guarded_run(args, *a, **kw):
+        if str(args[0]).endswith('/acm'):
+            calls.append(args)
+            raise AssertionError('an existing empty manifest is recorded and cannot regenerate')
+        return real_run(args, *a, **kw)
+
+    monkeypatch.setattr(panel.subprocess, 'run', guarded_run)
+    with pytest.raises(ValueError):
+        panel._graphs(tmp_path, panel.make_design())
+    after = {p.relative_to(tmp_path): p.read_bytes() for p in tmp_path.rglob('*') if p.is_file()}
+    assert calls == []
+    assert after == before
+
+
+def test_prepare_rejects_changed_frozen_dependency_identity_before_rewrite(tmp_path):
+    panel.prepare_panel(tmp_path)
+    protocol_path = tmp_path / 'panel-protocol.json'
+    before = protocol_path.read_bytes()
+    protocol = json.loads(before)
+    protocol['legacy_helper_sha256'] = '0' * 64
+    changed = panel._dump(protocol)
+    protocol_path.write_bytes(changed)
+    (tmp_path / 'panel-protocol.sha256').write_text(
+        hashlib.sha256(changed).hexdigest() + '  panel-protocol.json\n')
+    source = tmp_path / 'sources' / 'wide_lp2800' / 'trans_const' / 'b1' / 'probe.c'
+    source_before = source.read_bytes()
+    with pytest.raises(ValueError):
+        panel.prepare_panel(tmp_path)
+    assert protocol_path.read_bytes() == changed
+    assert source.read_bytes() == source_before
