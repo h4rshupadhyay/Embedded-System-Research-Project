@@ -1,5 +1,13 @@
 # FIR upgrades paper sources
 
+The clarity revision on `research/fir-clarity-rewrite` applies the installed
+`research-paper-writing` skill. Its outline, paragraph roles, claim/evidence
+map and reviewer questions are in [clarity-rewrite-review.md](clarity-rewrite-review.md).
+The numerical tables, exact contract, authors and underlying measurements are
+preserved. The saved evidence archive, manifest and copied-tree check report
+remain historical snapshots from before this editorial revision; the revised
+paper has not been repackaged into that archive.
+
 This directory contains the editable Markdown manuscript, the IEEEtran render
 template and filter, the plot helper and its PNG/SVG outputs. The PDF and TeX
 are generated from this source; numeric source files and admitted results live

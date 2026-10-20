@@ -93,3 +93,52 @@ overfull boxes. Current SHA-256 values:
 | manuscript.md | `f5043851c8834ec01b78ced2661a5d9d54d6e132827eabf36814f3995169ba61` |
 | manuscript.tex | `ade4dc9f63a130ccdf24c4eda3dcb7de686185c08e2aa27ca6a8a029b1e1a7c0` |
 | manuscript.pdf | `4efa0c0f404c1e3770a1d10edb0091d6f171667d5654acc1aa153b9924e2ce48` |
+
+## Clarity rewrite, 20 October 2026
+
+The editorial revision is isolated on `research/fir-clarity-rewrite`, based on
+`cf53328`. It applies the installed `research-paper-writing` package from
+Master-cai/Research-Paper-Writing-Skills. The rewrite adds no target measurement
+and does not replace the historical evidence archive or its reports. The
+outline, paragraph roles, claim map, five-dimension self-review and source-access
+limits are recorded in `clarity-rewrite-review.md`.
+
+The PDF operation marker ran successfully once with operation `edit` before
+authoring. The existing Pandoc/Tectonic renderer rebuilt the TeX and PDF; the
+final command exited 0. The output is eleven letter-size pages, with three
+figures, twelve tables and eleven references. Final Tectonic output contains
+no overfull boxes. Ordinary underfull/font-substitution warnings remain and
+were checked visually.
+
+The first render revealed an overfull table page. Figure/table placement now
+respects LaTeX float limits instead of overriding them. Appendices precede
+references, and the final bibliography is balanced across columns. All table
+values and figure data are unchanged.
+
+The verification report `clarity-rewrite-validation.json` records 31 passing
+checks. All 113 Markdown table lines, four displayed equations, the C code
+example, author metadata and three figure targets match the starting paper.
+All 19 protected files (first-paper artifacts, numerical inventories, protocol,
+certificates, intervention review, archived manifest/report and figure files)
+match commit `cf53328` byte-for-byte. Local evidence links and citation IDs
+resolve. Total Markdown whitespace-separated words changed from 7,364 to
+7,149; the new abstract has 178 words. These counts include tables and references.
+
+The final PDF was rendered with Poppler at a 1200-pixel maximum page dimension.
+All eleven pages were visually reviewed; unchanged pages between layout
+iterations were additionally compared by PNG hash. Tables, figures, mathematical
+notation, author fields, captions and references are readable, without observed
+clipping, overlap or missing glyphs. The final reference correction identifies
+Arm DDI 0432C §§1.4.1 and 3.3 (Table 3-1).
+
+Final source/output SHA-256 values:
+
+| File | SHA-256 |
+|---|---|
+| manuscript.md | `ef69c9163d18634e8343d5610852589e3f293091fd74076bdfb2c9fa1b67a057` |
+| manuscript.tex | `a3f00aebc29c7aadce1d694d343f9a2799b97335c84a309955757a8369d5b3c0` |
+| manuscript.pdf | `8feeb3e6b104122d1dd0b9c8a1a6f5961c33f0d1162de77ba83ce28c7e78788f` |
+| ieee-filter.lua | `28e1a9a7a755e169f8bb59b99fa5824092f36b53cb006b128e74eb0da913ae63` |
+| ieee-template.tex | `d647e00b72f83dfa009696c97b3fba8053e902139e8721bc1533fce8cbe96a32` |
+
+Installed skill SKILL.md SHA-256: `62ef11c06f2796c74e55ab24908ed31bafebfa0f1b736499d1615ac374cf7f6d`.

@@ -105,7 +105,7 @@ function Para(p)
     local image = p.content[1]
     local caption = pandoc.utils.stringify(image.caption)
     local label = image.identifier ~= "" and image.identifier or ("fig:" .. image.src:gsub("[^%w:.-]", "-"))
-    local raw = "\\begin{figure*}[!t]\n\\centering\n\\includegraphics[width=\\textwidth]{" .. image.src .. "}\n"
+    local raw = "\\begin{figure*}[t]\n\\centering\n\\includegraphics[width=\\textwidth]{" .. image.src .. "}\n"
       .. "\\caption{" .. tex_escape(caption) .. "}\\label{" .. tex_escape(label) .. "}\n\\end{figure*}"
     return pandoc.RawBlock("latex", raw)
   end
@@ -122,7 +122,7 @@ function Figure(f)
   if image then
     local caption = pandoc.utils.stringify(f.caption.long)
     local label = image.identifier ~= "" and image.identifier or ("fig:" .. image.src:gsub("[^%w:.-]", "-"))
-    local raw = "\\begin{figure*}[!t]\n\\centering\n\\includegraphics[width=\\textwidth]{" .. image.src .. "}\n"
+    local raw = "\\begin{figure*}[t]\n\\centering\n\\includegraphics[width=\\textwidth]{" .. image.src .. "}\n"
       .. "\\caption{" .. tex_escape(caption) .. "}\\label{" .. tex_escape(label) .. "}\n\\end{figure*}"
     return pandoc.RawBlock("latex", raw)
   end
@@ -159,7 +159,8 @@ function Table(t)
   local compact = table_count == 12
   local environment = compact and "table" or "table*"
   local width = compact and "\\columnwidth" or "\\textwidth"
-  local raw = "\\begin{" .. environment .. "}[!t]\n\\centering\\footnotesize\n"
+  -- Respect float limits so dense table sequences cannot overrun a page.
+  local raw = "\\begin{" .. environment .. "}[t]\n\\centering\\footnotesize\n"
   if compact then raw = raw .. "\\setlength{\\tabcolsep}{2pt}\n" end
   if trim(caption) ~= "" then
     local label = t.attr.identifier ~= "" and t.attr.identifier or ("tab:" .. tostring(table_count))

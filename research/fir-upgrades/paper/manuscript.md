@@ -17,97 +17,96 @@ author:
 
 ## Abstract
 
-Arithmetic-range information can change an exact FIR implementation decision.
-On a pinned Cortex-M0 model, replacing wide direct accumulation by two
-certified int32 partial sums overturns two of four original demand-Hcub
-transposition advantages. Hcub then costs 4.33%/5.00% more with GCC10 but
-24.06%/5.23% less with GCC15, for blocks 1/64. A prospectively frozen synthetic
-panel reproduces this comparator boundary in 24 of 32 complete widening-required
-fixed-compiler cells. Eight unavailable native-fit library identities leave
-the full panel incomplete. Incremental sharing has a different outcome: Hcub
-loses to ordinary transposition in all 32 fresh wide cells, despite beating
-old direct/library controls. Exact saved-event analysis separates arithmetic
-gains from RAM penalties; only original GCC15/block1 retains Hcub's nominal
-advantages over both stronger controls throughout an arbitrary RAM-weight
-stress over [0.5,2]. A matched direct-kernel intervention exposes literal
-one-output knowledge, removes reviewed next-output preparation and lowers
-GCC15 modeled cost by 31.44%. The direct compiler gap contracts from
-+70,469.699925 to −11,857.443121 nJ, reversing that specialized pair's ranking.
-These results support a bounded empirical case study of comparator fairness,
-representation and compiler knowledge using established techniques. Costs are
-configuration-specific event estimates; no new FIR algorithm, general selector
-or physical-energy advantage is established.
+Exact FIR comparisons depend on the arithmetic-range information supplied
+to each implementation. We study this dependence using established direct
+and transposed realizations on a pinned Cortex-M0 simulator and CPU energy
+model. Replacing wide direct accumulation with two certified int32 partial
+sums overturns two of four original advantages of Hcub, a transposed
+implementation with shared constant products. A panel frozen before performance
+evaluation extends this finding to two fresh wide 48-tap arrays: stronger
+direct controls reverse Hcub's advantage in 24 of 32 complete conditions.
+Yet Hcub loses to ordinary transposition in all 32, separating product sharing
+from realization choice. Eight unavailable library cases leave the full
+three-array panel incomplete. Saved events expose the tradeoff between
+arithmetic savings and RAM traffic. A matched direct-kernel intervention
+makes a one-output bound visible inside the callee, removes identified
+preparation for another output, and lowers GCC15 modeled cost by 31.44%,
+reversing the compiler ranking for that pair. These findings support a bounded
+empirical case study of arithmetic controls, state representation and compiler
+knowledge, without a new FIR algorithm, general selection rule or physical-energy
+advantage.
 
 ## 1. Introduction
 
-Giving direct accumulation the same exact-range information as its transposed
-competitor changes the implementation decision. For the frozen nonsymmetric
-`speech_minphase48` filter, demand-Hcub transposition had lower modeled CPU
-energy than both wide specialized direct and unrolled CMSIS in all four
-compiler/block cells. Retaining the direct history layout but accumulating two
-certified native-width partials overturns both GCC10 decisions; Hcub retains
-both GCC15 cells. Arithmetic legality alone cannot predict that split.
+An exact FIR comparison should give each implementation access to the same
+arithmetic-range information. On a processor with native 32-bit arithmetic,
+a full convolution sum may require 64 bits even when separately accumulated
+groups fit in 32 bits. Comparing a transposed implementation that exploits
+these bounds with a direct implementation that uses wide arithmetic throughout
+can therefore confound the realization with the arithmetic treatment.
 
-Transposition exposes products of one sample with many constants, enabling
-shared shift/add expressions. It also changes state meanings, widths and
-lifetimes. We therefore distinguish three contrasts: partial versus wide direct
-measures width correction within one organization; Hcub versus ordinary
-transposition measures incremental sharing with suffix equations fixed; and
-cross-compiler direct binaries, followed by a single block-knowledge
-intervention, test a generated-code explanation. Hcub versus corrected direct
-is the implementation choice, combining sharing and representation.
+Product sharing introduces a second distinction. Transposition exposes the
+products of one input sample with many constants, allowing common shift/add
+expressions to be reused. It also replaces input history with weighted suffix
+states, changing their widths and lifetimes. A library-relative advantage can
+therefore combine sharing, state representation and other implementation
+choices. Ordinary transposition, with the same state equations but unshared
+products, provides the control needed to isolate sharing.
 
-The original strict four-cell reporting rule, $H_R$, is retrospective
-(Section 4.2). A separately frozen prospective panel asks whether strengthening
-the nontransposed comparator overturns an old-control Hcub advantage on fresh
-widening-required designs, across paired amplitude/stream regimes. The matched
-direct intervention asks whether exposing a one-output bound inside the callee
-removes identified next-output preparation and reduces GCC15 cost and the
-compiler gap.
+We examine these distinctions on a pinned Cortex-M0 simulator using a
+configuration-specific CPU energy model. The original nonsymmetric 48-tap
+filter, `speech_minphase48`, supplies four GCC10/GCC15 and block1/block64
+comparisons. Two certified native partial sums make direct accumulation less
+costly than Hcub under GCC10; Hcub remains less costly under GCC15. This
+compiler split motivates a matched intervention that exposes a one-output
+bound inside the direct callee and examines the resulting machine code.
 
-Range analysis, native partials, transposition, Hcub and specialization are
-established techniques. Our contribution is finite empirical evidence about
-which conclusions survive these controls, with exact event sensitivity and
-portable raw evidence. Field priority and a general implementation selector
-remain unestablished.
+A prospectively frozen panel tests whether the baseline effect extends to
+fresh coefficient arrays. It includes one native-sum and two widening-required
+48-tap designs, with paired input amplitudes and measured stream regions.
+The original comparison motivated this panel; its four-cell reporting rule is
+retrospective. The new panel and intervention were fixed before their target
+costs were observed (Section 4).
 
-The fresh panel supplies wide-design reversal witnesses while rejecting an
-extension of beneficial incremental sharing to those arrays. The matched
-intervention removes the identified preparation, reduces GCC15 cost and
-reverses the direct compiler ranking. Together they sharpen the original
-comparison into a boundary account, retaining negative and unavailable outcomes.
+The contribution is a controlled empirical account of three effects:
+arithmetic correction changes the direct/Hcub comparison; sharing loses to
+ordinary transposition on both fresh wide arrays; and fixed-block knowledge
+changes the direct compiler ranking. Exact event sensitivity and portable
+saved evidence support these findings. Range analysis, transposition, Hcub
+and specialization are established techniques; field priority and a general
+implementation rule remain unestablished.
 
 ## 2. Closest prior work
 
-De Coster et al. [1] transform graphs for compiled bit-true DSP simulation;
-their FIR example uses magnitude information to avoid unnecessary overflow
-handling. Ménard and Sentieys [6] select software word lengths/instructions
-under an SQNR constraint, including arithmetic and transfer costs. Our
-full-int16 exact-output contract differs from their accuracy constraint, but
-width selection and narrow arithmetic are established techniques.
+Range-aware DSP code generation is established. De Coster et al. [1] use
+magnitude information in compiled bit-true DSP simulation to avoid unnecessary
+overflow handling. Ménard and Sentieys [6] select software word lengths and
+instructions under a signal-to-quantization-noise ratio constraint, accounting
+for arithmetic and transfers. Our full-int16 exact-output contract differs
+from their accuracy constraint; it does not make width selection a new technique.
 
-Gačić et al. [2] generate FIR software with SPIRAL and show that blocking and
-computation order alter runtime at equal arithmetic count. D'Alberto et al. [3]
-generate fixed-point XScale transforms and optimize runtime and physically
-measured energy. FIR generation, locality-aware search and energy-oriented
-selection therefore precede this synthetic boundary comparison. Their physical
-measurements do not validate our model costs.
+FIR generation and energy-oriented implementation selection also precede this
+study. Gačić et al. [2] generate FIR software with SPIRAL and show that
+blocking and computation order change runtime at equal arithmetic count.
+D'Alberto et al. [3] optimize fixed-point XScale transforms for runtime and
+physically measured energy. These results motivate examining compiled behavior
+rather than arithmetic count alone. Their hardware measurements do not validate
+our Cortex-M0 model estimates.
 
-Voronenko and Püschel's [4] Hcub shares arithmetic graphs across constant
-products, with software concerns including register pressure beyond addition
-count. Its objective is not an executable energy model. Nikov et al. [5]
-supply our configuration-specific event weights; affine reweighting is
-elementary sensitivity analysis. GCC documents constant propagation, cloning
-and interprocedural optimization [7]; fixed-bound specialization is conventional
-and those documents cannot identify a historical responsible pass. Clean-copy
-artifact checks likewise follow established practice [10].
+Hcub provides established product-sharing graphs, rather than an executable
+energy objective. Voronenko and Püschel [4] discuss software concerns beyond
+addition count and explicitly leave register-pressure optimization outside
+their study. We compare Hcub with ordinary transposition to test its incremental
+benefit after compilation, separately from the effect of changing realization.
 
-This targeted source challenge is not an exhaustive priority search.
-Ménard–Sentieys §§4–5.4, SPIRAL FIR §§4–5, XScale and Nikov full texts support
-the comparisons. Fresh Hcub full-text access supports sharing (§1.2) and the
-register-pressure caveat (p. 6). De Coster overlap uses fresh indexed primary
-excerpts plus recorded earlier inspection; unsuccessful recent full-PDF
-retrieval licenses no exclusion of unseen capabilities.
+The cost analysis and specialization use established tools. Nikov et al. [5]
+supply the configuration-specific event weights; our affine reweighting is
+standard sensitivity analysis. GCC documents constant propagation, cloning
+and interprocedural optimization [7], but those documents cannot identify the
+pass responsible for our historical binaries. Saved-evidence portability
+follows established artifact practice [10]. The contribution is the controlled
+empirical finding, not these techniques. This targeted comparison is not an
+exhaustive priority search.
 
 ## 3. Exact contract and controlled representations
 
@@ -145,8 +144,9 @@ is too late.
 
 ### 3.2 The original arithmetic correction
 
-The corrected original direct kernel keeps the same chronological history and
-literal coefficient order. Fixed groups $[0,2)$ and $[2,48)$ have coefficient
+The correction uses native partial sums without changing the direct history
+layout or coefficient order. The coefficient L1 norm is the sum of absolute
+coefficient values. Fixed groups $[0,2)$ and $[2,48)$ have coefficient
 L1 sums 12,778 and 59,731, hence absolute prefix bounds 418,709,504 and
 1,957,265,408. Both fit int32. The full L1 sum is 72,509, with absolute bound
 2,375,974,912; legal sign-aligned windows attain 2,375,922,255 and
@@ -158,8 +158,8 @@ int64_t exact_sum = (int64_t)partial0 + (int64_t)partial1;
 y[j] = quant(exact_sum);
 ```
 
-The split was fixed for the missing-control experiment. It is neither an
-optimized partition nor a claim that the direct realization is optimal.
+This split was fixed for the arithmetic-control experiment. It establishes
+legality, without claiming an optimal partition or direct implementation.
 
 | Short name | Original artifact identifier | Controlled role |
 |---|---|---|
@@ -178,12 +178,12 @@ each state's width. Hcub adds independently checked shared expressions and
 demand-driven emission near their consuming stage. Safe exact operations
 replace problematic signed shifts.
 
-Figure 1 contrasts the value meanings and lifetimes. Direct state retains
-input history; transposed state retains weighted suffix sums. Correctness therefore reconstructs the intended values for each
-representation instead of comparing unlike state bytes. Hcub versus ordinary
-transposition holds those equations and layout fixed. Hcub versus direct also
-changes representation; Hcub versus CMSIS changes additional implementation
-choices. The entire library-relative saving cannot be assigned to sharing.
+The controls isolate different effects (Figure 1). Partial versus wide direct
+changes the accumulation width while retaining input history. Hcub versus
+ordinary transposition changes product sharing while retaining suffix equations
+and layout. Hcub versus direct also changes representation, and comparison
+with CMSIS changes further implementation choices. Correctness checks reconstruct
+the intended history or suffix values rather than compare unlike state bytes.
 
 ![Exact representations and controlled contrasts. Each direct native group widens before reduction; both representations keep the exact sum until one final quantizer. Direct history and weighted suffix states have different meanings and lifetimes. The cross-representation comparison combines sharing and realization.](figures/representation-lifetime.png)
 
@@ -204,7 +204,7 @@ instruction consistently.
 Let $N_I$ include all instructions, $N_M$ native multiplication instructions,
 $B$ taken branches, $R$ and $W$ SRAM reads/writes, $F$ Flash data reads and
 $N_{BL}$ branch-with-link instructions. The zero-wait, single-cycle-MUL
-Arm-table cycle estimate is
+cycle estimate, using Arm's instruction timings [11], is
 
 $$T=N_I+R+W+F+2B+N_{BL}.$$
 
@@ -218,51 +218,53 @@ E={}&0.964258(N_I-N_M)+1.652455N_M\\
 \end{aligned}
 $$
 
-Their reported configuration MAPE is 2.80%, an aggregate model-validation
-statistic rather than an uncertainty bound for these pairwise margins.
-The fitted weights may absorb correlation/residual effects; they are not
-independently measured physical event prices. We retain integer events and
-exact six-decimal products. The 0.000001 nJ tolerance for historical floating
-serialization is solely a data-admission tolerance.
+The reported 2.80% mean absolute percentage error (MAPE) describes aggregate
+validation of that model, not uncertainty in our pairwise margins. Fitted
+weights can absorb correlations and residual effects; they are not separately
+measured physical event prices. We preserve integer events and exact decimal
+products for reproducibility. The 0.000001 nJ tolerance used to read historical
+floating-point data concerns serialization only.
 
-### 4.2 Admission and evidence chronology
+### 4.2 Correctness checks and study chronology
 
-The original pre-evaluation protocol covered three designs, two input
-guarantees, two blocks and two compilers. A source-level state-traffic estimate
-was later withdrawn as an optimistic floor: grouped transfers/register
-retention could reduce it, and no candidate had been excluded using it.
-Observed unequal width treatment then motivated the fixed two-group/four-cell
-correction, followed by the compiler account. $H_R$ was formulated afterward,
-so it is retrospective. Previously inspected filters remain development
-evidence; the fresh panel and intervention were frozen before target costs.
+The arithmetic correction is a retrospective control. The original protocol
+covered three designs, two input guarantees, two blocks and two compilers.
+Observed unequal width treatment motivated the fixed two-group correction and
+then the compiler investigation. An earlier source-level state-traffic estimate
+was withdrawn because register retention and grouped transfers could reduce
+it; no candidate had been excluded using that estimate. Previously inspected
+filters remain development evidence. The fresh panel and intervention were
+frozen before their target costs were observed.
 
-For the original 257-sample zero-history saved `adc_raw` stream, block1 makes
-257 calls; block64 makes four full calls and one one-sample call. The reporting
-rule is $r=100(E_H/E_P-1)$ with Hcub $H$ and partial direct $P$. $H_R$ survives
-only if all four admitted values are strictly negative. A tie fails strict
-superiority; missing/inadmissible evidence makes assessment unavailable.
-This is a deterministic criterion, without sampling variance or significance
-testing.
+The original comparison uses a saved 257-sample `adc_raw` stream with zero
+initial history. Block1 makes 257 calls; block64 makes four full calls and a
+final one-sample call. Let $r=100(E_H/E_P-1)$, where $H$ is Hcub and $P$ is
+partial direct. The retrospective all-four superiority claim, $H_R$, requires
+$r<0$ in every compiler/block cell. A tie defeats strict superiority; missing
+or invalid evidence leaves the assessment unavailable. This deterministic
+rule does not involve significance testing.
 
-Arithmetic certificates establish full-domain source legality; finite UBSan,
-target output/state/guard checks address implementation errors. The original
-independent check admitted 1,028 new, 6,168 historical and 722 signed-edge
-output comparisons. Emitted-code review confirmed native partials/wide final
-reduction in all four corrected binaries. Source/binary hashes bind events
-to checked code. Pinned library semantics, including fast-CMSIS eligibility,
-require source/toolchain admission beyond finite agreement.
+Correctness admission combines checks that address different failure modes.
+Arithmetic certificates establish full-domain source legality. Finite UBSan
+checks and target output/state/guard checks test implementation behavior.
+The original independent check covered 1,028 new, 6,168 historical and 722
+signed-edge output comparisons. Emitted-code inspection confirmed native
+partials and a wide final reduction in all four corrected binaries. Hashes
+bind measured events to checked sources and binaries. Library paths additionally
+require pinned source/toolchain semantics; output agreement alone is insufficient.
 
 ### 4.3 Saved-event analysis
 
-For each compiler/block we analyze exactly three oriented pairs: partial minus
+We use saved events to identify the work saved or added by each comparison.
+For each compiler/block, the three oriented pairs are partial minus
 wide direct, Hcub minus ordinary transposition and Hcub minus partial direct.
 All use the same 257 outputs. With
 $v=(N_I-N_M,N_M,B,R,W,F)$ and the weights above, $\Delta E=w\cdot\Delta v$;
 negative favors the left form. Six-event dominance requires all coordinates nonpositive with at least one
 strictly negative; mixed signs preclude it. Resources are excluded.
 
-One predeclared arbitrary stress multiplies both RAM weights by $\lambda$,
-leaving the other four fixed. For $\lambda\ge0$,
+A predeclared sensitivity check scales both RAM weights by $\lambda$ while
+holding the other four weights and all events fixed. For $\lambda\ge0$,
 
 $$
 \begin{aligned}
@@ -271,22 +273,23 @@ B_{RAM}&=1.109833\Delta R+0.650563\Delta W.
 \end{aligned}
 $$
 
-The selected closed region is $[0.5,2]$. It is an uncalibrated coefficient
-stress, not a confidence interval, hardware configuration or physical-price
-range. Integer-weight products retain exact decimal values; boundaries are
-exact rational $-A/B_{RAM}$ values. Rounded roots are display only. Endpoint
-signs decide strict ordering throughout the region by linearity; any tie
-defeats strictness. The artifact retains all 12 vectors, cost components,
-resource deltas and root classifications, including negative algebraic roots.
+We examine the arbitrary interval $[0.5,2]$ to locate algebraic ranking
+boundaries. It is not calibrated to physical prices, model uncertainty or
+another hardware configuration. Exact decimal products give rational boundaries
+$-A/B_{RAM}$; displayed roots are rounded. Linearity makes endpoint signs
+sufficient to decide strict ordering over the closed interval, with any tie
+defeating strictness. The artifact retains all 12 vectors, components, resource
+deltas and root classifications.
 
 ### 4.4 Frozen synthetic panel
 
-Three fresh nonsymmetric gain-normalized 48-tap designs deliberately span one
-native-sum and two widening-required regimes. With NumPy 1.26.4/SciPy 1.15.3,
-we apply `firwin(95, cutoff, fs=16000, window=window, scale=True)`, homomorphic
-`minimum_phase(half=True,n_fft=32768)`, target-L1 scaling and `np.rint` integer
-rounding. The half-length conversion changes prototype magnitude [8]. These
-are synthetic arithmetic controls, not representative application filters.
+The fresh panel contains three synthetic 48-tap arrays chosen to span distinct
+arithmetic regimes: one full sum fits int32 and two require widening. With
+NumPy 1.26.4/SciPy 1.15.3, we use
+`firwin(95, cutoff, fs=16000, window=window, scale=True)`, homomorphic
+`minimum_phase(half=True,n_fft=32768)`, target-L1 scaling and `np.rint`.
+The half-length conversion changes the prototype magnitude response [8];
+these arrays are arithmetic controls, not representative application filters.
 
 | Design | Cutoff/window | Target / actual L1 | Exact full-sum interval | Direct cuts |
 |---|---|---:|---|---|
@@ -297,81 +300,90 @@ are synthetic arithmetic controls, not representative application filters.
 Table: Frozen arithmetic regimes, independently prepared before target costs.
 Cuts give first-legal / range-balanced two-group boundaries.
 
-The first cut is the smallest legal two-group boundary; the balanced cut
-minimizes the larger group L1, breaking ties by smaller boundary. Sign-aligned
-legal windows attain both full-sum endpoints, proving actual int32 overflow
-possibility in wide designs. Arrays, certificates, graphs, stimuli and case
-list were frozen by hash before costs; no outcome-driven replacement occurs.
+Two rules determine the wide designs' direct partitions. The first cut is
+the smallest legal two-group boundary; the balanced cut minimizes the larger
+group L1, breaking ties by the smaller boundary. Legal sign-aligned windows
+attain the full-sum endpoints, proving possible int32 overflow in both wide
+arrays. Coefficients, certificates, graphs, inputs and the case list were
+frozen by hash before performance evaluation.
 
-Each design has six forms: wide direct, first certified direct, ordinary
-transposed, demand-Hcub and standard unrolled CMSIS, plus native-only fast
-CMSIS or wide-only balanced direct. All receive identical coefficients,
-full-int16 semantics, block knowledge and generation budget. Pinned CMSIS-DSP
-v1.14.4 paths receive reversed coefficients/required storage, with separate
-source/compiler eligibility and no fast-path scaling [9]. Each Hcub graph
-uses one unchanged `acm -b 15 -seed 1 -nofs -gc` run on sorted odd fundamentals.
+Each array has six implementations. All include wide direct, first certified
+direct, ordinary transposed, Hcub and standard unrolled CMSIS. The sixth is
+fast CMSIS for the native array or balanced direct for a wide array. Candidates
+receive identical coefficients, full-int16 semantics, block knowledge and
+generation budget. Pinned CMSIS-DSP v1.14.4 paths use reversed coefficients
+and required storage, with separate source/compiler eligibility and no
+fast-path input scaling [9]. Each Hcub graph comes from one fixed
+`acm -b 15 -seed 1 -nofs -gc` run on sorted odd fundamentals.
 
-The frozen 1089-sample full-range LCG master and samplewise `full//32` ADC
-partner are specified in the linked protocol. Startup measures its first
-257 outputs from zero history. Post-startup processes 64 samples outside the
-region, then measures offsets [64,1089), retaining history: 1025 outputs.
-Both block sizes align at the warm boundary; block64 ends with one short call
-in each regime. Checks cover the entire prefix, including warmup. The region
-contrast also changes segment and length, so it does not isolate startup cost.
+Two paired inputs test amplitude, and two measured regions test stream
+conditions. A frozen 1089-sample full-range linear congruential generator (LCG)
+stream supplies the master input; samplewise `full//32` supplies its ADC
+partner. Startup measures the first 257 outputs from zero history.
+Post-startup processes 64 samples outside the measured region, retains
+history, then measures offsets [64,1089): 1025 outputs. Both block sizes
+align at that boundary; block64 ends with one short call in each region.
+Checks include warmup. Because the regions differ in segment and length,
+this contrast does not isolate startup cost or establish steady state.
 
-The cap is 288 performance identities (3 designs × 6 forms × 2 compilers ×
-2 blocks × 2 amplitudes × 2 regimes). Separate correctness admission uses at
-most 72 target identities on the frozen 194-sample zero/extremal/edge stream
-and host UBSan mixed partitions. Actual image/call-chain bounds must fit the
-original 64 KiB Flash/8 KiB RAM limits. Unsupported and failed cases remain
-visible; deterministic executions are not independent statistical samples.
+A condition fixes the array, compiler, block size, input amplitude and region;
+a performance identity additionally fixes the implementation. The frozen
+inventory has 288 identities: 3 arrays × 6 forms × 2 compilers × 2 blocks ×
+2 amplitudes × 2 regions. Separate correctness admission uses at most 72
+target identities on a frozen 194-sample zero/extremal/edge stream, plus
+host UBSan checks with mixed block partitions. Images and conservative live
+call chains must fit 64 KiB Flash/8 KiB RAM. Unavailable and failed cases
+remain explicit; conditions are not independent statistical samples.
 
-For each fixed-compiler cell, define $D_{old}$ as the minimum eligible old
-nontransposed control (wide direct, standard CMSIS, and fast CMSIS where
-eligible). $D_{new}$ is the minimum after adding both available certified
-direct forms. All ties retain every minimizer. The primary extension requires
-at least one admitted cell of either widening-required design with
-$E_H<D_{old}$ but $E_H\ge D_{new}$. If no such cell exists among the complete
-wide-required cells, the extension is refuted; an unavailable required cell
-leaves the full-panel assessment incomplete.
-Additional reports retain all-form winners, each certified/wide percentage,
-Hcub/ordinary percentages, events/resources and all amplitude/regime contrasts.
-Compiler-selectable decisions minimize each form across compilers first,
-separately from fixed-compiler results. Reference sums also count the two
-quantizer clamp conditions, $S\ge1073741824$ and $S\le-1073741824$, in each
-measured region. Output endpoints alone cannot identify those paths.
+The primary question is whether a stronger direct comparator reverses an
+old-control Hcub advantage. For a fixed-compiler condition, let $D_{old}$ be
+the minimum eligible nontransposed old control: wide direct, standard CMSIS
+and fast CMSIS where eligible. Let $D_{new}$ add the available certified
+direct forms. A reversal satisfies $E_H<D_{old}$ but $E_H\ge D_{new}$.
+The prospective extension requires at least one such complete condition in
+either wide array. No reversal among the complete wide conditions refutes
+that extension; a missing required case leaves the full-panel assessment
+incomplete. All ties retain every minimizer.
+
+Additional comparisons distinguish implementation choices from that reversal
+predicate. We report all-form winners, certified/wide and Hcub/ordinary
+percentages, events, resources and paired input/region contrasts. A separate
+compiler-selectable analysis minimizes each form across compilers before
+comparing forms. Exact reference sums count the clamp conditions
+$S\ge1073741824$ and $S\le-1073741824$ in each measured region; output
+endpoints alone cannot identify those conditions.
 
 ### 4.5 Matched block-knowledge intervention
 
-The intervention fixes the original block1 fixture and 257-sample stream,
-with two compilers × general/specialized kernels. General kernel bytes,
-wrapper, ABI and flags remain original. Only expression uses of runtime `b`
-inside specialized `probe_process` become literal `1`, adding `(void)b;`.
-Every call meets $b=1$; arithmetic, groups, quantizer, state/history algorithm
-and separate compilation/no LTO stay fixed. Four signed-edge target checks
-and repeated-one-sample host checks support correctness. Failure to reproduce
-general-control binary bytes/events stops historical causal interpretation.
+The intervention tests whether callee-visible block knowledge changes the
+original direct compiler comparison. It uses the original block1 fixture and
+257-sample stream, with each compiler building a general and a specialized
+kernel. Specialization replaces only the three expression uses of runtime
+`b` inside `probe_process` with literal `1` and adds `(void)b;`. Every call
+satisfies $b=1$. Arithmetic, groups, quantizer, history algorithm, wrapper,
+ABI, flags and separate compilation without LTO remain fixed.
 
-Define $G_g=E_{15,general}-E_{10,general}$ and
-$G_s=E_{15,specialized}-E_{10,specialized}$, with saved
-$G_g=70469.699925$ nJ. The stronger outcome requires preparation removal in
-reviewed emitted code, lower GCC15 cost and $G_s<G_g$. Full event/cycle and
-separate resource deltas test each condition. All total changes belong to
-block-knowledge specialization; transfer-subset attribution needs additional
-accounting. The direct-only intervention licenses no other-form ranking or
-compiler-pass claim.
+Historical comparability requires the general controls to reproduce the
+saved loadable binaries and events exactly. Four signed-edge target checks
+and repeated-one-sample host checks support correctness. Define the signed
+compiler gaps $G_g=E_{15,general}-E_{10,general}$ and
+$G_s=E_{15,specialized}-E_{10,specialized}$; the historical
+$G_g=70469.699925$ nJ. The predeclared success criterion requires three
+observations: identified preparation for another output disappears from
+reviewed code, GCC15 modeled cost falls, and $G_s<G_g$. Event, cycle and
+resource deltas document the full change. Attributing that total to a
+particular transfer subset would require further accounting.
 
-## 5. Admitted original comparison and exact saved-event results
+## 5. Original comparison and event analysis
 
 ### 5.1 Width correction changes two decisions
 
-The stronger direct control lowers modeled CPU energy in all four cells,
-by 32.823801%, 41.860155%, 23.440506% and 41.980694% relative to wide direct,
-in GCC10/1, GCC10/64, GCC15/1, GCC15/64 order. It weakly improves every
-one of the six event coordinates in each cell, with strict improvements:
-the correction is six-event-dominant within this saved comparison. This does
-not establish physical or resource dominance. All five forms' complete costs
-remain visible below.
+Native partials lower modeled CPU energy by 23.44% to 41.98% relative to
+wide direct across the four original cells. Every one of the six event
+coordinates is no worse, with strict improvements in each cell: partial
+direct is six-event-dominant in these saved comparisons. This statement
+concerns events, not physical energy or resource dominance. The tables retain
+all five implementations and the corrected ranking.
 
 | Variant | GCC10 b1 | GCC10 b64 | GCC15 b1 | GCC15 b64 |
 |---|---:|---:|---:|---:|
@@ -405,7 +417,7 @@ separately for each form, GCC15 supplies the best tested Hcub and GCC10 the
 best partial direct; the savings become 3.97% and 2.30%. These minima cover
 only the tested builds and are not calibrated physical-energy margins.
 
-### 5.2 Incremental sharing is smaller and event-mixed
+### 5.2 Sharing saves arithmetic but adds RAM traffic
 
 Within the same transposed equations, Hcub costs more at GCC10/block1 and
 less in the other three nominal cells. Every incremental-sharing event vector
@@ -424,28 +436,26 @@ percentage denominator is ordinary transposition. Vector coordinates are
 $(\Delta nonMUL,\Delta MUL,\Delta B,\Delta R,\Delta W,\Delta F)$;
 nonMUL is $N_I-N_M$.
 
-For GCC15/block64, the 32.94% Hcub/CMSIS saving becomes 6.686823% against
-ordinary transposition and 5.229188% against corrected direct. Only the first
-of those stronger contrasts holds suffix equations fixed.
+The comparator changes the apparent size of the benefit. At GCC15/block64,
+Hcub's 32.94% saving against CMSIS falls to 6.69% against ordinary transposition
+and 5.23% against corrected direct. Only the ordinary-transposition comparison
+isolates sharing.
 
-Resource deltas are separate from event dominance. Hcub and ordinary
-transposition allocate equal state;
-Hcub's reported process frame is 72 bytes larger in every cell, while selected
-kernel/coefficient symbols are 36 bytes smaller with GCC10 and 180 with GCC15.
-Partial and wide direct allocate equal state; partial direct has reported
-frames smaller by 368, 368, 368 and 376 bytes and selected symbols smaller by
-700, 524, 500 and 572 bytes. State allocation, compiler process frame and
-selected-symbol bytes measure different things and are not added as memory use.
-Appendix A retains every original principal row.
+Memory diagnostics expose a separate tradeoff. Hcub and ordinary transposition
+allocate equal state, but Hcub's process frame is 72 bytes larger in every
+cell. Its selected code/coefficient symbols are smaller. Partial and wide
+direct also allocate equal state; partial direct has smaller frames and
+selected symbols in every cell. Appendix A retains all values. State allocation,
+process frames and selected symbols measure different things and must not be
+summed as memory use.
 
-### 5.3 Nominal winners under the arbitrary RAM-weight stress
+### 5.3 Sensitivity to RAM weights
 
-The exact affine analysis reconciles all 12 nominal differences with the
-admitted original energy totals. Partial minus wide direct has $A<0$ and
-$B_{RAM}<0$ in every cell, so its six-event result also yields lower modeled
-cost throughout the selected region and indeed for every $\lambda\ge0$.
-All eight Hcub contrasts are mixed, with $A<0$ and $B_{RAM}>0$: their
-non-RAM benefit is eventually outweighed along this chosen stress path.
+RAM reweighting separates a consistent arithmetic benefit from conditional
+sharing benefits. Partial minus wide direct has $A<0$ and $B_{RAM}<0$ in
+every cell, so it remains cheaper for all $\lambda\ge0$. All eight Hcub
+comparisons have $A<0$ and $B_{RAM}>0$: extra RAM cost eventually outweighs
+the non-RAM benefit. The exact analysis reconciles all 12 nominal differences.
 
 | Pair (left − right) | Cell | $A$, nJ | $B_{RAM}$, nJ | Root (display) | Strict lower on [0.5,2]? |
 |---|---|---:|---:|---:|---|
@@ -466,41 +476,41 @@ Table: Exact coefficients, rounded roots; cell abbreviates compiler/block.
 The four negative roots lie outside the permitted $\lambda\ge0$ domain.
 Exact rational roots and endpoint winners are in the machine-readable analysis.
 
-Figure 2 shows why only GCC15/block1 stays below both controls throughout
-[0.5,2]. GCC10/block64's incremental benefit changes sign near 1.019679;
-GCC15/block64 crosses against both controls before 2. GCC10's Hcub/partial
-losses reverse below their respective roots within the region. These fixed-event
-boundaries neither identify real RAM prices nor establish physical robustness.
+Only GCC15/block1 keeps Hcub below both stronger controls throughout [0.5,2]
+(Figure 2). GCC10/block64's sharing benefit changes sign near 1.019679;
+GCC15/block64 crosses against both controls before 2. These are algebraic
+boundaries for fixed events, not physical robustness bounds.
 
 ![Saved-event RAM-weight sensitivity for Hcub minus ordinary transposition and Hcub minus corrected direct. Negative differences favor Hcub. Lines reuse fixed 257-output event vectors; lambda scales both RAM weights on one arbitrary, uncalibrated path. Zero crossings are algebraic ranking boundaries, not physical uncertainty bounds.](figures/ram-sensitivity.png)
 
 ## 6. Compiler account and intervention
 
-### 6.1 Admitted account of the original block1 binaries
+### 6.1 Explaining the original block1 binaries
 
-Corrected direct itself is compiler-sensitive. GCC15 executes 242,490
-instructions, 43,182 RAM reads and 36,500 RAM writes; GCC10 executes 198,670,
-29,304 and 17,225. Both retain two native partials and a final wide reduction,
-eleven native MULs/output, nine saved/restored ABI words/call, and four
-stores/reloads at the partial-to-wide interface. The added traffic therefore
-does not arise from extra MULs, preserved registers or wide per-tap arithmetic.
+The original block1 compiler difference is largely a stack-traffic difference.
+GCC15 executes 242,490 instructions, 43,182 RAM reads and 36,500 RAM writes;
+GCC10 executes 198,670, 29,304 and 17,225. Both use two native partials and
+a wide final reduction, eleven native MULs/output, nine saved/restored ABI
+words/call, and four
+stores/reloads at the partial-to-wide interface. Extra
+multiplications or wide per-tap arithmetic therefore do not explain the gap.
 
-GCC15 preloads history and maintains a sliding sample window in registers and
-stack slots. Its common tail rotates samples before testing for another output;
-GCC10 loads mostly near use and carries one sample forward. The runtime-block
-callee remains general despite a one-output caller. For example, `[sp,#40]`
-holds history sample 45, supplies coefficient 12990 and is replaced by sample 46
-for a possible next iteration. Recorded definition/use/update PCs support this
-value chain. Stack residence alone does not establish a register-allocation spill.
+The binaries prepare differently for another output. GCC15 preloads history
+and maintains a sliding sample window in registers and stack slots, rotating
+samples before testing the output-loop bound. GCC10 loads mostly near use and
+carries one sample forward. For example, GCC15's `[sp,#40]` holds history
+sample 45, supplies coefficient 12990, then receives sample 46 for a possible
+next iteration. The callee remains general even though every call requests
+one output. Stack residence alone does not prove a register-allocation spill.
 
-Aggregate logs are not per-PC traces. Executed SP-relative counts follow from
-checked paths: all 257 calls use $b=1$, copy-in/convolution each iterate once,
-47-step history copy and alternate quantizer paths have no direct-SP access,
-and quantizer paths rejoin before the common tail. SP stays fixed; no internal
-calls occur; GCC10's zero-block store is unreachable. Thus GCC10 executes 9/9
-direct-SP loads/stores per call versus GCC15's 63/84: exactly 13,878 additional
-reads and 19,275 writes, reconciling all added RAM traffic. Convolution,
-input/output, history and ABI work reconcile the remaining RAM events.
+Checked paths reconcile the additional RAM traffic exactly. All 257 calls
+have $b=1$; the copy-in and convolution loops iterate once. The 47-step history
+copy and alternative quantizer paths have no direct-SP access, and the latter
+rejoin before the common tail. SP is fixed, there are no internal calls, and
+GCC10's zero-block store is unreachable. GCC10 executes 9 loads/9 stores
+relative to SP per call; GCC15 executes 63/84. The difference is 13,878 reads
+and 19,275 writes. This path-based count supplements aggregate logs, which
+are not per-PC traces.
 
 | GCC15 − GCC10, block1 | Total | Extra direct-SP transfers | Residual |
 |---|---:|---:|---:|
@@ -513,21 +523,19 @@ input/output, history and ABI work reconcile the remaining RAM events.
 
 Table: Accepted additive account of the two original direct binaries.
 
-Each extra transfer adds one instruction and one RAM event. Their
-59,909.909673 nJ accounts for 85.0151% of the compiler increase; MUL, Flash,
-Flash-write and BL deltas are zero. Independent checks cover two rows/29 hashes,
-with manual path/value review providing semantic acceptance. The residual
-instruction/branch cost stays explicit. This additive account predicts neither
-a compiler pass nor the counterfactual saving from deleting transfers.
+Each extra transfer contributes an instruction and a RAM event. Together they
+account for 85.02% of the modeled compiler increase; the remaining instruction
+and branch cost stays explicit. MUL, Flash, Flash-write and BL deltas are zero.
+Checks bind the two rows to 29 evidence hashes, with manual value/path inspection
+supporting the account. This additive decomposition does not predict the saving
+from removing transfers or identify a compiler pass.
 
-### 6.2 Fixed-block specialization contracts and reverses the compiler gap
+### 6.2 Fixed-block specialization reverses the compiler ranking
 
-The two general controls reproduce the historical loadable binaries and all
-ten saved counter fields exactly, admitting the historical comparison.
-All four performance and four separate 361-sample signed-edge identities pass
-output/history/guard and raw-evidence admission. Specialization lowers modeled
-cost by 23,593.136102 nJ (8.856479%) for GCC10 and 105,920.279148 nJ
-(31.443058%) for GCC15, each relative to its own general control.
+Specialization lowers modeled cost by 8.86% for GCC10 and 31.44% for GCC15.
+Both general controls reproduce the historical loadable binaries and all ten
+counter fields exactly. All four performance and four separate 361-sample
+signed-edge cases pass output/history/guard and raw-evidence checks.
 
 | Compiler/form | Total energy, nJ | Energy/output, nJ | Cycles/output | Symbol, B | Frame, B | Stack chain, B | Flash image, B |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -555,53 +563,43 @@ Instruction deltas equal nonMUL deltas; Flash-fetch deltas are 17,219
 and 72,605. BL and Flash-write deltas are zero. Diagnostic raw tick deltas
 fall by 23,901 and 112,828, respectively; they are not the cycle estimate.
 
-The compiler gap changes from $G_g=70469.699925$ nJ to
-$G_s=-11857.443121$ nJ, a contraction of 82,327.143046 nJ. GCC15 therefore
-becomes the less costly specialized direct build in this pair. Both strict
-numeric predicates hold: lower GCC15 specialized cost and $G_s<G_g$.
+The signed compiler gap changes from about +70,470 to −11,857 nJ.
+GCC15 becomes the less costly specialized direct build, satisfying both
+numerical criteria: its own cost falls and $G_s<G_g$.
 
-Independent emitted-code review finds the identified next-output preparation
-removed in both specializations. GCC15's clustered history preloads,
-stack-resident sliding window and sample-rotation tail disappear; its
-specialization loads history near use and proceeds from output storage to
-the required 47-word history shift. GCC10's smaller carried-sample recurrence
-and output-loop pointer/test also disappear, while the sample needed by the
-first history shift remains. Thus removing next-output preparation does not
-remove required retained-history movement.
+Emitted-code inspection also confirms removal of the identified preparation.
+GCC15's clustered preloads, stack-resident sliding window and rotation tail
+disappear. It loads history near use and proceeds from the output store to
+the required 47-word history shift. GCC10 loses its carried-sample recurrence
+and output-loop control, while retaining the sample needed by the first
+history shift. Required retained-history movement remains in both builds.
 
-Other changes accompany fixed-bound knowledge: runtime copy-in and
-multiple-output loop control, high-register saves/restores, stack locals and stack-materialized accumulator
-pairs disappear, while arithmetic scheduling and quantizer branches also
-change. The manual preparation-removal ruling and both numeric predicates
-support the stronger conjunction for this fixed pair.
+The full saving belongs to the block-knowledge intervention. Copy-in and
+output-loop control, high-register saves/restores, stack locals and
+stack-materialized accumulator pairs also disappear; arithmetic scheduling
+and quantizer branches change. These accompanying effects prevent exclusive
+attribution to rotation removal. The earlier 85.02% additive account does not
+partition the intervention saving, and frame shrinkage alone is not traffic
+evidence. These pairs establish no ranking among other forms or physical saving.
 
-The total differences belong to this block-knowledge intervention. The old
-85.0151% additive fraction does not partition the new savings, and smaller
-frames alone do not prove eliminated traffic. No other-form ranking,
-compiler-pass causation or physical saving follows from these direct pairs.
+## 7. Results on the fresh synthetic panel
 
-## 7. Prospective synthetic boundary results
+### 7.1 Stronger direct controls reverse Hcub comparisons
 
-### 7.1 Wide-required reversal and unavailable native cells
+Both fresh wide arrays reproduce the baseline effect. Strengthening direct
+arithmetic reverses Hcub's old-control advantage in 24 of 32 complete
+fixed-compiler conditions: all 16 GCC10 conditions and eight GCC15/block64
+conditions. The eight GCC15/block1 conditions retain its advantage over the
+stronger nontransposed set. Thus the predeclared existential extension has
+fresh witnesses under both amplitudes and both measured regions.
 
-Strengthening direct arithmetic reverses the old-control Hcub advantage in
-24 of the 32 complete widening-required fixed-compiler cells: all 16 GCC10
-cells and the eight GCC15/block64 cells. Both fresh wide designs supply
-witnesses under both amplitudes and both measured regimes. The eight
-GCC15/block1 cells retain Hcub's advantage over the stronger nontransposed
-set. Thus the frozen existential wide-design extension is observed, rather
-than inferred from the earlier development filter. The complete panel remains
-**incomplete**: eight native-fit fast-CMSIS/block64 identities are unavailable
-because pointer-object aliasing remains unresolved. Those cells contribute
-neither a win nor a loss to an old/new-control comparison.
-
-The frozen 288-identity inventory contains 280 admitted executions, eight
-unavailable and zero failed identities. All 280 binaries have distinct hashes;
-no binary deduplication occurred. The separate 72-identity correctness-only
-inventory admits 70 and leaves the same native fast-CMSIS/block64 form
-unavailable under each compiler. Source proofs, edge/reference/state/guard
-checks and the independent saved-evidence audit support admission. No missing
-condition was replaced by another coefficient array, implementation or flag.
+The full three-array panel remains incomplete. Eight native fast-CMSIS/block64
+performance identities are unavailable because pointer-object aliasing is
+unresolved; they count as neither wins nor losses. The inventory admits
+280 distinct performance binaries with zero failed identities. Separate
+correctness checks admit 70 of 72 identities, with that same form unavailable
+under each compiler. Missing cases were not replaced by different arrays,
+implementations or flags.
 
 | Design | Compiler/block | Reversals / four cells | All-form minimum |
 |---|---|---:|---|
@@ -624,29 +622,24 @@ four conditions. The reversal uses $D_{old}$ and $D_{new}$, not the all-form
 minimum; ordinary transposition is excluded from both nontransposed sets.
 Native, Wide2800 and Wide4600 abbreviate the frozen design identifiers.
 
-For example, Wide2800/GCC10/block64/ADC/post-startup gives 661.305273 nJ/output
-for Hcub, 904.008955 for $D_{old}$ and 515.467942 for $D_{new}$. The new
-direct control changes the old-control implementation decision. Ordinary
-transposition can still win a cell where that reversal occurs: the predicate
-asks whether strengthening the nontransposed comparator changes Hcub's status,
-not whether direct is always the best realization. Figure 3 displays both
-margins for every wide cell.
+For Wide2800/GCC10/block64/ADC/post-startup, Hcub costs 661.31 nJ/output,
+versus 904.01 for $D_{old}$ and 515.47 for $D_{new}$. The stronger direct
+control changes the comparison. Ordinary transposition can still win a
+condition with such a reversal: the predicate concerns the nontransposed
+controls, not the all-form minimum. Figure 3 shows both margins.
 
-Among the 40 complete fixed cells, the disjoint all-form outcomes are ordinary
-transposition in 16, first direct alone in eight, balanced direct alone in four,
-Hcub in four, and exact first/balanced ties in eight. Counting tied membership
-instead would give 16 first-direct and 12 balanced-direct appearances; those
-counts overlap and must not be summed as distinct winning cells.
+Across 40 complete fixed-compiler conditions, ordinary transposition wins
+16, first direct alone eight, balanced direct alone four, Hcub four, and
+first/balanced direct tie in eight. These disjoint counts include ties once.
 
-When each form may select its compiler before comparison, only 20 of 24 cells
-have known old/new and all-form minima; the four native/block64 cells remain
-unknown. The wide-design reversal occurs in eight of 16 complete selectable
-cells, all at block64. Ordinary transposition wins all eight wide/block1 cells;
-first and balanced direct tie in all eight wide/block64 cells. Hcub wins the
-four complete native/block1 cells. These selectable decisions answer a
-different question from the 24/32 fixed-compiler result.
+Allowing each form to choose its compiler changes the decision. Of 24
+compiler-selectable conditions, 20 have known minima; four native/block64
+conditions remain unknown. Reversals occur in eight of 16 complete wide
+conditions, all at block64. Ordinary transposition wins all eight wide/block1
+conditions; first/balanced direct tie in all eight wide/block64 conditions.
+Hcub wins the four complete native/block1 conditions.
 
-### 7.2 Narrowing benefits do not imply incremental-sharing benefits
+### 7.2 Sharing loses on both fresh wide arrays
 
 Every admitted certified direct comparison improves on its wide counterpart,
 including the native-fit design. The first/balanced partition choice can change
@@ -674,14 +667,11 @@ for display. Each percentage is $100(E_{left}/E_{named}-1)$; negative favors
 the left. A repeated rounded endpoint can hide a nonzero range. Direct and
 ordinary/Hcub pairs remain known in native/block64 despite unavailable CMSIS.
 
-In the fresh wide designs, Hcub costs more than ordinary transposition in
-**all 32** cells, by 0.117310% to 7.657365%. Thus a reversal against old direct
-controls does not demonstrate beneficial incremental sharing. The native
-control retains the original compiler split for this contrast: Hcub is more
-costly with GCC10 and less costly with GCC15. The original GCC15-wide Hcub
-advantage over ordinary transposition therefore does not generalize to these
-two wide arrays. The exact event vectors, every direct correction and all
-per-cell costs remain in the panel results and summary.
+Hcub costs 0.12% to 7.66% more than ordinary transposition in **all 32** fresh
+wide conditions. Its original GCC15 sharing benefit therefore does not extend
+to either new wide array. The native array retains the compiler split:
+Hcub costs more under GCC10 and less under GCC15. Exact events and per-condition
+costs remain in the panel results and summary.
 
 ### 7.3 Workload boundaries and admitted resources
 
@@ -716,102 +706,146 @@ state, process-frame and selected-symbol metrics remain separate diagnostics.
 
 ## 8. Discussion and limits
 
-### 8.1 Contribution and pursuit verdict
+### 8.1 What the comparisons establish
 
-Arithmetic-fair direct correction changes two original implementation decisions;
-the fresh wide-required panel supplies 24 complete fixed-cell witnesses to
-the same comparator boundary. Yet incremental sharing loses in every fresh
-wide cell. That adverse result matters: a nominal win over old direct/library
-controls can coexist with no gain from sharing within transposition. The
-compiler split, tied partitions and unavailable native cells prevent a simple
-width-based selector.
+The central lesson is that the baseline and the comparison being isolated can
+change the interpretation of a nominal winner. Correcting direct arithmetic
+reverses two original Hcub decisions and 24 conditions across the two fresh
+wide arrays. Yet Hcub loses to ordinary transposition throughout those fresh
+wide conditions. Its advantage over old direct/library controls therefore
+cannot establish a benefit from product sharing.
 
-The planned upgrades have distinct contribution roles. U1's controlled framing
-and U4's portable evidence are supporting scholarship. U2 adds exact
-artifact-specific event tradeoffs and sensitivity boundaries, with no new
-analysis method. U3 supplies bounded prospective wide-design witnesses while
-leaving the full panel incomplete; it does not establish representative
-prevalence or beneficial sharing on fresh wide designs.
+Compiler knowledge supplies a second mechanism. Making the one-output bound
+visible inside the direct callee removes identified preparation for another
+output, lowers GCC15 cost and reverses the compiler ranking. Other code
+changes accompany specialization, so the total saving cannot be assigned
+exclusively to sample rotation or to a particular compiler pass.
 
-U5 passes its stronger local conjunction: reviewed preparation disappears,
-GCC15 cost falls and the compiler gap contracts past zero. This strengthens
-the account that callee-visible block knowledge matters, while broader code
-changes prevent exclusive attribution to rotation removal. The combined
-outcomes support pursuing the work as a bounded empirical case study with
-auditable controls and mechanism evidence. They establish neither a new
-algorithm nor field priority, an implementation selector or publication acceptance.
+These findings support an empirical case study using established techniques.
+Exact event tradeoffs and portable evidence make its comparisons auditable;
+they do not add an optimization algorithm. Compiler-dependent winners, tied
+partitions and unavailable native cases also preclude a simple width-based
+selection rule.
 
 ### 8.2 Internal and external validity
 
-Arithmetic proofs, graph algebra, UBSan, finite output/state/guard checks,
-binary identity and emitted-code review address different failure modes.
-Output agreement alone proves neither C-language safety nor model validity.
-The tested direct cuts/schedules/options are finite controls, not an exhaustive
-optimization search. Their pre-cost freeze prevents outcome-driven replacement.
+The evaluated implementations form a finite candidate set. Arithmetic proofs,
+graph checks, UBSan, target output/state/guard checks, binary identity and
+emitted-code inspection address distinct failure modes; output agreement alone
+proves neither C safety nor model validity. The fixed cuts, schedules, graph
+seed and build options are controls, not an exhaustive optimization search.
+Freezing them before new costs prevents outcome-driven replacement.
 
-The original ADC stream spans −1024 to 1023: its bound
-$1024\times72509=74249216$ limits output magnitude to 2266 without saturation.
-The new full-range inputs exercise source clamps but are still finite synthetic
-stimuli. Three gain-normalized arrays at one length cannot establish application
-prevalence. Neither static full-domain legality nor a post-startup segment
-turns those stimuli into exhaustive performance coverage or proven steady state.
-The chronology separates old development evidence from the fresh panel.
+The fresh panel has limited design breadth: three synthetic arrays at one
+length, including only two widening-required arrays. Repeated conditions do
+not establish application prevalence. The original ADC stream spans −1024
+to 1023; $1024\times72509=74249216$ bounds output magnitude by 2266 without
+saturation. New full-range inputs exercise source clamps, but remain finite
+stimuli. Full-domain arithmetic legality does not make them exhaustive
+performance coverage, and the post-startup region is not proven steady state.
 
-Single-cycle MUL, zero waits and frequency/prefetch settings are model
-assumptions. Board current, peripheral energy and physical uncertainty are
+The results depend on the pinned simulator and cost configuration. Arm permits
+single-cycle or 32-cycle multipliers [11]; our cycle estimate assumes the
+single-cycle implementation. Zero waits, frequency and prefetch settings are
+also fixed. Board current, peripheral energy and physical uncertainty are
 unmeasured. Reweighting fixed events does not simulate another configuration,
-which could change the events themselves. The block1 direct intervention
-has a satisfied $b=1$ precondition and cannot establish block64 behavior,
-other-form rankings or compiler-pass causation.
+which could change execution itself. The block1 intervention likewise
+establishes no block64 behavior or ranking among other FIR forms.
 
-Resources constrain adoption separately from modeled energy. Original direct
-state allocation is 98/224 bytes at blocks 1/64, versus transposed192. Its
-process frames and selected symbols (Appendix A) exclude full call-chain/image
-costs. The new panel additionally admits actual linked-memory and conservative
-stack-chain bounds. These metrics remain distinct rather than summed as RAM.
+Memory costs remain separate from modeled energy. Original direct state is
+98/224 bytes at blocks 1/64, versus 192 bytes for transposition. Appendix A's
+process frames and selected symbols exclude complete call-chain and image
+costs. The fresh panel additionally checks linked-memory and conservative
+live-stack bounds. Summing these different diagnostics would misstate RAM use.
 
 ### 8.3 Evidence portability and reproduction levels
 
-The original 531-file raw-evidence slice includes source/binaries/disassembly/
-logs, certificates, Hcub notices, checker code and dependency identities. A
-restored clean copy regenerated the numerical report and checked 24 historical,
-four partial-direct and two explanation rows, including 29 explanation hashes,
-with zero skips. Explicit copied roots prevent original-workspace fallback.
-Those check levels overlap in underlying binaries; they are not additional
-disjoint target experiments. The extended package was exercised separately.
+Saved-evidence portability is distinct from a fresh target rebuild. The saved
+7,266-file package passed seven relocated verification commands covering
+numerical regeneration, historical controls, compiler explanation, event
+analysis, the panel and intervention. The checks had zero failures, integration
+skips or target-tool executions. Explicit copied roots prevented fallback to
+the original workspace. The package predates this editorial revision; its
+manifest and check report remain records of that snapshot.
 
-Table regeneration, saved-binary verification and new target execution are
-distinct levels. Executable toolchain trees are excluded; rebuilding needs
-separately acquired pinned GCC10/GCC15, simulator and CMSIS/Hcub dependencies,
-with acquisition/identity instructions. Hash consistency detects changed bytes,
-not authenticity or physical validity. No public archive or DOI is claimed.
-
-The upgraded package contains 7,266 manifested payload files. A fresh relocated
-copy passed all seven verification commands: original numerical regeneration,
-24 historical/four partial-direct raw checks, two explanation checks with
-29 evidence hashes, exact U2 regeneration, panel performance and correctness
-checks, and the intervention audit. The panel audits admitted 280 performance
-identities with eight scientifically unavailable and zero failed, and 70
-correctness identities with two expected unavailable and zero failed. The
-intervention audit admitted four performance and four correctness rows.
-All seven commands exited successfully, with zero integration skips and zero
-target-tool executions. Scientific unavailability remains an explicit result
-of the frozen panel and does not represent skipped verification. This exercise
-establishes portability of the saved evidence and regenerable analyses at the
-stated levels, rather than a fresh target rebuild or physical replication.
+Rebuilding requires separately acquired pinned GCC10/GCC15, simulator and
+CMSIS/Hcub dependencies; executable toolchains are excluded from the archive.
+Hashes establish byte consistency, not authenticity or physical validity.
+The package supports analysis regeneration and saved-binary verification,
+without claiming fresh performance replication, a public archive or a DOI.
 
 ## 9. Conclusion
 
-Arithmetic-fair direct correction overturns two original Hcub decisions and
-supplies 24/32 complete-wide prospective reversal witnesses, with unavailable
-native cells keeping the full panel incomplete. Beneficial incremental sharing
-does not extend to either fresh wide design: ordinary transposition wins that
-contrast throughout. Saved events expose RAM-sensitive margins, and a matched
-literal-one direct specialization removes next-output preparation, lowers cost
-and reverses the compiler gap. These finite results make comparator arithmetic,
-state representation and visible API knowledge necessary parts of interpreting
-this artifact's nominal winners. They support an auditable model case study,
-without a new algorithm, physical saving or general implementation rule.
+Equalizing arithmetic-range information changes exact FIR implementation
+comparisons in this Cortex-M0 model case study. Certified native partials
+reverse two original Hcub decisions and 24 of 32 complete conditions across
+two fresh wide 48-tap arrays. Hcub nevertheless loses to ordinary transposition
+in every fresh wide condition, separating the baseline effect from incremental
+sharing. A matched block1 specialization also removes identified preparation
+for another output and reverses the direct compiler ranking.
+
+The practical lesson is to examine arithmetic treatment, state representation
+and compiler-visible bounds together when interpreting an implementation
+comparison. The finite synthetic panel, unavailable native library cases and
+model-specific costs limit that lesson's reach. Broader coefficient/length
+coverage and physical validation of the key rankings are the next steps toward
+practical selection guidance.
+
+## Appendix A. Original principal-row resource diagnostics
+
+Cycles are estimated per requested output. Code is selected kernel/coefficient
+symbols, excluding fixture and possibly helper code; frame is the compiler's
+static `probe_process` report; state is allocated state including block
+capacity. These are not total image, peak stack or SRAM high-water measurements.
+
+| Cell | Form | Cycles/out. | Code, B | State, B | Frame, B |
+|---|---|---:|---:|---:|---:|
+| GCC10/1 | CMSIS | 1585.11 | 1494 | 112 | 8 |
+| GCC10/1 | Wide direct | 1606.11 | 1736 | 98 | 440 |
+| GCC10/1 | Partial direct | 1065.11 | 1036 | 98 | 72 |
+| GCC10/1 | Ordinary transposed | 1106.11 | 1540 | 192 | 272 |
+| GCC10/1 | Hcub | 1150.11 | 1504 | 192 | 344 |
+| GCC10/64 | CMSIS | 924.32 | 1494 | 236 | 8 |
+| GCC10/64 | Wide direct | 1029.33 | 1720 | 224 | 440 |
+| GCC10/64 | Partial direct | 583.31 | 1196 | 224 | 72 |
+| GCC10/64 | Ordinary transposed | 630.64 | 1540 | 192 | 272 |
+| GCC10/64 | Hcub | 636.40 | 1504 | 192 | 344 |
+| GCC15/1 | CMSIS | 1550.11 | 1450 | 112 | 8 |
+| GCC15/1 | Wide direct | 1798.11 | 1872 | 98 | 608 |
+| GCC15/1 | Partial direct | 1365.63 | 1372 | 98 | 240 |
+| GCC15/1 | Ordinary transposed | 1100.11 | 1532 | 192 | 272 |
+| GCC15/1 | Hcub | 1062.11 | 1352 | 192 | 344 |
+| GCC15/64 | CMSIS | 851.98 | 1450 | 236 | 8 |
+| GCC15/64 | Wide direct | 1074.65 | 1884 | 224 | 608 |
+| GCC15/64 | Partial direct | 612.39 | 1312 | 224 | 232 |
+| GCC15/64 | Ordinary transposed | 627.57 | 1532 | 192 | 272 |
+| GCC15/64 | Hcub | 593.49 | 1352 | 192 | 344 |
+
+Table: Every original principal-row resource diagnostic.
+
+## Appendix B. Editable evidence map
+
+The first manuscript and its results remain under `research/fir-paper/`;
+its [source manifest](../../fir-paper/source-manifest.json) records the six
+frozen numerical inputs. The [saved-event analysis](../analysis/analysis.json)
+contains all 12 difference vectors, cost/resource components, exact rational
+boundaries and endpoint winners. The [artifact instructions](../README.md),
+[manifest](../evidence-manifest.json) and [relocated check report](../artifact-check.json)
+describe the saved package and verification levels.
+
+The frozen [protocol](../panel-protocol.json), [design](../panel-design.json),
+[inputs](../panel-inputs.json), [certificates](../panel-certificates.json),
+[graphs](../vendor/graphs-manifest.json) and [sources](../sources-manifest.json)
+bind the fresh panel. Its [inventory](../panel-results.json),
+[summary](../panel-summary.json) and [raw audit](../verification/independent-audit.json)
+retain every condition, event vector, tie and unavailable case. The
+[intervention inventory](../intervention-results.json) binds its eight rows
+to raw artifacts. A separate [manual code inspection](../intervention-review.md)
+records the preparation-removal assessment; the automated record's pending
+manual-review field does not supersede it. These internal checks and agent
+reviews do not constitute external peer review. The historical 12/24 filter-bank
+statistic belongs to its original candidate set; no revised bank-wide result
+is inferred here.
 
 ## References
 
@@ -863,68 +897,6 @@ compiler admission govern the actual library paths.
 [Official artifact guidance](https://sigsim.acm.org/conf/pads/2026/blog/artifact-evaluation/).
 Used as an established practice reference, not a binding venue rule.
 
-## Appendix A. Original principal-row resource diagnostics
-
-Cycles are estimated per requested output. Code is selected kernel/coefficient
-symbols, excluding fixture and possibly helper code; frame is the compiler's
-static `probe_process` report; state is allocated state including block
-capacity. These are not total image, peak stack or SRAM high-water measurements.
-
-| Cell | Form | Cycles/out. | Code, B | State, B | Frame, B |
-|---|---|---:|---:|---:|---:|
-| GCC10/1 | CMSIS | 1585.11 | 1494 | 112 | 8 |
-| GCC10/1 | Wide direct | 1606.11 | 1736 | 98 | 440 |
-| GCC10/1 | Partial direct | 1065.11 | 1036 | 98 | 72 |
-| GCC10/1 | Ordinary transposed | 1106.11 | 1540 | 192 | 272 |
-| GCC10/1 | Hcub | 1150.11 | 1504 | 192 | 344 |
-| GCC10/64 | CMSIS | 924.32 | 1494 | 236 | 8 |
-| GCC10/64 | Wide direct | 1029.33 | 1720 | 224 | 440 |
-| GCC10/64 | Partial direct | 583.31 | 1196 | 224 | 72 |
-| GCC10/64 | Ordinary transposed | 630.64 | 1540 | 192 | 272 |
-| GCC10/64 | Hcub | 636.40 | 1504 | 192 | 344 |
-| GCC15/1 | CMSIS | 1550.11 | 1450 | 112 | 8 |
-| GCC15/1 | Wide direct | 1798.11 | 1872 | 98 | 608 |
-| GCC15/1 | Partial direct | 1365.63 | 1372 | 98 | 240 |
-| GCC15/1 | Ordinary transposed | 1100.11 | 1532 | 192 | 272 |
-| GCC15/1 | Hcub | 1062.11 | 1352 | 192 | 344 |
-| GCC15/64 | CMSIS | 851.98 | 1450 | 236 | 8 |
-| GCC15/64 | Wide direct | 1074.65 | 1884 | 224 | 608 |
-| GCC15/64 | Partial direct | 612.39 | 1312 | 224 | 232 |
-| GCC15/64 | Ordinary transposed | 627.57 | 1532 | 192 | 272 |
-| GCC15/64 | Hcub | 593.49 | 1352 | 192 | 344 |
-
-Table: Every original principal-row resource diagnostic.
-
-## Appendix B. Editable evidence map
-
-The original manuscript/results remain preserved under `research/fir-paper/`.
-Its [source manifest](../../fir-paper/source-manifest.json) records six frozen
-numerical inputs. The original coefficient and timed-input SHA256 values are
-`63796e3e365dbdee70192acf68f16f403802d961df48ae814ffb23cca411fb70` and
-`d952c2754c9ae922243966a9c2533a848b345aa2d2d6cb5b4e68d9df1615f310`.
-The [saved-event analysis](../analysis/analysis.json) retains source digests,
-12 oriented identities, exact difference vectors, cost components, cycle and
-separate resource deltas, rational boundaries and endpoint winners.
-The [portable-evidence instructions](../README.md),
-[evidence manifest](../evidence-manifest.json) and
-[clean-copy report](../artifact-check.json) identify the package and
-verification levels.
-
-The frozen [panel protocol](../panel-protocol.json),
-[coefficient design](../panel-design.json),
-[inputs](../panel-inputs.json), [certificates](../panel-certificates.json),
-[graph manifest](../vendor/graphs-manifest.json) and
-[source manifest](../sources-manifest.json) bind the prospective preparation.
-The [panel identity inventory](../panel-results.json),
-[exact summary](../panel-summary.json) and
-[independent raw audit](../verification/independent-audit.json) preserve every
-condition, event vector, tie, unavailable identity and paired contrast. These
-panel results have passed independent scientific review. The
-[intervention inventory](../intervention-results.json) binds four performance
-and four correctness rows to their raw artifacts. Its measurements are
-admitted, and the [independent emitted-code review](../intervention-review.md)
-accepts the preparation-removal ruling and stronger conjunction. The automated measurement record retains a
-pending-review field distinct from that manual ruling. The clean-copy report
-records the extended package verification described in Section 8.3.
-The historical 12/24 filter-bank statistic belongs to its original candidate
-set; no revised bank-wide result is inferred here.
+[11] Arm, *Cortex-M0 Technical Reference Manual*, DDI 0432C,
+§§1.4.1 and 3.3, 2009.
+[Configurable multiplier and instruction timings](https://documentation-service.arm.com/static/5e8e294afd977155116a6a5b).
