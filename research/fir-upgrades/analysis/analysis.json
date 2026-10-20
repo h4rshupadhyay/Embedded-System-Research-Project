@@ -76,7 +76,12 @@
           "root_decimal": "-2.052270",
           "root_domain": "outside",
           "root_region": "outside",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "left"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -124,8 +129,8 @@
         "flash_reads": "-651.362388"
       },
       "delta_energy_nj": "9166.318770",
-      "delta_energy_nj_per_output": "35.666610",
-      "left_relative_percent": "3.4105363150662064864518928910903040912074770782400",
+      "delta_energy_nj_per_output": "35.66661",
+      "left_relative_percent": "3.4105363150662064864518928910903040912074770782430",
       "delta_cycles": 11308,
       "delta_state_allocation_bytes": 0,
       "delta_probe_process_stack_bytes": 72,
@@ -143,7 +148,12 @@
           "root_decimal": "0.348265",
           "root_domain": "inside_domain",
           "root_region": "below",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "right",
+            "1": "right",
+            "2": "right"
+          }
         },
         "stress": {
           "at_0_5": "right",
@@ -192,7 +202,7 @@
       },
       "delta_energy_nj": "11536.956423",
       "delta_energy_nj_per_output": "44.890881023346303501945525291828793774319066147860",
-      "left_relative_percent": "4.3307853624923749412171887008222423471720673810300",
+      "left_relative_percent": "4.3307853624923749412171887008222423471720673810276",
       "delta_cycles": 21844,
       "delta_state_allocation_bytes": 94,
       "delta_probe_process_stack_bytes": 272,
@@ -210,7 +220,12 @@
           "root_decimal": "0.737637",
           "root_domain": "inside_domain",
           "root_region": "within",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "right",
+            "2": "right"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -277,7 +292,12 @@
           "root_decimal": "-1.543221",
           "root_domain": "outside",
           "root_region": "outside",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "left"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -326,7 +346,7 @@
       },
       "delta_energy_nj": "-268.042614",
       "delta_energy_nj_per_output": "-1.0429673696498054474708171206225680933852140077821",
-      "left_relative_percent": "-0.17220209366028594431709018582881637724847565827100",
+      "left_relative_percent": "-0.17220209366028594431709018582881637724847565827131",
       "delta_cycles": 1480,
       "delta_state_allocation_bytes": 0,
       "delta_probe_process_stack_bytes": 72,
@@ -344,7 +364,12 @@
           "root_decimal": "1.019679",
           "root_domain": "inside_domain",
           "root_region": "within",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "right"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -393,7 +418,7 @@
       },
       "delta_energy_nj": "7403.516161",
       "delta_energy_nj_per_output": "28.807455879377431906614785992217898832684824902724",
-      "left_relative_percent": "5.0029071600968432971341886577851821495664155343600",
+      "left_relative_percent": "5.0029071600968432971341886577851821495664155343563",
       "delta_cycles": 13643,
       "delta_state_allocation_bytes": -32,
       "delta_probe_process_stack_bytes": 272,
@@ -411,7 +436,12 @@
           "root_decimal": "0.692347",
           "root_domain": "inside_domain",
           "root_region": "within",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "right",
+            "2": "right"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -478,7 +508,12 @@
           "root_decimal": "-1.522648",
           "root_domain": "outside",
           "root_region": "outside",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "left"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -527,7 +562,7 @@
       },
       "delta_energy_nj": "-11452.561472",
       "delta_energy_nj_per_output": "-44.562496",
-      "left_relative_percent": "-4.2848899217291220759680832331212805292863158447200",
+      "left_relative_percent": "-4.2848899217291220759680832331212805292863158447197",
       "delta_cycles": -9766,
       "delta_state_allocation_bytes": 0,
       "delta_probe_process_stack_bytes": 72,
@@ -545,7 +580,12 @@
           "root_decimal": "2.010795",
           "root_domain": "inside_domain",
           "root_region": "above",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "left"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -593,7 +633,7 @@
         "flash_reads": "-651.362388"
       },
       "delta_energy_nj": "-81038.509580",
-      "delta_energy_nj_per_output": "-315.324940",
+      "delta_energy_nj_per_output": "-315.32494",
       "left_relative_percent": "-24.056758570535991405388606607608404739132906240155",
       "delta_cycles": -78007,
       "delta_state_allocation_bytes": 94,
@@ -612,7 +652,12 @@
           "root_decimal": "7.094417",
           "root_domain": "inside_domain",
           "root_region": "above",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "left"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -679,7 +724,12 @@
           "root_decimal": "-1.714256",
           "root_domain": "outside",
           "root_region": "outside",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "left"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -728,7 +778,7 @@
       },
       "delta_energy_nj": "-10360.343828",
       "delta_energy_nj_per_output": "-40.312621898832684824902723735408560311284046692607",
-      "left_relative_percent": "-6.6868225480459873847967903707474379060592507007400",
+      "left_relative_percent": "-6.6868225480459873847967903707474379060592507007398",
       "delta_cycles": -8758,
       "delta_state_allocation_bytes": 0,
       "delta_probe_process_stack_bytes": 72,
@@ -746,7 +796,12 @@
           "root_decimal": "1.927822",
           "root_domain": "inside_domain",
           "root_region": "within",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "right"
+          }
         },
         "stress": {
           "at_0_5": "left",
@@ -795,7 +850,7 @@
       },
       "delta_energy_nj": "-7977.319073",
       "delta_energy_nj_per_output": "-31.040152035019455252918287937743190661478599221790",
-      "left_relative_percent": "-5.2291875498077714666894743783523281082889560682320",
+      "left_relative_percent": "-5.2291875498077714666894743783523281082889560682324",
       "delta_cycles": -4858,
       "delta_state_allocation_bytes": -32,
       "delta_probe_process_stack_bytes": 112,
@@ -813,7 +868,12 @@
           "root_decimal": "1.952594",
           "root_domain": "inside_domain",
           "root_region": "within",
-          "sign": null
+          "sign": null,
+          "winner_at": {
+            "0.5": "left",
+            "1": "left",
+            "2": "right"
+          }
         },
         "stress": {
           "at_0_5": "left",

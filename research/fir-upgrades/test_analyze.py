@@ -5,7 +5,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from decimal import Decimal
+from decimal import Decimal, localcontext
 
 from analyze import affine_boundary, analyze_report
 
@@ -37,6 +37,18 @@ class AffineBoundaryTests(unittest.TestCase):
         above = affine_boundary(Decimal('-10'), Decimal('1'))
         self.assertEqual((zero['root_exact'], zero['root_domain']), ({'numerator': 0, 'denominator': 1}, 'boundary'))
         self.assertEqual(above['root_region'], 'above')
+
+    def test_exact_root_just_below_half_is_not_promoted_by_decimal_display(self):
+        coefficient = Decimal('2.' + '0' * 50 + '1')
+        result = affine_boundary(Decimal('-1'), coefficient)
+        self.assertEqual(result['root_region'], 'below')
+        self.assertEqual(result['root_decimal'], '0.500000')
+        self.assertEqual(result['winner_at']['0.5'], 'right')
+
+    def test_large_finite_root_can_be_displayed(self):
+        result = affine_boundary(Decimal('-1e50'), Decimal('1'))
+        self.assertEqual(result['root_exact'], {'numerator': 10**50, 'denominator': 1})
+        self.assertEqual(result['root_decimal'], '100000000000000000000000000000000000000000000000000.000000')
 
     def test_nonfinite_affine_coefficients_are_rejected(self):
         for value in (Decimal('NaN'), Decimal('Infinity'), Decimal('-Infinity')):
@@ -84,6 +96,92 @@ class ReportAnalysisTests(unittest.TestCase):
         self.assertEqual(partial[0]['delta_events'], {'nonmul': -5141, 'mul': -2570, 'taken_branches': -10794,
                          'ram_reads': 21845, 'ram_writes': 30326, 'flash_reads': -1028,
                          'instructions': -7711, 'bl': 0, 'flash_writes': 0})
+
+    def test_analysis_is_independent_of_callers_low_decimal_precision(self):
+        expected = analyze_report(self.report)
+        with localcontext() as ctx:
+            ctx.prec = 6
+            actual = analyze_report(self.report)
+            self.assertEqual(ctx.prec, 6)
+        self.assertEqual(actual, expected)
+
+    def test_exact_stress_endpoint_ties_defeat_strict_throughout_flags(self):
+        weights = {'nonmul': Decimal('0.964258'), 'mul': Decimal('1.652455'),
+                   'taken_branches': Decimal('2.091986'), 'ram_reads': Decimal('1.109833'),
+                   'ram_writes': Decimal('0.650563'), 'flash_reads': Decimal('0.633621')}
+        right_events = {'instructions': 100, 'mul': 50, 'taken_branches': 100,
+                        'ram_reads': 100, 'ram_writes': 100, 'flash_reads': 100,
+                        'flash_writes': 0, 'bl': 10}
+        fixtures = (
+            ((1, -7, 17, -13, -19, -19), '16.723762', '-33.447524', 'at_0_5', 'strict_lower_throughout_region'),
+            ((11, 0, 16, -14, -10, -10), '35.207920', '-17.603960', 'at_2', 'strict_higher_throughout_region'),
+        )
+        for delta, expected_a, expected_b, tie_key, strict_key in fixtures:
+            with self.subTest(tie_key=tie_key):
+                changed = json.loads(json.dumps(self.report))
+                rows = {(r['compiler'], r['block'], r['variant']): r for r in changed['rows']}
+                left = rows[('gcc10', 1, 'trans_hcub_demand')]
+                right = rows[('gcc10', 1, 'trans_const')]
+                for row in (left, right):
+                    row.update(right_events)
+                d_nonmul, d_mul, d_branch, d_flash, d_read, d_write = delta
+                left.update({'instructions': right_events['instructions'] + d_nonmul + d_mul,
+                             'mul': right_events['mul'] + d_mul,
+                             'taken_branches': right_events['taken_branches'] + d_branch,
+                             'ram_reads': right_events['ram_reads'] + d_read,
+                             'ram_writes': right_events['ram_writes'] + d_write,
+                             'flash_reads': right_events['flash_reads'] + d_flash})
+                for row in (left, right):
+                    row['estimated_cpu_energy_nj'] = str(sum((weights['nonmul'] * (row['instructions'] - row['mul']),
+                        weights['mul'] * row['mul'], weights['taken_branches'] * row['taken_branches'],
+                        weights['ram_reads'] * row['ram_reads'], weights['ram_writes'] * row['ram_writes'],
+                        weights['flash_reads'] * row['flash_reads']), Decimal(0)))
+                    row['arm_zero_ws_cycles'] = (row['instructions'] + row['ram_reads'] + row['ram_writes'] +
+                                                 row['flash_reads'] + 2 * row['taken_branches'] + row['bl'])
+                pair = next(p for p in analyze_report(changed)['pairs'] if p['compiler'] == 'gcc10' and p['block'] == 1 and p['left_variant'] == 'trans_hcub_demand' and p['right_variant'] == 'trans_const')
+                self.assertEqual((pair['affine']['A_nj'], pair['affine']['B_nj']), (expected_a, expected_b))
+                stress = pair['affine']['stress']
+                self.assertEqual(stress[tie_key], 'tie')
+                self.assertFalse(stress[strict_key])
+
+    def test_swapping_oriented_rows_reverses_event_and_energy_signs(self):
+        result = analyze_report(self.report)
+        hcub_partial = next(p for p in result['pairs'] if p['compiler'] == 'gcc10' and p['block'] == 1 and p['left_variant'] == 'trans_hcub_demand' and p['right_variant'] == 'partial_direct32x2')
+        self.assertEqual(hcub_partial['delta_events']['ram_reads'], 21845)
+        self.assertEqual(hcub_partial['delta_energy_nj'], '11536.956423')
+        changed = json.loads(json.dumps(self.report))
+        rows = {(r['compiler'], r['block'], r['variant']): r for r in changed['rows']}
+        left = rows[('gcc10', 1, 'trans_hcub_demand')]
+        right = rows[('gcc10', 1, 'partial_direct32x2')]
+        swapped_fields = ('instructions', 'mul', 'taken_branches', 'ram_reads', 'ram_writes', 'flash_reads',
+                          'flash_writes', 'bl', 'arm_zero_ws_cycles', 'estimated_cpu_energy_nj',
+                          'state_allocation_bytes', 'probe_process_stack_bytes', 'kernel_and_coefficient_symbol_bytes')
+        for field in swapped_fields:
+            left[field], right[field] = right[field], left[field]
+        reversed_pair = next(p for p in analyze_report(changed)['pairs'] if p['compiler'] == 'gcc10' and p['block'] == 1 and p['left_variant'] == 'trans_hcub_demand' and p['right_variant'] == 'partial_direct32x2')
+        self.assertEqual(reversed_pair['delta_events']['ram_reads'], -21845)
+        self.assertEqual(reversed_pair['delta_energy_nj'], '-11536.956423')
+
+    def test_left_right_and_mixed_event_dominance_are_reported(self):
+        result = analyze_report(self.report)
+        self.assertTrue(any(p['event_dominance'] == 'left_dominates' for p in result['pairs']))
+        self.assertTrue(any(p['event_dominance'] == 'mixed' for p in result['pairs']))
+        changed = json.loads(json.dumps(self.report))
+        rows = {(r['compiler'], r['block'], r['variant']): r for r in changed['rows']}
+        left = rows[('gcc10', 1, 'partial_direct32x2')]
+        right = rows[('gcc10', 1, 'spec_direct')]
+        for event in ('instructions', 'mul', 'taken_branches', 'ram_reads', 'ram_writes', 'flash_reads', 'flash_writes', 'bl'):
+            left[event] = right[event]
+        left['instructions'] += 10
+        left['mul'] += 1
+        left['taken_branches'] += 1
+        left['ram_reads'] += 1
+        left['ram_writes'] += 1
+        left['flash_reads'] += 1
+        left['arm_zero_ws_cycles'] = left['instructions'] + left['ram_reads'] + left['ram_writes'] + left['flash_reads'] + 2 * left['taken_branches'] + left['bl']
+        left['estimated_cpu_energy_nj'] = str(Decimal('0.964258') * (left['instructions'] - left['mul']) + Decimal('1.652455') * left['mul'] + Decimal('2.091986') * left['taken_branches'] + Decimal('1.109833') * left['ram_reads'] + Decimal('0.650563') * left['ram_writes'] + Decimal('0.633621') * left['flash_reads'])
+        pair = next(p for p in analyze_report(changed)['pairs'] if p['compiler'] == 'gcc10' and p['block'] == 1 and p['left_variant'] == 'partial_direct32x2' and p['right_variant'] == 'spec_direct')
+        self.assertEqual(pair['event_dominance'], 'right_dominates')
 
     def test_event_or_energy_mutation_that_breaks_reconstruction_is_rejected(self):
         changed = json.loads(json.dumps(self.report))

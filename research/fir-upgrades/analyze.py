@@ -15,6 +15,7 @@ WEIGHTS = {
     "taken_branches": Decimal("2.091986"), "ram_reads": Decimal("1.109833"),
     "ram_writes": Decimal("0.650563"), "flash_reads": Decimal("0.633621"),
 }
+EXACT_WEIGHTS = {name: Fraction(value) for name, value in WEIGHTS.items()}
 COMPILERS = ("gcc10", "gcc15")
 BLOCKS = (1, 64)
 VARIANTS = ("cmsis64_unroll", "spec_direct", "partial_direct32x2", "trans_const", "trans_hcub_demand")
@@ -35,16 +36,21 @@ SOURCE_DIGESTS = {
 def affine_boundary(A: Decimal, B: Decimal) -> dict:
     if not isinstance(A, Decimal) or not isinstance(B, Decimal) or not A.is_finite() or not B.is_finite():
         raise ValueError("A and B must be finite Decimal values")
-    if B == 0:
-        if A == 0:
+    return _affine_boundary(Fraction(A), Fraction(B))
+
+
+def _affine_boundary(exact_a: Fraction, exact_b: Fraction) -> dict:
+    if exact_b == 0:
+        if exact_a == 0:
             return {"kind": "all_ties", "root_exact": None, "root_decimal": None,
-                    "root_domain": "all_nonnegative", "root_region": "all", "sign": "zero"}
+                    "root_domain": "all_nonnegative", "root_region": "all", "sign": "zero",
+                    "winner_at": {"0.5": "tie", "1": "tie", "2": "tie"}}
+        winner = "right" if exact_a > 0 else "left"
         return {"kind": "constant", "root_exact": None, "root_decimal": None,
-                "root_domain": "none", "root_region": "none", "sign": "positive" if A > 0 else "negative"}
-    root = -Fraction(A) / Fraction(B)
-    with localcontext() as ctx:
-        ctx.prec = 50
-        display = format((Decimal(root.numerator) / Decimal(root.denominator)).quantize(Decimal("0.000001")), "f")
+                "root_domain": "none", "root_region": "none", "sign": "positive" if exact_a > 0 else "negative",
+                "winner_at": {"0.5": winner, "1": winner, "2": winner}}
+    root = -exact_a / exact_b
+    display = _fraction_text(root, places=6)
     if root < 0:
         domain, region = "outside", "outside"
     elif root == 0:
@@ -57,17 +63,30 @@ def affine_boundary(A: Decimal, B: Decimal) -> dict:
     else:
         domain, region = "inside_domain", "above"
     return {"kind": "root", "root_exact": {"numerator": root.numerator, "denominator": root.denominator},
-            "root_decimal": display, "root_domain": domain, "root_region": region, "sign": None}
+            "root_decimal": display, "root_domain": domain, "root_region": region, "sign": None,
+            "winner_at": {"0.5": _winner(exact_a + exact_b * Fraction(1, 2)),
+                          "1": _winner(exact_a + exact_b),
+                          "2": _winner(exact_a + exact_b * 2)}}
 
 
-def _decimal_text(value: Decimal) -> str:
-    return format(value, "f")
+def _winner(value: Fraction) -> str:
+    return "left" if value < 0 else "right" if value > 0 else "tie"
+
+
+def _fraction_text(value: Fraction, places: int | None = None, precision: int = 50) -> str:
+    digits = len(str(abs(value.numerator))) + len(str(value.denominator)) + 10
+    with localcontext() as ctx:
+        ctx.prec = max(precision if places is None else 50, digits + (places or 0))
+        decimal_value = Decimal(value.numerator) / Decimal(value.denominator)
+        if places is not None:
+            decimal_value = decimal_value.quantize(Decimal(1).scaleb(-places))
+        return format(decimal_value, "f")
 
 
 def _cost(row: dict) -> dict:
     counts = {name: row[name] for name in ("instructions", "mul", "taken_branches", "ram_reads", "ram_writes", "flash_reads")}
     counts["nonmul"] = row["instructions"] - row["mul"]
-    return {name: WEIGHTS[name] * counts[name] for name in WEIGHTS}
+    return {name: EXACT_WEIGHTS[name] * counts[name] for name in EXACT_WEIGHTS}
 
 
 def _validate_report(report: dict) -> dict:
@@ -88,12 +107,12 @@ def _validate_report(report: dict) -> dict:
                 raise ValueError(f"report row {key} has invalid {name}")
         if min(row[name] for name in ("instructions", "mul", "taken_branches", "ram_reads", "ram_writes", "flash_reads", "flash_writes", "bl")) < 0 or row["mul"] > row["instructions"]:
             raise ValueError(f"report row {key} has invalid event counts")
-        energy = sum(_cost(row).values(), Decimal(0))
+        energy = sum(_cost(row).values(), Fraction(0))
         try:
             serialized_energy = Decimal(str(row.get("estimated_cpu_energy_nj")))
         except (InvalidOperation, ValueError, TypeError):
             raise ValueError(f"report row {key} has invalid serialized energy")
-        if not serialized_energy.is_finite() or serialized_energy != energy:
+        if not serialized_energy.is_finite() or Fraction(serialized_energy) != energy:
             raise ValueError(f"report row {key} energy does not reconstruct from its event counts")
         cycles = row["instructions"] + row["ram_reads"] + row["ram_writes"] + row["flash_reads"] + 2 * row["taken_branches"] + row["bl"]
         if row["arm_zero_ws_cycles"] != cycles:
@@ -102,11 +121,6 @@ def _validate_report(report: dict) -> dict:
     if set(bykey) != expected:
         raise ValueError("report must contain the exact 20 admitted compiler/block/variant rows")
     return bykey
-
-
-def _strict_at(A: Decimal, B: Decimal, lam: Decimal) -> str:
-    value = A + B * lam
-    return "left" if value < 0 else "right" if value > 0 else "tie"
 
 
 def analyze_report(report: dict) -> dict:
@@ -118,14 +132,15 @@ def analyze_report(report: dict) -> dict:
             right = bykey[(compiler, block, right_variant)]
             left_events, right_events = _cost(left), _cost(right)
             component_deltas = {name: left_events[name] - right_events[name] for name in WEIGHTS}
-            delta_energy = sum(component_deltas.values(), Decimal(0))
+            delta_energy = sum(component_deltas.values(), Fraction(0))
             A = component_deltas["nonmul"] + component_deltas["mul"] + component_deltas["taken_branches"] + component_deltas["flash_reads"]
             B = component_deltas["ram_reads"] + component_deltas["ram_writes"]
             with localcontext() as ctx:
                 ctx.prec = 50
-                relative = (left_events["nonmul"] + left_events["mul"] + left_events["taken_branches"] + left_events["ram_reads"] + left_events["ram_writes"] + left_events["flash_reads"]) / sum(right_events.values(), Decimal(0))
-                relative = (relative - 1) * 100
-                per_output = delta_energy / Decimal(257)
+                left_energy = sum(left_events.values(), Fraction(0))
+                right_energy = sum(right_events.values(), Fraction(0))
+                relative = (left_energy / right_energy - 1) * 100
+                per_output = delta_energy / 257
             coordinates = {
                 "nonmul": (left["instructions"] - left["mul"]) - (right["instructions"] - right["mul"]),
                 "mul": left["mul"] - right["mul"],
@@ -139,20 +154,22 @@ def analyze_report(report: dict) -> dict:
             }
             vals = [coordinates[name] for name in EVENT_COORDINATES]
             dominance = "left_dominates" if all(x <= 0 for x in vals) and any(x < 0 for x in vals) else "right_dominates" if all(x >= 0 for x in vals) and any(x > 0 for x in vals) else "event_equal" if all(x == 0 for x in vals) else "mixed"
-            boundary = affine_boundary(A, B)
-            stress = {"at_0_5": _strict_at(A, B, Decimal("0.5")), "at_1": _strict_at(A, B, Decimal(1)), "at_2": _strict_at(A, B, Decimal(2)),
-                      "strict_lower_throughout_region": A + B * Decimal("0.5") < 0 and A + 2 * B < 0,
-                      "strict_higher_throughout_region": A + B * Decimal("0.5") > 0 and A + 2 * B > 0}
+            boundary = _affine_boundary(A, B)
+            at_low = A + B * Fraction(1, 2)
+            at_high = A + B * 2
+            stress = {"at_0_5": _winner(at_low), "at_1": _winner(A + B), "at_2": _winner(at_high),
+                      "strict_lower_throughout_region": at_low < 0 and at_high < 0,
+                      "strict_higher_throughout_region": at_low > 0 and at_high > 0}
             pairs.append({"compiler": compiler, "block": block, "left_variant": left_variant, "right_variant": right_variant,
                           "samples": 257, "source_digests": dict(SOURCE_DIGESTS), "delta_events": coordinates,
                           "delta_instructions": left["instructions"] - right["instructions"], "delta_bl": left["bl"] - right["bl"],
-                          "delta_flash_writes": left["flash_writes"] - right["flash_writes"], "cost_components_nj": {k: _decimal_text(v) for k, v in component_deltas.items()},
-                          "delta_energy_nj": _decimal_text(delta_energy), "delta_energy_nj_per_output": _decimal_text(per_output),
-                          "left_relative_percent": _decimal_text(relative), "delta_cycles": left["arm_zero_ws_cycles"] - right["arm_zero_ws_cycles"],
+                          "delta_flash_writes": left["flash_writes"] - right["flash_writes"], "cost_components_nj": {k: _fraction_text(v, places=6) for k, v in component_deltas.items()},
+                          "delta_energy_nj": _fraction_text(delta_energy, places=6), "delta_energy_nj_per_output": _fraction_text(per_output, precision=50),
+                          "left_relative_percent": _fraction_text(relative, precision=50), "delta_cycles": left["arm_zero_ws_cycles"] - right["arm_zero_ws_cycles"],
                           "delta_state_allocation_bytes": left["state_allocation_bytes"] - right["state_allocation_bytes"],
                           "delta_probe_process_stack_bytes": left["probe_process_stack_bytes"] - right["probe_process_stack_bytes"],
                           "delta_kernel_and_coefficient_symbol_bytes": left["kernel_and_coefficient_symbol_bytes"] - right["kernel_and_coefficient_symbol_bytes"],
-                          "event_dominance": dominance, "affine": {"A_nj": _decimal_text(A), "B_nj": _decimal_text(B), "boundary": boundary, "stress": stress}})
+                          "event_dominance": dominance, "affine": {"A_nj": _fraction_text(A, places=6), "B_nj": _fraction_text(B, places=6), "boundary": boundary, "stress": stress}})
     return {"schema_version": 1, "scope": {"samples": 257, "pair_count": 12, "order": "gcc10 then gcc15; block 1 then 64; partial-minus-wide, Hcub-minus-ordinary, Hcub-minus-partial", "lambda_domain": "lambda >= 0", "selected_region": ["0.5", "2"], "stress_interpretation": "arbitrary uncalibrated RAM-weight sensitivity; not a confidence interval, hardware configuration, or physical price"},
             "source_digests": dict(SOURCE_DIGESTS), "pairs": pairs}
 

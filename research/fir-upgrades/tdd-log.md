@@ -72,3 +72,62 @@ The existing report and manuscript TeX SHA-256 values match the base commit:
 `results.json` `3161d9a01ae81d0cb1ae38b81bc0ea2d02bd1e3cb8ca604e13f5a2f72defe6fd`
 and `manuscript.tex`
 `78e83e6283ede9ae2d79d3e440a3246fd6b052028a3a6143c4a161c878bd49c4`.
+
+## Review fix round (base `9912373819bc13a26779cc97ccba1589642b6a69`)
+
+### Observed REDs
+
+Added public-behavior tests before the fix for a canonical `analyze_report`
+call under caller `localcontext(prec=6)`, an exact root of `1e50`, and an
+endpoint only `1e-51` below 0.5. The first focused suite observed:
+
+- `test_analysis_is_independent_of_callers_low_decimal_precision` raised
+  `ValueError: report row ('gcc10', 1, 'cmsis64_unroll') energy does not
+  reconstruct from its event counts`.
+- `test_large_finite_root_can_be_displayed` raised
+  `decimal.InvalidOperation` while quantizing the valid `1e50` root.
+- The beyond-50-digit test then failed on the missing public `winner_at`
+  result for lambda 0.5. Added that behavior to `affine_boundary`; it now
+  reports `right` at 0.5 while preserving the exact root classification as
+  below the interval even though the displayed root rounds to `0.500000`.
+
+The exact-endpoint fixture separately sets A/B so the root is exactly 0.5 or 2;
+for either tie, the corresponding strict-throughout flag must be false. The
+hand-built report fixture uses literal integer event deltas and reconstructed
+row energies/cycles. It passed after the exact Fraction implementation. Added
+public report mutations proving event dominance in left, right and mixed cases,
+and physically swapped the numeric rows in the Hcub/partial pair to check that
+the report's oriented event and energy signs reverse. These added coverage
+cases passed; they did not each have a distinct pre-fix RED.
+
+### Fix and final verification
+
+Replaced Decimal-context-dependent event products, sums, deltas and endpoint
+comparisons with exact Fractions derived from the frozen finite Decimal
+weights. `analyze_report` now preserves its caller's Decimal context. Decimal
+conversion for display uses a local context sized to the exact integer digits;
+percentage and per-output divisions use precision 50. Root and endpoint
+classifications continue to use exact rational values. A follow-up test run
+caught a `NameError` from the first internal affine-helper extraction (the
+constant-line branch still referenced the public parameter name); changing it
+to the helper's exact coefficient fixed the issue.
+
+Final review-round commands:
+
+- `python3 -m unittest discover -s research/fir-upgrades -p test_analyze.py -v` — 18 tests passed.
+- `python3 research/fir-upgrades/analyze.py --output-dir research/fir-upgrades/analysis` — completed and regenerated both saved outputs through the six-source identity and raw-report reconstruction gates.
+- `python3 -m unittest discover -s research/fir-paper -p test_build_results.py -v` — all 15 exporter tests passed.
+
+The JSON output intentionally changed in three ways: it now includes exact
+`winner_at` labels for 0.5/1/2 in each affine boundary; exact rational energy
+ratios have corrected final displayed digits that previously depended on
+ambient Decimal rounding; and exact per-output decimals omit insignificant
+trailing zeroes. The six-decimal A/B values, six-decimal displayed roots, six-
+decimal Markdown percentages, all literal gate anchors and all strict outcome
+labels remain unchanged. The paper report and manuscript were not written.
+
+The independent exact-endpoint fixtures additionally assert literal affine
+coefficients: `(A,B)=(16.723762,-33.447524)` at lambda 0.5 and
+`(35.207920,-17.603960)` at lambda 2. The first expectation draft had the
+signs reversed and failed; correcting the fixture signs made both endpoint
+cases pass, with the tied endpoint defeating the corresponding strict flag.
