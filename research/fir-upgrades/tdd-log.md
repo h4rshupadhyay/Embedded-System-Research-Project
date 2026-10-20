@@ -131,3 +131,19 @@ coefficients: `(A,B)=(16.723762,-33.447524)` at lambda 0.5 and
 `(35.207920,-17.603960)` at lambda 2. The first expectation draft had the
 signs reversed and failed; correcting the fixture signs made both endpoint
 cases pass, with the tied endpoint defeating the corresponding strict flag.
+
+## Review fix round 2 (base `61fdf53dac55dfa61e583e97c5f57bf3988852e5`)
+
+Added a public-helper test with `A=-1e5000, B=1` and expected the exact
+5,000-zero decimal display. The first focused run failed at
+`len(str(abs(value.numerator)))` with Python's 4,300-digit integer conversion
+limit. Replaced integer-to-string digit counting with an integer-only
+bit-length bound for required decimal precision; no global integer or Decimal
+settings are changed. The focused test then passed with the expected exact
+string and root classification `above`.
+
+The first version of the new test used a wrong length of 5,007; observed output
+was 5,008 characters (`1` + 5,000 zeros + decimal point + six fractional
+zeros). The expected string was corrected to that literal construction. The
+full scoped analyzer suite passed 19 tests; the production CLI regenerated the
+analysis, and the original paper exporter suite passed all 15 tests.

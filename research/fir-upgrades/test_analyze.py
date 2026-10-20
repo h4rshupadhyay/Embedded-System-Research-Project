@@ -50,6 +50,12 @@ class AffineBoundaryTests(unittest.TestCase):
         self.assertEqual(result['root_exact'], {'numerator': 10**50, 'denominator': 1})
         self.assertEqual(result['root_decimal'], '100000000000000000000000000000000000000000000000000.000000')
 
+    def test_root_with_more_than_python_integer_string_limit_can_be_displayed(self):
+        result = affine_boundary(Decimal('-1e5000'), Decimal('1'))
+        display = result['root_decimal']
+        self.assertEqual(result['root_region'], 'above')
+        self.assertEqual(display, '1' + '0' * 5000 + '.000000')
+
     def test_nonfinite_affine_coefficients_are_rejected(self):
         for value in (Decimal('NaN'), Decimal('Infinity'), Decimal('-Infinity')):
             with self.subTest(value=value), self.assertRaises(ValueError):

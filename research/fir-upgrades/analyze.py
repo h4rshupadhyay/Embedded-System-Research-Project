@@ -73,8 +73,13 @@ def _winner(value: Fraction) -> str:
     return "left" if value < 0 else "right" if value > 0 else "tie"
 
 
+def _decimal_digit_bound(value: int) -> int:
+    bits = abs(value).bit_length()
+    return 1 if bits == 0 else (bits * 30103) // 100000 + 1
+
+
 def _fraction_text(value: Fraction, places: int | None = None, precision: int = 50) -> str:
-    digits = len(str(abs(value.numerator))) + len(str(value.denominator)) + 10
+    digits = _decimal_digit_bound(value.numerator) + _decimal_digit_bound(value.denominator) + 10
     with localcontext() as ctx:
         ctx.prec = max(precision if places is None else 50, digits + (places or 0))
         decimal_value = Decimal(value.numerator) / Decimal(value.denominator)
