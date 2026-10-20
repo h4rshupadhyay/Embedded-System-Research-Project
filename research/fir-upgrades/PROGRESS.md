@@ -7,6 +7,16 @@ User authorized all five upgrades and per-upgrade novelty/pursuit gates.
 
 ## Current state
 
+All seven tasks are complete and accepted on 20 October 2026. The revised
+anonymous IEEEtran manuscript, TeX and eleven-page PDF are under `paper/`;
+the extended evidence package contains 7,266 manifested payload files.
+Independent Sol6.1/high whole-change review passes science/spec/quality and
+reproduces all seven verification commands from a relocated tree with target
+tools unavailable. Mechanical completion used Luna/low; scientific editorial
+closure used preferred Sol6.1/high. These are requested settings, not
+independent backend telemetry. No new target measurement was run in this
+continuation. Work remains local on `research/fir-independent-check`.
+
 Tasks1-2 complete: gates/design `a5ba80b`; exact saved-event analysis through
 `0f52a87`, approved after two scoped fix rounds. Root verified production export,
 18-test first fix suite and >4300-digit finite root at caller precision6; worker's
@@ -15,7 +25,8 @@ Task3 complete at `2394cf4`; independent Astra spec/quality review approved. The
 and two explanation-row checks with 29 explanation hashes and zero skips.
 Task4 preparation and independent scientific/code review complete after two
 admission fix rounds. Task5 execution and independent scientific/spec/code review are complete,
-including the provenance admission repair. Remaining: Task7 final artifact, PDF and whole-change review.
+including the provenance admission repair. Task7 final artifact, PDF and
+whole-change review are also complete; see the final acceptance below.
 
 ## Workflow and decisions
 
@@ -202,3 +213,39 @@ sanitation checks remain separate from library/compiler-specific evidence.
   decision. No compiler-pass, exclusive-transfer, other-form or physical claim.
 - Task7 mechanical work resumes: three figures are prepared, manuscript science
   is complete, and final upgraded evidence packaging/IEEE rendering remain.
+
+## Task7 final acceptance, 20 October 2026
+
+- Fresh coordinator verification: 174 relevant analyzer, archive, panel,
+  runner/verifier, intervention and original exporter tests pass; all 95 frozen
+  preparation/historical/paper hashes are unchanged. All 79 checked local
+  manuscript/navigation/image links resolve. No target experiment was repeated.
+- Three scientific editorial findings are closed: fresh official Hcub primary
+  full-text access, an explicit wide-panel falsifier and unambiguous GCC10 tie
+  scope. Overlapping winner memberships and block-size contrast labels are
+  explicit in the regenerated Markdown summary; scientific JSON is unchanged.
+- Final eleven-page IEEEtran PDF has three editable PNG/SVG figure pairs and
+  twelve tables. Coordinator and independent reviewer opened every final page;
+  no clipping, collisions, missing glyphs or float-only pages remain. TeX has
+  no overfull boxes. Exact commands, tool versions and paper hashes are in
+  `paper/render-log.md`. The original manuscript/TeX/PDF/results are unchanged.
+- The upgraded archive, sidecar and `artifact-check.json` agree on 7,266
+  payload files. Seven copied-tree commands reproduce the original export,
+  24 historical/four partial rows, two explanation rows/29 hashes, exact U2,
+  panel performance 280 admitted/eight unavailable/zero failed, correctness
+  70/two/zero, and intervention four performance/four correctness rows.
+  Integration skips and target-tool executions are zero. Expected unavailable
+  identities remain scientific outcomes, not omitted verification.
+- Fresh Sol6.1/high whole-change review passes science, spec and quality. It
+  independently reproduces the seven-command check with `PATH=/nonexistent`
+  and `PYTHONPATH` unset, checks every archive payload against the checkout,
+  reconstructs a six-form reversal and all four intervention costs from raw
+  logs, and confirms preserved original inputs/checkers. The prior Important
+  report/package mismatch and all reported Minors are closed; no blocker remains.
+  The final checkpoint is re-bundled after this review; the numerical/code/paper
+  payload is unchanged. Archive SHA-256 is recorded in the adjacent sidecar and
+  clean-copy report rather than inside this self-included checkpoint.
+- This is a bounded simulator/model case study using established techniques.
+  It establishes neither a new FIR algorithm nor field priority, a general
+  selector, physical-energy savings or publication acceptance. No merge, push
+  or publication was performed; the dedicated research checkout is retained.

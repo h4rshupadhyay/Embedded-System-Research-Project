@@ -186,3 +186,115 @@ def test_unpack_rejects_unsafe_duplicate_or_special_members_without_writing_outs
         artifacts.unpack_verified(archive, destination)
     assert list(destination.iterdir()) == []
     assert not outside.exists()
+
+
+def test_upgraded_collection_pins_admitted_performance_and_correctness_maps():
+    root = Path(__file__).resolve().parents[2]
+    paths = artifacts.collect_files(root, include_upgrades=True)
+    names = {p.as_posix() for p in paths}
+    panel = json.loads((root / 'research/fir-upgrades/panel-results.json').read_text())
+    gates = json.loads((root / 'research/fir-upgrades/build/panel/correctness/correctness-gates.json').read_text())
+    intervention = json.loads((root / 'research/fir-upgrades/intervention-results.json').read_text())
+    perf = [row for row in panel['rows'] if row['status'] == 'admitted']
+    correct = [row for row in gates['rows'] if row['status'] == 'passed']
+    assert (len(perf), len(correct), len(intervention['rows']),
+            len(intervention['correctness_only'])) == (280, 70, 4, 4)
+    for row in perf:
+        assert set(row['artifact_paths']) == set(row['artifact_sha256'])
+        for key, rel in row['artifact_paths'].items():
+            path = f"research/fir-upgrades/{row['directory']}/{rel}"
+            assert path in names
+            assert artifacts._sha(root / path) == row['artifact_sha256'][key]
+    for row in correct:
+        assert set(row['artifact_paths']) == set(row['artifact_sha256'])
+        for key, rel in row['artifact_paths'].items():
+            path = f"research/fir-upgrades/{row['directory']}/{rel}"
+            assert path in names
+            assert artifacts._sha(root / path) == row['artifact_sha256'][key]
+    required = {
+        'research/fir-upgrades/panel-results.json',
+        'research/fir-upgrades/build/panel/correctness/correctness-gates.json',
+        'research/fir-upgrades/verification/independent-audit.json',
+        'research/fir-upgrades/verification/scientific-evidence-manifest.json',
+        'research/fir-upgrades/intervention-results.json',
+        'research/fir-upgrades/panel_verify.py',
+        'research/fir-upgrades/analyze.py',
+        'research/fir-upgrades/paper/make_figures.py',
+        'research/fir-baseline/build/cmsis-dsp/Source/FilteringFunctions/arm_fir_q15.c',
+        'research/fir-baseline/build/cmsis-dsp/Source/FilteringFunctions/arm_fir_fast_q15.c',
+    }
+    assert required <= names
+    assert not any('thumbulator/sim_main' in name for name in names)
+    assert not any('arm-none-eabi-gcc' in name for name in names)
+
+
+def test_incomplete_upgraded_manifest_is_rejected_before_extraction(tmp_path):
+    repo = tmp_path / 'repo'
+    repo.mkdir()
+    (repo / 'source.txt').write_text('saved evidence')
+    output = tmp_path / 'package'
+    artifacts._write_archive(repo, output, _small_paths(repo), package_scope='upgraded')
+    destination = tmp_path / 'copy'
+    with pytest.raises(ValueError, match='upgraded package inventory is incomplete'):
+        artifacts.unpack_verified(output / artifacts.ARCHIVE_NAME, destination)
+    assert not destination.exists() or not list(destination.iterdir())
+
+
+def test_declared_upgraded_scope_cannot_omit_upgrade_inventory(tmp_path):
+    copied = tmp_path / 'copied'
+    copied.mkdir()
+    with pytest.raises(ValueError, match='upgraded package inventory is incomplete'):
+        artifacts._validate_upgraded_tree(copied)
+
+
+def test_upgrade_row_map_rejects_missing_or_wrong_raw_bytes(tmp_path):
+    repo = tmp_path / 'repo'
+    attempt = repo / 'research/fir-upgrades/build/panel/attempt-001'
+    attempt.mkdir(parents=True)
+    raw = attempt / 'firmware.bin'
+    raw.write_bytes(b'accepted binary')
+    row = {'status': 'admitted', 'directory': 'build/panel/attempt-001',
+           'artifact_paths': {'binary': 'firmware.bin'},
+           'artifact_sha256': {'binary': hashlib.sha256(b'accepted binary').hexdigest()}}
+    selected = set()
+    artifacts._add_hashed_row_files(repo, repo / 'research/fir-upgrades', [row], 'test', selected)
+    assert selected == {raw}
+    raw.write_bytes(b'changed binary')
+    with pytest.raises(ValueError, match='artifact missing or hash mismatch'):
+        artifacts._add_hashed_row_files(repo, repo / 'research/fir-upgrades', [row], 'test', set())
+
+
+def test_central_scope_cannot_silently_contain_upgrade_result_files(tmp_path):
+    repo = tmp_path / 'repo'
+    (repo / 'research/fir-upgrades').mkdir(parents=True)
+    payload = repo / 'research/fir-upgrades/panel-results.json'
+    payload.write_text('{}')
+    output = tmp_path / 'package'
+    artifacts._write_archive(repo, output, [payload.relative_to(repo)], package_scope='central')
+    with pytest.raises(ValueError, match='require an explicitly upgraded package scope'):
+        artifacts.unpack_verified(output / artifacts.ARCHIVE_NAME, tmp_path / 'copy')
+
+
+def test_upgraded_check_commands_run_only_copied_verifiers(tmp_path):
+    copied = (tmp_path / 'relocated').resolve()
+    commands = artifacts._check_commands(copied, include_upgrades=True)
+    joined = [' '.join(command) for command in commands]
+    assert len(commands) == 7
+    assert any(str(copied / 'research/fir-upgrades/panel_verify.py') in cmd for cmd in joined)
+    assert any(str(copied / 'research/fir-upgrades/intervention.py') in cmd for cmd in joined)
+    assert all(str(copied) in cmd for cmd in joined)
+    assert not any('thumbulator' in cmd or 'arm-none-eabi' in cmd for cmd in joined)
+
+
+def test_panel_audit_comparison_normalizes_only_stack_diagnostic_roots():
+    saved = {'audited': [{'execution': {'stack': {'frames': [
+        {'file': '/original/research/fir-upgrades/build/x.su',
+         'source': '/original/research/fir-upgrades/sources/x.c'}]},
+        'measured_samples': 257}}], 'failed_count': 0}
+    relocated = {'audited': [{'execution': {'stack': {'frames': [
+        {'file': '/tmp/copy/research/fir-upgrades/build/x.su',
+         'source': '/tmp/copy/research/fir-upgrades/sources/x.c'}]},
+        'measured_samples': 257}}], 'failed_count': 0}
+    assert artifacts._canonicalize_panel_audit_paths(saved) == artifacts._canonicalize_panel_audit_paths(relocated)
+    relocated['audited'][0]['execution']['measured_samples'] = 258
+    assert artifacts._canonicalize_panel_audit_paths(saved) != artifacts._canonicalize_panel_audit_paths(relocated)

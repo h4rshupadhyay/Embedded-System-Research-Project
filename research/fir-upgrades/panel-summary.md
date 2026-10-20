@@ -45,7 +45,7 @@ The reversal condition holds in 24 of 32 complete wide-required fixed-compiler c
 
 D_old and D_new are known in 40/48 fixed cells and 20/24 compiler-selectable cells. The remaining native block64 cells are unknown because the fast-CMSIS candidate is unavailable.
 
-Complete-cell all-form winners (ties retained in JSON): cert_direct_balanced 12, cert_direct_first 16, trans_const 16, trans_hcub_demand 4
+Complete-cell all-form winner memberships (each tied form is counted; these counts are not a disjoint partition): cert_direct_balanced 12, cert_direct_first 16, trans_const 16, trans_hcub_demand 4
 
 ## Exact source quantizer thresholds
 
@@ -72,4 +72,4 @@ Unique admitted firmware binaries by SHA256: 280 across 280 logical identities; 
 
 ## Derived result files
 
-`panel-summary.json` contains every fixed-compiler cell, tied minimizer, D_old/D_new result, direct correction, Hcub increment, compiler-selectable result, and paired width/amplitude/regime contrast. `panel-results.json` preserves the complete identity inventory and raw-evidence references. `verification/independent-audit.json` records the independent raw-evidence audit.
+`panel-summary.json` contains every fixed-compiler cell, tied minimizer, D_old/D_new result, direct correction, Hcub increment, compiler-selectable result, and paired block-size/amplitude/regime contrast. `panel-results.json` preserves the complete identity inventory and raw-evidence references. `verification/independent-audit.json` records the independent raw-evidence audit.

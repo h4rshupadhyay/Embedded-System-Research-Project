@@ -1219,7 +1219,7 @@ def _summary_markdown(summary: dict) -> str:
                   f"fixed cells and {sum(c['D_old']['status'] == 'known' for c in summary['compiler_selectable_cells'])}/24 "
                   'compiler-selectable cells. The remaining native block64 cells are unknown because the fast-CMSIS '
                   'candidate is unavailable.', '',
-                  'Complete-cell all-form winners (ties retained in JSON): ' + ', '.join(
+                  'Complete-cell all-form winner memberships (each tied form is counted; these counts are not a disjoint partition): ' + ', '.join(
                       f"{form} {count}" for form, count in sorted(summary['all_form_winner_counts'].items())), '',
                   '## Exact source quantizer thresholds', '',
                   'Counts below use exact source sums for measured samples only; they are not inferred from target branches.', '',
@@ -1239,7 +1239,7 @@ def _summary_markdown(summary: dict) -> str:
     lines.extend(['', '## Derived result files', '',
                   '`panel-summary.json` contains every fixed-compiler cell, tied minimizer, '
                   'D_old/D_new result, direct correction, Hcub increment, compiler-selectable result, '
-                  'and paired width/amplitude/regime contrast. `panel-results.json` preserves the '
+                  'and paired block-size/amplitude/regime contrast. `panel-results.json` preserves the '
                   'complete identity inventory and raw-evidence references. '
                   '`verification/independent-audit.json` records the independent raw-evidence audit.', ''])
     return '\n'.join(lines)

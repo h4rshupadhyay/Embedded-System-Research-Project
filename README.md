@@ -6,13 +6,20 @@ affect fixed-point FIR software on a pinned Cortex-M0 simulator and CPU cost mod
 Start with the [project guide](README-FIR.md) and
 [current proposal](professor-topic-proposal.md).
 
-The stage 1 [IEEE paper](research/fir-paper/manuscript.pdf),
-[editable manuscript](research/fir-paper/manuscript.md), and
-[reproduction guide](research/fir-paper/README.md) present the completed study.
-Its retrospective hypothesis that Hcub retains the earlier advantage in all
-four configurations is rejected: corrected direct wins both GCC10 cases,
-while Hcub wins both GCC15 cases. The paper explains the comparison and its
-limits. [Execution checkpoint](research/fir-paper/PROGRESS.md).
+The revised [IEEE paper](research/fir-upgrades/paper/manuscript.pdf),
+[editable manuscript](research/fir-upgrades/paper/manuscript.md), and
+[evidence guide](research/fir-upgrades/README.md) extend the original study with
+exact saved-event sensitivity, a frozen prospective panel, and a matched
+block1 intervention. Strengthening the direct comparator reverses 24 of 32
+complete fresh wide-design comparisons, while incremental sharing loses to
+ordinary transposition in all 32. The eight unavailable native cases remain
+explicit. The intervention supports a bounded generated-code explanation.
+[Upgrade checkpoint](research/fir-upgrades/PROGRESS.md).
+
+The [first-version paper](research/fir-paper/manuscript.pdf) and its
+[reproduction guide](research/fir-paper/README.md) are preserved byte-for-byte.
+Its four-cell result remains: corrected direct wins both GCC10 cases, while
+Hcub wins both GCC15 cases.
 
 The [Stage 2 formulation gate](research/fir-stage2-formulation-gate.md) is also
 complete: the proposed search state omits instruction-relevant locations in its

@@ -6,3 +6,4 @@
 
 # Matplotlib emits intentional spaces in generated SVG path data.
 research/fir-paper/figures/*.svg -whitespace
+research/fir-upgrades/paper/figures/*.svg -whitespace

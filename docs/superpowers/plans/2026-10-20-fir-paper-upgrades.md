@@ -86,10 +86,10 @@
 
 **Files:** new `research/fir-upgrades/paper/manuscript.md`, plot helper/assets, TeX/PDF/README/render-log, upgrade README/checkpoint; project navigation and proposal; upgraded evidence bundle/manifests. Original `research/fir-paper/manuscript.*` remain byte-identical.
 **Interfaces:** consumes admitted Tasks2/3/5/6 and per-upgrade gate outcomes. No new experiment choice.
-- [ ] Sol authors result-first revision: three contrasts, concise H_R chronology, incremental effects, arbitrary-cost sensitivity, controlled prospective outcomes, matched intervention and honest novelty/value verdicts. Add representation/lifetime diagram and justified tables/plots; no tests of prose wording.
-- [ ] Luna renders figures and real IEEEtran PDF with existing tools; inspect every page PNG. Validate primary references/access and quantitative claims against admitted outputs; preserve editable Markdown/TeX.
-- [ ] Extend evidence package with admitted new raw slice and portable verifiers; fresh reviewer runs original24+4+2 and new-panel/intervention verification from clean unpacked tree without original ignored paths. State rebuild dependencies honestly.
-- [ ] Run relevant suites, production exports/raw verification, frozen-hash/link checks and every-page QA. Fresh Sol whole-change science/spec/code/artifact review; bounded fixes through RED/GREEN, final re-review, local completion commit and clean status.
+- [x] Sol authors result-first revision: three contrasts, concise H_R chronology, incremental effects, arbitrary-cost sensitivity, controlled prospective outcomes, matched intervention and honest novelty/value verdicts. Add representation/lifetime diagram and justified tables/plots; no tests of prose wording.
+- [x] Luna renders figures and real IEEEtran PDF with existing tools; inspect every page PNG. Validate primary references/access and quantitative claims against admitted outputs; preserve editable Markdown/TeX.
+- [x] Extend evidence package with admitted new raw slice and portable verifiers; fresh reviewer runs original24+4+2 and new-panel/intervention verification from clean unpacked tree without original ignored paths. State rebuild dependencies honestly.
+- [x] Run relevant suites, production exports/raw verification, frozen-hash/link checks and every-page QA. Fresh Sol whole-change science/spec/code/artifact review; bounded fixes through RED/GREEN, final re-review, local completion commit and clean status.
 
 ## Resume contract
 

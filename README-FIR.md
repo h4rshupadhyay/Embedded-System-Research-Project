@@ -13,13 +13,20 @@ The professor is the final evaluator, not a project guide.
 
 ## Start here
 
-**Stage 1 paper:** [IEEE conference PDF](research/fir-paper/manuscript.pdf),
-[editable manuscript](research/fir-paper/manuscript.md), and
-[reproduction guide](research/fir-paper/README.md). The paper assesses and rejects
-the retrospective hypothesis that the earlier Hcub modeled-energy advantage
-survives an equally specialized direct control in all four configurations.
-The [execution checkpoint](research/fir-paper/PROGRESS.md) records the resumable
-Sol 6.1/Luna 6 workflow and actual verification status.
+**Revised empirical paper:** [IEEE conference PDF](research/fir-upgrades/paper/manuscript.pdf),
+[editable manuscript](research/fir-upgrades/paper/manuscript.md), and
+[portable evidence and reproduction guide](research/fir-upgrades/README.md).
+The revision adds exact incremental-sharing/sensitivity analysis, a frozen
+three-design panel and the matched block1 intervention. Comparator correction
+reverses 24/32 complete fresh wide-design cells, but Hcub loses every fresh wide
+incremental-sharing comparison against ordinary transposition. Eight native
+cases are unavailable; no population or hardware generality follows. The
+[upgrade checkpoint](research/fir-upgrades/PROGRESS.md) records actual checks.
+
+The [first IEEE version](research/fir-paper/manuscript.pdf),
+[original editable manuscript](research/fir-paper/manuscript.md), and
+[original reproduction guide](research/fir-paper/README.md) remain unchanged.
+They record rejection of the retrospective all-four-cell robustness rule.
 
 The compiler-explanation assignments are complete with accepted partial
 attribution. See the [final decision](research/fir-sharing-probe/explanation-check/final-decision.md).
@@ -82,16 +89,13 @@ The old root-level simulator patch in Git history belongs to a different experim
 CMSIS-DSP v1.14.4 and core headers are needed to rebuild the historical library
 controls; their recorded results can be read without rebuilding them.
 
-Installed toolchains, external build checkouts, generated firmware/raw run
-directories and the old pilot's downloaded ECG dataset are excluded from this
-snapshot. Saved result JSON/CSV files and their hashes are included; historical
-`--verify` commands require the corresponding ignored raw build artifacts and
-cannot completely verify an ordinary clone. The original author's workspace
-retains those artifacts. A peer can finish host implementation on another
-machine and return the owned directory for the final four target runs in the
-original pinned environment; unavailable target measurements must be marked
-pending rather than fabricated. Include new measurement evidence when handing
-back the peer deliverable, even if ignored build files need a separate archive.
+Installed toolchains and generated working caches remain ignored. The
+[portable evidence bundle](research/fir-upgrades/evidence.tar.gz) supplies the
+finite historical and new raw evidence needed for the documented saved-byte
+checks in a fresh directory. These checks use Python's standard library and
+need no target toolchain. Rebuilding and executing firmware is a separate
+reproduction level requiring the pinned tools and dependencies above. The
+bundle's hashes check consistency, not authenticity.
 
 Costs are architectural timing estimates and modeled CPU energy, not board
 measurements. Do not interpret upstream raw ticks as Cortex-M0 cycles.

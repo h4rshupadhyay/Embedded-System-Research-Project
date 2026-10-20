@@ -1,6 +1,18 @@
 # Professor discussion proposal
 
-**Working title:** Input-Range Contracts and Arithmetic Width in Energy-Efficient Fixed-Point FIR Software
+**Working title:** Arithmetic-Fair Comparisons of Exact FIR Software: A Cortex-M0 Model Case Study
+
+**Revised paper, 20 October 2026:** [IEEE PDF](research/fir-upgrades/paper/manuscript.pdf),
+[editable source](research/fir-upgrades/paper/manuscript.md), and
+[portable evidence guide](research/fir-upgrades/README.md). A frozen synthetic
+panel supplies comparator reversals in 24/32 complete fresh wide-design cells,
+while incremental sharing is unfavorable in every one of those cells. Eight
+native cases remain unavailable. A matched block1 intervention reproduces the
+original controls, removes the identified next-output preparation, reduces
+modeled cost under both compilers and reverses the direct compiler gap; other
+code changes prevent exclusive attribution to one traffic subset. The result
+supports a bounded empirical paper and reproducible artifact, with no new FIR
+algorithm, established field priority or physical-energy claim.
 
 **Stage 1 paper:** [IEEE manuscript PDF](research/fir-paper/manuscript.pdf),
 [editable source](research/fir-paper/manuscript.md), and
@@ -109,4 +121,10 @@ The timing-estimate and modeled-energy winners agree in all 108 **original pilot
 
 ## What to tell the professor now
 
-> We completed the missing arithmetic-fairness comparison. Narrow direct partial sums reverse the apparent transposed advantage with GCC 10, while Hcub retains an advantage with GCC 15. The corrected result is compiler-dependent and has explicit code, state and frame tradeoffs. This supports a reproducible empirical project about fair FIR implementation comparisons; it does not establish a new algorithm or physical energy savings.
+> We completed an arithmetic-fair FIR case study with a frozen prospective panel,
+> exact saved-event sensitivity, a matched compiler intervention and portable raw
+> evidence. Strengthening direct arithmetic reverses apparent sharing advantages,
+> but sharing itself loses to ordinary transposition on both fresh wide designs.
+> The intervention supports a specific generated-code mechanism while preserving
+> required history movement. These are finite simulator/model findings, with
+> explicit unavailable cases; we do not claim a new FIR algorithm or board energy.

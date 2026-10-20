@@ -2,6 +2,13 @@
 
 19 October 2026. Strict FIR-only, simulator-only college research scope. Old implementation grid and processor constraints do not apply. Targeted primary-source check, not exhaustive priority certification.
 
+**Revised empirical study, 20 October 2026:** See the
+[upgraded paper](research/fir-upgrades/paper/manuscript.md) and
+[evidence guide](research/fir-upgrades/README.md) for the current finite
+comparison, prospective boundaries and matched intervention. The earlier topic
+screen below is historical; the upgrades establish supporting empirical evidence,
+not a new algorithm or certified field priority.
+
 **Current follow-up, 20 October 2026:** The topic screen below records an earlier
 stage. The current exact-software fairness gate is complete: partial direct wins
 both GCC 10 configurations, and demand Hcub wins both GCC 15 configurations.
