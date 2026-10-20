@@ -142,3 +142,85 @@ Final source/output SHA-256 values:
 | ieee-template.tex | `d647e00b72f83dfa009696c97b3fba8053e902139e8721bc1533fce8cbe96a32` |
 
 Installed skill SKILL.md SHA-256: `62ef11c06f2796c74e55ab24908ed31bafebfa0f1b736499d1615ac374cf7f6d`.
+
+## Timing-review correction, 20 October 2026
+
+The current revision addresses all five findings in
+`manuscript-review-2026-10-20.md`. It uses the installed PDF and
+research-paper-writing skills to verify evidence placement and claim scope.
+The PDF operation marker ran successfully with operation `edit` before this
+continuation's first authoring command. No target measurement was run.
+
+The render command remains the one documented above. Its final invocation
+exited 0 and produced 12 letter-size IEEEtran pages, three figures, twelve
+tables and twelve references. The render output has no overfull boxes.
+Ordinary underfull-box and font-substitution diagnostics remain; the rendered
+pages were checked. The `lineno.sty` package's cached-source UTF-8 warning
+also remains, without an observed missing glyph in the output.
+
+Final page rasterization used:
+
+```sh
+pdftoppm -scale-to 1400 -png research/fir-upgrades/paper/manuscript.pdf \
+  /tmp/fir-timing-final3-page
+```
+
+The coordinator opened every final page individually. Text, mathematics,
+figures, all table values and author details are legible without observed
+clipping or overlap. Tables III/IV now appear inline on page 5; Figure 2
+finishes the original-results evidence on page 6 before the compiler section
+on page 7. Tables VIII/IX precede the panel section on page 8; Figure 3
+precedes discussion on page 10. `FloatBarrier` bounds these sections and
+`raggedbottom` prevents stretched paragraphs. The final reference page is
+balanced at reference [7]. All preceding eleven page rasters are byte-identical
+to the independently inspected preceding render.
+
+Host verification (Tectonic integration enabled) used:
+
+```sh
+env FIR_PAPER_TECTONIC=/tmp/fir-paper-tools/tectonic \
+  PYTHONPATH=research/fir-upgrades:research/fir-baseline:research/fir-paper:/tmp/fir-paper-render-env/lib/python3.10/site-packages \
+  python3 -m pytest -q --import-mode=importlib
+python3 research/fir-upgrades/timing_correction.py --verify
+```
+
+The full suite passes 249 tests, with zero skips. A direct initial collection
+without the repository's module paths/render dependencies failed to import
+four test modules; the successful command above resolves that environment
+setup. An earlier complete run passed 248 and skipped the optional renderer;
+explicitly setting `FIR_PAPER_TECTONIC` closes that skip.
+The eight timing regressions pass independently. The frozen legacy helper
+returns 15 for the literal BL/B/PUSH/POP-PC fixture, versus the correction's
+Arm-table total of 16. The frozen helper remains unchanged for historical
+reproduction; its cycle fields are superseded for current timing claims.
+
+The corrected report regenerates byte-for-byte, and production verification
+passes from a relocated 920-file tree with `PATH=/nonexistent`. It preserves
+all energy totals and eight unavailable identities. All 24 changed paper
+cycle cells agree with the corrected report; every other table cell and all
+author metadata are unchanged. The 19 protected payload hashes from
+`clarity-rewrite-validation.json` still match. The first paper, numerical
+inventories, protocol, certificates, figure files and archived evidence are
+unchanged. The new timing report is separate from that historical archive.
+
+One fresh-context independent scientific/code review returned PASS with zero
+actionable findings. It separately reconstructed all 304 timing/energy rows,
+checked all bound raw/disassembly/binary hashes and all 24 changed cycle cells,
+and verified 680 panel, 40 original and two intervention cycle orderings. It
+ran the eight focused tests and report verification and inspected all twelve
+pages before the final reference balancing; the coordinator inspected that
+last change. Broader physical validity, fresh target reproduction, exhaustive
+arithmetic/compiler correctness and publication suitability remain outside
+what this saved-data correction establishes.
+
+Current source/output SHA-256 values:
+
+| File | SHA-256 |
+|---|---|
+| manuscript.md | `a807a98aac573189d899437c10862ca5835e0755b966535ca5de501512c598d0` |
+| manuscript.tex | `0d40eeb18aa82ae49fadf6a4738f006ffb2b1a462fa498c3b379874271f1f598` |
+| manuscript.pdf | `153d188a4f1c5cdd2f0734f68988d8a502433a9be0a829a7c19fd92236e8610e` |
+| ieee-filter.lua | `821606915e475cab8f5c165fb7e3e16bf053a36fb5613c2e1e1d50334046c136` |
+| ieee-template.tex | `d15ed054480a38223b00dd25a61b9fae87c441d70d82e9e161eb1c22fbc84087` |
+
+Corrected report SHA-256: `b6d144ace8447d8192351f574096eb005c6814b944124338de2a4debfa218fcf`.

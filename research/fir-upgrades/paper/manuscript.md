@@ -203,10 +203,19 @@ instruction consistently.
 
 Let $N_I$ include all instructions, $N_M$ native multiplication instructions,
 $B$ taken branches, $R$ and $W$ SRAM reads/writes, $F$ Flash data reads and
-$N_{BL}$ branch-with-link instructions. The zero-wait, single-cycle-MUL
+$N_{BL}$ branch-with-link instructions. Let $N_{POP,PC}$ count returns that
+pop PC from the stack. The zero-wait, single-cycle-MUL
 cycle estimate, using Arm's instruction timings [11], is
 
-$$T=N_I+R+W+F+2B+N_{BL}.$$
+$$T=N_I+R+W+F+2B+N_{BL}+N_{POP,PC}.$$
+
+Arm assigns a return-by-POP $4+N$ cycles, including the PC transfer in $N$.
+Instruction, read and taken-branch counts supply $3+N$; the final term supplies
+the remaining cycle. The corrected timing report rederives this count from
+saved logs and screens the linked scalar instruction subset. It supersedes
+the historical inventories' cycle fields, which omitted that term. Energy
+weights and measured events are unchanged; the first paper and archive retain
+their historical values.
 
 Nikov et al.'s [5] 20 MHz, prefetch-off, zero-wait weights give modeled CPU
 energy in nJ:
@@ -252,6 +261,9 @@ signed-edge output comparisons. Emitted-code inspection confirmed native
 partials and a wide final reduction in all four corrected binaries. Hashes
 bind measured events to checked sources and binaries. Library paths additionally
 require pinned source/toolchain semantics; output agreement alone is insufficient.
+The CMSIS packed helpers rely on GCC's sign-extending signed right shift,
+modulo conversion to signed widths and documented signed-left-shift extension.
+These compiler dependencies are explicit in both pinned GCC versions [12].
 
 ### 4.3 Saved-event analysis
 
@@ -310,8 +322,11 @@ frozen by hash before performance evaluation.
 Each array has six implementations. All include wide direct, first certified
 direct, ordinary transposed, Hcub and standard unrolled CMSIS. The sixth is
 fast CMSIS for the native array or balanced direct for a wide array. Candidates
-receive identical coefficients, full-int16 semantics, block knowledge and
-generation budget. Pinned CMSIS-DSP v1.14.4 paths use reversed coefficients
+receive identical coefficients, full-int16 semantics and block knowledge.
+Generation uses fixed recipes: two direct partition rules for each wide
+array and one Hcub graph/emission schedule. Candidates are not replaced based
+on observed target cost; equal optimization effort or exhaustive search is
+not claimed. Pinned CMSIS-DSP v1.14.4 paths use reversed coefficients
 and required storage, with separate source/compiler eligibility and no
 fast-path input scaling [9]. Each Hcub graph comes from one fixed
 `acm -b 15 -seed 1 -nofs -gc` run on sorted odd fundamentals.
@@ -341,9 +356,10 @@ the minimum eligible nontransposed old control: wide direct, standard CMSIS
 and fast CMSIS where eligible. Let $D_{new}$ add the available certified
 direct forms. A reversal satisfies $E_H<D_{old}$ but $E_H\ge D_{new}$.
 The prospective extension requires at least one such complete condition in
-either wide array. No reversal among the complete wide conditions refutes
-that extension; a missing required case leaves the full-panel assessment
-incomplete. All ties retain every minimizer.
+either wide array. One admitted witness supports this existential extension.
+Zero witnesses refute it only if every required wide condition is complete;
+otherwise it remains unresolved. Missing native cases separately leave the
+larger three-array panel incomplete. All ties retain every minimizer.
 
 Additional comparisons distinguish implementation choices from that reversal
 predicate. We report all-form winners, certified/wide and Hcub/ordinary
@@ -539,10 +555,10 @@ signed-edge cases pass output/history/guard and raw-evidence checks.
 
 | Compiler/form | Total energy, nJ | Energy/output, nJ | Cycles/output | Symbol, B | Frame, B | Stack chain, B | Flash image, B |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| GCC10 general | 266394.093850 | 1036.552894 | 1065.108949 | 1036 | 72 | 144 | 2166 |
-| GCC10 specialized | 242800.957748 | 944.750808 | 968.108949 | 888 | 20 | 92 | 2018 |
-| GCC15 general | 336863.793775 | 1310.754061 | 1365.634241 | 1372 | 240 | 312 | 2490 |
-| GCC15 specialized | 230943.514627 | 898.612897 | 920.105058 | 884 | 16 | 88 | 2002 |
+| GCC10 general | 266394.093850 | 1036.552894 | 1066.112840 | 1036 | 72 | 144 | 2166 |
+| GCC10 specialized | 242800.957748 | 944.750808 | 969.112840 | 888 | 20 | 92 | 2018 |
+| GCC15 general | 336863.793775 | 1310.754061 | 1366.638132 | 1372 | 240 | 312 | 2490 |
+| GCC15 specialized | 230943.514627 | 898.612897 | 921.108949 | 884 | 16 | 88 | 2002 |
 
 Table: The four fixed intervention rows, 257 measured outputs each. Cycles are
 the event-derived estimate. Process-symbol sizes include literal pools;
@@ -773,6 +789,11 @@ CMSIS/Hcub dependencies; executable toolchains are excluded from the archive.
 Hashes establish byte consistency, not authenticity or physical validity.
 The package supports analysis regeneration and saved-binary verification,
 without claiming fresh performance replication, a public archive or a DOI.
+The separate corrected-timing report uses the same bound logs and binaries;
+it is a new saved-data analysis, outside that historical archive. All 304
+admitted timing rows retain their energy totals. No panel pair changes its
+cycle ordering, and the twelve original event-analysis cycle differences
+and both intervention cycle reductions remain unchanged.
 
 ## 9. Conclusion
 
@@ -800,26 +821,26 @@ capacity. These are not total image, peak stack or SRAM high-water measurements.
 
 | Cell | Form | Cycles/out. | Code, B | State, B | Frame, B |
 |---|---|---:|---:|---:|---:|
-| GCC10/1 | CMSIS | 1585.11 | 1494 | 112 | 8 |
-| GCC10/1 | Wide direct | 1606.11 | 1736 | 98 | 440 |
-| GCC10/1 | Partial direct | 1065.11 | 1036 | 98 | 72 |
-| GCC10/1 | Ordinary transposed | 1106.11 | 1540 | 192 | 272 |
-| GCC10/1 | Hcub | 1150.11 | 1504 | 192 | 344 |
-| GCC10/64 | CMSIS | 924.32 | 1494 | 236 | 8 |
-| GCC10/64 | Wide direct | 1029.33 | 1720 | 224 | 440 |
-| GCC10/64 | Partial direct | 583.31 | 1196 | 224 | 72 |
-| GCC10/64 | Ordinary transposed | 630.64 | 1540 | 192 | 272 |
-| GCC10/64 | Hcub | 636.40 | 1504 | 192 | 344 |
-| GCC15/1 | CMSIS | 1550.11 | 1450 | 112 | 8 |
-| GCC15/1 | Wide direct | 1798.11 | 1872 | 98 | 608 |
-| GCC15/1 | Partial direct | 1365.63 | 1372 | 98 | 240 |
-| GCC15/1 | Ordinary transposed | 1100.11 | 1532 | 192 | 272 |
-| GCC15/1 | Hcub | 1062.11 | 1352 | 192 | 344 |
-| GCC15/64 | CMSIS | 851.98 | 1450 | 236 | 8 |
-| GCC15/64 | Wide direct | 1074.65 | 1884 | 224 | 608 |
-| GCC15/64 | Partial direct | 612.39 | 1312 | 224 | 232 |
-| GCC15/64 | Ordinary transposed | 627.57 | 1532 | 192 | 272 |
-| GCC15/64 | Hcub | 593.49 | 1352 | 192 | 344 |
+| GCC10/1 | CMSIS | 1587.11 | 1494 | 112 | 8 |
+| GCC10/1 | Wide direct | 1607.11 | 1736 | 98 | 440 |
+| GCC10/1 | Partial direct | 1066.11 | 1036 | 98 | 72 |
+| GCC10/1 | Ordinary transposed | 1107.11 | 1540 | 192 | 272 |
+| GCC10/1 | Hcub | 1151.11 | 1504 | 192 | 344 |
+| GCC10/64 | CMSIS | 924.36 | 1494 | 236 | 8 |
+| GCC10/64 | Wide direct | 1029.35 | 1720 | 224 | 440 |
+| GCC10/64 | Partial direct | 583.33 | 1196 | 224 | 72 |
+| GCC10/64 | Ordinary transposed | 630.66 | 1540 | 192 | 272 |
+| GCC10/64 | Hcub | 636.42 | 1504 | 192 | 344 |
+| GCC15/1 | CMSIS | 1552.11 | 1450 | 112 | 8 |
+| GCC15/1 | Wide direct | 1799.11 | 1872 | 98 | 608 |
+| GCC15/1 | Partial direct | 1366.64 | 1372 | 98 | 240 |
+| GCC15/1 | Ordinary transposed | 1101.11 | 1532 | 192 | 272 |
+| GCC15/1 | Hcub | 1063.11 | 1352 | 192 | 344 |
+| GCC15/64 | CMSIS | 852.02 | 1450 | 236 | 8 |
+| GCC15/64 | Wide direct | 1074.67 | 1884 | 224 | 608 |
+| GCC15/64 | Partial direct | 612.42 | 1312 | 224 | 232 |
+| GCC15/64 | Ordinary transposed | 627.59 | 1532 | 192 | 272 |
+| GCC15/64 | Hcub | 593.51 | 1352 | 192 | 344 |
 
 Table: Every original principal-row resource diagnostic.
 
@@ -832,6 +853,12 @@ contains all 12 difference vectors, cost/resource components, exact rational
 boundaries and endpoint winners. The [artifact instructions](../README.md),
 [manifest](../evidence-manifest.json) and [relocated check report](../artifact-check.json)
 describe the saved package and verification levels.
+The [corrected timing report](../timing/corrected-timing.json) supersedes
+historical cycle fields for this manuscript's 20 original, 280 admitted panel
+and four intervention performance identities. Its
+[reanalysis instructions](../timing/README.md) identify the formula, raw-log
+bindings and instruction-subset checks. Eight unavailable panel identities
+remain unavailable.
 
 The frozen [protocol](../panel-protocol.json), [design](../panel-design.json),
 [inputs](../panel-inputs.json), [certificates](../panel-certificates.json),
@@ -858,6 +885,8 @@ pp. 9–14. [Primary manuscript](https://cecs.uci.edu/~papers/compendium94-03/pa
 Implementations of FIR Filters,” in *Proceedings of IEEE ICASSP*, vol. II,
 2003, pp. 541–544, doi: 10.1109/ICASSP.2003.1202423.
 [Author-uploaded full text](https://www.researchgate.net/publication/2589071_Fast_Automatic_Software_Implementations_of_FIR_Filters).
+The [author-group manuscript](https://spiral.ece.cmu.edu/pub-spiral/pubfile/fir.pdf)
+provides an additional primary-source location.
 
 [3] P. D'Alberto, M. Püschel, and F. Franchetti, “Performance/Energy
 Optimization of DSP Transforms on the XScale Processor,” in *HiPEAC 2007*,
@@ -900,3 +929,7 @@ Used as an established practice reference, not a binding venue rule.
 [11] Arm, *Cortex-M0 Technical Reference Manual*, DDI 0432C,
 §§1.4.1 and 3.3, 2009.
 [Configurable multiplier and instruction timings](https://documentation-service.arm.com/static/5e8e294afd977155116a6a5b).
+
+[12] GNU Project, “Integers,” *GCC 10.3 and 15.2 Online Documentation*, §4.5.
+[GCC 10.3 integer semantics](https://gcc.gnu.org/onlinedocs/gcc-10.3.0/gcc/Integers-implementation.html);
+[GCC 15.2 integer semantics](https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Integers-implementation.html).

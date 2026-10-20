@@ -52,6 +52,11 @@ function Pandoc(doc)
     else
       if b.t == "Header" then
         local heading = pandoc.utils.stringify(b.content)
+        -- Finish each results section's evidence before beginning the next
+        -- argument: compiler, fresh panel, then discussion.
+        if heading:match("^[678]%.%s") then
+          out:insert(pandoc.RawBlock("latex", "\\FloatBarrier"))
+        end
         local appendix_title = heading:match("^Appendix [A-Z]%.%s*(.*)$")
         if appendix_title then
           if not appendix_started then
@@ -156,11 +161,12 @@ function Table(t)
   caption = caption:gsub("\\par%s*$", "")
   -- Keep the compact appendix diagnostic table in a column, alongside its
   -- discussion, rather than deferring a wide float to an otherwise empty page.
-  local compact = table_count == 12
-  local environment = compact and "table" or "table*"
+  local compact = table_count == 3 or table_count == 4 or table_count == 7 or table_count == 12
+  local environment = compact and "inlinetable" or "table*"
   local width = compact and "\\columnwidth" or "\\textwidth"
   -- Respect float limits so dense table sequences cannot overrun a page.
-  local raw = "\\begin{" .. environment .. "}[t]\n\\centering\\footnotesize\n"
+  local placement = compact and "" or "[t]"
+  local raw = "\\begin{" .. environment .. "}" .. placement .. "\n\\centering\\footnotesize\n"
   if compact then raw = raw .. "\\setlength{\\tabcolsep}{2pt}\n" end
   if trim(caption) ~= "" then
     local label = t.attr.identifier ~= "" and t.attr.identifier or ("tab:" .. tostring(table_count))

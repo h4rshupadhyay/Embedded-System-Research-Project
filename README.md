@@ -10,7 +10,10 @@ The revised [IEEE paper](research/fir-upgrades/paper/manuscript.pdf),
 [editable manuscript](research/fir-upgrades/paper/manuscript.md), and
 [evidence guide](research/fir-upgrades/README.md) extend the original study with
 exact saved-event sensitivity, a frozen prospective panel, and a matched
-block1 intervention. Strengthening the direct comparator reverses 24 of 32
+block1 intervention. A [saved-data timing correction](research/fir-upgrades/timing/README.md)
+adds the omitted POP-to-PC cycle to the current paper's cycle results;
+historical inventories/archive remain preserved and energy results are unchanged.
+Strengthening the direct comparator reverses 24 of 32
 complete fresh wide-design comparisons, while incremental sharing loses to
 ordinary transposition in all 32. The eight unavailable native cases remain
 explicit. The intervention supports a bounded generated-code explanation.

@@ -4,7 +4,12 @@ The clarity revision on `research/fir-clarity-rewrite` applies the installed
 `research-paper-writing` skill. Its outline, paragraph roles, claim/evidence
 map and reviewer questions are in [clarity-rewrite-review.md](clarity-rewrite-review.md).
 The numerical tables, exact contract, authors and underlying measurements are
-preserved. The saved evidence archive, manifest and copied-tree check report
+preserved in that first editorial commit. The later review-fix revision corrects
+the timing equation and 24 cycle cells from saved logs, using the
+[version 2 timing report](../timing/README.md); energy cells, arithmetic,
+authors and raw evidence remain unchanged. The original and panel cycle
+inventories retain their historical values and are superseded for timing.
+The saved evidence archive, manifest and copied-tree check report
 remain historical snapshots from before this editorial revision; the revised
 paper has not been repackaged into that archive.
 
@@ -45,3 +50,14 @@ inspection result. These tools are not part of the evidence archive. Rebuilding
 the target measurements requires separately acquired pinned Arm GCC 10/15,
 Thumbulator and CMSIS-DSP dependencies as described in the experiment README;
 paper rendering does not rebuild measurements.
+
+The small principal energy/percentage and compiler-account tables render
+inline beside their discussion. Pending wide evidence is flushed before the
+next results section. This prevents the RAM-sensitivity figure from crossing
+into the compiler section and keeps intervention evidence before panel results.
+
+The [review and closure](manuscript-review-2026-10-20.md) records the five
+findings and their resolution. The [correction validation](timing-review-validation.json)
+records preserved hashes, the 24 corrected cycle cells and final paper hashes.
+The current PDF has 12 pages; the render log records its final visual inspection
+and the 249-test host verification.

@@ -10,9 +10,14 @@
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
+\usepackage{placeins}
+\raggedbottom
+\makeatletter
+\newenvironment{inlinetable}{\par\medskip\noindent\begin{minipage}{\columnwidth}\def\@captype{table}}{\end{minipage}\par\medskip}
+\makeatother
 \setlength{\emergencystretch}{2em}
-% Balance the eleven-reference bibliography on the final page.
-\IEEEtriggeratref{6}
+% Balance the final reference page after the section-bound float barriers.
+\IEEEtriggeratref{7}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,fontsize=\small}
 \newenvironment{Shaded}{}{}
 \title{$title$}

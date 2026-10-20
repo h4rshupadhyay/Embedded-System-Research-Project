@@ -1,5 +1,26 @@
 # FIR upgrades execution checkpoint
 
+## Current manuscript review fixes, 20 October 2026
+
+The subsequent clarity/timing revision is complete on
+`research/fir-clarity-rewrite`; the upgrade campaign recorded below remains a
+historical checkpoint. The current paper has 12 pages. All five findings in
+[the manuscript review](paper/manuscript-review-2026-10-20.md) are resolved:
+POP-to-PC timing, fixed generation recipes, explicit missing-data logic,
+versioned GCC semantics and evidence placement.
+
+The [v2 timing correction](timing/README.md) supersedes only historical cycle
+fields. It reproduces 304 saved timing identities and preserves eight
+unavailable cases and all energy totals. All 24 changed paper cycle cells
+match the report. No target measurement or graph generation was repeated;
+the first paper, inventories and archive remain unchanged. A relocated
+920-file tree verifies without target tools. The full host suite passes
+249 tests with no skips; one fresh-context independent scientific/code review
+passes with no actionable findings. All final PDF pages were inspected.
+Current hashes/checks are in [the validation record](paper/timing-review-validation.json)
+and [render log](paper/render-log.md). Delivery is a local commit on the
+existing research branch.
+
 Plan: `docs/superpowers/plans/2026-10-20-fir-paper-upgrades.md`.
 Spec: `docs/superpowers/specs/2026-10-20-fir-paper-upgrades-design.md`.
 Start commit `8be6f32`; branch `research/fir-independent-check`.

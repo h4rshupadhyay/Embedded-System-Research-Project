@@ -1,0 +1,65 @@
+{
+  "base_commit": "2f8dd5e",
+  "changed_cycle_cells": 24,
+  "all_other_table_cells_unchanged": true,
+  "all_24_cycles_match_corrected_report": true,
+  "author_metadata_unchanged": true,
+  "protected_sha256": {
+    "research/fir-paper/manuscript.md": "63a5928d6be9eb47d0ad0df32d6a8866a17ba5930e6af336de2005c4fcc40257",
+    "research/fir-paper/manuscript.tex": "78e83e6283ede9ae2d79d3e440a3246fd6b052028a3a6143c4a161c878bd49c4",
+    "research/fir-paper/manuscript.pdf": "4df86e274c5985de418c549fe283af3fb7099b29ae3a430f62514b05bec43a8e",
+    "research/fir-paper/results.json": "3161d9a01ae81d0cb1ae38b81bc0ea2d02bd1e3cb8ca604e13f5a2f72defe6fd",
+    "research/fir-upgrades/analysis/analysis.json": "5eee701fd67e615e4166d7fd2add05a7dc60caae993fbfc70295ed83a4c68eea",
+    "research/fir-upgrades/panel-protocol.json": "d2b85b2580ec551efcbc457159ff9237482aa2f146417ed236bbd0c0aeb8646c",
+    "research/fir-upgrades/panel-results.json": "b1b35ba2cafe03cc3c67949fccee3c16267b3bd259584b8d1cf005be77dc1f2d",
+    "research/fir-upgrades/panel-summary.json": "77dc7b418a84d82fc216c16b02073d62958d802730617bf324d2ff21252e5b0f",
+    "research/fir-upgrades/panel-certificates.json": "a28ea1f5fa41ec23daf4184d6c8f62c5b616dee1f352170b58a9bc8f080c9702",
+    "research/fir-upgrades/intervention-results.json": "6bfb0cf3d7159dff812c036c5272d296b94f252a62b7dacf6105688d09068aa9",
+    "research/fir-upgrades/intervention-review.md": "a227c19e8faf5a9f81548f3de60a488a916fae9066298a55c7e0a30144ffdb01",
+    "research/fir-upgrades/evidence-manifest.json": "7bd98ce7868bcd3ce452d35791bb786d6ef7023eed4ba5d0fc30afa88cea47ae",
+    "research/fir-upgrades/artifact-check.json": "5e5429e46e8c2d27fb2a7fe23df81855e06b2b6d62af671b69f7e7d60d2a3b63",
+    "research/fir-upgrades/paper/figures/panel-boundaries.png": "423af2304b8807b9ffe121eac5dd26bb76eb8ad8fc1d5476bbffb8dabb35c487",
+    "research/fir-upgrades/paper/figures/panel-boundaries.svg": "42f3bc1bdbfc78c945fe12543242cb3cd845f0c558a1d5e33a884b5bcb58e4ff",
+    "research/fir-upgrades/paper/figures/representation-lifetime.png": "bb413d1f46c8a4252e7f32651b7df94019e55158053675c1447745755b9559c4",
+    "research/fir-upgrades/paper/figures/representation-lifetime.svg": "3b8b37918b9eeff6c41027a1debd4cf7817e0a2c50804d4a07e36688caf0ae2e",
+    "research/fir-upgrades/paper/figures/ram-sensitivity.png": "c8a624a642feaacbf05b00463b158b6449607708be7cb1864e44662952f91d27",
+    "research/fir-upgrades/paper/figures/ram-sensitivity.svg": "74179cc7c07a993f23095423881e1f61fa16e978fd13915495e31091ae6cae76"
+  },
+  "all_protected_payloads_unchanged": true,
+  "local_links_checked": 21,
+  "references": 12,
+  "target_measurements_run": false,
+  "historical_archive_repacked": false,
+  "counts": {
+    "intervention": 4,
+    "original": 20,
+    "panel": 280,
+    "panel_unavailable": 8
+  },
+  "render_no_overfull_boxes": true,
+  "sha256": {
+    "manuscript.md": "a807a98aac573189d899437c10862ca5835e0755b966535ca5de501512c598d0",
+    "manuscript.tex": "0d40eeb18aa82ae49fadf6a4738f006ffb2b1a462fa498c3b379874271f1f598",
+    "manuscript.pdf": "153d188a4f1c5cdd2f0734f68988d8a502433a9be0a829a7c19fd92236e8610e",
+    "ieee-template.tex": "d15ed054480a38223b00dd25a61b9fae87c441d70d82e9e161eb1c22fbc84087",
+    "ieee-filter.lua": "821606915e475cab8f5c165fb7e3e16bf053a36fb5613c2e1e1d50334046c136"
+  },
+  "host_suite": {
+    "passed": 249,
+    "skipped": 0
+  },
+  "pdf_pages": 12,
+  "all_final_pdf_pages_visually_inspected": true,
+  "relocated_timing_verification": {
+    "files": 920,
+    "path": "/nonexistent",
+    "passed": true
+  },
+  "byte_identical_report_regeneration": true,
+  "independent_review": {
+    "verdict": "PASS within scope",
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  }
+}
