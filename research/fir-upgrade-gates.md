@@ -320,7 +320,7 @@ the case list and admission/reporting review, whatever wins.
 
 Package the finite original evidence slice separately from prospective data.
 The coordinator inventory reports all 24 historical plus four partial-direct
-rows' required artifacts and 462 dependency-source entries present; independently
+rows' raw artifacts plus ten dependency-source files (462 files combined) present; independently
 verify the package manifest, not that report alone. Preserve raw C/ELF/binary/
 disassembly/stdout/stderr/commands/stack diagnostics, coefficient/input bytes,
 six report inputs, certificates, Hcub source/output notices and dependency

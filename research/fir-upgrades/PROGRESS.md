@@ -7,8 +7,12 @@ User authorized all five upgrades and per-upgrade novelty/pursuit gates.
 
 ## Current state
 
-Task1 scientific gates/design complete; local freeze commit next. No new target
-costs observed. Remaining: Tasks2-7, following all five bounded gate decisions.
+Tasks1-2 complete: gates/design `a5ba80b`; exact saved-event analysis through
+`0f52a87`, approved after two scoped fix rounds. Root verified production export,
+18-test first fix suite and >4300-digit finite root at caller precision6; worker's
+final19 analyzer +15 exporter tests pass. Original four paper hashes unchanged.
+Task3 portable evidence package is next. No new target costs observed.
+Remaining: Tasks3-7.
 
 ## Workflow and decisions
 
@@ -36,9 +40,19 @@ costs observed. Remaining: Tasks2-7, following all five bounded gate decisions.
   live in `analysis/`; revised manuscript/figures/TeX/PDF live in `paper/`, keeping
   the original paper files byte-identical. Archive462 count means combined raw
   artifacts plus10 dependency files, not462 separate source dependencies.
+- Root independently reproduced all three coefficient hashes/intervals and the
+  four specified wide-design cuts/group proofs, plus LCG prefix and both input
+  hashes, directly from the pinned recipes. No target compilation/execution.
 
 ## Resume
 
 Read this checkpoint, scientific gate and plan. Inspect Git history and live
 agents; resume first unfinished task. Never regenerate historical input/results
 or repeat already admitted measurements to seek a preferred outcome.
+
+## Deferred review notes
+
+- Task2 Minor: direct execution of test_analyze.py omits later class because
+  unittest.main() precedes it; documented discovery command runs all19 tests.
+- Initial Task2 CLI RED history was not independently verifiable; later real-file
+  mutation/preservation tests and actual successful CLI are recorded honestly.
