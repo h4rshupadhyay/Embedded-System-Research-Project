@@ -14,8 +14,8 @@ final19 analyzer +15 exporter tests pass. Original four paper hashes unchanged.
 Task3 complete at `2394cf4`; independent Astra spec/quality review approved. The package contains 531 files and passes 24 historical, four peer
 and two explanation-row checks with 29 explanation hashes and zero skips.
 Task4 preparation and independent scientific/code review complete after two
-admission fix rounds. Task5 execution is complete pending fresh scientific/code
-review. Remaining: Task5 review and Tasks6-7.
+admission fix rounds. Task5 execution and independent scientific/spec/code review are complete,
+including the provenance admission repair. Remaining: Tasks6-7.
 
 ## Workflow and decisions
 
@@ -149,3 +149,19 @@ sanitation checks remain separate from library/compiler-specific evidence.
 - Results, summaries, 70-gate and 280-row independent audits, raw-evidence
   manifest and honest TDD/repair chronology are under `research/fir-upgrades/`.
   Task5 requires fresh Sol6.1 scientific/spec/code review before acceptance.
+
+## Task5 accepted after resume review
+
+- Independent Sol6.1/high review reproduced all saved outcomes and actual linked
+  code, with relocated tool-free performance280/8/0 and correctness70/2/0 audits.
+- One Important gap was repaired: exact translation-unit inventories, required
+  per-unit copied/pinned headers and source hashes now fail closed even when
+  macro/dependency documents are mutually rewritten. Valid admitted attempt003
+  fixtures pass before mutation. Reviewer independently reproduced old/new
+  rejection behavior; final spec and quality verdicts PASS.
+- Fresh coordinator suite68 passed; all95 frozen hashes remain unchanged. No
+  panel target identity was repeated. Winner memberships overlap in eight tied
+  cells; the revised manuscript reports a disjoint partition.
+- Task6 interrupted source is preserved and undergoing pre-release admission
+  repairs. No intervention target measurements have run. Scientific draft
+  integrates panel results; final intervention/artifact/PDF remain pending.

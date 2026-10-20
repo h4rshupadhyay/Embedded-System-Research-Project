@@ -598,11 +598,11 @@ def _verify_frozen_sources(root, directory, ident, artifact_paths, protocol):
     _require(sha256_bytes(manifest_bytes) == SOURCES_MANIFEST_SHA256,
              'Task 4 source manifest differs from frozen digest')
     manifest = json.loads(manifest_bytes)
-    item = next((s for s in manifest['sources'] if
+    source_item = next((s for s in manifest['sources'] if
                  (s['filter'], s['variant'], s['block']) ==
                  (ident['filter'], ident['variant'], ident['block'])), None)
-    _require(item is not None, 'gate source identity is absent from Task 4 source manifest')
-    expected = {'kernel_source': item['source_sha256'], 'kernel_header': item['header_sha256'],
+    _require(source_item is not None, 'gate source identity is absent from Task 4 source manifest')
+    expected = {'kernel_source': source_item['source_sha256'], 'kernel_header': source_item['header_sha256'],
                 'startup_source': STARTUP_SHA256, 'linker_script': LINKER_SHA256,
                 'baseline_kernels_header': KERNELS_HEADER_SHA256}
     for name, digest in expected.items():
@@ -620,6 +620,19 @@ def _verify_frozen_sources(root, directory, ident, artifact_paths, protocol):
     dependencies = json.loads(dep_path.read_text())
     hash_path = Path(directory) / artifact_paths['dependency_hashes']
     dep_hashes = json.loads(hash_path.read_text())
+    macro_data = json.loads((Path(directory) / artifact_paths['macros']).read_text())
+    expected_tus = {'probe.c', 'firmware.c', 'startup.s'}
+    is_cmsis = ident['variant'].startswith('cmsis')
+    if is_cmsis:
+        expected_tus.add('library.c')
+    _require(set(dependencies) == expected_tus and set(macro_data) == expected_tus,
+             'effective macro/dependency translation-unit inventory differs from build')
+    for tu in expected_tus - {'startup.s'}:
+        _require(isinstance(dependencies[tu], str) and dependencies[tu].strip() and
+                 isinstance(macro_data[tu], str) and macro_data[tu].strip(),
+                 f'empty effective C provenance for {tu}')
+    _require(dependencies['startup.s'] == '' and macro_data['startup.s'] == '',
+             'startup.s must have empty assembler dependency and macro records')
     dependency_paths = set()
     for text in dependencies.values():
         dependency_paths.update(re.findall(r'(?m)(?<!\\)(/[^\s\\]+)', text))
@@ -628,16 +641,57 @@ def _verify_frozen_sources(root, directory, ident, artifact_paths, protocol):
     for item_path, digest in dep_hashes.items():
         _require(re.fullmatch(r'[0-9a-f]{64}', digest) is not None,
                  f'invalid transitive dependency hash for {item_path}')
-    if ident['variant'].startswith('cmsis'):
-        pinned = protocol['certificates'][ident['filter']]['cmsis']['source_hashes']
-        for item_path in dependency_paths:
-            normalized = item_path.replace('/build/', '/')
-            match = next((v for k, v in pinned.items() if normalized.endswith('/' + k)), None)
-            if match is not None:
-                _require(dep_hashes[item_path] == match,
-                         f'pinned CMSIS/core dependency hash mismatch: {item_path}')
-    return {'generated_source': item['source_sha256'], 'generated_header': item['header_sha256'],
-            'dependency_count': len(dependency_paths), 'cmsis_source_checked': ident['variant'].startswith('cmsis')}
+    expected_local = {
+        'firmware.c': {'firmware.c', 'probe.h'},
+        'probe.c': {'probe.c', 'probe.h'},
+    }
+    if is_cmsis:
+        expected_local['probe.c'].add('kernels.h')
+        expected_local['library.c'] = set()
+    copied_root = Path(root).resolve()
+    case_relative = Path(directory).resolve().relative_to(copied_root)
+    pinned = protocol['certificates'][ident['filter']]['cmsis']['source_hashes'] if is_cmsis else {}
+    required_cmsis = {
+        'cmsis-core/cmsis_compiler.h', 'cmsis-core/cmsis_gcc.h',
+        'cmsis-dsp/Include/arm_math_memory.h', 'cmsis-dsp/Include/arm_math_types.h',
+        'cmsis-dsp/Include/dsp/filtering_functions.h', 'cmsis-dsp/Include/dsp/none.h',
+        'cmsis-dsp/Include/dsp/utils.h', 'cmsis-dsp/Include/dsp/support_functions.h',
+        'cmsis-dsp/Include/dsp/fast_math_functions.h', 'cmsis-dsp/Include/dsp/basic_math_functions.h',
+    }
+    for tu in expected_tus - {'startup.s'}:
+        paths = set(re.findall(r'(?m)(?<!\\)(/[^\s\\]+)', dependencies[tu]))
+        for filename in expected_local.get(tu, set()):
+            matching = [dep for dep in paths if Path(dep).name == filename and
+                        f'/research/fir-upgrades/{case_relative.as_posix()}/' in dep]
+            _require(len(matching) == 1, f'{tu} dependency missing required copied {filename}')
+        if is_cmsis:
+            for relative in required_cmsis:
+                matching = [dep for dep in paths if dep.replace('/build/', '/').endswith('/' + relative)]
+                _require(len(matching) == 1, f'{tu} dependency missing pinned CMSIS/core header {relative}')
+            if tu == 'library.c':
+                filename = 'arm_fir_fast_q15.c' if ident['variant'].startswith('cmsis32') else 'arm_fir_q15.c'
+                _require(any(Path(dep).name == filename for dep in paths),
+                         f'library.c dependency missing pinned {filename}')
+        for item in paths:
+            normalized = item.replace('/build/', '/')
+            local_marker = '/research/fir-upgrades/'
+            if local_marker in item:
+                relative = item.split(local_marker, 1)[1]
+                _require(relative.startswith(case_relative.as_posix() + '/'),
+                         f'copied dependency path escapes case directory: {item}')
+                copied = copied_root / relative
+                _require(copied.is_file(), f'copied dependency source/header missing: {relative}')
+                _require(dep_hashes[item] == sha256_bytes(copied.read_bytes()),
+                         f'copied dependency hash differs from actual bytes: {relative}')
+            elif is_cmsis:
+                match = next((v for k, v in pinned.items() if normalized.endswith('/' + k)), None)
+                _require(match is not None, f'unrecognized external CMSIS dependency: {item}')
+                _require(dep_hashes[item] == match,
+                         f'pinned CMSIS/core dependency hash mismatch: {item}')
+            else:
+                _require(False, f'unrecognized external dependency: {item}')
+    return {'generated_source': source_item['source_sha256'], 'generated_header': source_item['header_sha256'],
+            'dependency_count': len(dependency_paths), 'cmsis_source_checked': is_cmsis}
 
 
 def audit_execution_attempt(row: dict, root: Path, protocol=None, design=None, case=None, samples=None) -> dict:
@@ -773,9 +827,6 @@ def audit_execution_attempt(row: dict, root: Path, protocol=None, design=None, c
              sim.get('commit') == 'c55ea1b1926b792d7aabb7e3495b55a7b69ef134',
              'simulator binary/source/patch location or commit differs from frozen identity')
     macro_data = json.loads((directory / artifact_paths['macros']).read_text())
-    dependencies = json.loads((directory / artifact_paths['dependencies']).read_text())
-    _require(set(macro_data) == set(dependencies),
-             'effective-macro and dependency translation-unit inventories differ')
     for name, macros in macro_data.items():
         if name == 'startup.s':
             _require(not macros.strip(), 'startup assembler unexpectedly produced C feature macros')

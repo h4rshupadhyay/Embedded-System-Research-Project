@@ -3,6 +3,7 @@ import json
 import hashlib
 from decimal import Decimal
 from pathlib import Path
+import re
 import shutil
 import sys
 
@@ -222,9 +223,9 @@ def test_runner_pass_with_incomplete_tool_provenance_is_not_independently_admitt
         panel_verify.audit_gate_attempt(row, HERE)
 
 
-def _restore_gate_attempt(tmp_path, number='005'):
-    original = (HERE / 'build/panel/correctness/native_lp1800__wide_direct64__gcc15__1'
-                / f'attempt-{number}')
+def _restore_gate_attempt(tmp_path, number='005', relative=None):
+    original = (HERE / (relative or
+                f'build/panel/correctness/native_lp1800__wide_direct64__gcc15__1/attempt-{number}'))
     row = json.loads((original / 'attempt.json').read_text())
     root = tmp_path / 'restored-campaign'
     root.mkdir()
@@ -235,6 +236,15 @@ def _restore_gate_attempt(tmp_path, number='005'):
     shutil.copytree(original, target)
     row_path = target / 'attempt.json'
     row = json.loads(row_path.read_text())
+    return root, target, row
+
+
+def _restore_direct_or_cmsis(tmp_path, cmsis):
+    relative = ('build/panel/correctness/wide_lp4600__cmsis64_unroll__gcc10__1/attempt-003'
+                if cmsis else
+                'build/panel/correctness/native_lp1800__wide_direct64__gcc15__64/attempt-003')
+    root, target, row = _restore_gate_attempt(tmp_path, relative=relative)
+    assert panel_verify.audit_gate_attempt(row, root)['status'] == 'admitted'
     return root, target, row
 
 
@@ -258,6 +268,84 @@ def test_real_attempt_source_mutation_rejected_even_with_rewritten_artifact_hash
     data = (target / row['artifact_paths']['kernel_source']).read_bytes() + b'/* tampered */\n'
     _rewrite_artifact(target, row, 'kernel_source', data)
     with pytest.raises(ValueError, match='frozen source bytes'):
+        panel_verify.audit_gate_attempt(row, root)
+
+
+@pytest.mark.parametrize('cmsis', [False, True], ids=['direct', 'cmsis'])
+def test_real_attempt_empty_effective_provenance_rejected_after_rehash(tmp_path, cmsis):
+    root, target, row = _restore_direct_or_cmsis(tmp_path, cmsis)
+    for key in ('dependencies', 'dependency_hashes', 'macros'):
+        _rewrite_artifact(target, row, key, b'{}\n')
+    with pytest.raises(ValueError, match='translation-unit inventory'):
+        panel_verify.audit_gate_attempt(row, root)
+
+
+@pytest.mark.parametrize('cmsis', [False, True], ids=['direct', 'cmsis'])
+def test_real_attempt_jointly_removed_translation_unit_rejected(tmp_path, cmsis):
+    root, target, row = _restore_direct_or_cmsis(tmp_path, cmsis)
+    for key, tu in (('dependencies', 'probe.c'), ('macros', 'probe.c')):
+        obj = json.loads((target / row['artifact_paths'][key]).read_text())
+        del obj[tu]
+        _rewrite_artifact(target, row, key, (json.dumps(obj, indent=2, sort_keys=True) + '\n').encode())
+    hashes = json.loads((target / row['artifact_paths']['dependency_hashes']).read_text())
+    hashes = {path: digest for path, digest in hashes.items()
+              if not path.endswith('/probe.c') and
+              not (cmsis is False and path.endswith('/kernels.h'))}
+    _rewrite_artifact(target, row, 'dependency_hashes',
+                      (json.dumps(hashes, indent=2, sort_keys=True) + '\n').encode())
+    with pytest.raises(ValueError, match='translation-unit inventory'):
+        panel_verify.audit_gate_attempt(row, root)
+
+
+@pytest.mark.parametrize('cmsis', [False, True], ids=['direct', 'cmsis'])
+def test_real_attempt_missing_required_header_dependency_rejected_after_joint_removal(tmp_path, cmsis):
+    root, target, row = _restore_direct_or_cmsis(tmp_path, cmsis)
+    deps = json.loads((target / row['artifact_paths']['dependencies']).read_text())
+    probe_deps = deps['probe.c']
+    header_path = next(path for path in re.findall(r'(?m)(?<!\\)(/[^\s\\]+)', probe_deps)
+                       if path.endswith('/probe.h'))
+    deps['probe.c'] = probe_deps.replace(' ' + header_path, '')
+    _rewrite_artifact(target, row, 'dependencies',
+                      (json.dumps(deps, indent=2, sort_keys=True) + '\n').encode())
+    with pytest.raises(ValueError, match='required copied probe.h'):
+        panel_verify.audit_gate_attempt(row, root)
+
+
+@pytest.mark.parametrize('cmsis', [False, True], ids=['direct', 'cmsis'])
+def test_real_attempt_copied_header_rewrite_rejected_even_with_artifact_rehash(tmp_path, cmsis):
+    root, target, row = _restore_direct_or_cmsis(tmp_path, cmsis)
+    header = (target / row['artifact_paths']['kernel_header']).read_bytes() + b'/* changed */\n'
+    _rewrite_artifact(target, row, 'kernel_header', header)
+    with pytest.raises(ValueError, match='frozen source bytes'):
+        panel_verify.audit_gate_attempt(row, root)
+
+
+def test_real_cmsis_attempt_missing_pinned_header_from_every_tu_is_rejected(tmp_path):
+    root, target, row = _restore_direct_or_cmsis(tmp_path, True)
+    deps = json.loads((target / row['artifact_paths']['dependencies']).read_text())
+    header_path = next(path for text in deps.values()
+                       for path in re.findall(r'(?m)(?<!\\)(/[^\s\\]+)', text)
+                       if path.endswith('/cmsis_gcc.h'))
+    for tu in ('firmware.c', 'probe.c', 'library.c'):
+        deps[tu] = deps[tu].replace(header_path, '')
+    _rewrite_artifact(target, row, 'dependencies',
+                      (json.dumps(deps, indent=2, sort_keys=True) + '\n').encode())
+    hashes = json.loads((target / row['artifact_paths']['dependency_hashes']).read_text())
+    del hashes[header_path]
+    _rewrite_artifact(target, row, 'dependency_hashes',
+                      (json.dumps(hashes, indent=2, sort_keys=True) + '\n').encode())
+    with pytest.raises(ValueError, match='missing pinned CMSIS/core header cmsis-core/cmsis_gcc.h'):
+        panel_verify.audit_gate_attempt(row, root)
+
+
+def test_real_attempt_rewritten_local_dependency_hash_is_rejected(tmp_path):
+    root, target, row = _restore_direct_or_cmsis(tmp_path, False)
+    hashes = json.loads((target / row['artifact_paths']['dependency_hashes']).read_text())
+    header = next(path for path in hashes if path.endswith('/probe.h'))
+    hashes[header] = '0' * 64
+    _rewrite_artifact(target, row, 'dependency_hashes',
+                      (json.dumps(hashes, indent=2, sort_keys=True) + '\n').encode())
+    with pytest.raises(ValueError, match='copied dependency hash differs'):
         panel_verify.audit_gate_attempt(row, root)
 
 

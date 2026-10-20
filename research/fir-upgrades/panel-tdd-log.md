@@ -52,3 +52,16 @@
 - The two regressions pass after the guard. Final scoped suite: `python3 -m pytest -q research/fir-upgrades/test_panel.py` → **15 passed**.
 - Snapshot check covered 95 frozen payload/historical files (85 Task 4 files plus 10 earlier-study files): no changed or missing hashes. No graph generation, target work, or host UBSan was performed.
 - Added `test_empty_production_graph_manifest_is_recorded_and_fails_closed`; it first failed when the admission bit was temporarily reverted to manifest truthiness, because `{}` reached `acm`. Manifest existence now governs recorded status. Final scoped suite including this case: **16 passed**.
+
+## Task 5 provenance admission fix (2026-10-20)
+
+### RED
+
+- Replayed the reviewed concrete mutation against a temporary import of the pre-fix verifier and a copied real direct correctness row. Replaced effective dependency, dependency-hash, and macro documents by `{}` and rehashed the three artifacts. The prior verifier returned `admitted` with `dependency_count=0`.
+- Added copied real direct and CMSIS regressions for empty evidence documents, jointly removed `probe.c` translation units, a missing per-TU required header, and rewritten copied-header bytes. Added CMSIS removal of `cmsis_gcc.h` from every C translation unit plus the hash inventory, and a rewritten local dependency digest with its artifact digest updated.
+
+### GREEN
+
+- Independent source admission now requires the exact translation-unit set (`probe.c`, `firmware.c`, `startup.s`, plus `library.c` for CMSIS), nonempty C macro/dependency records, and empty startup assembler records. Each C translation unit must retain its expected local source/header dependencies. CMSIS C translation units must also retain all pinned common headers; the library unit must retain the correct pinned FIR source.
+- Dependency hashes bind copied case-local files to their actual bytes and external CMSIS/core files to the frozen protocol source hashes. These checks use normalized recorded paths and work in a relocated saved-evidence tree.
+- Scoped verification: `python3 -m pytest -q research/fir-upgrades/test_panel_run.py research/fir-upgrades/test_panel_verify.py research/fir-upgrades/test_panel.py` → **68 passed**. Saved performance audit: **288 identities, 280 admitted, 8 unavailable, 0 failed**. Saved correctness audit: **72 identities, 70 admitted, 2 skipped, 0 failed**. No target tools or measurements were run.

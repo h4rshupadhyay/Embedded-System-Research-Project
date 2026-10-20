@@ -67,11 +67,11 @@
 
 **Files:** `panel.py`, new `panel_verify.py`, `test_panel_verify.py`, `panel-results.json`, `panel-summary.json`, `panel-summary.md`, raw `build/panel/`, verification log.
 **Interfaces:** consumes committed Task4 protocol; outputs raw admitted rows/derived summaries used by final manuscript. Task3 package later incorporates these artifacts.
-- [ ] Preserve Task4 identity fields and sample triplets. Each admitted row records `outputs_verified=total_samples`; complete O:/H:/G:/M: traces include warmup outputs. Reference clamp-condition counts describe the source quantizer thresholds, not inferred per-kernel executed branch counts (CMSIS may lower saturation differently).
-- [ ] RED/GREEN tests of raw-event re-derivation, absent/duplicate configuration rejection, tampered firmware/input/ROI/warmup/guards/state and wrong serialized costs. Independent decoder/reference helpers may be reused read-only; no summary-only admission.
-- [ ] CLI `panel.py measure` rejects changed protocol/hash and records exact commands/paths/sources/binaries/events/resources. Short257 from zero; long64 warmup+1025measured. New ROI excludes prefix but all outputs/state checked; no historical paths overwritten.
-- [ ] Execute declared matrix once, at most288 rows including failures/exclusions. `panel_verify.py` independently audits every saved row and emits all estimands, fixed/selectable compiler comparisons and unfavorable outcomes. Check RAM reserve and instruction subset.
-- [ ] Run targeted suites/verification and inspect actual assembly for each new arithmetic form (not every repeated workload). Commit sources, results, evidence manifest and scientific outcome; fresh Sol task review.
+- [x] Preserve Task4 identity fields and sample triplets. Each admitted row records `outputs_verified=total_samples`; complete O:/H:/G:/M: traces include warmup outputs. Reference clamp-condition counts describe the source quantizer thresholds, not inferred per-kernel executed branch counts (CMSIS may lower saturation differently).
+- [x] RED/GREEN tests of raw-event re-derivation, absent/duplicate configuration rejection, tampered firmware/input/ROI/warmup/guards/state and wrong serialized costs. Independent decoder/reference helpers may be reused read-only; no summary-only admission.
+- [x] CLI `panel.py measure` rejects changed protocol/hash and records exact commands/paths/sources/binaries/events/resources. Short257 from zero; long64 warmup+1025measured. New ROI excludes prefix but all outputs/state checked; no historical paths overwritten.
+- [x] Execute declared matrix once, at most288 rows including failures/exclusions. `panel_verify.py` independently audits every saved row and emits all estimands, fixed/selectable compiler comparisons and unfavorable outcomes. Check RAM reserve and instruction subset.
+- [x] Run targeted suites/verification and inspect actual assembly for each new arithmetic form (not every repeated workload). Commit sources, results, evidence manifest and scientific outcome; fresh Sol task review.
 
 ### Task 6: Bounded block1 mechanism intervention
 
