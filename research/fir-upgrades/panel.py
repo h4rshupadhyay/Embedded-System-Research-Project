@@ -331,6 +331,11 @@ def host_ubsan_checks(root):
 
 def main(argv=None):
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('command',choices=('prepare','host-checks'));p.add_argument('--output',type=Path,default=ROOT);a=p.parse_args(argv)
+    import sys
+    args = list(sys.argv[1:] if argv is None else argv)
+    if args and args[0] == 'measure':
+        import panel_run
+        return panel_run.main(args[1:])
+    p=argparse.ArgumentParser();p.add_argument('command',choices=('prepare','host-checks'));p.add_argument('--output',type=Path,default=ROOT);a=p.parse_args(args)
     print(json.dumps(prepare_panel(a.output) if a.command=='prepare' else host_ubsan_checks(a.output),indent=2))
 if __name__=='__main__':main()

@@ -14,17 +14,19 @@ final19 analyzer +15 exporter tests pass. Original four paper hashes unchanged.
 Task3 complete at `2394cf4`; independent Astra spec/quality review approved. The package contains 531 files and passes 24 historical, four peer
 and two explanation-row checks with 29 explanation hashes and zero skips.
 Task4 preparation and independent scientific/code review complete after two
-admission fix rounds; no new target costs observed. Remaining: Tasks5-7.
+admission fix rounds. Task5 execution is complete pending fresh scientific/code
+review. Remaining: Task5 review and Tasks6-7.
 
 ## Workflow and decisions
 
 - Sol6.1 high scientific research/decisions/manuscript/review; Luna6 low explicit
   mechanical implementation with actual RED/GREEN tests. Routing telemetry not
   observable. No recursive delegation, one implementation task at a time.
-- Resume routing: Sol6.1 is absent from the current runtime's model allowlist.
-  The user authorized Astra as fallback: request `gpt-6-astra`, high, for
-  scientific work and review; retain `gpt-6-luna`, low, for mechanical work.
-  This records requested settings, not independently verified backend routing.
+- Earlier resume routing: Sol6.1 was absent and the user authorized Astra/high
+  as fallback; Task4 review used that fallback. This continuation's allowlist
+  includes `gpt-6.1-sol` again, so subsequent scientific authoring/review uses
+  the preferred Sol6.1/high. Mechanical work remains `gpt-6-luna`, low.
+  These are requested settings, not independently verified backend routing.
 - Continue existing dedicated research branch to retain pinned ignored raw/tools;
   no main edit, merge, push or publication. Existing artifact hashes are binding.
 - User's concrete five-upgrade authorization covers routine reversible execution
@@ -102,3 +104,48 @@ sanitation checks remain separate from library/compiler-specific evidence.
   16 panel tests passed and all 95 frozen payload/historical hashes matched.
   No graph was regenerated and no target work occurred. Task5 may now proceed
   under its independent source/binary, correctness, memory and event gates.
+
+## Task5 correctness and infrastructure checkpoint
+
+- Task4 acceptance/admission fixes were committed as `22fe5cf`.
+- `/root/task5_panel_execution` owns the new runner, independent saved-evidence
+  verifier and tests. Root freshly ran 30 runner/verifier tests successfully
+  before the subsequent shared-audit refactor. No performance cases have run.
+- Initial correctness sweep recorded all 72 identities: 54 admitted, two
+  unavailable fast-CMSIS block64 identities, and 16 stopped by admission-parser
+  defects. Repair attempts remain separate and immutable; successful identities
+  must be reused. Counts are an intermediate checkpoint, not final admission.
+- Root independently audited native direct/GCC15/block1 attempt003: all 194
+  outputs, 98-byte state, initial SP `0x20001ff0`, static RAM end `0x20000388`,
+  and 688-byte maximum live stack chain. Earlier attempts preserve the ABI
+  size-check and wrongly recorded multilib failures.
+- Remaining closures include exact frozen source/command/macro/dependency
+  identities, ELF/input/binary/disassembly binding, portable audit after
+  relocation, and whole live stack chains. A GCC10 internal far branch was
+  inspected and distinguished from recursion; no kernel optimization occurred.
+- `/root/upgraded_manuscript`, requested Sol6.1/high, prepares only stable
+  scientific prose in the new paper copy. New panel/intervention outcomes
+  remain pending; original paper bytes stay unchanged.
+
+## Task5 execution delivered for review
+
+- All 288 frozen performance identities recorded: 280 admitted, eight native
+  fast-CMSIS block64 unavailable, zero failed. Successful performance identities
+  were not rerun; all 280 firmware binaries are distinct. Correctness remains
+  70 admitted plus two declared skips. Failed mechanical correctness attempts
+  are preserved separately.
+- Root freshly ran all 42 runner/verifier tests successfully and the production
+  independent performance audit (280/8/0). A separate calculation using the
+  original strict decoder and literal integer model weights reconstructed every
+  admitted raw event/cycle/energy/normalization and all 24 reversal witnesses
+  among the 32 complete widening-required fixed-compiler cells.
+- The finite wide-panel existential result has witnesses; the full-panel
+  assessment stays incomplete because eight required native cases are missing.
+  No missing candidate is assigned an infinite cost or counted as a loss.
+- All 95 frozen panel/historical hashes remain unchanged. Maximum admitted
+  static RAM end is `0x20001210`, maximum live stack is 688/2048 bytes, and
+  vector SP remains `0x20001ff0`. These are simulator/build checks, not hardware
+  SRAM high-water or physical energy measurements.
+- Results, summaries, 70-gate and 280-row independent audits, raw-evidence
+  manifest and honest TDD/repair chronology are under `research/fir-upgrades/`.
+  Task5 requires fresh Sol6.1 scientific/spec/code review before acceptance.
